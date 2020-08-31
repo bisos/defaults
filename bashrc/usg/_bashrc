@@ -1,0 +1,337 @@
+# 
+# ~/.bashrc: executed by bash(1) for INTERACTIVE non-login shells.
+#
+# Initial template for this .bashrc file is at:
+#  /bisos/apps/defaults/bashrc/usg/_bashrc
+#
+# See: /bisos/panels/bisos/core/bisosAccts/fullUsagePanel-en.org
+#      for description and design.
+#
+
+# Overview: This script is based on the model of
+#            BISOS-gatherers. Where a pyramid hierarchy of
+#            customization information in combined together.
+#            Customization information is specified outside of this
+#            file. This file specifies what aspects of the customization
+#            should be activated.
+#
+#   Customization Hierarchies:
+#       collective::  /de/bisos/gatherer/active/collective/bashrc/usg/aProf.sh
+#       district::    /de/bisos/gatherer/active/district/bashrc/usg/aProf.sh   
+#       site::        /de/bisos/gatherer/active/site/bashrc/usg/aProf.sh
+#       projs::       /de/bisos/gatherer/active/projs/bashrc/usg/aProf.sh
+#       user::        /de/bisos/gatherer/active/user/bashrc/usg/aProf.sh
+#
+#   Phases:
+#	Phase 1: Load facilities needed for processing of configuration files.
+#       Phase 2: Load environment specific config information
+#   	Phase 3: Run environment specific config code 
+#
+#
+
+# A non-interactive shell should not source this .bashrc file.
+# If not running interactively, don't do anything
+case $- in
+     *i*) ;;	     		    
+     *) printf "E: non-interactive invocation detected -- sourcing of .bashrc skipped\n";
+     return;;	
+esac
+
+#set +x
+#set -x
+
+#aProfVerboseLevel=1
+aProfVerboseLevel=0
+
+export G_verbose="notVerbose"
+
+# Phase 1 -- Locating OSMT Package
+# Phase 2 -- Figure out Environments
+
+bsipBase="/bisos/core/bsip"
+
+if [ -d "${bsipBase}" ] ; then
+  export OSMTROOT="${bsipBase}"
+  . ${bsipBase}/bin/opConfig.sh
+  . ${bsipBase}/lib/ocp-lib.sh 
+fi
+
+if [[ ${aProfVerboseLevel} -gt 0 ]] ; then
+  opRunEnvPrint
+  alias perhapsEcho=echo
+else
+   alias perhapsEcho=doNothing
+fi
+
+acctType=$( id -g -n )
+acctName=$( id -u -n )
+
+function loadFileWhenAvailable {
+   local scope=$1
+   local fileName=$2
+   local justFileName=$( FN_nonDirsPart ${fileName} )
+   if [ -f ${fileName} ] ; then		
+       . ${fileName}	       
+       perhapsEcho "Loading ${scope} Policy: ${justFileName}"
+   else
+       perhapsEcho "Skipping ${scope} Policy: ${justFileName}"
+   fi
+}	
+
+loadFileWhenAvailable collective  /de/bisos/gatherer/active/collective/bashrc/usg/aProf.sh
+loadFileWhenAvailable district    /de/bisos/gatherer/active/collective/bashrc/usg/aProf.sh
+loadFileWhenAvailable site        /de/bisos/gatherer/active/site/bashrc/usg/aProf.sh
+loadFileWhenAvailable projs       /de/bisos/gatherer/active/projs/bashrc/usg/aProf.sh
+loadFileWhenAvailable user        /de/bisos/gatherer/active/user/bashrc/usg/aProf.sh
+
+aProfFuncsList=`typeset +f | egrep '^aProf_'`
+
+function aProfOutput {
+  # $1 - String to output
+  if [ ${aProfVerboseLevel} -gt 0 ] ; then
+    echo $@
+    #echo $PATH
+  fi
+}
+
+function aProfRunOrdered {
+  # $1 - function Name
+
+  if IS_inList "aProf_$1_mma" "${aProfFuncsList}" ; then
+    aProf_$1_mma
+    aProfOutput Ran aProf_$1_mma
+  else
+    aProfOutput "Skipping aProf_$1_mma"
+  fi
+  
+  if IS_inList "aProf_$1_site" "${aProfFuncsList}" ; then
+    aProf_$1_site
+    aProfOutput Ran aProf_$1_site
+  else
+    aProfOutput "Skipping aProf_$1_site"
+  fi
+
+  if IS_inList "aProf_$1_team" "${aProfFuncsList}" ; then
+    aProf_$1_team
+    aProfOutput Ran aProf_$1_team
+  else
+    aProfOutput "Skipping aProf_$1_team"
+  fi
+
+  if IS_inList "aProf_$1_user" "${aProfFuncsList}" ; then
+    aProf_$1_user
+    aProfOutput Ran aProf_$1_user
+  else
+    aProfOutput "Skipping aProf_$1_user"
+  fi
+}
+
+
+# Phase 4 -- Run Appropriate Functions
+
+aProfRunOrdered basePath
+
+#
+# MMA Services Modules
+#
+
+aProfRunOrdered qmail
+
+aProfRunOrdered ezmlm
+
+#
+# NOTYET, run each if they are defined.
+# aConfig aProf_printer
+
+#
+# Printer Setup
+#
+aProfRunOrdered printer
+
+#
+# CVS Configuration
+#
+aProfRunOrdered cvs
+
+#
+# OSMT Configuration
+#
+aProfRunOrdered osmt
+
+#
+# Openwin Configuration
+#
+aProfRunOrdered openwin
+
+#
+# X11R4 Configuration
+#
+aProfRunOrdered x11R4
+
+#
+# X11R6 Configuration
+#
+aProfRunOrdered x11R6
+
+#
+# MISC Configuration
+#
+aProfRunOrdered misc
+
+#
+# SDE Configuration
+#
+aProfRunOrdered sde
+
+#
+# SW Configuration
+#
+aProfRunOrdered sw
+
+#
+# SW Dev Configuration
+#
+aProfRunOrdered swDev
+
+#
+# CURENV Configuration
+#
+aProfRunOrdered curenv
+
+#
+# DEVENV Configuration
+#
+aProfRunOrdered devenv
+
+#
+# LOCAL Configuration
+#
+aProfRunOrdered local
+
+#
+# BASICS Configuration
+#
+aProfRunOrdered basics
+
+#
+# TeX Configuration
+#
+aProfRunOrdered tex
+
+#
+# frameMaker Configuration
+#
+aProfRunOrdered frameMaker
+
+#
+# Acrobat Configuration
+#
+aProfRunOrdered acrobat
+
+#
+# Foundation Configuration
+#
+aProfRunOrdered foundation
+
+#
+# EOE Configuration
+#
+aProfRunOrdered eoe
+
+#
+# JAVA Configuration
+#
+aProfRunOrdered java
+
+#
+# mmaBase Configuration
+#
+aProfRunOrdered mmaBase
+
+aProfRunOrdered ucbFeatures
+
+#
+# And End It With A Period
+#
+
+if [ -d "/de/bx/nne/dev-py/bin" ] ; then
+    export PATH="/de/bx/nne/dev-py/bin:${PATH}"
+fi
+
+
+
+#print -r Running ${HOME%/}/profile.ksh >&2
+
+
+# Set up environment file, to be processed by all shells at startup.
+export ENVIRON=${HOME%/}/.environ
+# The following is a simple definition that will process ENVIRON in
+# *all* shells.
+export ENV="$ENVIRON"
+
+
+perhapsEcho "Local KSH Setup for ${acctName}"
+
+umask 002
+
+if [ ${TERM} != emacs ] ; then set -o emacs; fi
+
+# OBSOLETED
+#export PATH="${PATH}:/sbin:/usr/sbin:/usr/local/sbin"
+
+hostIdForPrompt=$( uname -n )
+
+case ${hostIdForPrompt} in
+    "intra"|"INTRA"|"genesis")
+	if [ "${BoxName}_" == "UnAssigned_" -o "${BoxName}_" == "_" ] ; then
+	  hostIdForPrompt="${hostIdForPrompt}-"
+	else
+	    hostIdForPrompt="${BoxName}_"
+        fi
+       ;;
+    *)
+	  hostIdForPrompt="${hostIdForPrompt}-"
+       ;;
+  esac
+
+
+export PROMPT="${hostIdForPrompt}${acctName}# "
+export PS1="${hostIdForPrompt}${acctName}# "
+export PS2="${hostIdForPrompt}${acctName}# "
+
+export LPDEST=hp8000
+
+export UBUNTU_MENUPROXY=0
+
+unalias perhapsEcho
+
+
+#. /opt/public/osmt/lib/dir.ksh 
+if [[ "${BASH_VERSION}X" = "X" ]] ; then
+  . /opt/public/osmt/lib/pushpopdirs.ksh 
+fi
+
+#set history=100
+alias clear='tput clear'
+alias lsf='ls --color -C -F'
+alias -- 0='dirs'
+alias -- +='pushd'
+alias -- -='popd'
+#alias ls='ls --color'
+LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+export LS_COLORS
+
+#alias thisterm='setenv TERM \!^;unsetenv TERMCAP; set noglob;eval `tset -s -Q`; unset noglob'
+#alias rsz='eval `resize`'
+alias acroread='acroread -openInNewInstance'
+
+unset G_emacsServerPid
+export G_emacsServerPid=$(ps ho ppid $$)
+
+export PATH=".:${PATH}"
+
+eval `dbus-launch` ; export DBUS_SESSION_BUS_ADDRESS
+
+# Local Variables:
+# eval: (shell-script-mode)
+# End:

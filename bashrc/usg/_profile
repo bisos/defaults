@@ -1,0 +1,13 @@
+#
+# ;;; -*- Mode: ksh; -*-
+#
+# ~/.profile: executed by bash(1) for interactive LOGIN shells.
+#
+
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
+# Ubuntu make installation of Ubuntu Make binary symlink
+# PATH=/acct/employee/lsipusr/.local/share/umake/bin:$PATH
+
