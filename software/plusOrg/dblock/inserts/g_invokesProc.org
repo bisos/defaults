@@ -1,0 +1,19 @@
+
+#@lhip_subjectToTracking(fnLoc=True, fnEntry=True, fnExit=True)
+def g_invokesProc(args):
+    """Invoke the specified function.
+
+    This is here and not in lhip.g_invokesProc because of naming scopes.
+    Can't -- eval(invoke + '(args)') -- from within lhip library.
+    """
+    for invoke in args.invokes:
+
+        #func = lhip.FUNC_strToFunc(invoke)
+        try:
+            eval(invoke + '(args)')
+            #func(args)
+        except Exception as e:
+            print( stackFrameInfoGet(1) + ' EXCEPTION: ' + str(e) )
+            print('invalid Action:' + invoke)
+            raise
+    return

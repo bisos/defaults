@@ -1,0 +1,18 @@
+#!/bin/bash # -*- mode: shellscript-mode; -*-
+
+####+BEGIN: bx:dblock:bash:top-of-file :vc "cvs" :partof "bystar" :copyleft "halaal+brief"
+####+END:
+
+# {{{ Describe
+
+function vis_describe {
+    cat  << _EOF_
+
+_EOF_
+}
+
+# }}}
+
+
+####+BEGIN: bx:dblock:bash:end-of-file :type "basic"
+####+END:

@@ -1,0 +1,3 @@
+sys.exit(
+    lhip.G_main(sys.argv[1:], G_examples, g_argsExtraSpecify, g_invokesProc)
+    )

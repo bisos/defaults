@@ -1,0 +1,53 @@
+#!/bin/bash # -*- mode: sh-mode; -*-
+
+IimBriefDescription="NOTYET: Short Description Of The Module"
+
+ORIGIN="
+* Revision And Libre-Halaal CopyLeft -- Part Of ByStar -- Best Used With Blee
+"
+
+####+BEGIN: bx:dblock:bash:top-of-file :vc "cvs" partof: "bystar" :copyleft "halaal+brief"
+####+END:
+
+__author__="
+* Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
+"
+
+_CommentBegin_
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/topControls.org"
+####+END:
+_CommentEnd_
+
+_CommentBegin_
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]] CONTENTS-LIST ################
+*  [[elisp:(org-cycle)][| ]]  Notes         :: *[Current-Info:]*  Status, Notes (Tasks/Todo Lists, etc.) [[elisp:(org-cycle)][| ]]
+_CommentEnd_
+
+function vis_moduleDescription {  cat  << _EOF_
+*  [[elisp:(org-cycle)][| ]]  Xrefs         :: *[Related/Xrefs:]*  <<Xref-Here->>  -- External Documents  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  Panel        :: [[file:/libre/ByStar/InitialTemplates/activeDocs/bxServices/versionControl/fullUsagePanel-en.org::Xref-VersionControl][Panel Roadmap Documentation]] [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]]  Info          :: *[Module Description:]* [[elisp:(org-cycle)][| ]]
+
+_EOF_
+}
+
+function vis_doTheWork {
+    G_funcEntry
+    function describeF {  G_funcEntryShow; cat  << _EOF_
+_EOF_
+    }
+    EH_assert [[ $# -eq 0 ]]
+
+    lpDo vis_failExample
+    EH_retOnFail
+
+    lpReturn
+}
+
+_CommentBegin_
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]  *End Of Editable Text*
+_CommentEnd_
+
+####+BEGIN: bx:dblock:bash:end-of-file :type "basic"
+####+END:

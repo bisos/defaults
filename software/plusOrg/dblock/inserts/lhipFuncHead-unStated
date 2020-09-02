@@ -1,0 +1,5 @@
+    try: lhip.callableEntryEnhancer(type='unStated')
+    except StopIteration:  return
+
+    G = lhip.IimGlobalContext()
+

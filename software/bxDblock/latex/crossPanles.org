@@ -1,0 +1,6 @@
+*      ================
+*  [[elisp:(org-cycle)][| ]]  Related           ::  [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]] | [[elisp:(find-file "./mailingStatic/content.mail")][Visit ./mailingStatic/content.mail]]| [[elisp:(find-file "./mailingStatic/Panel.org")][Visit ./mailingStatic/Panel.org]]  [[elisp:(org-cycle)][| ]]
+*      Build+Release     ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildResultsRelease")][lcntProc.sh -i buildResultsRelease]] || [[elisp:(lsip-local-run-command-here "lcntProc.sh -i fullClean")][lcntProc.sh -i fullClean]] || [[elisp:(cvs-update "." t)][Version Control]]
+*      BuildPdfPreview   ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildPdfPreview &")][lcntProc.sh -i buildPdfPreview]]
+*      BuildHtmlPreview  ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildHtmlPreview &")][lcntProc.sh -i buildHtmlPreview]]
+*      ================
