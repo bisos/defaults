@@ -33,7 +33,7 @@
 # If not running interactively, don't do anything
 case $- in
      *i*) ;;	     		    
-     *) printf "E: non-interactive invocation detected -- sourcing of .bashrc skipped\n";
+     *) # printf "E: non-interactive invocation detected -- sourcing of .bashrc skipped\n";
      return;;	
 esac
 
@@ -97,13 +97,20 @@ function aProfOutput {
 function aProfRunOrdered {
   # $1 - function Name
 
+  if IS_inList "aProf_$1_bisos" "${aProfFuncsList}" ; then
+    aProf_$1_bisos
+    aProfOutput Ran aProf_$1_bisos
+  else
+    aProfOutput "Skipping aProf_$1_bisos"
+  fi
+
   if IS_inList "aProf_$1_mma" "${aProfFuncsList}" ; then
     aProf_$1_mma
     aProfOutput Ran aProf_$1_mma
   else
     aProfOutput "Skipping aProf_$1_mma"
   fi
-  
+
   if IS_inList "aProf_$1_site" "${aProfFuncsList}" ; then
     aProf_$1_site
     aProfOutput Ran aProf_$1_site
@@ -249,6 +256,20 @@ aProfRunOrdered java
 aProfRunOrdered mmaBase
 
 aProfRunOrdered ucbFeatures
+
+#
+# bisosBase Configuration
+#
+
+aProf_bsip_bisos
+
+aProf_venvPy2_bisos
+
+aProf_venvPy2Dev_bisos
+
+aProf_venvPy3_bisos
+
+aProf_venvPy3Dev_bisos
 
 #
 # And End It With A Period
