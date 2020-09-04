@@ -16,11 +16,11 @@
 #            should be activated.
 #
 #   Customization Hierarchies:
-#       collective::  /de/bisos/gatherer/active/collective/bashrc/usg/aProf.sh
-#       district::    /de/bisos/gatherer/active/district/bashrc/usg/aProf.sh   
-#       site::        /de/bisos/gatherer/active/site/bashrc/usg/aProf.sh
-#       projs::       /de/bisos/gatherer/active/projs/bashrc/usg/aProf.sh
-#       user::        /de/bisos/gatherer/active/user/bashrc/usg/aProf.sh
+#       collective::  /bisos/gatherer/active/collective/bashrc/usg/aProf.sh
+#       district::    /bisos/gatherer/active/district/bashrc/usg/aProf.sh   
+#       site::        /bisos/gatherer/active/site/bashrc/usg/aProf.sh
+#       projs::       /bisos/gatherer/active/projs/bashrc/usg/aProf.sh
+#       user::        /bisos/gatherer/active/user/bashrc/usg/aProf.sh
 #
 #   Phases:
 #	Phase 1: Load facilities needed for processing of configuration files.
@@ -78,11 +78,11 @@ function loadFileWhenAvailable {
    fi
 }	
 
-loadFileWhenAvailable collective  /de/bisos/gatherer/active/collective/bashrc/usg/aProf.sh
-loadFileWhenAvailable district    /de/bisos/gatherer/active/collective/bashrc/usg/aProf.sh
-loadFileWhenAvailable site        /de/bisos/gatherer/active/site/bashrc/usg/aProf.sh
-loadFileWhenAvailable projs       /de/bisos/gatherer/active/projs/bashrc/usg/aProf.sh
-loadFileWhenAvailable user        /de/bisos/gatherer/active/user/bashrc/usg/aProf.sh
+loadFileWhenAvailable collective  /bisos/gatherer/active/collective/bashrc/usg/aProf.sh
+loadFileWhenAvailable district    /bisos/gatherer/active/collective/bashrc/usg/aProf.sh
+loadFileWhenAvailable site        /bisos/gatherer/active/site/bashrc/usg/aProf.sh
+loadFileWhenAvailable projs       /bisos/gatherer/active/projs/bashrc/usg/aProf.sh
+loadFileWhenAvailable user        /bisos/gatherer/active/user/bashrc/usg/aProf.sh
 
 aProfFuncsList=`typeset +f | egrep '^aProf_'`
 
