@@ -1,0 +1,3 @@
+
+* Based on the pattern of /libre/ByStar/InitialTemplates/update/fto
+  stuff in /libre/ByStar/InitialTemplates/software comes here.

@@ -1,0 +1,7 @@
+*      bxtStartCommon.sh  ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "echo" :name "bxtStartCommon.sh" :iif "startObjectGen" :iifArgs "auxNode")][bxtStartCommon.sh -i startObjectGen auxNode]]
+*      Begin Templates    ::  [[elisp:(dired "/libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/")][dired /libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/]]
+*      commonPanel.sh     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "commonProc.sh" :verbosity "" :callTracking "" :iif "" :iifArgs "")][commonProc.sh]]
+*      commonPanel.sh     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "commonProc.sh" :iif "visit" :iifArgs "")][commonProc.sh -i visit]]
+*      commonPanel.sh     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "commonProc.sh" :iif "clean" :iifArgs "")][commonProc.sh -i clean]]
+*      commonPanel.sh     ::  [[elisp:(lsip-local-run-command-here "diff ./commonProc.sh  /libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/commonProc.sh")]]
+*      commonPanel.sh     ::  [[elisp:(lsip-local-run-command-here "diff ./commonPanel.org /libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/commonPanel.org")]]
