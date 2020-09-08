@@ -353,6 +353,8 @@ export LS_COLORS
 #alias thisterm='setenv TERM \!^;unsetenv TERMCAP; set noglob;eval `tset -s -Q`; unset noglob'
 #alias rsz='eval `resize`'
 alias acroread='acroread -openInNewInstance'
+alias ossh='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 '
+
 
 unset G_emacsServerPid
 export G_emacsServerPid=$(ps ho ppid $$)
