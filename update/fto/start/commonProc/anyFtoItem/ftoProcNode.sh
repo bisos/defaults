@@ -1,13 +1,13 @@
 #!/bin/bash
 
-####+BEGIN: bx:dblock:bash:top-of-file :vc "cvs" partof: "bystar" :copyleft "halaal+minimal"
+####+BEGIN: bx:bash:top-of-file :vc "cvs" partof: "bystar" :copyleft "halaal+minimal"
 typeset RcsId="$Id: ftoProcNode.sh,v 1.2 2020-08-23 18:24:39 lsipusr Exp $"
 # *CopyLeft*
 #  This is a Halaal Poly-Existential. See http://www.freeprotocols.org
 
 ####+END:
 
-####+BEGIN: bx:dblock:lsip:bash:seed-spec :types "seedFtoCommon.sh"
+####+BEGIN: bx:bsip:bash:seed-spec :types "seedFtoCommon.sh"
 SEED="
 *  /[dblock]/ /Seed/ :: [[file:/opt/public/osmt/bin/seedFtoCommon.sh]] | 
 "

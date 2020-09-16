@@ -1,0 +1,78 @@
+%%% -*- Mode: LaTeX; -*-
+
+%%%#+BEGIN: bx:dblock:global:this-file :disabledP "false" :mode "auto"
+\begin{comment}
+*  #This File: /lcnt/lgpc/bystar/permanent/facilities/contentGenAndPublication/new-articleBodyEnFa.tex
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:inputed-title :disabledP "false" :mode "auto"
+\begin{comment}
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   /*PLPC-180038 -- LCNT Panel -- lcntProc.sh, presProc.sh and Mailings*/
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   *ByStar Content Production, Publication, and Distribution Services And Software*
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   http://www.by-star.net/PLPC/180038
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   [[elisp:(find-file "articleEnFa.ttytex")][Visit ./articleEnFa.ttytex]] || [[elisp:(find-file "presentationEnFa.ttytex")][Visit ./presentationEnFa.ttytex]] || 
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-controls :disabledP "false" :mode "auto"
+\begin{comment}
+*  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
+*  /Maintain/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
+*      ================
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:commands :disabledP "false" :class "art+pres" :langs "en+fa"
+\begin{comment}
+*      ================
+*      IIM Parameters    ::  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build+view")][-p extent=build+view]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build")][-p extent=build]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=view")][-p extent=view]]
+*      Related           ::  [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]] | [[elisp:(find-file "./mailing/content.mail")][Visit ./mailing/content.mail]]| [[elisp:(find-file "./mailing/Panel.org")][Visit ./mailing/Panel.org]]
+*      Build+Release     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildResultsRelease" :iifArgs "")][lcntProc.sh -i buildResultsRelease]] || [[elisp:(lsip-local-run-command-here "lcntProc.sh -i fullClean")][lcntProc.sh -i fullClean]] || [[elisp:(cvs-update "." t)][Version Control]]
+*      Build & Preview   ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildPdfPreview" :iifArgs "new-articleBodyEnFa.tex")][lcntProc.sh -i buildPdfPreview new-articleBodyEnFa.tex]] || [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildHtmlPreview" :iifArgs "new-articleBodyEnFa.tex")][lcntProc.sh -i buildHtmlPreview new-articleBodyEnFa.tex]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGINNOT: bx:dblock:global:org-contents-list :disabledP "false" :mode "auto"
+\begin{comment}
+*      ################ CONTENTS-LIST  ([[elisp:(reftex-toc)][RefTOC)]]    ###############
+*  [[elisp:(org-cycle)][| ]]  *Document Status, TODOs and Notes*          ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+\begin{comment}
+** TODO [[elisp:(org-cycle)][| ]]  Idea      ::  Description   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-section :mode "auto" :seg-title "Article Format Of This Document Is A Place Holder -- See The Presentaion Format"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  /Section/   Article Format Of This Document Is A Place Holder -- See The Presentaion Format ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\section{Article Format Of This Document Is A Place Holder -- See The Presentaion Format}
+%%%#+END:
+
+\begin{frame}{This Article Format Is Just A Place Holder}{}
+  \begin{itemize}
+
+  \item The article format of this document has not been developed yet.
+
+  \item Refer to the presentation format.
+  \end{itemize}
+\end{frame}
+
+
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  Local Vars  ::                  *Org-Mode And Emacs Specific Configurations*   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:end-of-file :class "art" :langs "en+fa" :masters "articleEnFa.ttytex"
+%local variables:
+%major-mode: latex-mode
+%folded-file: nil
+%fill-column: 90
+%TeX-master: ""
+%End:
+%%%#+END:

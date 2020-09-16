@@ -1,0 +1,161 @@
+####+BEGIN: bx:dblock:bnsm:top-of-menu "basic"
+*  #Controls:  [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]]  [[elisp:(bury-buffer)][Bury]] 
+####+END:
+####+BEGIN: bx:dblock:bnsm:this-node "basic"
+*  #This Node: /lcnt/lgpc/examples/permanent/bxde/en+fa/pres+art/plusPres/PresPanel.org
+####+END:
+####+BEGIN: bx:dblock:bnsm:menu-stack "basic"
+
+####+END:
+####+BEGIN: bx:dblock:bnsm:see-related
+*  #Bash:  [[elisp:(org-cycle)][| ]] (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]
+**  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]
+####+END:
+####+BEGIN: bx:dblock:bnsm:agenda-list
+*  #Marshal:  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] ||  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]]    [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]]
+####+END:
+*  [[elisp:(org-cycle)][| ]]  =iimDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
+####+BEGIN: bx:dblock:org:doc-title :types "lcntPanel"
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                /*PLPC-190002 -- Content Disposition Panel (PresPanel.org) -- presProc.sh, Screen Casting */
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 *en+fa pres+art tmp3*
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 http://examples.bystar.de/PLPC/190002 
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 Presentation File: presentationEnFa.ttytex
+####+END:
+*  [[elisp:(beginning-of-buffer)][Top]] =iimDblock-Ends=   ::  [[elisp:(delete-other-windows)][(1)]] 
+*  [[elisp:(org-cycle)][| ]]  =iimDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
+####+BEGIN: bx:dblock:pres:lcnt-related :types "lcntPanel"
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *PresProc Related Panels*
+*      Lcnt Doc Files     ::  [[elisp:(blee:visit-as-content-list "articleEnFa.ttytex")][CL ./articleEnFa.ttytex]] || [[elisp:(blee:visit-as-content-list "presentationEnFa.ttytex")][CL ./presentationEnFa.ttytex]] || 	
+*      Related Panels     ::  [[elisp:(blee:bnsm:panel-goto "/libre/ByStar/InitialTemplates/activeDocs/blee/lcntPublications")][Blee LCNT Panel]] | [[elisp:(blee:bnsm:panel-goto "/libre/ByStar/InitialTemplates/activeDocs/blee/screencasting")][Blee ScreenCasting Panel]] |  [[elisp:(find-file "./PresPanel.org")][Visit ./PresPanel.org]]		    
+*      General Info       ::  [[elisp:(lsip-local-run-command-here "pwd")][pwd]] | [[elisp:(lsip-local-run-command-here "lsf")][lsf]] | [[elisp:(lsip-local-run-command-here "ls")][ls]] | [[elisp:(lsip-local-run-command-here "lcntProc.sh -i lcntNuOut")][lcntProc.sh -i lcntNuOut]] | [[elisp:(lsip-local-run-command-here "lcntProc.sh")][lcntProc.sh]] | [[file:lcntProc.sh][Visit]] |  [[elisp:(bx:lcnt:info:base-show)][bx:lcnt:info:base-show]]		    
+*      LCNT-Info          ::  [[elisp:(dired "./LCNT-INFO")][dired ./LCNT-INFO]] | [[elisp:(lsip-local-run-command-here "lcnLcntInfo.sh")][lcnLcntInfo.sh]] | NOTYET ReName Facilities
+####+END:
+*  [[elisp:(beginning-of-buffer)][Top]] =iimDblock-Ends=   ::  [[elisp:(delete-other-windows)][(1)]] 
+*  [[elisp:(org-cycle)][| ]]  Panel IIMs         ::           *Panel IIMs Invoke and Visit Xrefs*      <<Xref->>  [[elisp:(org-cycle)][| ]]
+**      IIM               ::   [[elisp:(lsip-local-run-command-here "lcntProc.sh")][lcntProc.sh]]                       [[elisp:(lsip-local-run-command-here "lcntProc.sh -i visit")][Visit]]
+**      IIM               ::   [[elisp:(lsip-local-run-command-here "presProc.sh")][presProc.sh]]                       [[elisp:(lsip-local-run-command-here "presProc.sh -i visit")][Visit]]
+*  [[elisp:(org-cycle)][| ]]  =iimDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
+####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/activeDocs/common/iimPanels/cmndLine/allBx.org"
+*  [[elisp:(org-cycle)][| ]]  [IIMs Exec Cntrl]  ::           *Common Execution Control: ByStar IIMs*  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  BxP Effectives     ::   [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/params/fullUsagePanel-en.org][Currents/Effective Panel]]  ||  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]] || [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]]   [[elisp:(org-cycle)][| ]]
+*** lpCurrents Prep        [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -h -v -n showRun -i fullUpdate")][lpCurrentsAdmin.sh -i fullUpdate]]
+*** Set Current Bxo        [[elisp:(lsip-local-run-command "echo lpCurrentsAdmin.sh -h -v -n showRun -i setParam currentBystarUid ea-59043")][echo lpCurrentsAdmin.sh -i setParam currentBystarUid ea-59043]]
+**  [[elisp:(org-cycle)][| ]]  Py IIM Cmnd Ctl    ::   [[elisp:(bx:iimp:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] |  [[elisp:(bx:iimp:cmndLineSpecs :verbosity "-v 1" :callTracking "--callTrackings monitor+ --callTrackings invoke+")][Full Verbosity]] | [[elisp:(bx:iimp:cmndLineSpecs :verbosity "-v 30" :callTracking "")][No Verbosity]] [[elisp:(org-cycle)][| ]]
+*** iimWrapper:         [[elisp:(setq bx:iimp:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimWrapper)][Any]] | [[elisp:(setq bx:iimp:iimWrapper "echo")][echo]] | [[elisp:(setq bx:iimp:iimWrapper "time")][time]] | [[elisp:(setq bx:iimp:iimWrapper "python -m cProfile -o profile.$$$(date +%s%N)")][profile]] | [[elisp:(setq bx:iimp:iimWrapper "pycallgraph  --max-depth 5 graphviz -- ")][pycallgraph]]
+*** iimName:            [[elisp:(setq bx:iimp:iimVerbosity "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimName)][Any]] | iimName
+*** iimVerbosity:       [[elisp:(setq bx:iimp:iimVerbosity "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimVerbosity)][Any]] | [[elisp:(setq bx:iimp:iimVerbosity "-v 30")][v=30]] | [[elisp:(setq bx:iimp:iimVerbosity "-v 20")][v=20]] | [[elisp:(setq bx:iimp:iimVerbosity "-v 1")][v=1]]
+*** iimCallTracking:    [[elisp:(setq bx:iimp:iimCallTracking "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimCallTracking)][Any]] | [[elisp:(setq bx:iimp:iimCallTracking "--callTrackings monitor+ --callTrackings invoke+")][--callTrackings monitor+ --callTrackings invoke+]]
+*** iimLoads:           [[elisp:(setq bx:iimp:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimLoads)][Any]]
+*** iimModeArgs:        [[elisp:(setq bx:iimp:iimModeArgs "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimModeArgs)][Any]] | [[elisp:(setq bx:iimp:iimModeArgs "--sonModule")][--sonModule]]
+*** iimParamsArgs:      [[elisp:(setq bx:iimp:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimParamsArgs)][Any]]
+*** iimIif:             [[elisp:(setq bx:iimp:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimIif)][Any]] | [[elisp:(setq bx:iimp:iimIif "examples")][examples]] | [[elisp:(setq bx:iimp:iimIif "describe")][describe]]
+*** iimIifArgs:         [[elisp:(setq bx:iimp:iimIifArgs "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimIifArgs)][Any]]
+*** Execute Command Line:   [[elisp:(bx:iimp:cmndLineExec)][Run Cmnd Line]] | [[elisp:(bx:iimp:cmndLineExec :wrapper "echo")][Echo Cmnd Line]]
+**  [[elisp:(org-cycle)][| ]]  Py Tools           ::  Work Bench | Profiling | Debuggers | Sphinx [[elisp:(org-cycle)][| ]]
+***  [[elisp:(org-cycle)][| ]]  Py Dev WorkBench ::  Lint, Check And Class Browse The IIM Module  [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Class Browsers     ::   [[elisp:(python-check (format "pyclbr %s" bx:iimp:iimName))][pyclbr]]  [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Static Checkers    ::   [[elisp:(python-check (format "pyflakes %s" bx:iimp:iimName))][pyflakes]] | [[elisp:(python-check (format "pep8 %s" bx:iimp:iimName)))][pep8]] | [[elisp:(python-check (format "flake8 %s" bx:iimp:iimName)))][flake8]] | [[elisp:(python-check (format "pylint %s" bx:iimp:iimName)))][pylint]] [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Execution Checkers ::   [[elisp:(python-check (format "pychecker %s" bx:iimp:iimName)))][pychecker (executes)]]  [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  CallGraphs         ::   [[elisp:(bx:iimp:cmndLineExec :wrapper "pycallgraph  --max-depth 5 graphviz -- ")][Create ./pycallgraph.png]]  ||  [[elisp:(lsip-local-run-command-here "eog pycallgraph.png")][Visit pycallgraph.png]]  [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Sphinx DocStr      ::   [[elisp:(lsip-local-run-command-here "iimsProc.sh -h -v -n showRun -i sphinxDocUpdate")][iimsProc.sh -i sphinxDocUpdate]] || [[elisp:(lsip-local-run-command-here "iimsProc.sh -h -v -n showRun -f -i sphinxDocUpdate")][iimsProc.sh -f -i sphinxDocUpdate]]  [[elisp:(org-cycle)][| ]]
+***  [[elisp:(org-cycle)][| ]]  Py Profiling     ::  Execute And Profile the IIM -- Analyze  Profile Results   [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Exec & Profile   ::  [[elisp:(bx:iimp:cmndLineExec :wrapper "python -m cProfile -o profile.$$$(date +%s%N)")][Profile Command Line]] [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Profile Analysis ::  [[elisp:(lsip-local-run-command-here "ls -l profile.*")][ls -l profile.*]]  [[elisp:(lsip-local-run-command-here "ls -t profile.* | head -1")][latest profile.*]] [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Profile CallTree ::  [[elisp:(lsip-local-run-command-here "gprof2dot -f pstats $(ls -t profile.* | head -1) | dot -Tsvg -o Profile.svg")][Create Profile.svg]] || [[elisp:(lsip-local-run-command-here "eog Profile.svg")][Visit Profile.svg]] [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  python -m pstats ::  [[elisp:(lsip-local-run-command-here "python -m pstats $(ls -t profile.*)")][pstats interactive]]  --  "help"  "sort cumulative"+"stats 5" [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Other Prof Tools ::  [[elisp:(lsip-local-run-command-here "cprofilev -f $(ls -t profile.*)")][cprofilev]]  [[elisp:(lsip-local-run-command-here "runsnake $(ls -t profile.*)")][runsnake profile.pid]] [[elisp:(org-cycle)][| ]]
+***  [[elisp:(org-cycle)][| ]]  Py Debuggers     ::  Realgud:pdb, realgud:trepan -- Based On CmndLineElems   [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  realgud:pdb      ::  [[elisp:(bx:iimp:realgud:pdb:noArgs)][Realgud Pdb NoArgs]] ||  [[elisp:(bx:iimp:realgud:pdb:allArgs)][Realgud Pdb All Args]] [[elisp:(org-cycle)][| ]]
+***  [[elisp:(org-cycle)][| ]]  Py Sphinx Doc    ::  Generate Documentation With Sphinx   [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Doc Update       ::  [[elisp:(lsip-local-run-command-here "iimsProc.sh -h -v -n showRun -i sphinxDocUpdate")][iimsProc.sh -i sphinxDocUpdate]] || [[elisp:(lsip-local-run-command-here "iimsProc.sh -h -v -n showRun -f -i sphinxDocUpdate")][iimsProc.sh -f -i sphinxDocUpdate]]  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  Bash IIM Cmnd Ctl  ::   [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] |  [[elisp:(bx:iimBash:cmndLineSpecs :verbosity "-v" :callTracking "-n showRun")][Full Verbosity]] | [[elisp:(bx:iimBash:cmndLineSpecs :verbosity "" :callTracking "")][No Verbosity]] [[elisp:(org-cycle)][| ]]
+*** iimWrapper:         [[elisp:(setq bx:iimBash:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimWrapper)][Any]] | [[elisp:(setq bx:iimBash:iimWrapper "echo")][echo]] | [[elisp:(setq bx:iimBash:iimWrapper "time")][time]] 
+*** iimName:            [[elisp:(setq bx:iimBash:iimName "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimName)][Any]] | iimName
+*** iimVerbosity:       [[elisp:(setq bx:iimBash:iimVerbosity "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimVerbosity)][Any]] | [[elisp:(setq bx:iimBash:iimVerbosity "-v")][-v]]
+*** iimCallTracking:    [[elisp:(setq bx:iimBash:iimCallTracking "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimCallTracking)][Any]] | [[elisp:(setq bx:iimBash:iimCallTracking "-n showRun")][-n showRun]]
+*** iimParamsArgs:      [[elisp:(setq bx:iimBash:iimParamsArgs "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimParamsArgs)][Any]] | -p parName=parValue
+*** iimIif:             [[elisp:(setq bx:iimBash:iimIif "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimIif)][Any]] | [[elisp:(setq bx:iimBash:iimIif "examples")][examples]] | [[elisp:(setq bx:iimBash:iimIif "describe")][describe]]
+*** iimIifArgs:         [[elisp:(setq bx:iimBash:iimIifArgs "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimIifArgs)][Any]]
+*** Execute Command Line:   [[elisp:(bx:iimBash:cmndLineExec)][Run Cmnd Line]] | [[elisp:(bx:iimBash:cmndLineExec :wrapper "echo")][Echo Cmnd Line]]
+**  [[elisp:(org-cycle)][| ]]  BxO IIM Args Ctl   ::   [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] |  [[elisp:(bx:iimBash:cmndLineSpecs :verbosity "-v" :callTracking "-n showRun")][Full Verbosity]] | [[elisp:(bx:iimBash:cmndLineSpecs :verbosity "" :callTracking "")][No Verbosity]] [[elisp:(org-cycle)][| ]]
+*** bxo:                [[elisp:(setq bx:iimBash:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimWrapper)][Any]] | [[elisp:(setq bx:iimBash:iimWrapper "echo")][echo]] | [[elisp:(setq bx:iimBash:iimWrapper "time")][time]] 
+*** bxso:               [[elisp:(setq bx:iimBash:iimName "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimName)][Any]] | iimName
+*** bxio:               [[elisp:(setq bx:iimBash:iimVerbosity "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimVerbosity)][Any]] | [[elisp:(setq bx:iimBash:iimVerbosity "-v")][-v]]
+*** srBase:             [[elisp:(setq bx:iimBash:iimCallTracking "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimCallTracking)][Any]] | [[elisp:(setq bx:iimBash:iimCallTracking "-n showRun")][-n showRun]]
+*** Execute Command Line:   [[elisp:(bx:iimBash:cmndLineExec)][Run Cmnd Line]] | [[elisp:(bx:iimBash:cmndLineExec :wrapper "echo")][Echo Cmnd Line]]
+**  [[elisp:(org-cycle)][| ]]  BxP Cmnd Line Ctl  ::   [[elisp:(bx:bxpCmnd:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] |   [[elisp:(org-cycle)][| ]]
+*** cmndWrapper:        [[elisp:(setq bx:iimBash:aFqdn "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:bxpCmnd:aFqdn)][Any]] | NOTYET
+*** cmndName:           [[elisp:(setq bx:iimBash:aFqdn "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:bxpCmnd:aFqdn)][Any]] | NOTYET
+*** aFqdn:              [[elisp:(setq bx:iimBash:aFqdn "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:bxpCmnd:aFqdn)][Any]] | [[elisp:(setq bx:bxpCmnd:aFqdn "www.example.com")][www.example.com]] | [[elisp:(setq bx:iimBash:aFqdn "www.by-star.net")][www.by-star.net]]
+*** aIpAddr:            [[elisp:(setq bx:iimBash:aIpAddr "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:bxpCmnd:aIpAddr)][Any]] | [[elisp:(setq bx:bxpCmnd:aIpAddr "8.8.8.8")][8.8.8.8]]
+*** Execute Command Line:   [[elisp:(bx:iimBash:cmndLineExec)][Run Cmnd Line]] | [[elisp:(bx:iimBash:cmndLineExec :wrapper "echo")][Echo Cmnd Line]]
+
+####+END:
+*  [[elisp:(beginning-of-buffer)][Top]] =iimDblock-Ends=   ::  [[elisp:(delete-other-windows)][(1)]] 
+*  [[elisp:(org-cycle)][| ]]  =iimDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
+####+BEGIN: bx:dblock:pres:lcnt-building :types "lcntPanel"
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *Cleanings And Refreshing* 
+*      Current IIM Params ::  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]]
+*      Cleaning           ::  [[elisp:(lsip-local-run-command-here "presProc.sh -i fullClean")][presProc.sh -i fullClean]]  ||  [[elisp:(lsip-local-run-command-here "presProc.sh -v -n showRun -i fullRefresh")][presProc.sh -i fullRefresh]]
+*      Sync               ::  [[elisp:(cvs-update "." t)][Version Control]]
+*      =====================
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *Disposition Preparations*
+*      IIM Parameters     ::  [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build+view")][-p extent=build+view]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build")][-p extent=build]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=view")][-p extent=view]]
+*      Build All          ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "presProc.sh" :iif "fullBuild" :iifArgs "")][presProc.sh -i fullBuild]]
+*      BuildPdfPreview    ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "presProc.sh" :iif "buildPdfPreview" :iifArgs "")][presProc.sh -p extent=asSelected -i buildPdfPreview]]
+*      BuildHtmlPreview   ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "presProc.sh" :iif "buildHtmlPreview" :iifArgs "")][presProc.sh -p extent=asSelected -i buildHtmlPreview]]
+*    NOTYET -- *CONTINUE The Work Here -- 1/30/2017*
+*    [[elisp:(lsip-local-run-command "ln -s ./presProc.sh ./presDispose.sh")][ln -s ./presProc.sh ./presDispose.sh]]
+*    [[elisp:(lsip-local-run-command "presProc.sh -h -v -n showRun -i baseSetup")][presProc.sh -h -v -n showRun -i baseSetup]]
+*    [[elisp:(lsip-local-run-command "presProc.sh -h -v -n showRun -i startAudio")][presProc.sh -h -v -n showRun -i startAudio]]
+*    [[elisp:(lsip-local-run-command "presProc.sh -h -v -n showRun -i screenCastingFullUpdate")][presProc.sh -h -v -n showRun -i screenCastingFullUpdate]]
+*    [[elisp:(lsip-local-run-command "presProc.sh -h -v -n showRun -i screenCastingFullClean")][presProc.sh -h -v -n showRun -i screenCastingFullClean]]
+*      =====================
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *Presentation Players*
+*      IIM Parameters     ::  [[elisp:(setq bx:iimBash:iimParamsArgs "-p tag=date")][-p tag=date]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p tag=date")][-p tag=]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build+release")][-p extent=build+release]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build")][-p extent=build]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=release")][-p extent=release]]
+*      Release            ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "presProc.sh" :iif "resultsRelease" :iifArgs "")][presProc.sh -i resultsRelease]] || [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "presProc.sh" :iif "buildResultsRelease" :iifArgs "")][presProc.sh -i buildResultsRelease]] ||  [[elisp:(dired "./rel")][dired ./rel]]
+*      =====================
+####+END:
+*  [[elisp:(beginning-of-buffer)][Top]] =iimDblock-Ends=   ::  [[elisp:(delete-other-windows)][(1)]] 
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *Notes -- Status -- Development -- Evolution*
+*  [[elisp:(org-cycle)][| ]]  Manifest           ::   /Files Description/    [[elisp:(lsip-local-run-command-here "ls -C -F -1 | emlStdinGen -i lsToManifestStdout")][ls -C -F -1 | emlStdinGen -i lsToManifestStdout]] [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]]  Notes              ::   /Notes, Ideas, Tasks, Agenda/   [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  Context      ::  Module Starting Points  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]]  Team               ::   /Development Team/ [[elisp:(org-cycle)][| ]]
+*      =====================  
+
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *Common Footer Controls*
+####+BEGIN: bx:dblock:org:parameters :types "agenda"
+#+STARTUP: lognotestate
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+####+END:
+
+
+####+BEGIN: bx:dblock:bnsm:end-of-menu "basic"
+*  #Controls:  [[elisp:(blee:bnsm:menu-back)][Back]]  [[elisp:(toggle-read-only)][toggle-read-only]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Glob Vis]]  [[elisp:(delete-other-windows)][1 Win]]  [[elisp:(save-buffer)][Save]]   [[elisp:(kill-buffer)][Quit]]
+####+END:
+*  [[elisp:(org-cycle)][| ]]  Local Vars  ::                  *Org-Mode And Emacs Specific Configurations*   [[elisp:(org-cycle)][| ]]
+#+CATEGORY: iimPanel
+#+STARTUP: overview
+
+## Local Variables:
+## eval: (setq bx:iimp:iimModeArgs "")
+## eval: (bx:iimp:cmndLineSpecs :name "bxpManage.py")
+## eval: (bx:iimBash:cmndLineSpecs :name "lcntProc.sh")
+## eval: (setq bx:curUnit "lcntProc")
+## eval: (defun org-dblock-write:bx:dblock:org:doc-title (params)  
+##   (let ((bx:types (or (plist-get params :types) "")))
+##     (bx:lcnt:info:base-read)
+##     (insert (format "\
+## *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                /*%s-%s -- Content Disposition Panel (PresPanel.org) -- presProc.sh, Screen Casting */
+## *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 *%s*
+## *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 %s 
+## *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 Presentation File: %s" 
+##                     (get 'bx:lcnt:info:base  'type)
+##                     (get 'bx:lcnt:info:base  'lcntNu)
+##                     (get 'bx:lcnt:info:base  'shortTitle)
+##                     (get 'bx:lcnt:info:base  'url)
+##                     (get 'bx:lcnt:info:base  'presentationFileName)
+## 		    ))))
+## End:

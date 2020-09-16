@@ -1,0 +1,11 @@
+
+
+* templates/    : Full or partial templates to be used as starting points
+**                Subject to ./templates/moded ./templates/purposed
+
+* snippets/     : New Place for ~/lisp/snippets
+
+* dblocks/      : New Place for ~/lisp/dblock
+
+* inserts/      : Segments used by dblocks and snippets
+**                Subject to ./inserts/moded ./inserts/purposed ./inserts/m17n

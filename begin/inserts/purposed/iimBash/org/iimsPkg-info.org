@@ -1,0 +1,3 @@
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *IIMs Package: Info, Defaults/Controls*
+*      IIMs Pkg Info      ::  [[elisp:(lsip-local-run-command-here "iimsProc.sh")][iimsProc.sh]] || [[file:iimsProc.sh][Visit iimsProc.sh]] || [[elisp:(lsip-local-run-command-here "iimsProc.sh -v -n showRun -i fullClean")][iimsProc.sh -i fullClean]]
+*      Sel IIM Describe   ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper ""  :paramArgs "" :iif "")][selectedIim.sh]] || [[elisp:(bx:iimBash:cmndLineExec :wrapper ""  :paramArgs "" :iif "describe")][selectedIim.sh -i describe]] ||

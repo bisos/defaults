@@ -1,0 +1,33 @@
+%%% -*- Mode: LaTeX; -*-
+
+%%%#+BEGIN: bx:dblock:global:this-file :disabledP "false" :mode "auto"
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:inputed-title :disabledP "false" :mode "auto"
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-controls :disabledP "false" :mode "auto"
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:commands :disabledP "false" :class "art+pres" :langs "en+fa"
+%%%#+END:
+
+%%%#+BEGIN: bx:global:org-contents-list :disabledP "false" :mode "auto"
+%%%#+END:
+
+\begin{comment}
+** TODO [[elisp:(org-cycle)][| ]]  Idea      ::  Description   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-section :mode "auto" :label "auto" :seg-title "Overview"
+%%%#+END:
+
+The overview section says this and that.
+
+
+
+%%%#+BEGIN: blee:bxPanel:footerOrgParams 
+%%%#+END
+
+%%%#+BEGIN: blee:bxPanel:footerEmacsParams :primMode "latex-mode" :latexMasters "articleEnFa.ttytex"
+%%%#+END

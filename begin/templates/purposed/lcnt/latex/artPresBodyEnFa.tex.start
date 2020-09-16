@@ -1,0 +1,131 @@
+%%% -*- Mode: LaTeX; -*-
+
+%%%#+BEGIN: bx:dblock:global:this-file :disabledP "false" :mode "auto"
+\begin{comment}
+*  #This File: /lcnt/lgpc/examples/permanent/bxde/en+fa/pres+art/basic/artPresBodyEnFa.tex
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:inputed-title :disabledP "false" :mode "auto"
+\begin{comment}
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   /*PLPC-190001 -- LCNT Panel -- lcntProc.sh, presProc.sh and Mailings*/
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   *en+fa pres+art basic*
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   http://examples.bystar.de/PLPC/190001
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   [[elisp:(find-file "presentationEnFa.ttytex")][Visit ./presentationEnFa.ttytex]] || [[elisp:(find-file "articleEnFa.ttytex")][Visit ./articleEnFa.ttytex]] || 
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-controls :disabledP "false" :mode "auto"
+\begin{comment}
+*  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
+*  /Maintain/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
+*      ================
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:commands :disabledP "false" :class "art+pres" :langs "en+fa"
+\begin{comment}
+*      ================
+*      IIM Parameters    ::  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build+view")][-p extent=build+view]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build")][-p extent=build]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=view")][-p extent=view]]
+*      Related           ::  [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]] | [[elisp:(find-file "./mailing/content.mail")][Visit ./mailing/content.mail]]| [[elisp:(find-file "./mailing/Panel.org")][Visit ./mailing/Panel.org]]
+*      Build+Release     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildResultsRelease" :iifArgs "")][lcntProc.sh -i buildResultsRelease]] || [[elisp:(lsip-local-run-command-here "lcntProc.sh -i fullClean")][lcntProc.sh -i fullClean]] || [[elisp:(cvs-update "." t)][Version Control]]
+*      Build & Preview   ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildPdfPreview" :iifArgs "artPresBodyEnFa.tex")][lcntProc.sh -i buildPdfPreview artPresBodyEnFa.tex]] || [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildHtmlPreview" :iifArgs "artPresBodyEnFa.tex")][lcntProc.sh -i buildHtmlPreview artPresBodyEnFa.tex]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGINNOT: bx:dblock:global:org-contents-list :disabledP "false" :mode "auto"
+\begin{comment}
+*      ################ CONTENTS-LIST  ([[elisp:(reftex-toc)][RefTOC)]]    ###############
+*  [[elisp:(org-cycle)][| ]]  *Document Status, TODOs and Notes*          ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+\begin{comment}
+** TODO [[elisp:(org-cycle)][| ]]  Idea      ::  Description   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-section :disabledP "false" :seg-title "Basic Textual Leaf"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Section/  Basic Textual Leaf ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\section{Basic Textual Leaf}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:frame-narrated-begin :mode "auto" :title "Textual2 Frame" :subtitle "Itemized2" :label "textualSecExample" 
+\begin{comment}
+*****  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Frame/ *Label=textualSecExample*  Textual2 Frame ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\begin{frame}[fragile,label=textualSecExample]
+    \frameaudio{"audio/textualSecExample.mp3"}
+    \frametitle{Textual2 Frame}
+    \framesubtitle{Itemized2}
+%BxPy: impressiveFrameParSet('textualSecExample', 'always', 'True')
+%BxPy: impressiveFrameParSet('textualSecExample', 'transition', 'UnSpecified')
+%BxPy: impressiveFrameParSet('textualSecExample', 'onLeave', 'UnSpecified')
+%%%#+END:
+
+
+  \begin{itemize}
+  \item Item One
+  \item Item Two
+  \item Item Three
+  \end{itemize}
+  
+  \pnote{
+    Frame Notes\\
+    \par
+  \begin{itemize}
+  \item Item Note One
+  \item Item Note Two
+  \item Item Note Three
+  \end{itemize}
+
+  }
+  
+\end{frame}
+
+
+%%%#+BEGINNOT: bx:dblock:lcnt:body:about-this-document :class "art+pres" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  *DBLK: body:about-this-document*                                       :: [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]]  [[elisp:(org-cycle)][| ]]
+* TODO NOTYET -- Need to cleanup the farsi part and include conditional article vs presentation
+\end{comment}
+
+\section{Farsi Text Example -- \farsi{مثال فارسی}}
+
+\begin{frame}[fragile,label=textualSecExample]
+\frametitle{Farsi Text Example -- \begin{fa}مثال فارسی\end{fa}}
+  \begin{itemize}
+  \item This text only apears in the presentation form
+  \end{itemize}
+
+\begin{faPar}
+محسن دارِه ىک پاراقراپه مگفسل اونجا مينِيسِه وا هِى هِى ِدامِه ميدِه چُنکِه خِيلى راهت 
+ميچِ نِوِشت. آلاوِه بار ان, با بايد کار ديگر بکنيم. ولى من نِميدونم چِجورى.
+
+خب رافتيم. به پاراگراپه دِون.
+\end{faPar}
+
+Some English \RLE{\persian{درست وصت انگليسى}} comes here.
+Some \begin{fa}درست وصت انگليسى\end{fa} English comes here.
+Some  English comes \persian{درست وصت انگليسى} here.
+
+\end{frame}
+
+%%%#+END:
+
+
+%\mode<all>
+
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  Local Vars  ::                  *Org-Mode And Emacs Specific Configurations*   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%% Local Variables:
+%% major-mode: latex-mode
+%% fill-column: 90
+%% End:

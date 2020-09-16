@@ -1,0 +1,151 @@
+%%% -*- Mode: LaTeX; -*-
+
+%%%#+BEGIN: bx:dblock:global:this-file :disabledP "false" :mode "auto"
+\begin{comment}
+*  #This File: /lcnt/lgpc/examples/permanent/bxde/en+fa/pres+art/plusReveal/artPresBodyEnFa.tex
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:inputed-title :disabledP "false" :mode "auto"
+\begin{comment}
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   /*PLPC-190003 -- LCNT Panel -- lcntProc.sh, presProc.sh and Mailings*/
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   *en+fa pres+art plusReveal*
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   http://examples.bystar.de/PLPC/190003
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   [[elisp:(find-file "presentationEnFa.ttytex")][Visit ./presentationEnFa.ttytex]] || [[elisp:(find-file "articleEnFa.ttytex")][Visit ./articleEnFa.ttytex]] || 
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-controls :disabledP "false" :mode "auto"
+\begin{comment}
+*  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
+*  /Maintain/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
+*      ================
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:commands :disabledP "false" :class "art+pres" :langs "en+fa"
+\begin{comment}
+*      ================
+*      IIM Parameters    ::  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build+view")][-p extent=build+view]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build")][-p extent=build]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=view")][-p extent=view]]
+*      Related           ::  [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]] | [[elisp:(find-file "./mailing/content.mail")][Visit ./mailing/content.mail]]| [[elisp:(find-file "./mailing/Panel.org")][Visit ./mailing/Panel.org]]
+*      Build+Release     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildResultsRelease" :iifArgs "")][lcntProc.sh -i buildResultsRelease]] || [[elisp:(lsip-local-run-command-here "lcntProc.sh -i fullClean")][lcntProc.sh -i fullClean]] || [[elisp:(cvs-update "." t)][Version Control]]
+*      Build & Preview   ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildPdfPreview" :iifArgs "artPresBodyEnFa.tex")][lcntProc.sh -i buildPdfPreview artPresBodyEnFa.tex]] || [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildHtmlPreview" :iifArgs "artPresBodyEnFa.tex")][lcntProc.sh -i buildHtmlPreview artPresBodyEnFa.tex]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-contents-list :disabledP "false" :mode "auto"
+\begin{comment}
+*      ################ CONTENTS-LIST ###############
+*  [[elisp:(org-cycle)][| ]]  *Document Status, TODOs and Notes*          ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+\begin{comment}
+** TODO [[elisp:(org-cycle)][| ]]  Idea      ::  Description   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+
+%%%#+BEGIN: bx:dblock:lcnt:body:warning-intro :class "art+pres" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  *DBLK: body:warning-intro modeStar*                                       :: [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]]  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\mode*
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-section :disabledP "false" :seg-title "First Section"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Section/  First Section ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\section{First Section}
+%%%#+END:
+
+
+%%%#+BEGIN: bx:dblock:lcnt:pres:latex-frame-begin  :disabledP "false" :title "My First Title" :subtitle "And Sub Title" :label "myTitle" :transition "peal" :onLeave ""
+\begin{comment}
+*****  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Frame/  My First Title ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\begin{frame}[label=myTitle]
+    \frametitle{My First Title}
+    \framesubtitle{}
+%BxPy: impressiveFrameParSet('myTitle', 'always', 'True')
+%BxPy: impressiveFrameParSet('myTitle', 'transition', 'peal')
+%BxPy: impressiveFrameParSet('myTitle', 'onLeave', '')
+%%%#+END:
+
+Some Text For Frame
+\end{frame}
+
+\begin{frame}[label=ignore]
+  \frametitle{}
+  \framesubtitle{555}
+  \begin{itemize}
+  \item This text only apears in the presentation form
+  \item Second
+  \item third
+  \item This text only apears in the presentation form
+  \item Second
+  \item third
+  \end{itemize}
+\begin{enumerate}
+\item First
+\item Second
+\item Third
+\item fourth longer line to see centering
+\end{enumerate}
+\end{frame}
+
+%%%#+BEGIN: bx:dblock:lcnt:pres:latex-frame-begin  :disabledP "false" :title "second Frame" :subtitle "SubTitle" :label "secondFrame" :transition "Trans" :onLeave "OnLeave"
+\begin{comment}
+*****  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Frame/  second Frame ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\begin{frame}[label=secondFrame]
+    \frametitle{second Frame}
+    \framesubtitle{}
+%BxPy: impressiveFrameParSet('secondFrame', 'always', 'True')
+%BxPy: impressiveFrameParSet('secondFrame', 'transition', 'Trans')
+%BxPy: impressiveFrameParSet('secondFrame', 'onLeave', 'OnLeave')
+%%%#+END:
+
+Text for second frame.
+
+In Front Of Darshi.
+
+From Some page -- savannah and prairie where grasses 
+
+% \pnote{
+%   Speaker Notes Come Here.
+% }
+
+\end{frame}
+
+
+\mode<all>
+
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  Local Vars  ::                  *Org-Mode And Emacs Specific Configurations*   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%% Local Variables:
+%% major-mode: latex-mode
+%% fill-column: 90
+%% eval: (setq bx:iimp:iimModeArgs "")
+%% eval: (bx:iimp:cmndLineSpecs :name "bxpManage.py")
+%% eval: (bx:iimBash:cmndLineSpecs :name "lcntProc.sh")
+%% eval: (setq bx:curUnit "lcntProc")
+%% eval: (defun org-dblock-write:bx:dblock:org:doc-title (params)  
+%%   (let ((bx:types (or (plist-get params :types) "")))
+%%     (bx:lcnt:info:base-read)
+%%     (insert (format "*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                /*%s-%s -- LCNT Panel -- lcntProc.sh, presProc.sh and Mailings*/
+%% *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 *%s*
+%% *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 %s" 
+%%                     (get 'bx:lcnt:info:base  'type)
+%%                     (get 'bx:lcnt:info:base  'lcntNu)
+%%                     (get 'bx:lcnt:info:base  'shortTitle)
+%%                     (get 'bx:lcnt:info:base  'url)
+%% 		    ))))
+%% End:

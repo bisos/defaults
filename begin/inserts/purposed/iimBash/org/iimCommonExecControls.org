@@ -1,0 +1,15 @@
+*                      [[elisp:(org-cycle)][| BASH IIM FrameWork Execution Controls | ]]
+**       Full Verbosity   No Verbosity
+**  ======================================================================================================|
+**  |                                   *IIM FrameWork Execution Controls*                                |
+**  +-----------------------------------------------------------------------------------------------------|
+**  |  /Par Name/       |       /Parameter Description/                 | /Par Cur Value/   |/set/|/more/ |
+**  +-----------------------------------------------------------------------------------------------------|
+**  | iimWrapper        | Command Wrapping IIM Exec (e.g. echo, time)  *| echo              |* [[elisp:(blee:menu-box:varAsNameFromDirUpdate:popupMenu 'bx:iimBash:iimWrapper "/opt/public/osmt/sysConfigInput/iimBash/commonControl/wrapper")][set]] | [[more]] |
+**  +-----------------------------------------------------------------------------------------------------|
+**  | iimName           | Selected Interactively Invokable Module       | [Param Value  ]  | <sel>| <see> |
+**  +-----------------------------------------------------------------------------------------------------|
+**  | iif               | Selected Interactively Invokable Function    *| not               |* [[elisp:(blee:menu-box:iif:popupMenu bx:iimBash:iimName)][set]] | [[more]] |
+**  +-----------------------------------------------------------------------------------------------------|
+**  | iimVerbosity      | Selected IIM                                  | [Param Value  ]  | <sel>| <see> |
+**  +-----------------------------------------------------------------------------------------------------|

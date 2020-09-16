@@ -1,0 +1,302 @@
+%%% -*- Mode: LaTeX; -*-
+%%%#+BEGIN: bx:dblock:lcnt:latex:doc-class :class "pres+art" :langs "en+fa"
+%\nonstopmode
+
+\documentclass[ignorenonframetext]{beamer}
+\usepackage{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-controls :disabledP "false" :mode "auto"
+\begin{comment}
+*  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
+*  /Maintain/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
+*      ================
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:this-file :disabledP "false" :mode "auto"
+\begin{comment}
+*  #This File: /lcnt/lgpc/bystar/permanent/engineering/gossonot/presentationEnFa.ttytex
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:inputed-title :disabledP "false" :mode "auto"
+\begin{comment}
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   /*PLPC-180052 -- LCNT Panel -- lcntProc.sh, presProc.sh and Mailings*/
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   *Generalized Open-Source Self Organizing Network of Things*
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   http://www.by-star.net/PLPC/180052
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   [[elisp:(find-file "presentationEnFa.ttytex")][Visit ./presentationEnFa.ttytex]] || [[elisp:(find-file "articleEnFa.ttytex")][Visit ./articleEnFa.ttytex]] || [[elisp:(find-file "presArtEnFa.ttytex")][Visit ./presArtEnFa.ttytex]] || 
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:commands :disabledP "false" :class "pres+art" :langs "en+fa"
+\begin{comment}
+*      ================
+*      IIM Parameters    ::  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build+view")][-p extent=build+view]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build")][-p extent=build]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=view")][-p extent=view]]
+*      Related           ::  [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]] | [[elisp:(find-file "./mailing/content.mail")][Visit ./mailing/content.mail]]| [[elisp:(find-file "./mailing/Panel.org")][Visit ./mailing/Panel.org]]
+*      Build+Release     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildResultsRelease" :iifArgs "")][lcntProc.sh -i buildResultsRelease]] || [[elisp:(lsip-local-run-command-here "lcntProc.sh -i fullClean")][lcntProc.sh -i fullClean]] || [[elisp:(cvs-update "." t)][Version Control]]
+*      Build & Preview   ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildPdfPreview" :iifArgs "presentationEnFa.ttytex")][lcntProc.sh -i buildPdfPreview presentationEnFa.ttytex]] || [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildHtmlPreview" :iifArgs "presentationEnFa.ttytex")][lcntProc.sh -i buildHtmlPreview presentationEnFa.ttytex]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-contents-list :disabledP "false" :mode "auto"
+\begin{comment}
+*      ################ CONTENTS-LIST  [[elisp:(reftex-toc)][(RefTOC)]] ###############
+*  [[elisp:(org-cycle)][| ]]  *Document Status, TODOs and Notes*          ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+\begin{comment}
+** TODO [[elisp:(org-cycle)][| ]]  Idea      ::  Description   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:early-common-packages :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: early-common-packages/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%\nonstopmode
+
+%%%\documentclass[ignorenonframetext]{beamer}
+
+%%%\documentclass[notes=only]{beamer}
+%%%\setbeameroption{show notes}
+%%%\documentclass[aspectratio=169,ignorenonframetext]{beamer}
+
+\usepackage{hevea} 
+%HEVEA\usepackage[utf8]{inputenc}
+
+\htmlhead{
+\vspace{0.4in}
+}
+
+\htmlfoot{
+\bigskip
+}
+
+\usepackage{pdfpcnotes}
+
+\usepackage{beamerthemesplit}
+\usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.5,debug]{beamerposter}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:optional-packages-and-styles :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: optional-packages-and-styles/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:custom-specialized-packages :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: custom-specialized-packages/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:late-common-packages :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: late-common-packages/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+
+\usepackage{color}
+
+\usepackage{hyperref}
+\usepackage{url}
+
+
+\usepackage{fontspec}
+\usepackage{xltxtra}
+\usepackage{xunicode}
+
+\newenvironment{bidiSepBeforeHevea}{}{}
+\usepackage{bidi}
+\newenvironment{bidiSepAfterHevea}{}{}
+
+\usepackage{bystarpersian}   % Defines: \newfontfamily{\persian}, \newcommand{\farsi}, \newenvironment{faPar},{fa}
+\usepackage{bystarpresentation}   % Defines: \excludecomment{presentationMode} \newcommand{\pnote}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:common-packages-style-settings :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: common-packages-style-settings/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+% ===== STYLE PARAMETERS =====
+
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+
+\hypersetup{
+    colorlinks=true        % false: boxed links; true: colored links
+}
+
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:begin-document  :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: begin-document/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\begin{document}
+
+%%%#+END:
+
+%%%   :form "std" :years "2018" :copyright-holders ""
+%%%#+BEGIN: bx:dblock:lcnt:latex:copyright :class "pres+art" :langs "en+fa" :form "none" :years "2018" :copyright-holders ""
+
+%%%#+END:
+
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:title-page :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: title-page/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\mode<all>  % Important -- Must Be Here
+
+\begin{latexonly}
+
+\title[GOSSONoT ICMs Collection]
+{GOSSONoT ICMs Collection}
+
+\subtitle[Generalized Open-Source Self Organizing Network of Things]
+{Generalized Open-Source Self Organizing Network of Things}
+
+\author[Neda Communications, Inc.] 
+{Neda Communications, Inc.\\
+Email: \href{http://www.by-star.net/contact}{http://www.by-star.net/contact}\\
+}
+
+\institute[PLPC-180052] 
+{\href{http://www.by-star.net/PLPC/180052}{http://www.by-star.net/PLPC/180052}}
+
+\date[January 21, 2018]
+{January 21, 2018\\Varbatim Copying Permitted}
+
+\subject{Generalized Open-Source Self Organizing Network of Things}
+
+% No Blank Cover Page -- Select dblock :coverPage blank if desired
+
+
+  \begin{frame}[label=titlePage]
+    \titlepage
+    \frameaudio{"audio/titlePage.mp3"}
+%BxPy: impressiveFrameParSet('titlePage', 'always', 'True')
+%BxPy: impressiveFrameParSet('titlePage', 'transition', 'UnSpecified')
+%BxPy: impressiveFrameParSet('titlePage', 'onLeave', 'UnSpecified')
+  \end{frame}
+\end{latexonly}
+
+\begin{htmlonly}
+  \begin{frame}[label=titlePage]
+  \frameaudio{"audio/titlePage.mp3"}
+
+  \frametitle{GOSSONoT ICMs Collection}
+Generalized Open-Source Self Organizing Network of Things\\
+With: Interactive Command Modules (ICMs)\\
+\begin{center}
+{\large Document \#PLPC-180052\\
+Version 0.1\\
+January 21, 2018}
+\end{center}
+\vspace{0.05in}
+
+\begin{center}
+{\large This Document is Available on-line at:\\
+\href{http://www.by-star.net/PLPC/180052}{http://www.by-star.net/PLPC/180052}}
+\end{center}
+
+\begin{center}
+{\large {\bf Neda Communications, Inc.}\\
+  Email: \href{http://www.by-star.net/contact}{http://www.by-star.net/contact}\\
+}\end{center}
+  \end{frame}
+\end{htmlonly}
+
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:toc  :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: Table Of Contents/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\bibliographystyle{plain}
+
+
+%%%#+END:
+
+
+%%%\clearpage
+
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  *Document Body Starts*   /Start Here/                     :: [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]]  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%% \pagenumbering{arabic}
+
+
+%%%#+BEGIN: bx:dblock:org:latex-input :disabledP "false" :input-file "./bodyPresArtEnFa.tex"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Input/  [[elisp:(find-file "./bodyPresArtEnFa.tex")][Visit ./bodyPresArtEnFa.tex]] ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+
+\input{./bodyPresArtEnFa.tex}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:bibliography :disabledP "false" :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: Bibliography/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\bibliography{/lcnt/outputs/all/plpcUrl,/usr/local/lib/bib/rfcs}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:document-end  :disabledP "false" :class "pres+art" :langs "en+fa"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: End-Of-Document/  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\end{document}
+
+\begin{comment}
+*      ================
+\end{comment}
+%%%#+END:
+
+
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  Local Vars  ::                  *Org-Mode And Emacs Specific Configurations*   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%% Local Variables:
+%% major-mode: latex-mode
+%% fill-column: 90
+%% eval: (setq bx:iimp:iimModeArgs "")
+%% eval: (bx:iimp:cmndLineSpecs :name "bxpManage.py")
+%% eval: (bx:iimBash:cmndLineSpecs :name "lcntProc.sh")
+%% eval: (setq bx:curUnit "lcntProc")
+%% eval: (defun org-dblock-write:bx:dblock:org:doc-title (params)  
+%%   (let ((bx:types (or (plist-get params :types) "")))
+%%     (bx:lcnt:info:base-read)
+%%     (insert (format "*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                /*%s-%s -- LCNT Panel -- lcntProc.sh, presProc.sh and Mailings*/
+%% *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 *%s*
+%% *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]                 %s" 
+%%                     (get 'bx:lcnt:info:base  'type)
+%%                     (get 'bx:lcnt:info:base  'lcntNu)
+%%                     (get 'bx:lcnt:info:base  'shortTitle)
+%%                     (get 'bx:lcnt:info:base  'url)
+%% 		    ))))
+%% End:

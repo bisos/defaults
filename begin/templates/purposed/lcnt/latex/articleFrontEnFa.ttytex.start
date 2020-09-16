@@ -1,0 +1,556 @@
+%%% -*- Mode: LaTeX; -*-
+%%%#+BEGIN: bx:dblock:lcnt:latex:doc-class :class "art+pres" :langs "en+fa" :texClass "article"
+%%% Args: :class "pres+art|art+pres|art|memo|book" :langs "en+fa|fa+en|en" :texClass "book|article"
+\documentclass{article}
+\usepackage{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-controls :disabledP "false" :mode "auto"
+\begin{comment}
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:bx:dblock:global:org-controls)][dbf]]
+*  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][|O]]  [[elisp:(progn (org-shifttab) (org-content))][|C]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][|N]] | [[elisp:(delete-other-windows)][|1]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
+*  /Maintain/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-This]] [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-This]] | [[elisp:(bx:org:agenda:these-files-otherWin)][Agenda-These]] [[elisp:(bx:org:todo:these-files-otherWin)][ToDo-These]]
+
+* [[elisp:(org-shifttab)][<)]] [[elisp:(describe-function 'org-dblock-write:bx:dblock:global:org-controls)][dbFunc)]]  E|
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:this-file :disabledP "false" :mode "auto"
+\begin{comment}
+*  #This File: /lcnt/lgpc/bystar/permanent/engineering/roVerifier/articleEnFa.ttytex
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:inputed-title :disabledP "false" :mode "auto"
+\begin{comment}
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:bx:dblock:lcnt:latex:inputed-title)][dbf]]
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   /*PLPC-180063 -- LCNT Panel -- lcntProc.sh, presProc.sh and Mailings*/
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   *roVerifier*
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   http://www.by-star.net/PLPC/180063
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   [[elisp:(find-file "articleEnFa.ttytex")][Visit ./articleEnFa.ttytex]] || 
+
+* [[elisp:(org-shifttab)][<)]] [[elisp:(describe-function 'org-dblock-write:bx:dblock:lcnt:latex:inputed-title)][dbFunc)]]  E|
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:commands :disabledP "false" :class "art+pres" :langs "en+fa"
+\begin{comment}
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:bx:dblock:lcnt:latex:commands)][dbf]]
+\begin{comment}
+*      IIM Parameters    ::  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build+view")][-p extent=build+view]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build")][-p extent=build]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=view")][-p extent=view]]
+*      Related           ::  [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]] | [[elisp:(find-file "./mailing/content.mail")][Visit ./mailing/content.mail]]| [[elisp:(find-file "./mailing/Panel.org")][Visit ./mailing/Panel.org]]
+*      Build+Release     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildResultsRelease" :iifArgs "")][lcntProc.sh -i buildResultsRelease]] || [[elisp:(lsip-local-run-command-here "lcntProc.sh -i fullClean")][lcntProc.sh -i fullClean]] || [[elisp:(cvs-update "." t)][Version Control]]
+*      Build & Preview   ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildPdfPreview" :iifArgs "articleEnFa.ttytex")][lcntProc.sh -i buildPdfPreview articleEnFa.ttytex]] || [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildHtmlPreview" :iifArgs "articleEnFa.ttytex")][lcntProc.sh -i buildHtmlPreview articleEnFa.ttytex]]
+
+* [[elisp:(org-shifttab)][<)]] [[elisp:(describe-function 'org-dblock-write:bx:dblock:lcnt:latex:commands)][dbFunc)]]  E|
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:global:org-contents-list :disabledP "false" :mode "auto"
+\begin{comment}
+*      ################ CONTENTS-LIST  [[elisp:(reftex-toc)][(RefTOC)]] ###############
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:global:org-doc-status :disabledP "false" :mode "auto"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] =  *Document Status, TODOs and Notes*          ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+\begin{comment}
+** LAST TODO ITEM -- Add new Items before this
+\end{comment}
+
+\begin{comment}
+*  [[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] ################# [[elisp:(delete-other-windows)][|1]]                *Preface*  :: [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:lcnt:latex:dblock-params :curBuild t :bibProvider "bibtex" 
+%%% Args: :class "pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild nil|t :paperSize "8.5x11|6x9" :spacing nil|t :curBuild nil|t :paperSize "8.5x11|6x9" :when "main|mailing"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Buffer Local dblock params --- curBuild=t bibProvider=bibtex paperSize=nil/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%% bibProvider = bibtex
+%%% paperSize = 8.5x11
+
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:when-conditionals :toggle "enabled"  :class "art+pres" :langs "en+fa" :curBuild t :when "main"
+%%% Args: :class "pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild nil|t :paperSize "8.5x11|6x9" :spacing nil|t :curBuild nil|t :paperSize "8.5x11|6x9" :when "main|mailing"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: When Conditionals (Includes and Excludes) --- when=main curBuild=t paperSize=nil/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\includecomment{PLPC-180063}
+
+\includecomment{whenDocIsComplete}
+\excludecomment{whenMailing}
+\excludecomment{whenDocIsPartial}
+
+\excludecomment{ignore}
+
+\includecomment{whenBibProviderIsBibtex}
+\excludecomment{whenBibProviderIsBiblatex}
+
+%%%#+END:
+
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  =Customized= /Conditionals: Inculde And Excludes/  ::  [[elisp:(org-cycle)][| ]]  
+\end{comment}
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:early-common-packages :class "art+pres" :langs "en+fa"
+%%% Args: :class "pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild nil|t :paperSize "8.5x11|6x9" :spacing nil|t :curBuild nil|t :paperSize "8.5x11|6x9" :when "main|mailing"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: early-common-packages/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\usepackage{hevea} 
+%HEVEA\usepackage[utf8]{inputenc}
+
+\htmlhead{
+\vspace{0.4in}
+}
+
+\htmlfoot{
+\bigskip
+}
+
+\usepackage{amssymb}
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{Linux Libertine O}
+
+\usepackage{float}
+\usepackage{morefloats}
+
+\usepackage{rcs}
+\usepackage{makeidx}
+\usepackage{supertabular}
+\usepackage{lscape}
+\usepackage{array} 
+\usepackage{framed}
+\usepackage{listings}
+
+\usepackage{color}
+
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage{fancyhdr}
+
+\usepackage{caption}
+
+\usepackage{bystarsub3section}
+\usepackage{bystarlisting}
+
+\usepackage{fontspec}
+% \usepackage{xltxtra}  % OBSOLETED In Ubuntu 16.04 and 18.04
+\usepackage{xunicode}
+
+
+
+\usepackage{beamerarticle}
+
+\usepackage{paracol}
+
+\usepackage{qrcode}  %%% Must come after beamerarticle
+
+\usepackage{tikz}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:geometry :class "art+pres" :langs "en+fa" :curBuild t
+%%% Args: :class "pres+art" :langs "en+fa" :curBuild nil|t :paperSize "8.5x11|6x9"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Geometry --- curBuild=t paperSize=nil/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\usepackage{geometry}
+
+\geometry{paperwidth=8.5in,paperheight=11in,bindingoffset=0.2in,left=1.0in,right=1.0in,top=1in,bottom=0.75in,footskip=.25in}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:note:features-front-matter  :class "art+pres" :langs "en+fa"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild "t|path"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /OrgParentNode:/  =Features Front-Matter= ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:note:features-body-matter  :class "art+pres" :langs "en+fa"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild "t|path"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /OrgParentNode:/  =Features Body-Matter= ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:note:features-back-matter  :class "art+pres" :langs "en+fa"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild "t|path"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /OrgParentNode:/  =Features Back-Matter= ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:features-appendix-index-glossary  :class "art+pres" :langs "en+fa" :toggle "enabled"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" 
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Features: Appendix, Index, Glossaries --- toggle=enabled/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\usepackage[toc,page]{appendix}
+
+\usepackage{imakeidx}
+\makeindex
+
+\usepackage[toc]{glossaries}    % Should come after hyperref
+\makeglossaries
+
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:features-bibliography  :class "art+pres" :langs "en+fa" :toggle "enabled"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :bibProvider "biblatex|bibtex"
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Features: Bibliography --- toggle=enabled bibProvider=bibtex/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\bibliographystyle{plain}
+
+%%%#+END:
+
+\begin{whenBibProviderIsBiblatex}
+
+%\addbibresource{/lcnt/outputs/all/plpcUrl.bib}
+\addbibresource{/usr/local/lib/bib/rfcs.bib}
+\addbibresource{/usr/local/lib/bib/networking.bib}
+
+\end{whenBibProviderIsBiblatex}
+
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  /Note:/  =Your Early Un-Common Packages=  ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:bx-bidi :class "art+pres" :langs "en+fa"
+%%% Args: :class "pres+art" :langs "en+fa"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: BX-BIDI/  =With HeVeA Support= ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\newenvironment{bidiSepBeforeHevea}{}{}
+\usepackage{bidi}
+\newenvironment{bidiSepAfterHevea}{}{}
+
+\usepackage{bystarpersian}   % Defines: \newfontfamily{\persian}, \newcommand{\farsi}, \newenvironment{faPar},{fa}
+\usepackage{bystararticle}   % Defines: \excludecomment{presentationMode} \newcommand{\pnote}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:feature-late-common-packages :class "art+pres" :langs "en+fa"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild "t|path"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: late-common-packages/  =Place Holder For Now= ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%% Place Holder For Now
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:note:feature-late-uncommon-packages :class "art+pres" :langs "en+fa"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild "t|path"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /Note:/  =Your Late Un-Common Packages= ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:common-packages-style-settings :class "art+pres" :langs "en+fa"
+%%% Args: :class "pres+art" :langs "en+fa" :pageNu nil|t :style "bystar"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: common-packages-style-settings/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\usepackage{bystarcolors}
+
+\parindent 0 true pc
+
+\addtolength{\parskip}{5pt}
+
+%%%#+END:
+
+%%%#+BEGINNOT : bx:lcnt:latex:header-footer-settings  :class "art+pres" :langs "en+fa" :toggle "enabled" :style "" :external ""
+%%% When external, look for a function called bx:lcnt:latex:header-footer-settings:<externalName> and invoke it.
+%%%#+END:
+
+
+\begin{comment}
+*  [[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] ################# [[elisp:(delete-other-windows)][|1]]                *Begin Document*  :: [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:lcnt:latex:begin-document  :class "art+pres" :langs "en+fa"
+%%% Args: :class "pres+art" :langs "en+fa"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /Dblock: Pure Begin Document ===/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\begin{document}
+
+%%%#+END:
+
+
+\begin{comment}
+*  [[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] ################# [[elisp:(delete-other-windows)][|1]]                *Front Matter: TitlePage/TOC/etc*  :: [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:lcnt:latex:orgParentNode:title-page  :class "art+pres" :langs "en+fa"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :curBuild "t|path"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /OrgParentNode:/  =Title Page= ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:title-page-newgeometry :class "art+pres" :langs "en+fa" :curBuild t
+%%% Args: :class "pres+art" :langs "en+fa" :curBuild nil|t :paperSize "8.5x11|6x9"
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Title Page New Geometry --- curBuild=t paperSize=nil/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\begin{latexonly}
+
+%%% newgeometry paperSize=8.5x11
+
+\newgeometry{bindingoffset=0in,left=0.5in,right=0.5in,top=1.2in,bottom=0.4in,footskip=0in}
+\end{latexonly}
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:title-page-header :class "art+pres" :langs "en+fa" :titleHeaderType "bystar"
+%%% Args: :class "pres+art" :langs "en+fa" :titleHeaderType "none|bystar|custom"
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Title Page Header --- titleHeaderType=bystar/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%% NOTYET -- Bystar Title Header Page Comes Here
+
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:title-page-titles :class "art+pres" :langs "en+fa" :style "Huge" :spacing t
+%%% Args: :class "book|pres+art" :langs "en+fa" :curBuild nil|t :paperSize "8.5x11|6x9" :style "HUGE|Huge|huge" :spacing nil|t
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Title Page Titles --- curBuild=t paperSize=nil style=Huge spacing=t/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%% Titles paperSize=8.5x11
+
+
+\title{roVerifier}
+
+\thispagestyle{empty}
+
+\begin{center}
+{\Huge {\bf roVerifier}}\\
+
+\end{center}
+
+
+\vspace{0.35in}
+
+%%%#+END:
+
+\vspace{0.3in}
+
+%%%#+BEGIN: bx:lcnt:latex:title-page-authors :class "art+pres" :langs "en+fa"
+%%% Args: :class "pres+art" :langs "en+fa" :curBuild nil|t :paperSize "8.5x11|6x9" :spacing nil|t
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Title Page Authors --- curBuild=t paperSize=nil spacing=nil/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%% Authors paperSize=8.5x11
+
+\begin{center}
+{\LARGE {\bf Neda Communications, Inc.}}\\
+\vspace{0.15in}
+{\Large  Email: \href{http://www.by-star.net}{http://www.by-star.net}}\\
+\end{center}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:title-page-lcnt-nu :class "art+pres" :langs "en+fa"
+%%% Args: :class "pres+art" :langs "en+fa" :curBuild nil|t :paperSize "8.5x11|6x9" :spacing nil|t
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Title Page LCNT-NU --- curBuild=t paperSize=nil spacing=nil/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\begin{center}
+	
+{\LARGE {\bf PLPC-180063}}\\
+\vspace{0.20in}
+{\Large November 09, 2019}\\
+\vspace{0.05in}
+{\Large Version 0.1}\\
+
+\end{center}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:title-page-online-at :class "art+pres" :langs "en+fa" :toggle "enabled" :curBuild t :qrcode t
+%%% Args: :class "book|pres+art" :langs "en+fa"  :form "priv|std"  :toggle "enabled|disabled|hide" :curBuild nil|t :paperSize "8.5x11|6x9" :spacing nil|t :qrcode nil|t
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Title Page On-Line At --- toggle=enabled form=std curBuild=t paperSize=nil spacing=nil/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%% On-line At paperSize=8.5x11
+
+\begin{center}
+\rule{0.7\textwidth}{.02in}\\
+\vspace{-0.10in}
+\rule{0.7\textwidth}{.01in}\\
+\vspace{0.15in}
+{\large Available on-line at:\\
+\href{http://www.by-star.net/PLPC/180063}{http://www.by-star.net/PLPC/180063}}
+\end{center}
+
+\begin{center}
+\vspace{0.2in}
+\qrcode[height=1in]{http://www.by-star.net/PLPC/180063}
+\end{center}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:copyright :class "art+pres" :langs "en+fa" :form "none"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" :form "none|std" :years "" :copyright-holders nil|"Name"
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Copyright Settings --- bx-years=None/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+% dblock copyright notice says none
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:restoregeometry :class "art+pres" :langs "en+fa" :form "none"
+%%% Args: :class "pres+art" :langs "en+fa" :curBuild nil|t :paperSize "8.5x11|6x9"
+\begin{comment}
+** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Restore Geometry --- curBuild=t paperSize=nil/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%% Titles paperSize=8.5x11
+
+\restoregeometry
+
+\thispagestyle{empty}
+
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:toc-insert  :class "art+pres" :langs "en+fa" :pageBreak nil :toc t :figures t :tables nil
+%%% Args: :class "book|pres+art" :langs "en+fa" :pageBreak nil|t :toc nil|t :tables nil|t :figures nil|t
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Table Of Contents --- pageBreak=nil toc=t tables=nil figures=t/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+\bigskip
+
+\tableofcontents
+\listoffigures
+
+\pagenumbering{arabic}
+
+%%%#+END:
+
+
+%%%\clearpage
+
+
+\begin{comment}
+*  [[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] ################# [[elisp:(delete-other-windows)][|1]]                *Body Matter*  :: [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+
+%%%\pagenumbering{arabic}
+
+%%%#+BEGIN: bx:dblock:org:latex-input :disabledP "false" :input-file "./bodyArticleEnFa.tex"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  /Input/  [[elisp:(blee:file-goto-contents "./bodyArticleEnFa.tex")][Goto ./bodyArticleEnFa.tex]] ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\input{./bodyArticleEnFa.tex}
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:appendices-begin :toggle "disabled"
+%%% Args: :class "pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" 
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /Dblock: appendices-begin --- toggle=disabled/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:appendices-end :toggle "disabled"
+%%% Args: :class "pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" 
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /Dblock: appendices-end --- toggle=disabled/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+  
+\begin{comment}
+*  [[elisp:(beginning-of-buffer)][|^]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] ################# [[elisp:(delete-other-windows)][|1]]                *Back Matter: Index/Glossary/Biblio*  :: [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:lcnt:latex:print-bibliography  :toggle "enabled" :bibProvider "bibtex" :bibSrcPaths ""
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide"  :bibProvider "biblatex|bibtex" :style "plain"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: print-bibliography --- toggle=enabled bibProvider=bibtex bibSrcPaths=/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\phantomsection 
+\addcontentsline{toc}{section}{Bibliography} 
+
+%%%#+END:
+
+\begin{whenBibProviderIsBibtex}
+
+%\bibliography{/usr/local/lib/bib/gnu,/usr/local/lib/bib/networking,/usr/local/lib/bib/nedadoc,/usr/local/lib/bib/rfcs,/lcnt/outputs/all/plpc}
+%\bibliography{/lcnt/outputs/all/plpcUrl,/usr/local/lib/bib/rfcs}
+\bibliography{/lcnt/BIB/plpcUrl,/lcnt/BIB/rfcs,/lcnt/BIB/bxsup,/lcnt/BIB/networking}
+
+\end{whenBibProviderIsBibtex}
+
+%%%#+BEGIN: bx:lcnt:latex:print-glossaries :toggle "disabled"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" 
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: print-glossaries --- toggle=disabled/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:lcnt:latex:print-index :toggle "disabled"
+%%% Args: :class "book|pres+art" :langs "en+fa" :toggle "enabled|disabled|hide" 
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: print-index --- toggle=disabled/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:document-end  :disabledP "false" :class "art+pres" :langs "en+fa"
+\begin{comment}
+* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: End-Of-Document/  == ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\end{document}
+
+\begin{comment}
+*      ================
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: blee:bxPanel:footerOrgParams 
+\begin{comment}
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:footerOrgParams)][dbf]]
+* [[elisp:(show-all)][|N]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(org-cycle)][| *= Org-Mode Local Params: =* | ]]
+#+STARTUP: lognotestate
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+\end{comment}
+%%%#+END
+
+%%%#+BEGIN: blee:bxPanel:footerEmacsParams :primMode "latex-mode"
+\begin{comment}
+* [[elisp:(show-all)][(>]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:footerEmacsParams)][dbf]]
+* [[elisp:(show-all)][|N]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(org-cycle)][| *= Emacs Local Params: =* | ]]
+%Local Variables:
+%eval: (setq-local ~selectedSubject "noSubject")
+%eval: (setq-local ~primaryMajorMode 'latex-mode)
+%eval: (setq-local ~blee:dblockEnabler nil)
+%eval: (setq-local ~lcnt:texClass nil)
+%eval: (setq-local ~lcnt:bibProvider nil)
+%eval: (setq-local ~lcnt:paperSize nil)
+%eval: (bx:load-file:ifOneExists "./panelActions.el")
+%End:
+\end{comment}
+%%%#+END

@@ -1,0 +1,266 @@
+%%% -*- Mode: LaTeX; -*-
+
+%%%#+BEGIN: bx:dblock:global:this-file :disabledP "false" :mode "auto"
+\begin{comment}
+*  #This File: /lcnt/lgpc/bystar/permanent/facilities/contentGenAndPublication/bodyPresArtEnFa.tex
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:inputed-title :disabledP "false" :mode "auto"
+\begin{comment}
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   /*PLPC-180038 -- LCNT Panel -- lcntProc.sh, presProc.sh and Mailings*/
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   *ByStar Autonomous Content Production, Publication, and Distribution Services And Software*
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   http://www.by-star.net/PLPC/180038
+*  [[elisp:(beginning-of-buffer)][Top]] ################  [[elisp:(delete-other-windows)][(1)]]   [[elisp:(find-file "articleEnFa.ttytex")][Visit ./articleEnFa.ttytex]] || [[elisp:(find-file "presentationEnFa.ttytex")][Visit ./presentationEnFa.ttytex]] || [[elisp:(find-file "presArtEnFa.ttytex")][Visit ./presArtEnFa.ttytex]] || 
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:global:org-controls :disabledP "false" :mode "auto"
+\begin{comment}
+*  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
+*  /Maintain/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
+*      ================
+\end{comment}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:commands :disabledP "false" :class "art+pres" :langs "en+fa"
+\begin{comment}
+*      ================
+*      IIM Parameters    ::  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build+view")][-p extent=build+view]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=build")][-p extent=build]] || [[elisp:(setq bx:iimBash:iimParamsArgs "-p extent=view")][-p extent=view]]
+*      Related           ::  [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]] | [[elisp:(find-file "./mailing/content.mail")][Visit ./mailing/content.mail]]| [[elisp:(find-file "./mailing/Panel.org")][Visit ./mailing/Panel.org]]
+*      Build+Release     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildResultsRelease" :iifArgs "")][lcntProc.sh -i buildResultsRelease]] || [[elisp:(lsip-local-run-command-here "lcntProc.sh -i fullClean")][lcntProc.sh -i fullClean]] || [[elisp:(cvs-update "." t)][Version Control]]
+*      Build & Preview   ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildPdfPreview" :iifArgs "bodyPresArtEnFa.tex")][lcntProc.sh -i buildPdfPreview bodyPresArtEnFa.tex]] || [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "lcntProc.sh" :iif "buildHtmlPreview" :iifArgs "bodyPresArtEnFa.tex")][lcntProc.sh -i buildHtmlPreview bodyPresArtEnFa.tex]]
+\end{comment}
+%%%#+END:
+
+%%%#+BEGINNOT: bx:dblock:global:org-contents-list :disabledP "false" :mode "auto"
+\begin{comment}
+*      ################ CONTENTS-LIST  ([[elisp:(reftex-toc)][RefTOC)]]    ###############
+*  [[elisp:(org-cycle)][| ]]  *Document Status, TODOs and Notes*          ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+%%%#+END:
+
+\begin{comment}
+** TODO [[elisp:(org-cycle)][| ]]  Idea      ::  Description   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-part :disabledP "false" :seg-title "About This Document"
+\begin{comment}
+*      ================
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || *Part*   /About This Document/ ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\newpage
+\part{About This Document}
+%%%#+END:
+
+
+
+\begin{articleMode}
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-section :mode "auto" :seg-title "About This Document (Presentation/Podcast)"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Section/  About This Document (Presentation/Podcast) ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\section{About This Document (Presentation/Podcast)}
+%%%#+END:
+
+This document is available in multiple forms and multiple formats:
+
+\begin{itemize}
+\item \textbf{Article/Book Form:} Best suited for cover-to-cover reading (pdf).
+  \begin{itemize}
+  \item \textbf{Pdf Format:} Best suited for printing and cover-to-cover reading.
+  \item \textbf{HTML/Web Format:} Best suited for Web reading and cross referencing.
+\end{itemize}
+
+\item \textbf{Presentation Form:} Best suited for quick scan -- with live URLs --(pdf).
+  \begin{itemize}
+  \item \textbf{Screencast:} A slide oriented voice-over narrated  presentation (Reveal.js Based)
+  \item \textbf{PDF Slides:}  Best suited for printing of the slides (Beamer Generated)
+  \item \textbf{HTML Slides And Notes:} Slide and notes in html format (Beamer+HaVeA Generated)
+  \item \textbf{PDF Slides and Notes:} Best suited for printing of presentation notes (Beamer Generated)
+  \end{itemize}
+\end{itemize}
+
+You can obtain this document in all these formats at its access page:
+{\Large 
+{\href{http://bystar.de/PLPC/180xxx}{http://bystar.de/PLPC/180xxx}}
+}
+
+We can benefit from your feedback. Please let us know your
+thoughts. You can send us your comments, corrections and criticisms to 
+\url{mailto:feedback@bystar.de}
+
+\end{articleMode}
+
+\begin{presentationMode}
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-section :mode "auto" :seg-title "About This Screencast (Presentation/Document)"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Section/  About This Screencast (Presentation/Document) ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\section{About This Screencast (Presentation/Document)}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:frame-narrated-begin :mode "auto" :title "About This ScreenCast" :subtitle "" :label "auto" :transition "default"
+\begin{comment}
+*****  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Frame/ *Label=AboutThisScreenCast*  About This ScreenCast ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\begin{frame}[fragile,label=AboutThisScreenCast]
+    \transition{default}
+    \frameaudio{"audio/AboutThisScreenCast.mp3"}
+    \frametitle{About This ScreenCast}
+    \framesubtitle{}
+%BxPy: impressiveFrameParSet('AboutThisScreenCast', 'always', 'True')
+%BxPy: impressiveFrameParSet('AboutThisScreenCast', 'transition', 'default')
+%BxPy: impressiveFrameParSet('AboutThisScreenCast', 'onLeave', 'UnSpecified')
+%%%#+END:
+
+This document is available in multiple forms and multiple formats:
+
+\begin{itemize}
+\item \textbf{Article/Book Form:} Best suited for cover-to-cover reading (pdf).
+  \begin{itemize}
+  \item \textbf{Pdf Format:} Best suited for printing and cover-to-cover reading.
+  \item \textbf{HTML/Web Format:} Best suited for Web reading and cross referencing.
+\end{itemize}
+
+\item \textbf{Presentation Form:} Best suited for quick scan -- with live URLs --(pdf).
+  \begin{itemize}
+  \item \textbf{Screencast:} A slide oriented voice-over narrated  presentation (Reveal.js Based)
+  \item \textbf{PDF Slides:}  Best suited for printing of the slides (Beamer Generated)
+  \item \textbf{HTML Slides And Notes:} Slide and notes in html format (Beamer+HaVeA Generated)
+  \item \textbf{PDF Slides and Notes:} Best suited for printing of presentation notes (Beamer Generated)
+  \end{itemize}
+\end{itemize}
+
+
+  You can obtain this document in all these formats at its access page:
+  \begin{center}
+    {\large 
+      {\href{http://bystar.de/PLPC/180xxx}{http://bystar.de/PLPC/180xxx}}
+    }
+  \end{center}
+
+  \pnote{
+    In addition to being available in this format as a screencast, this information\\
+    is also available in presentation format as a pdf file. The presentation pdf format\\
+    is very similar to what you are seeing on your screen but the referenced URLs and pointers\\
+    are active in that document. If you have two screens available, it is a good idea to\\
+    have the presentation pdf format also available on the second screen as you watch this screencast.\\
+    It would permit you to visit the mentioned URLs conveniently.
+    \par
+    In addition to pdf presentation format, this information is also available in article format.\\
+    The pdf Article file is best suited for printing and cover to cover reading.
+    \par
+    Additionally, this information is available as voice-over presentation format, where
+    audio files are played sequential with the slide.
+    \par
+    All of these formats are available in one place on the Access Page of this document at the
+    mentioned URL\\
+    It is best to refer to this screencast and document based on its Access Page number.\\
+    \par
+    Let's now continue with the real content of this presentation.
+  }
+\end{frame}
+
+\end{presentationMode}
+
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-section :mode "auto" :seg-title "Part Of Libre-Halaal ByStar Digital Ecosystem and BISOS"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Section/  Part Of Libre-Halaal ByStar Digital Ecosystem and BISOS ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\section{Part Of Libre-Halaal ByStar Digital Ecosystem and BISOS}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:frame-narrated-begin :mode "auto" :title "Part Of ByStar DE and BISOS" :subtitle "" :label "auto" 
+\begin{comment}
+*****  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Frame/ *Label=PartOfByStarDEandBISOS*  Part Of ByStar DE and BISOS ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\begin{frame}[fragile,label=PartOfByStarDEandBISOS]
+    \frameaudio{"audio/PartOfByStarDEandBISOS.mp3"}
+    \frametitle{Part Of ByStar DE and BISOS}
+    \framesubtitle{}
+%BxPy: impressiveFrameParSet('PartOfByStarDEandBISOS', 'always', 'True')
+%BxPy: impressiveFrameParSet('PartOfByStarDEandBISOS', 'transition', 'UnSpecified')
+%BxPy: impressiveFrameParSet('PartOfByStarDEandBISOS', 'onLeave', 'UnSpecified')
+%%%#+END:
+
+This topic is Part Of A Much Bigger Picture:
+
+Libre-Halaal ByStar Digital Ecosystem\\
+A Moral Alternative\\
+Preserving Autonomy
+
+\begin{itemize}
+\item Overview Of ByStar:
+\item ByStar Internet Services OS:
+\item Interactive Commands Module:
+\end{itemize}
+
+\end{frame}
+
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-part :disabledP "false" :seg-title "Overview"
+\begin{comment}
+*      ================
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || *Part*   /Overview/ ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\newpage
+\part{Overview}
+%%%#+END:
+
+
+
+
+%%%#+BEGIN: bx:dblock:lcnt:latex-section :mode "auto" :seg-title "ByStar Content Development Overview -- Facilities And Processes"
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Section/  ByStar Content Development Overview -- Facilities And Processes ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\section{ByStar Content Development Overview -- Facilities And Processes}
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:frame-narrated-begin :mode "auto" :title "ByStar Autonomous Multi-Media Content Development" :subtitle "" :label "auto" 
+\begin{comment}
+*****  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /Frame/ *Label=ByStarAutonomousMulti-MediaContentDevelopment*  ByStar Autonomous Multi-Media Content Development ::  [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+\begin{frame}[fragile,label=ByStarAutonomousMulti-MediaContentDevelopment]
+    \frameaudio{"audio/ByStarAutonomousMulti-MediaContentDevelopment.mp3"}
+    \frametitle{ByStar Autonomous Multi-Media Content Development}
+    \framesubtitle{}
+%BxPy: impressiveFrameParSet('ByStarAutonomousMulti-MediaContentDevelopment', 'always', 'True')
+%BxPy: impressiveFrameParSet('ByStarAutonomousMulti-MediaContentDevelopment', 'transition', 'UnSpecified')
+%BxPy: impressiveFrameParSet('ByStarAutonomousMulti-MediaContentDevelopment', 'onLeave', 'UnSpecified')
+%%%#+END:
+
+\begin{itemize}
+\item Content Production -- Authorship, Generation and Collaboration
+\item Content Publication -- Autonomous and Federated Publication
+\item Content Distribution/Promotion
+\item Content Lists, Grouping and Cross-Referencing -- Libraries, Publications
+\item Content Public Reviews, Peer-Reviews and Rankings
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{comment}
+*  [[elisp:(org-cycle)][| ]]  Local Vars  ::                  *Org-Mode And Emacs Specific Configurations*   [[elisp:(org-cycle)][| ]]
+\end{comment}
+
+%% Local Variables:
+%% major-mode: latex-mode
+%% fill-column: 90
+%% End:

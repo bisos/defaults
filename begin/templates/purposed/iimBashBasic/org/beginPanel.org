@@ -1,0 +1,209 @@
+* 
+####+BEGINNOT: bx:dblock:bnsm:top-of-menu "basic"
+*  [[elisp:(org-cycle)][Controls]] ::  [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]]  [[elisp:(bury-buffer)][Bury]]  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]]
+####+END:
+####+BEGINNOT: bx:dblock:bnsm:this-node "basic"
+*  This File :: *= /opt/public/osmt/bin/isit442-w2017/mailBot.2/Panel.org =*
+####+END:
+####+BEGINMOT : bx:dblock:bnsm:see-related
+*  [[elisp:(org-cycle)][Bash]] :: (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) || [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]] | [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]] [[elisp:(org-cycle)][| ]]
+**  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]
+####+END:
+####+BEGINNOT: bx:dblock:bnsm:agenda-list
+* 
+*  Related:  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] || BxE IIMs || BSIP IIMs  
+####+END:
+* 
+* /=======================================================================================================/
+* 
+####+BEGIN: iim:bash:panel:module-title :mode "default"
+*                  =IIM Bash Panel For *iimBashGrouped.sh* in /opt/public/osmt/bin/Panels/iimBashGrouped.sh/= ::
+####+END:
+* 
+* /=======================================================================================================/
+* 
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(org-shifttab)][(O)]]   /=====/   [[elisp:(org-cycle)][| *IIMs Package Information* | ]]       /========/  [[elisp:(progn (org-shifttab) (org-content))][Content]]  /==========/
+####+BEGINNOT: iim:bash:panel:iimPkgInfo :mode "default"
+** 
+** (blee:var:initialize 'iim:bash:cmnd:commonControl/dict/bufLoc "/opt/.../iimMod.sh")
+** (blee:var:initialize 'iim:bash:cmnd:params/dict/bufLoc "/opt/.../iimMod.sh")
+** 
+** [[elisp:(lsip-local-run-command-here "iimBashGrouped.sh")][iimBashGrouped.sh]] || [[elisp:(lsip-local-run-command-here "iimBashGrouped.sh -i visit")][iimBashGrouped.sh -i visit]] || [[elisp:(lsip-local-run-command-here "iimBashGrouped.sh -i describe")][iimBashGrouped.sh -i describe]] || 
+** 
+** IIM Brief Description :: NOTYET: Short Description Of The Module
+** 
+** [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-cycle)][| *IIM Description* | ]]  ::
+***  [[elisp:(org-cycle)][| ]]  Xrefs         :: *[Related/Xrefs:]*  <<Xref-Here->>  -- External Documents  [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Panel        :: [[file:/libre/ByStar/InitialTemplates/activeDocs/bxServices/versionControl/fullUsagePanel-en.org::Xref-VersionControl][Panel Roadmap Documentation]] [[elisp:(org-cycle)][| ]]
+***  [[elisp:(org-cycle)][| ]]  Info          :: *[Module Description:]* [[elisp:(org-cycle)][| ]]
+** 
+** 
+####+END:
+
+** [[elisp:(lsip-local-run-command-here "mailBot.sh -i myEnv ./tmp/myEnv")][mailBot.sh -i myEnv ./tmp/myEnv]] ||  [[elisp:(fp:node:menuBox:buffer:paramsViewer "./tmp/myEnv")][menuBox:paramsViewer ./tmp/myEnv]] || [[elisp:(fp:node:menuBox:buffer:paramsViewer "./iimsIn/paramsFp")][menuBox:paramsViewer ./iimsIn/params]]
+**  [[elisp:(setq dictVar12 "/opt/public/osmt/bin/isit442-w2017/mailBot.2/tmp/myEnv"))][(setq dictVar12 "/opt/public/osmt/bin/isit442-w2017/mailBot.2/tmp/myEnv")]]
+**  [[elisp:(fp:node:menuBox:buffer:paramsEditor "./iimsIn/commonControlFp" 'dictVar12 'fp:node:menuBox:popupMenu:trigger))][(fp:node:menuBox:buffer:paramsEditor "./iimsIn/commonControlFp" 'dictVar12 'fp:node:menuBox:popupMenu:trigger)]]
+** 
+**  [[elisp:(lsip-local-run-command-here "mailBot.sh -v -n showRun -i iimsInParamsUpdate")][mailBot.sh  -v -n showRun -i iimsInParamsUpdate]]
+**  [[elisp:(setq iimsInParams "./iimsIn/paramsFp"))][(setq iimsInParams "./iimsIn/paramsFp")]]
+**  [[elisp:(fp:node:menuBox:buffer:paramsEditor "./iimsIn/paramsFp" 'iimsInParams 'fp:node:menuBox:popupMenu:trigger))][(fp:node:menuBox:buffer:paramsEditor "./iimsIn/paramsFp" 'iimsInParams 'fp:node:menuBox:popupMenu:trigger)]]
+** 
+**  [[elisp:(fp:node:menuBox:buffer:paramsEditor "./iimsIn/paramsFp" 'bx:iimBash:paramsPropList 'fp:node:menuBox:popupMenu:trigger))][(fp:node:menuBox:buffer:paramsEditor "./iimsIn/paramsFp" 'bx:iimBash:paramsPropList 'fp:node:menuBox:popupMenu:trigger)]]
+** 
+* 
+####+BEGIN: iim:bash:panel:frameworkFeatures :mode "default"
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(org-shifttab)][(O)]]   /=====/   [[elisp:(org-cycle)][| *IIMs Framework Features* | ]]        /========/  [[elisp:(progn (org-shifttab) (org-content))][Content]]  /==========/
+**     IIMs Pkg Info      ::  [[elisp:(lsip-local-run-command-here "iimsProc.sh")][iimsProc.sh]] || [[file:iimsProc.sh][Visit iimsProc.sh]] || [[elisp:(lsip-local-run-command-here "iimsProc.sh -v -n showRun -i fullClean")][iimsProc.sh -i fullClean]]
+
+####+END:              
+*                    
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(org-shifttab)][(O)]]   /=====/   *Configure and Execute IIM (RUN)*     /========/  [[elisp:(progn (org-shifttab) (org-content))][Content]]  /==========/
+* 
+*  [[elisp:(org-show-subtree)][=|=]]                 [[elisp:(org-cycle)][| *Execute, Instantiate+Exec, Repeat Or Schedule Selected IIM*  | ]] ::
+####+BEGIN: iim:bash:panel:execControlShow :mode "default" :orgLevel "1"
+*  /Cmnd/::  iimBashGrouped.sh -v -n showRun   -i describe 
+* [[elisp:(org-cycle)][| ]]  [[elisp:(iim:bash:cmnd:lineExec)][<Run Cmnd>]] || [[elisp:(iim:bash:cmnd:lineExec :wrapper "echo")][<Echo Cmnd>]] || [[elisp:(iim:bash:cmnd:lineElemsShow)][Show Cmnd Line Elems]] || [[elisp:(iim:bash:cmnd:lineStrAndStore :verbosity "-v" :callTracking "-n showRun")][Full Verbosity]] || [[elisp:(iim:bash:cmnd:lineStrAndStore :verbosity "" :callTracking "")][No Verbosity]] || [[elisp:(blee:menuBox:cmndLineResultsRefresh)][Refresh Command Line]] 
+**   [[elisp:(blee:menuBox:paramsPropListClear)][Clear Params Settings]] || 
+####+END:    
+* 
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-shifttab)][(O)]] /===/      [[elisp:(org-cycle)][| =Select BASH IIM FrameWork Execution Controls= | ]]    /====/ [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (org-shifttab) (org-content))][(C)]] /====/
+** 
+**  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-cycle)][| ]]  [[elisp:(delete-other-windows)][(1)]] || [[elisp:(blee:menu-box:cmndLineResultsRefresh)][Refresh Command Line]] || [[elisp:(blee:menu-box:paramsPropListClear)][Clear Params Settings]] 
+####+BEGIN: iim:bash:menuBox:commonControls:selectValues  :mode "default" :baseDir "./iimsIn/commonControlFp"
+
+**  ======================================================================================================|
+**  |                           *IIM Bash Editor For: [[file:./iimsIn/commonControlFp][./iimsIn/commonControlFp]]*                           |
+**  +-----------------------------------------------------------------------------------------------------|
+**  |  /Par Name/        |    /Parameter Value/      |          /Parameter Description/              |info|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "./iimsIn/commonControlFp/wrapper" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:wrapper]]          *| None                      |* Command Wrapping IIM Exec (e.g. echo, time)  |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "./iimsIn/commonControlFp/iimName" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:iimName]]          *| iimBashGrouped.sh         |* Interactively Invokable Module (IIM)         |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(blee:menuBox:iif:popupMenu:trigger "/opt/public/osmt/bin/iimBashNull.sh" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:iif]] (Common)     *| describe                  |* Interactively Invokable Function (IIF)       |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(blee:menuBox:iifSpecific:popupMenu:trigger "iimBashGrouped.sh" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:iif]] (Specific)   *| TBD                       |* Interactively Invokable Function (IIF)       |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "./iimsIn/commonControlFp/iifArgs" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:iifArgs]]          *| None                      |* Command IIF Arguments ()                     |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "./iimsIn/commonControlFp/verbosity" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:verbosity]]        *| -v                        |* Level Of Verbosity                           |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "./iimsIn/commonControlFp/callTracking" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:callTracking]]     *| -n showRun                |* Call Tracking                                |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "./iimsIn/commonControlFp/tracing" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:tracing]]          *| None                      |* Trace Module (tracing level)                 |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "./iimsIn/commonControlFp/recording" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:recording]]        *| None                      |* Results Recording Location                   |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "./iimsIn/commonControlFp/forceMode" 'iim:bash:cmnd:commonControl/dict/bufLoc)][:forceMode]]        *| None                      |* Force Mode                                   |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  ======================================================================================================|
+** 
+####+END:
+
+####+BEGIN: iim:bash:panel:execControlShow  :mode "default"
+**  /Cmnd/::  iimBashGrouped.sh -v -n showRun   -i describe 
+** [[elisp:(org-cycle)][| ]]  [[elisp:(iim:bash:cmnd:lineExec)][<Run Cmnd>]] || [[elisp:(iim:bash:cmnd:lineExec :wrapper "echo")][<Echo Cmnd>]] || [[elisp:(iim:bash:cmnd:lineElemsShow)][Show Cmnd Line Elems]] || [[elisp:(iim:bash:cmnd:lineStrAndStore :verbosity "-v" :callTracking "-n showRun")][Full Verbosity]] || [[elisp:(iim:bash:cmnd:lineStrAndStore :verbosity "" :callTracking "")][No Verbosity]] || [[elisp:(blee:menuBox:cmndLineResultsRefresh)][Refresh Command Line]] 
+***   [[elisp:(blee:menuBox:paramsPropListClear)][Clear Params Settings]] || 
+####+END:    
+    
+* 
+####+BEGIN: iim:bash:menuBox:selectBxSrf :mode "default" :scope "bxsrf"
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-shifttab)][(O)]] /===/      [[elisp:(org-cycle)][| =Select BxSRF Params For BASH IIMs= | ]]               /====/ [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (org-shifttab) (org-content))][(C)]] /====/
+**  [[elisp:(delete-other-windows)][(1)]] || [[elisp:(blee:menuBox:paramsPropListClear)][Clear Params Settings]]
+** 
+**  ======================================================================================================|
+**  |                              *ByStar Objects BASH IIM*                                              |
+**  +-----------------------------------------------------------------------------------------------------|
+**  |  /Par Name/        |  /Par Cur Value/   |             /Parameter Description/                  |info|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(blee:menuBox:paramFromDirUpdate:popupMenu  "/opt/public/osmt/sysConfigInput/iimBash/bxo/bxo")][:BxO]]              *| someBxo            |* ByStar Object Parameter                             |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(blee:menuBox:paramFromDirUpdate:popupMenu  "/opt/public/osmt/sysConfigInput/iimBash/bxo/bxso")][:BxSO]]             *| someValue          |* ByStar Service Object Parameter                     |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(blee:menuBox:paramFromDirUpdate:popupMenu  "/opt/public/osmt/sysConfigInput/iimBash/bxo/bxio")][:BxIO]]             *| None               |* ByStar Information Object Parameter                 |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(blee:menuBox:paramFromDirUpdate:popupMenu  "/opt/public/osmt/sysConfigInput/iimBash/bxo/srBase")][:srBase]]           *| None               |* Service Realization Dir Base                        |[[info]]|
+**  ======================================================================================================|
+**  [[elisp:(org-cycle)][| ]]  [[elisp:(delete-other-windows)][(1)]]
+####+END:    
+####+BEGIN: iim:bash:panel:execControlShow :mode "default"
+**  /Cmnd/::  iimBashGrouped.sh -v -n showRun   -i describe 
+** [[elisp:(org-cycle)][| ]]  [[elisp:(iim:bash:cmnd:lineExec)][<Run Cmnd>]] || [[elisp:(iim:bash:cmnd:lineExec :wrapper "echo")][<Echo Cmnd>]] || [[elisp:(iim:bash:cmnd:lineElemsShow)][Show Cmnd Line Elems]] || [[elisp:(iim:bash:cmnd:lineStrAndStore :verbosity "-v" :callTracking "-n showRun")][Full Verbosity]] || [[elisp:(iim:bash:cmnd:lineStrAndStore :verbosity "" :callTracking "")][No Verbosity]] || [[elisp:(blee:menuBox:cmndLineResultsRefresh)][Refresh Command Line]] 
+***   [[elisp:(blee:menuBox:paramsPropListClear)][Clear Params Settings]] || 
+####+END:    
+* 
+####+BEGIN: iim:bash:menuBox:selectTargets  :mode "default" :scope "bxsrf"
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-shifttab)][(O)]] /===/      [[elisp:(org-cycle)][| =Select Targets= | ]]                                  /====/ [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (org-shifttab) (org-content))][(C)]] /====/
+** 
+####+END:    
+
+* 
+####+BEGINNOT: bx:dblock:org:fp:iimBash:menuBox:selectParams :mode "default" :title "IIM=moduleName Shorter" :baseDir "./iimsIn/paramsFp"
+####+BEGIN: iim:bash:menuBox:params:selectValues :mode "default" :title "IIM=moduleName Shorter" :baseDir "./iimsIn/paramsFp"
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-shifttab)][(O)]] /===/      [[elisp:(org-cycle)][| =Select This IIM's FP Parameters= | ]]                 /====/ [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (org-shifttab) (org-content))][(C)]] /====/
+**  ======================================================================================================|
+**  |                               *IIM Bash Editor For: [[file:./iimsIn/paramsFp][./iimsIn/paramsFp]]*                              |
+**  +-----------------------------------------------------------------------------------------------------|
+**  |  /Par Name/        |    /Parameter Value/      |          /Parameter Description/              |info|
+**  +-----------------------------------------------------------------------------------------------------|
+**  | [[elisp:(fp:node:menuBox:popupMenu:iimBash:trigger "/opt/public/osmt/bin/Panels/iimBashGrouped.sh/iimsIn/paramsFp/firstName" 'iim:bash:cmnd:params/dict/bufLoc)][:firstName]]        *|                           |* User First Name -- Also in ByName context    |[[info]]|
+**  +-----------------------------------------------------------------------------------------------------|
+**  ======================================================================================================|
+** 
+####+END:    
+
+####+BEGIN: iim:bash:panel:execControlShow :mode "default"
+**  /Cmnd/::  iimBashGrouped.sh -v -n showRun   -i describe 
+** [[elisp:(org-cycle)][| ]]  [[elisp:(iim:bash:cmnd:lineExec)][<Run Cmnd>]] || [[elisp:(iim:bash:cmnd:lineExec :wrapper "echo")][<Echo Cmnd>]] || [[elisp:(iim:bash:cmnd:lineElemsShow)][Show Cmnd Line Elems]] || [[elisp:(iim:bash:cmnd:lineStrAndStore :verbosity "-v" :callTracking "-n showRun")][Full Verbosity]] || [[elisp:(iim:bash:cmnd:lineStrAndStore :verbosity "" :callTracking "")][No Verbosity]] || [[elisp:(blee:menuBox:cmndLineResultsRefresh)][Refresh Command Line]] 
+***   [[elisp:(blee:menuBox:paramsPropListClear)][Clear Params Settings]] || 
+####+END:    
+* 
+####+BEGIN: iim:bash:menuBox:iimExamples :mode "default"  :baseDir "./iimsIn/paramsFp"
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-shifttab)][(O)]] /===/      [[elisp:(org-cycle)][| =Customized Runs (IIM Examples)= | ]]                  /====/ [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (org-shifttab) (org-content))][(C)]] /====/
+** 
+[[elisp:(lsip-local-run-command-here "iimBashGrouped.sh")][iimBashGrouped.sh]] 
+**     =====[[elisp:(org-cycle)][| ]]===== ###############################  iimBashGrouped.sh  #################################
+**     =====[[elisp:(org-cycle)][| ]]===== #################  Groups IIM Management  #################
+[[elisp:(lsip-local-run-command-here "iimBashGrouped.sh -h -v -n showRun  -i groupedPanel")][iimBashGrouped.sh -h -v -n showRun  -i groupedPanel]] 
+[[elisp:(lsip-local-run-command-here "iimBashGrouped.sh -h -v -n showRun  -i groupedPanelPreps")][iimBashGrouped.sh -h -v -n showRun  -i groupedPanelPreps]] 
+
+####+END:
+* 
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(org-shifttab)][(O)]]   /=====/   [[elisp:(org-cycle)][| *Monitor IIM Execution* | ]]          /========/  [[elisp:(progn (org-shifttab) (org-content))][Content]]  /==========/
+* 
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(org-shifttab)][(O)]]   /=====/   [[elisp:(org-cycle)][| *IIM Execution Results* | ]]          /========/  [[elisp:(progn (org-shifttab) (org-content))][Content]]  /==========/
+* 
+*  [[elisp:(org-show-subtree)][=|=]]  [[elisp:(beginning-of-buffer)][Top]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(org-shifttab)][(O)]]   /=====/   [[elisp:(org-cycle)][| *Notes -- Status -- Evolution*  |]]   /========/  [[elisp:(progn (org-shifttab) (org-content))][Content]]  /==========/
+** 
+*
+**  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      
+**  [[elisp:(org-cycle)][| ]]  Manifest           ::   /Files Description/    [[elisp:(lsip-local-run-command-here "ls -C -F -1 | emlStdinGen -i lsToManifestStdout")][ls -C -F -1 | emlStdinGen -i lsToManifestStdout]] [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  Notes              ::   /Notes, Ideas, Tasks, Agenda/   [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  Context      ::  Module Starting Points  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  Team               ::   /Development Team/ [[elisp:(org-cycle)][| ]]
+**      ===================== 
+* 
+* /=======================================================================================================/
+* 
+*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *Common Footer Controls*
+####+BEGIN: bx:dblock:org:parameters :types "agenda"
+#+STARTUP: lognotestate
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+####+END:
+
+
+####+BEGIN: bx:dblock:bnsm:end-of-menu "basic"
+*  #Controls:  [[elisp:(blee:bnsm:menu-back)][Back]]  [[elisp:(toggle-read-only)][toggle-read-only]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Glob Vis]]  [[elisp:(delete-other-windows)][1 Win]]  [[elisp:(save-buffer)][Save]]   [[elisp:(kill-buffer)][Quit]]
+####+END:
+*  [[elisp:(org-cycle)][| ]]  Local Vars  ::                  *Org-Mode And Emacs Specific Configurations*   [[elisp:(org-cycle)][| ]]
+#+CATEGORY: iimPanel
+#+STARTUP: overview
+
+## Local Variables:
+## eval: (setq bx:iimp:iimModeArgs "")
+## eval: (bx:iimp:cmndLineSpecs :name "bxpManage.py")
+## eval: (bx:iimBash:cmndLineSpecs :name "lcntProc.sh")
+## eval: (setq bx:curUnit "lcntProc")
+## End:
