@@ -6,9 +6,13 @@ ORIGIN="
 * Revision And Libre-Halaal CopyLeft -- Part of [[http://www.by-star.net][ByStar]] -- Best Used With [[http://www.by-star.net/PLPC/180004][Blee]] or [[http://www.gnu.org/software/emacs/][Emacs]]
 "
 
-####+BEGIN: bx:dblock:bash:top-of-file :vc "cvs" partof: "bystar" :copyleft "halaal+brief"
-typeset RcsId="$Id: binsPrepExtRepo.sh,v 1.2 2017-02-14 05:42:23 lsipusr Exp $"
+####+BEGIN: bx:bash:top-of-file :vc "cvs" partof: "bystar" :copyleft "halaal+brief"
+### Args: :control "enabled|disabled|hide|release|fVar"  :vc "cvs|git|nil" :partof "bystar|nil" :copyleft "halaal+minimal|halaal+brief|nil"
+typeset RcsId="$Id: dblock-iim-bash.el,v 1.4 2017-02-08 06:42:32 lsipusr Exp $"
 # *CopyLeft*
+__copying__="
+* Libre-Halaal Software"
+#  This is part of ByStar Libre Services. http://www.by-star.net
 # Copyright (c) 2011 Neda Communications, Inc. -- http://www.neda.com
 # See PLPC-120001 for restrictions.
 # This is a Halaal Poly-Existential intended to remain perpetually Halaal.
@@ -19,15 +23,15 @@ __author__="
 "
 
 
-####+BEGIN: bx:dblock:lsip:bash:seed-spec :types "seedSubjectBinsPrepDist.sh"
+####+BEGIN: bx:bsip:bash:seed-spec :types "seedSubjectBinsPrepDist.sh"
 SEED="
-*  /[dblock]/ /Seed/ :: [[file:/opt/public/osmt/bin/seedSubjectBinsPrepDist.sh]] | 
+*  /[dblock]/ /Seed/ :: [[file:/bisos/core/bsip/bin/seedSubjectBinsPrepDist.sh]] | 
 "
 FILE="
-*  /This File/ :: /opt/public/osmt/bin/lcaSomethingBinsPrep.sh 
+*  /This File/ :: /bisos/apps/defaults/software/begin/iimBash/binsPrepExtRepo.sh 
 "
 if [ "${loadFiles}" == "" ] ; then
-    /opt/public/osmt/bin/seedSubjectBinsPrepDist.sh -l $0 "$@" 
+    /bisos/core/bsip/bin/seedSubjectBinsPrepDist.sh -l $0 "$@" 
     exit $?
 fi
 ####+END:
