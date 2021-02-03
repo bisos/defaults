@@ -1,0 +1,40 @@
+From: Mohsen Banan <Mohsen.Banan1@t-mobile.com>
+To: Mohsen Banan <Mohsen.Banan1@t-mobile.com>
+Subject: Testing Again -- Specify Some Subject 2
+--text follows this line--
+<#part type="text/html" disposition=inline>
+<!-- ####+BEGIN: bx:dblock:global:file-insert-process :file "../rel/thisMailing-html/index.html" :load "./dblockProcess.el" :exec "bx:dblock:body-process"  -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.09">
+
+<title>
+</title>
+</head>
+<body >
+<!--HEVEA command line is: /usr/bin/hevea -o heveaHtml-mailingEnFa/mailingEnFa.html -I /lcnt/bxdpt/hevea/macros bx-fixups.hva bx-enfa.hva bx-faen.hva framed.hva mailingEnFa.ttytex -->
+<!--CUT STYLE article--><!--CUT DEF section 1 --><p>
+[The equivalent of this html email in pdf format is also attached. The generally available version is at http://xx]
+</p><!--TOC section id="sec1" Contents-->
+<h2 id="sec1" class="section">Contents</h2><!--SEC END --><ul class="TofC"><li>
+<a href="#sec2">1  Section Title</a>
+</li></ul>
+<!--TOC section id="sec2" Section Title-->
+<h2 id="sec2" class="section">1  Section Title</h2><!--SEC END --><p>Text of section title.
+<a href="http://atgoss.nmnet.son.t-mobile.com"><span style="font-family:monospace">http://atgoss.nmnet.son.t-mobile.com</span></a><br>
+
+</p><!--CUT END -->
+<!--HTMLFOOT-->
+
+<br>
+<br>
+<!--ENDHTML-->
+<!--FOOTER--></body>
+</html>
+
+<!-- ####+END: -->
+<#part type="application/pdf" filename="../rel/thisMailing.pdf" disposition=attachment description="Pdf File">
+<#/part>
+

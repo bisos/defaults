@@ -1,0 +1,243 @@
+%%% -*- Mode: LaTeX; -*-
+%       RCS: $Id: memoFaEn.ttytex,v 1.1 2016-02-05 17:18:36 lsipusr Exp $
+
+%%%#+BEGIN: bx:dblock:lcnt:warning-intro :class "memo" :langs "fa+en"
+%{{{ DBLOCK-warning-intro
+%%%   This is a ByStar Top Level LaTeX document.
+%%%   It primarily is made of Dynamic Blocks (dblock).
+%%%   If you are not familiar with how dblock works. STOP now.
+%%%   WARNING: Any edits inside of a dblock will be overwritten.
+%%%
+%%%   Structure of a document is as follows:
+%%%
+%%%      - dblock:lcnt:warning-intro
+%%%
+%%%      - dblock:lcnt:header-begin
+%%%      - dblock:lcnt:style-params
+%%%      - dblock:lcnt:header-end
+%%%
+%%%      - dblock:lcnt:front-begin
+%%%      - dblock:lcnt:copyright
+%%%      - dblock:lcnt:front-end
+%%%
+%%%      - dblock:lcnt:main-begin
+%%%        List of Inputs
+%%%      - dblock:lcnt:main-end
+%}}} DBLOCK-warning-intro
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:header-begin :class "memo" :langs "fa+en"
+%{{{ DBLOCK-header-begin
+
+\documentclass{article}
+
+\usepackage{hevea} 
+%HEVEA\usepackage[utf8]{inputenc}
+
+\htmlhead{
+\begin{rawhtml}
+<DIV dir="rtl">
+\end{rawhtml}
+\vspace{0.4in}
+}
+
+\htmlfoot{
+\bigskip
+\begin{rawhtml}
+</DIV>
+\end{rawhtml}
+}
+
+\usepackage{rcs}
+\usepackage{color}
+
+\usepackage{hyperref}
+\usepackage{url}
+
+\usepackage{fancyhdr}
+
+\usepackage{graphicx}
+
+\usepackage{xepersian}
+
+\settextfont[Scale=1]{XB Zar}
+%\newfontfamily\arabicfontsf[Script=Arabic,Scale=1]{B Nazanin}%
+
+\setlatintextfont{Times New Roman}
+\setdigitfont[Scale=1]{XB Zar}
+
+%}}} DBLOCK-header-begin
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:style-params :class "memo" :langs "fa+en"
+%{{{ DBLOCK-style-params
+% ===== STYLE PARAMETERS =====
+
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1} {key2} {key3}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true ,       % false: boxed links; true: colored links
+    linkcolor=darkblue,     % color of internal links
+    citecolor=red,          % color of links to bibliography
+    filecolor=darkgreen,    % color of file links
+    urlcolor=darkred        % color of external links
+}
+
+
+\setlength{\textwidth}{6.0in}
+\addtolength{\oddsidemargin}{-0.75in}
+\addtolength{\evensidemargin}{-0.75in}
+
+\topmargin      0.00 in
+\textheight     8.50 in
+
+\setlength{\textwidth}{16.5cm}
+\setlength{\topmargin}{-0.3in}
+\setlength{\textheight}{8.5in}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields  
+\fancyhead[C]{{\small  {\tt Work In Progress}}}
+\renewcommand{\headrulewidth}{0pt} % no line in header area
+\fancyfoot{} % clear all footer fields
+\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{{\tt --EARLY DRAFT DOCUMENT--\hspace{20 mm} --Reflects Work In Progress-- }}
+
+
+\parindent 0 true pc
+
+\addtolength{\parskip}{5pt}
+
+%}}} DBLOCK-style-params
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:header-end :class "memo" :langs "fa+en"
+%{{{ DBLOCK-header-end
+
+\begin{document}
+%}}} DBLOCK-header-end
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:front-begin :class "memo" :langs "fa+en"
+%{{{ DBLOCK-front-begin
+%}}} DBLOCK-front-begin
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:copyright :class "memo" :langs "fa+en"
+%{{{ DBLOCK-copyright
+%}}} DBLOCK-copyright
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:front-end :class "memo" :langs "fa+en"
+%{{{ DBLOCK-frontend
+%}}} DBLOCK-front-end
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:main-begin :class "memo" :langs "fa+en"
+%{{{ DBLOCK-main-begin
+
+\thispagestyle{empty}
+
+\vspace*{-0.5in}
+
+\begin{latin}
+\begin{flushleft}
+{\Huge {\bf Mohsen Banan}}
+\end{flushleft}
+\end{latin}
+
+\vspace*{-.5in}
+
+\begin{flushright}
+{\Huge {\bf محسن بنان}}
+\end{flushright}
+
+\vspace*{-.15in}
+
+\makebox[6.5in]{\hrulefill}
+
+\vspace*{-.15in}
+
+\begin{latin}
+\begin{flushleft}
+{\small 3610 164th Place SE}\\
+{\small Bellevue, WA 98008}\\
+{\small Phone: +1 (425) 644-8026}\\
+{\small E-mail: desk@mohsen.1.banan.byname.net}
+\end{flushleft}
+\end{latin}
+
+\noindent\begin{tabular}{ll}
+تاريخ:      & ۱۰ مرداد ۱۳۹۰\\
+به:        &  شما\\
+از طرف:      & محسن بنان\\
+مطلب:   & انچه که بايد گُفته شود.\\
+\\
+\end{tabular}
+
+%\bigskip
+%}}} DBLOCK-main-begin
+%%%#+END:
+
+
+%(setq bidi-paragraph-direction 'right-to-left)
+%(setq bidi-paragraph-direction 'left-to-right)
+
+با سلام،
+
+محترما تقاظا دارد نسبت به ... اقدام معمول دارند.
+
+و اينجا يک جمله مخلوط  \lr{Intellectual Property Rights} با ادامه آن.
+
+
+\begin{latin}
+\begin{verbatim}
+Mohsen BANAN
+3610 164th Place SE -- Bellevue, WA 98008
+Mobile: +1-425-503-9426
+Desk: +1-425-644-8026
+email: forms@mohsen.1.banan.byname.net
+\end{verbatim}
+\end{latin}
+
+متشکرم.
+
+ارادتمند،
+
+محسن بنان
+
+
+%%%#+BEGIN: bx:dblock:lcnt:main-end :class "memo" :langs "fa+en"
+%{{{ DBLOCK-main-end
+
+\end{document}
+%}}} DBLOCK-main-end
+%%%#+END:
+
+%%%#+BEGIN: bx:dblock:lcnt:latex:end-of-file :class "memo" :langs "fa+en"
+%{{{ DBLOCK-end-of-file
+%local variables:
+%major-mode: latex-mode
+%folded-file: nil
+%fill-column: 90
+% end:
+%}}} DBLOCK-end-of-file
+%%%#+END:
