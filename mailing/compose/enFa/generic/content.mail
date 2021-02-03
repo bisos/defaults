@@ -1,0 +1,11 @@
+From: Mohsen Banan <first.last@example.com>
+To: Mohsen Banan <first.last@example.com>
+Subject: Specify Some Subject 2
+--text follows this line--
+<#part type="text/html" disposition=inline>
+<!-- ####+BEGIN: bx:dblock:global:file-insert-process :file "../rel/thisMailing-html/index.html" :load "./dblockProcess.el" :exec "bx:dblock:body-process" 
+
+<!-- ####+END: -->
+<#part type="application/pdf" filename="../rel/thisMailing.pdf" disposition=attachment description="Pdf File">
+<#/part>
+

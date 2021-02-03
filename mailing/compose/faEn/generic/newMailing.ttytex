@@ -229,9 +229,6 @@ Signature comes here.
 
 % \section{Section Title Edited}
 
-% Text of section title.
-%           \url{http://atgoss.nmnet.son.t-mobile.com}\\
-
 %%%#+BEGINNOT: bx:dblock:lcnt:main-end :class "memo" :langs "en+fa"
 \begin{comment}
 *  [[elisp:(org-cycle)][| ]]  *End Document*                              ::  [[elisp:(beginning-of-buffer)][Top]]  [[elisp:(delete-other-windows)][(1)]]  [[elisp:(org-cycle)][| ]]

@@ -52,7 +52,9 @@
 *      IIMs Info     ::  [[elisp:(lsip-local-run-command-here "pwd")][pwd]] | [[elisp:(lsip-local-run-command-here "empnaProc.sh")][empnaProc.sh]] | [[file:empnaProc.sh][Visit]]
 *      ================
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Select Smtp Submit*  
-*      Smtp Submit   ::  [[elisp:(set-smtp 'smtp "mail.t-mobile.com" 25 nil nil)][mail.t-mobile.com]]  [[elisp:(progn (server-start) (lsip-local-run-command "cd /acct/employee/lsipusr/BUE/mailings/com/t-mobile; mailingProc.sh -i treeRecurse objectAutoLoad"))][(Start Initialize)]] [[elisp:(find-file "/acct/employee/lsipusr/BUE/mailings/com/t-mobile")][(Edit)]] NOTYET-Visit "*trace of SMTP Session*" 
+*      Smtp Submit   ::  [[elisp:(set-smtp 'smtp "mail.example.com" 25 nil nil)][mail.example.com]] [[elisp:(progn (server-start) (lsip-local-run-command "cd /acct/employee/lsipusr/BUE/mailings/com; mailingProc.sh -i treeRecurse objectAutoLoad"))][(Start Initialize)]]  [[elisp:(find-file "/acct/employee/lsipusr/BUE/mailings/com")][(Edit)]]
+
+NOTYET-Visit "*trace of SMTP Session*"
 *      ================
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Visit/Edit Mailing Content*
 *  [[elisp:(org-cycle)][| ]]  StaticContent ::  Description  [[elisp:(org-cycle)][| ]]
@@ -75,5 +77,5 @@
 ####+END:
 
 * Parameters:
-#+CATEGORY: t-mobile
+#+CATEGORY: tbd
 #+STARTUP: overview

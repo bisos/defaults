@@ -2,7 +2,7 @@
 *  #Controls:   [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] 
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:this-node "basic"
-*  #This Node: /de/bx/nne/sonDev/dists/auth/tmo/eia/glindaNeighborBlock/lte/com/Panel.org
+*  #This Node: 
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:menu-stack "basic"
 
@@ -52,7 +52,8 @@
 *      IIMs Info     ::  [[elisp:(lsip-local-run-command-here "pwd")][pwd]] | [[elisp:(lsip-local-run-command-here "empnaProc.sh")][empnaProc.sh]] | [[file:empnaProc.sh][Visit]]
 *      ================
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Select Smtp Submit*  
-*      Smtp Submit   ::   [[elisp:(progn (server-start) (lsip-local-run-command "cd /acct/employee/lsipusr/BUE/mailings/com/t-mobile; mailingProc.sh -i treeRecurse objectAutoLoad"))][(Start Initialize)]] [[elisp:(find-file "/acct/employee/lsipusr/BUE/mailings/com/t-mobile")][(Edit)]] NOTYET-Visit "*trace of SMTP Session*" 
+*      Smtp Submit   ::   [[elisp:(progn (server-start) (lsip-local-run-command "cd /acct/employee/lsipusr/BUE/mailings/com; mailingProc.sh -i treeRecurse objectAutoLoad"))][(Start Initialize)]]  [[elisp:(find-file "/acct/employee/lsipusr/BUE/mailings/com")][(Edit)]]
+NOTYET-Visit "*trace of SMTP Session*"
 *      ================
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Visit/Edit Mailing Content*
 *  [[elisp:(org-cycle)][| ]]  StaticContent ::  Description  [[elisp:(org-cycle)][| ]]
