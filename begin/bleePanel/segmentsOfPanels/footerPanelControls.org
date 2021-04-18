@@ -1,0 +1,4 @@
+####+BEGIN: blee:bxPanel:footerPanelControls
+* [[elisp:(show-all)][->]]( -------------------------------------------------------------------------------------------------- 
+* /Footer Controls/ ::  [[elisp:(blee:bnsm:menu-back)][Back]]  [[elisp:(toggle-read-only)][toggle-read-only]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Glob Vis]]  [[elisp:(delete-other-windows)][1 Win]]  [[elisp:(save-buffer)][Save]]   [[elisp:(kill-buffer)][Quit]]  [[elisp:(org-shifttab)][<-]]) E|
+####+END

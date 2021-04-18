@@ -11,3 +11,5 @@ fi
 # Ubuntu make installation of Ubuntu Make binary symlink
 # PATH=/acct/employee/lsipusr/.local/share/umake/bin:$PATH
 
+#
+umask 0002

@@ -1,0 +1,6 @@
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :rawTitle t :title "*OVERVIEW*" :anchor "Panel" :extraInfo "Summary"
+* [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(org-cycle)][| *OVERVIEW*: |]] <<Panel>> Summary  [[elisp:(org-shifttab)][<)]] E|
+####+END
+** 
+** Overview Comes Here.
+** 

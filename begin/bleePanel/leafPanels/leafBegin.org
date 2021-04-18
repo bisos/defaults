@@ -1,0 +1,30 @@
+* B|
+####+BEGIN: bxPanel:common/title-plus
+####+END
+####+BEGIN: blee:bxPanel:topPanelControls
+####+END
+####+BEGIN: blee:bxPanel:title :panelType "=bxPanel=" :title "auto"
+####+END:
+####+BEGIN: blee:bxPanel:terseTreeNavigator :panelsList "bxPanel"
+####+END
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :title "Overview" :anchor "Panel"
+####+END
+** 
+** Overview Comes Here.
+** B|
+####+BEGIN: blee:bxPanel:separator :outLevel 1
+####+END
+####+BEGIN: blee:bxPanel:evolution
+####+END
+####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :title "Notes, Ideas, Tasks, Agenda" :anchor "Tasks"
+####+END
+*** TODO Some Idea
+####+BEGIN: blee:bxPanel:evolutionMaintainers
+####+END
+* B|
+####+BEGIN: blee:bxPanel:footerPanelControls
+####+END
+####+BEGIN: blee:bxPanel:footerOrgParams
+####+END
+####+BEGIN: blee:bxPanel:footerEmacsParams :primMode "org-mode"
+####+END

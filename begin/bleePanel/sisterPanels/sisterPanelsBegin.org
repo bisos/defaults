@@ -1,0 +1,4 @@
+####+BEGIN: blee:bxPanel:sisterPanels :model "auto"
+*   Sister Panels   ::[[elisp:(blee:bnsm:panel-goto "../topOfPanels")][topOfPanels]] || [[elisp:(blee:bnsm:panel-goto "../sisterPanels")][sisterPanels]] || [[elisp:(blee:bnsm:panel-goto "../segmentsOfPanels")][segmentsOfPanels]] || [[elisp:(blee:bnsm:panel-goto "../nodePanels")][nodePanels]] || [[elisp:(blee:bnsm:panel-goto "../leafPanels")][leafPanels]] || [[elisp:(blee:bnsm:panel-goto "../bottomOfPanels")][bottomOfPanels]] || [[elisp:(blee:bnsm:panel-goto "../basicPanels")][basicPanels]] || 
+*   =General=         ::  [[elisp:(blee:bnsm:panel-goto "./main/")][Main]] ||
+####+END

@@ -1,0 +1,10 @@
+####+BEGIN: blee:bxPanel:footerEmacsParams
+* [[elisp:(show-all)][->]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:footerEmacsParams)][(dblock-func]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]     [[elisp:(org-cycle)][| *= Emacs Local Params: =* | ]]
+;; Local Variables:
+;; eval: (make-local-variable '~selectedSubject)
+;; eval: (setq ~selectedSubject "noSubject")
+;; eval: (bx:load-file:ifOneExists "./panelActions.el")
+;; End:
+
+####+END
