@@ -363,6 +363,10 @@ export PATH=".:${PATH}"
 
 eval `dbus-launch` ; export DBUS_SESSION_BUS_ADDRESS
 
+# Where is the best for this? Shoult be subjected to realms and git revision
+git config --global init.defaultBranch master
+git config --global pull.rebase false
+
 # Local Variables:
 # eval: (shell-script-mode)
 # End:
