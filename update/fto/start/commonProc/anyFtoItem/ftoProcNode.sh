@@ -16,7 +16,7 @@ SEED="
 *  /[dblock]/ /Seed/ :: [[file:/bisos/core/bsip/bin/seedFtoCommon.sh]] | 
 "
 FILE="
-*  /This File/ :: /bisos/git/auth/bxRepos/ftoProc.sh 
+*  /This File/ :: /bisos/git/auth/bxRepos/bisos/bsip4/ftoProc.sh 
 "
 if [ "${loadFiles}" == "" ] ; then
     /bisos/core/bsip/bin/seedFtoCommon.sh -l $0 "$@" 
@@ -57,20 +57,6 @@ _CommentEnd_
 ####+BEGIN: bx:dblock:ploneProc:bash:nodesList :types ""
 # {{{ DBLOCK-nodesList
 nodesList="
-bisos
-bxGenesis
-bxlcnt
-efficientProtocols
-blee
-bxexamples
-unisos-pip
-blee-pip
-unisos
-ByStar
-blee-binders
-mohsenBanan
-roPerf-pip
-bisos-pip
 "
 # }}} DBLOCK-nodesList
 ####+END:
@@ -119,6 +105,14 @@ ftoProc.sh -v -n showRun -i ftoWalkRunCmnd pypiProc.sh -i pkgInstall edit /bisos
 ftoProc.sh -v -n showRun -i ftoWalkRunCmnd pypiProc.sh -i pkgInstall edit sys
 ftoProc.sh -v -n showRun -i ftoWalkRunCmnd icmPlayer.sh -i clean ftoProc.sh pypiProc.sh
 ftoProc.sh -v -n showRun -i ftoWalkRunCmnd icmPlayer.sh -i pkgedPrep ftoProc.sh pypiProc.sh
+$( examplesSeperatorSection "Identify And Expans Tabs" )
+find . -type f -print | grep -v '/\.git/'
+find . -type f -print | grep -v '/\.git/' | tabsExpand.sh -i filesHaveTabsReport
+find . -type f -print | grep -v '/\.git/' | tabsExpand.sh -i filesHaveTabsReport | grep -v ==FOUND==
+find . -type f -print | grep -v '/\.git/' | tabsExpand.sh -i filesHaveTabsReport | grep ==FOUND==
+find . -type f -print | grep -v '/\.git/' | tabsExpand.sh -i expandTabs
+find . -type f -print | grep -v '/\.git/' | egrep '\.tabs\$'
+find . -type f -print | grep -v '/\.git/' | egrep '\.tabs\$' | xargs /bin/rm
 $( examplesSeperatorChapter "Under Files Update" )
 ftoProc.sh -v -n showRun -i updateUnderFilesTo  ${ftoProcNodeStartTemplate} ftoProc.sh
 ftoProc.sh -v -n showRun -i updateUnderFilesTo  ${pypiProcStartTemplate} pypiProc.sh 
@@ -156,15 +150,15 @@ _EOF_
     local underFilesName="$2"
 
     if [ ! -f "${updateToFile}" ] ; then
-	EH_problem "Bad Usage Missing ${updateToFile}"
-	lpReturn
+        EH_problem "Bad Usage Missing ${updateToFile}"
+        lpReturn
     fi
 
     local underFilesList=$(find . -type f -print | egrep "/${underFilesName}"'$')
 
     for each in ${underFilesList} ; do
-	opDo cp ${updateToFile} ${each} 
-	opDo bx-dblock -i dblockUpdateFile ${each}
+        opDo cp ${updateToFile} ${each} 
+        opDo bx-dblock -i dblockUpdateFile ${each}
     done
 
     lpReturn
