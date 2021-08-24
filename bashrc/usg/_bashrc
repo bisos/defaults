@@ -4,18 +4,23 @@
 # Initial template for this .bashrc file is at:
 #  /bisos/apps/defaults/bashrc/usg/_bashrc
 #
+# .bashrc is updated using:
+# usgAcctManage.sh -i acctBase_bashrcUpdate bystar
+#
+# User specific edits to .bashrc should be done in user Realm BPOs. NOT HERE.
+#
 # See: /bisos/panels/bisos/core/bisosAccts/fullUsagePanel-en.org
 #      for description and design.
 #
 
-# Overview: This script is based on the model of
-#            BISOS-gatherers. Where a pyramid hierarchy of
+# Overview:  This script is based on the model of
+#            BISOS-Realms-gatherers. Where a pyramid hierarchy of
 #            customization information in combined together.
 #            Customization information is specified outside of this
 #            file. This file specifies what aspects of the customization
 #            should be activated.
 #
-#   Customization Hierarchies:
+#   Customization Realms Hierarchies:
 #       collective::  /bisos/gatherer/active/collective/bashrc/usg/aProf.sh
 #       district::    /bisos/gatherer/active/district/bashrc/usg/aProf.sh   
 #       site::        /bisos/gatherer/active/site/bashrc/usg/aProf.sh
@@ -23,18 +28,18 @@
 #       user::        /bisos/gatherer/active/user/bashrc/usg/aProf.sh
 #
 #   Phases:
-#	Phase 1: Load facilities needed for processing of configuration files.
+#       Phase 1: Load facilities needed for processing of configuration files.
 #       Phase 2: Load environment specific config information
-#   	Phase 3: Run environment specific config code 
+#       Phase 3: Run environment specific config code 
 #
 #
 
 # A non-interactive shell should not source this .bashrc file.
 # If not running interactively, don't do anything
 case $- in
-     *i*) ;;	     		    
+     *i*) ;;                        
      *) # printf "E: non-interactive invocation detected -- sourcing of .bashrc skipped\n";
-     return;;	
+     return;;   
 esac
 
 #set +x
@@ -70,13 +75,13 @@ function loadFileWhenAvailable {
    local scope=$1
    local fileName=$2
    local justFileName=$( FN_nonDirsPart ${fileName} )
-   if [ -f ${fileName} ] ; then		
-       . ${fileName}	       
+   if [ -f ${fileName} ] ; then         
+       . ${fileName}           
        perhapsEcho "Loading ${scope} Policy: ${justFileName}"
    else
        perhapsEcho "Skipping ${scope} Policy: ${justFileName}"
    fi
-}	
+}       
 
 loadFileWhenAvailable collective  /bisos/gatherer/active/collective/bashrc/usg/aProf.sh
 loadFileWhenAvailable district    /bisos/gatherer/active/collective/bashrc/usg/aProf.sh
@@ -293,7 +298,7 @@ export ENV="$ENVIRON"
 
 perhapsEcho "Local KSH Setup for ${acctName}"
 
-umask 002
+umask 0002
 
 if [ ${TERM} != emacs ] ; then set -o emacs; fi
 
@@ -304,14 +309,14 @@ hostIdForPrompt=$( uname -n )
 
 case ${hostIdForPrompt} in
     "intra"|"INTRA"|"genesis")
-	if [ "${BoxName}_" == "UnAssigned_" -o "${BoxName}_" == "_" ] ; then
-	  hostIdForPrompt="${hostIdForPrompt}-"
-	else
-	    hostIdForPrompt="${BoxName}_"
+        if [ "${BoxName}_" == "UnAssigned_" -o "${BoxName}_" == "_" ] ; then
+          hostIdForPrompt="${hostIdForPrompt}-"
+        else
+            hostIdForPrompt="${BoxName}_"
         fi
        ;;
     *)
-	  hostIdForPrompt="${hostIdForPrompt}-"
+          hostIdForPrompt="${hostIdForPrompt}-"
        ;;
   esac
 
@@ -359,6 +364,11 @@ alias ossh='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 '
 unset G_emacsServerPid
 export G_emacsServerPid=$(ps ho ppid $$)
 
+# NOTYET, this belongs in the collective
+if [ -d /bisos/pipx/bin ] ; then
+    export PATH="${PATH}:/bisos/pipx/bin"
+fi
+
 export PATH=".:${PATH}"
 
 eval `dbus-launch` ; export DBUS_SESSION_BUS_ADDRESS
@@ -366,7 +376,3 @@ eval `dbus-launch` ; export DBUS_SESSION_BUS_ADDRESS
 # Where is the best for this? Shoult be subjected to realms and git revision
 git config --global init.defaultBranch master
 git config --global pull.rebase false
-
-# Local Variables:
-# eval: (shell-script-mode)
-# End:
