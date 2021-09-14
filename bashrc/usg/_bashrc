@@ -58,7 +58,7 @@ bsipBase="/bisos/core/bsip"
 if [ -d "${bsipBase}" ] ; then
   export OSMTROOT="${bsipBase}"
   . ${bsipBase}/bin/opConfig.sh
-  . ${bsipBase}/lib/ocp-lib.sh 
+  . ${bsipBase}/lib/ocp-lib.sh
 fi
 
 if [[ ${aProfVerboseLevel} -gt 0 ]] ; then
@@ -266,15 +266,17 @@ aProfRunOrdered ucbFeatures
 # bisosBase Configuration
 #
 
-aProf_bsip_bisos
+aProf_path_bisos
 
-aProf_venvPy2_bisos
+# aProf_bsip_bisos
 
-aProf_venvPy2Dev_bisos
+# aProf_venvPy2_bisos
 
-aProf_venvPy3_bisos
+# aProf_venvPy2Dev_bisos
 
-aProf_venvPy3Dev_bisos
+# aProf_venvPy3_bisos
+
+# aProf_venvPy3Dev_bisos
 
 #
 # And End It With A Period
@@ -365,8 +367,10 @@ unset G_emacsServerPid
 export G_emacsServerPid=$(ps ho ppid $$)
 
 # NOTYET, this belongs in the collective
-if [ -d /bisos/pipx/bin ] ; then
-    export PATH="${PATH}:/bisos/pipx/bin"
+if [ -d /bisos/pipx ] ; then
+    # export PATH="${PATH}:/bisos/pipx/bin"
+    export PIPX_HOME=/bisos/pipx
+    export PIPX_BIN_DIR=/bisos/pipx/bin
 fi
 
 export PATH=".:${PATH}"
