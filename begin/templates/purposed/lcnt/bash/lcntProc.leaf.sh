@@ -17,15 +17,15 @@ __author__="
 * Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 "
 
-####+BEGIN: bx:dblock:lsip:bash:seed-spec :types "seedLcntProc.sh"
+####+BEGIN: bx:bisos:bash:seed-spec :types "/bisos/core/lcnt/bin/seedLcntProc.sh"
 SEED="
-*  /[dblock]/ /Seed/ :: [[file:/opt/public/osmt/bin/seedLcntProc.sh]] | 
+*  /[dblock]/ /Seed/ :: [[file:/bisos/core/lcnt/bin/seedLcntProc.sh]] |
 "
 FILE="
-*  /This File/ :: /acct/employee/lsipusr/BUE/mailings/statics/tmp2/lcntProc.sh 
+*  /This File/ :: /bisos/git/auth/bxRepos/bisos/defaults/begin/templates/purposed/lcnt/bash/lcntProc.leaf.sh
 "
 if [ "${loadFiles}" == "" ] ; then
-    /opt/public/osmt/bin/seedLcntProc.sh -l $0 "$@" 
+    /bisos/core/lcnt/bin/seedLcntProc.sh -l $0 "$@"
     exit $?
 fi
 ####+END:
