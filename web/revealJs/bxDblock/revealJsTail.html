@@ -1,0 +1,83 @@
+
+        <script src="node_modules/reveal.js/dist/reveal.js"></script>
+        <script src="node_modules/reveal.js/plugin/zoom/zoom.js"></script>
+        <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+        <script src="node_modules/reveal.js/plugin/search/search.js"></script>
+        <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+        <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+
+        <script src="node_modules/reveal.js-plugins/menu/menu.js"></script>
+
+        <script src="node_modules/reveal.js-plugins/audio-slideshow/plugin.js"></script>
+
+        <script src="node_modules/reveal.js-plugins/customcontrols/plugin.js"></script>
+
+        <script>
+          // Full list of configuration options available here:
+          // https://github.com/hakimel/reveal.js#configuration
+          Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            mouseWheel: true,
+            slideNumber: "c/t",
+            showNotes: false,
+            hash: true,
+
+            width: 960,
+            height: 540,
+
+            // Factor of the display size that should remain empty around the content
+            margin: 0.03,
+
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0.2,
+            maxScale: 2.0,
+
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+        
+            audio: {
+              prefix: 'audio/',
+              suffix: '.ogg',
+              defaultDuration: 5,
+              textToSpeechURL: null,
+              advance: 500,
+              autoplay: false,
+              defaultNotes: true,
+              defaultText: false,
+              playerOpacity: 0.2,
+            },
+
+            menu: {
+              markers: true,
+              side: 'left',
+              openButton: true,
+              openSlideNumber: true,
+              number: true,
+              titleSelector: 'h1, h2, h3, h4, h5, h6',
+              custom: [
+                { title: 'ByStar', icon: '<i class="fa fa-external-link">', src: 'links.html' },
+                { title: 'Hints', icon: '<i class="fa fa-external-link">', src: 'links.html' },                
+                { title: 'About', icon: '<i class="fa fa-info">', content: '<p>Created with BISOS, XeLaTeX-Beamer, HaVeA, reveal.js</p>' }
+              ]
+            },
+
+            customcontrols: {
+              controls: [
+                {
+                  id: 'toggle-overview',
+                  title: 'Toggle overview (O)',
+                  icon: '<i class="fa fa-th"></i>',
+                  action: 'Reveal.toggleOverview();'
+                } 
+              ]
+            },
+        
+            plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight, 
+                       RevealMenu, RevealCustomControls, RevealAudioSlideshow ],
+          });
+        </script>
+
+  </body>
+</html>

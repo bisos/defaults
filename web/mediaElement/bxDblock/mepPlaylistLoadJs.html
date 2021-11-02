@@ -1,0 +1,25 @@
+	<script src="/mediaelement/mep-feature-playlist.js"></script>
+	<link type="text/css" rel="stylesheet" href="/mediaelement/mep-feature-playlist.css" />
+
+<script>
+    $(function(){
+        $('video,audio').mediaelementplayer({
+                   loop: true,
+        shuffle: true,
+        playlist: true,
+        audioHeight: 30,
+        playlistposition: 'bottom',
+        features: ['playlistfeature', 'prevtrack', 'playpause', 'nexttrack', 'loop', 'shuffle', 'playlist', 'current', 'progress', 'duration', 'volume'],
+            keyActions: []
+        });
+
+ 
+
+    });
+
+</script>
+
+
+<style id="jsbin-css">
+
+</style>

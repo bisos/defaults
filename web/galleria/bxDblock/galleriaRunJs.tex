@@ -1,0 +1,29 @@
+\begin{rawhtml}
+   <script>
+
+
+    // Load the twelve theme
+    //Galleria.loadTheme('galleria.twelve.js');
+
+    /*
+      Galleria.configure({
+      thumbnails: 'lazy'
+      });
+    */
+    
+
+    // Initialize Galleria
+    Galleria.run('#galleria', {
+	debug: true,
+	data_source: data,
+	autoplay: 7000, // will move forward every 7 seconds
+	thumbnails: true,  // thumbnails: 'lazy',
+	pauseOnInteraction: true,
+	carousel: true, // Not a Slider model
+	transition: 'flash' // fade | flash | pulse | slide
+    });
+
+    // Galleria.lazyLoad();
+
+    </script>
+\end{rawhtml}
