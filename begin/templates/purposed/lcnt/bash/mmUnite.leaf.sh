@@ -17,15 +17,15 @@ __author__="
 * Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 "
 
-####+BEGIN: bx:dblock:lsip:bash:seed-spec :types "seedMmUnite.sh"
+####+BEGIN: bx:bisos:bash:seed-spec :types "/bisos/core/lcnt/bin/seedMmUnite.sh"
 SEED="
-*  /[dblock]/ /Seed/ :: [[file:/opt/public/osmt/bin/seedMmUnite.sh]] | 
+*  /[dblock]/ /Seed/ :: [[file:/bisos/core/lcnt/bin/seedMmUnite.sh]] |
 "
 FILE="
-*  /This File/ :: /lcnt/lgpc/examples/permanent/bxde/en+fa/pres+art/jan161803/mmUnite.sh 
+*  /This File/ :: /bisos/git/auth/bxRepos/bisos/defaults/begin/templates/purposed/lcnt/bash/mmUnite.leaf.sh
 "
 if [ "${loadFiles}" == "" ] ; then
-    /opt/public/osmt/bin/seedMmUnite.sh -l $0 "$@" 
+    /bisos/core/lcnt/bin/seedMmUnite.sh -l $0 "$@"
     exit $?
 fi
 ####+END:

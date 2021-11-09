@@ -17,15 +17,15 @@ __author__="
 * Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 "
 
-####+BEGIN: bx:dblock:lsip:bash:seed-spec :types "seedAudioProc.sh"
+####+BEGIN: bx:bisos:bash:seed-spec :types "/bisos/core/lcnt/bin/seedAudioProc.sh"
 SEED="
-*  /[dblock]/ /Seed/ :: [[file:/opt/public/osmt/bin/seedAudioProc.sh]] | 
+*  /[dblock]/ /Seed/ :: [[file:/bisos/core/lcnt/bin/seedAudioProc.sh]] |
 "
 FILE="
-*  /This File/ :: /libre/ByStar/InitialTemplates/lcnt/dispositions/mmUniteAudio.sh 
+*  /This File/ :: /bisos/git/auth/bxRepos/bisos/defaults/begin/templates/purposed/lcnt/bash/mmUniteAudio.sh
 "
 if [ "${loadFiles}" == "" ] ; then
-    /opt/public/osmt/bin/seedAudioProc.sh -l $0 "$@" 
+    /bisos/core/lcnt/bin/seedAudioProc.sh -l $0 "$@"
     exit $?
 fi
 ####+END:
