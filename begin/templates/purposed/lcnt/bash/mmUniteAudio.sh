@@ -82,16 +82,63 @@ ${G_myName} ${extraInfo} -i fullUpdate
 ${G_myName} ${extraInfo} -i formatVerify *.wav 2>&1 | sort
 $( examplesSeperatorSection "Fireup Presentation Console and Voice Recorder" )
 pdfpc -S presentationEnFa.pdf  # One Screen
+beamerExternalExtensions.py -v 30 -i frameNamesList ../presentationEnFa.pdf
 $( examplesSeperatorSection "Initial Templates Development" )
-diff ./mmUniteAudio.sh /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteAudio.sh
-cp ./mmUniteAudio.sh /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteAudio.sh
-cp /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteAudio.sh ./mmUniteAudio.sh
+diff ./mmUniteAudio.sh /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteAudio.sh
+cp ./mmUniteAudio.sh /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteAudio.sh
+cp /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteAudio.sh ./mmUniteAudio.sh
 _EOF_
 }
 
-iimBeamerImpressiveEmacs="/de/bx/nne/dev-py/bin/iimBeamerImpressiveEmacs.py"
+iimBeamerImpressiveEmacs="beamerExternalExtensions.py"
 
 function vis_frameNamesPrepare {
+    G_funcEntry
+    function describeF {  G_funcEntryShow; cat  << _EOF_
+_EOF_
+    }
+    EH_assert [[ $# -eq 0 ]]
+
+    local silenceWavFile="/bisos/apps/defaults/audio/common/silence1Sec.wav"
+
+    local tmpWavFile=""
+
+    if [ ! -f "${silenceWavFile}" ] ; then
+        silenceWavFile="./${G_myName}_$$.wav"
+        tmpWavFile=${silenceWavFile}
+        lpDo vis_silenceGenWav 1 ${silenceWavFile}
+    fi
+
+    g_resultsCapture beamerExternalExtensions.py -v 30 -i frameNamesList ../presentationEnFa.pdf
+
+    if [ "${g_resultsExitValue}" != 0 ] ; then
+        EH_problem_g_resultsShow
+        lpReturn ${g_resultsExitValue}
+    fi
+
+    local filesList=$(echo ${g_resultsStdout} | grep -v defaultParams)
+    local isNumber='^[0-9]+$'
+
+    for thisLine in ${filesList} ; do
+        if [[ ${thisLine} =~ $isNumber ]] ; then
+            continue
+        fi
+
+        if [ ! -f "${thisLine}.wav" ] ; then
+            opDo cp ${silenceWavFile} ${thisLine}.wav
+        else
+            ANT_raw "${thisLine}.wav exists, initialization skipped"
+        fi
+    done
+
+    if [ ! -z "${tmpWavFile}" ] ; then
+        opDo /bin/rm ${tmpWavFile}
+    fi
+    
+    lpReturn
+}
+
+function vis_frameNamesPrepare%% {
     G_funcEntry
     function describeF {  G_funcEntryShow; cat  << _EOF_
 _EOF_
@@ -104,17 +151,18 @@ _EOF_
 
     typeset filesList=$( inBaseDirDo .. ${iimBeamerImpressiveEmacs} -v 30 -i frameNamesList ./presentationEnFa.pdf 2> /dev/null | grep -v defaultParams )
 
-    for thisLine in ${filesList} ; do    
-	if [ ! -f ${thisLine}.wav ] ; then
-	    #opDo touch ${thisLine}.wav
-	    opDo cp ${tmpWavFile} ${thisLine}.wav
-	fi
+    for thisLine in ${filesList} ; do
+        if [ ! -f ${thisLine}.wav ] ; then
+            #opDo touch ${thisLine}.wav
+            opDo cp ${tmpWavFile} ${thisLine}.wav
+        fi
     done
 
     opDo /bin/rm ${tmpWavFile}
-    
+
     lpReturn
 }
+
 
 function vis_frameRecordCmnd {
     G_funcEntry
@@ -123,14 +171,26 @@ _EOF_
     }
     EH_assert [[ $# -le 1 ]]
 
-    typeset filesList=$( inBaseDirDo .. ${iimBeamerImpressiveEmacs} -v 30 -i frameNamesList ./presentationEnFa.pdf 2> /dev/null | grep -v defaultParams )
+    g_resultsCapture beamerExternalExtensions.py -v 30 -i frameNamesList ../presentationEnFa.pdf
+
+    if [ "${g_resultsExitValue}" != 0 ] ; then
+        EH_problem_g_resultsShow
+        lpReturn ${g_resultsExitValue}
+    fi
+
+    local filesList=$(echo ${g_resultsStdout} | grep -v defaultParams)
+    local isNumber='^[0-9]+$'
 
     for thisLine in ${filesList} ; do
-	if [ $# -eq 0 ] ; then
-	    echo audacity ${thisLine}.wav
-	else
-	    echo '[['elisp:\(lsip-local-run-command \"audacity ${thisLine}.wav\"\)']['audacity ${thisLine}.wav']]'
-	fi
+        if [[ ${thisLine} =~ $isNumber ]] ; then
+            continue
+        fi
+
+        if [ $# -eq 0 ] ; then
+            echo audacity ${thisLine}.wav
+        else
+            echo '[['elisp:\(lsip-local-run-command \"audacity ${thisLine}.wav\"\)']['audacity ${thisLine}.wav']]'
+        fi
     done
 
     lpReturn
@@ -143,13 +203,30 @@ _EOF_
     }
     EH_assert [[ $# -eq 0 ]]
 
-    inBaseDirDo .. ${iimBeamerImpressiveEmacs} -v 30 -i frameNamesList ./presentationEnFa.pdf 2> /dev/null | grep -v defaultParams | 
-    while read thisLine ; do
-	echo mplayer ${thisLine}.wav
-	# cvlc --play-and-stop --play-and-exit ./screenCastExample.wav 
-    done
+    function processWavFile {
+        EH_assert [[ $# -eq 1 ]]
+        echo mplayer "$1"
+        # cvlc --play-and-stop --play-and-exit ./screenCastExample.wav
+    }
+    
+    g_resultsCapture beamerExternalExtensions.py -v 30 -i frameNamesList ../presentationEnFa.pdf
 
-    lpReturn
+    if [ "${g_resultsExitValue}" != 0 ] ; then
+        EH_problem_g_resultsShow
+        lpReturn ${g_resultsExitValue}
+    fi
+
+    local filesList=$(echo ${g_resultsStdout} | grep -v defaultParams)
+    local isNumber='^[0-9]+$'
+
+    for thisLine in ${filesList} ; do
+        if [[ ${thisLine} =~ $isNumber ]] ; then
+            continue
+        fi
+        lpDo processWavFile "${thisLine}.wav"
+   done
+
+     lpReturn
 }
 
 function vis_frameToMp3Length {
@@ -159,16 +236,34 @@ _EOF_
     }
     EH_assert [[ $# -eq 0 ]]
 
-    typeset filesList=$( inBaseDirDo .. ${iimBeamerImpressiveEmacs} -v 30 -i frameNamesList ./presentationEnFa.pdf 2> /dev/null | grep -v defaultParams | sort | uniq )
+    function processWavFile {
+        EH_assert [[ $# -eq 1 ]]
+        local thisLine="$1"
+        if [ -s "${thisLine}.wav" ] ; then
+            opDo ffmpeg -y -i "${thisLine}.wav" "${thisLine}.mp3"
+            typeset audioLength=$(opDo eval lcaAudioManage.sh -i mp3LengthMilliSeconds ${thisLine}.mp3)
+            opDo fileParamManage.py -v 30  -i fileParamWritePath ./${thisLine}.length  ${audioLength}
+        else
+            EH_problem "Missing ${thisLine}.wav -- Conversion and Length Skipped"
+        fi
+
+    }
+
+    g_resultsCapture beamerExternalExtensions.py -v 30 -i frameNamesList ../presentationEnFa.pdf
+
+    if [ "${g_resultsExitValue}" != 0 ] ; then
+        EH_problem_g_resultsShow
+        lpReturn ${g_resultsExitValue}
+    fi
+
+    local filesList=$(echo ${g_resultsStdout} | grep -v defaultParams)
+    local isNumber='^[0-9]+$'
 
     for thisLine in ${filesList} ; do
-	if [ -s "${thisLine}.wav" ] ; then
-	    opDo avconv -y -i "${thisLine}.wav" "${thisLine}.mp3"
-	    typeset audioLength=$(opDo eval lcaAudioManage.sh -i mp3LengthMilliSeconds ${thisLine}.mp3)
-	    opDo fileParamManage.py -v 30  -i fileParamWritePath ./${thisLine}.length  ${audioLength}
-	else
-	    EH_problem "Missing ${thisLine}.wav -- Conversion and Length Skipped"
-	fi
+        if [[ ${thisLine} =~ $isNumber ]] ; then
+            continue
+        fi
+        lpDo processWavFile "${thisLine}"
     done
 
     lpReturn
@@ -185,13 +280,13 @@ _EOF_
 
     inBaseDirDo .. ${iimBeamerImpressiveEmacs} -v 30 -i frameNamesList ./presentationEnFa.pdf 2> /dev/null | grep -v defaultParams | sort | uniq |
     while read thisLine ; do
-	if [ -s "${thisLine}.wav" ] ; then
-	    opDo echo avconv -y -i "${thisLine}.wav" "${thisLine}.mp3"
-	    #typeset audioLength=$(opDo eval lcaAudioManage.sh -i mp3LengthMilliSeconds ${thisLine}.mp3)
-	    #opDo fileParamManage.py -v 30  -i fileParamWritePath ./${thisLine}.length  ${audioLength}
-	else
-	    EH_problem "Missing ${thisLine}.wav -- Conversion and Length Skipped"
-	fi
+        if [ -s "${thisLine}.wav" ] ; then
+            opDo echo ffmpeg -y -i "${thisLine}.wav" "${thisLine}.mp3"
+            #typeset audioLength=$(opDo eval lcaAudioManage.sh -i mp3LengthMilliSeconds ${thisLine}.mp3)
+            #opDo fileParamManage.py -v 30  -i fileParamWritePath ./${thisLine}.length  ${audioLength}
+        else
+            EH_problem "Missing ${thisLine}.wav -- Conversion and Length Skipped"
+        fi
     done
 
     lpReturn
@@ -204,39 +299,39 @@ _EOF_
     }
 
     function procOne {
-	EH_assert [[ $# -eq 1 ]]
-	if [ ! -f "$1" ] ; then
-	    ANT_raw "Missing File: $1"
-	    lpReturn
-	fi
-	if [ ! -s "$1" ] ; then
-	    ANT_raw "Empty File: $1"
-	    lpReturn
-	fi
+        EH_assert [[ $# -eq 1 ]]
+        if [ ! -f "$1" ] ; then
+            ANT_raw "Missing File: $1"
+            lpReturn
+        fi
+        if [ ! -s "$1" ] ; then
+            ANT_raw "Empty File: $1"
+            lpReturn
+        fi
 
-	typeset samplingRate=$(soxi -r "$1")
+        typeset samplingRate=$(soxi -r "$1")
 
-	if [ "${samplingRate}" != 48000 ] ; then
-	    ANT_raw "Bad Sampling Rate: $1 -- ${samplingRate}"
-	else
-	    ANT_raw "Verified: $1"
-	fi
+        if [ "${samplingRate}" != 48000 ] ; then
+            ANT_raw "Bad Sampling Rate: $1 -- ${samplingRate}"
+        else
+            ANT_raw "Verified: $1"
+        fi
     }
 
     # NOTYET, Common Pattern, 
     # Put it in a library or make it be dblock or both
     if [ $# -gt 0 ] ; then
-	typeset thisOne=""
-	for thisOne in ${@} ; do
-	    procOne ${thisOne}
-	done
+        typeset thisOne=""
+        for thisOne in ${@} ; do
+            procOne ${thisOne}
+        done
     else
-	typeset thisLine=""
-	while read thisLine ; do
-	    if [ "${thisLine}" != "" ] ; then
-		procOne ${thisLine}
-	    fi
-	done
+        typeset thisLine=""
+        while read thisLine ; do
+            if [ "${thisLine}" != "" ] ; then
+                procOne ${thisLine}
+            fi
+        done
     fi
 
     lpReturn
