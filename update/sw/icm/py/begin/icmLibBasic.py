@@ -5,7 +5,7 @@
 
 ####+BEGIN: bx:icm:python:top-of-file :partof "bystar" :copyleft "halaal+minimal"
 """
-*  This file:/libre/ByStar/InitialTemplates/update/sw/icm/py/start/icmLibBasic.py :: [[elisp:(org-cycle)][| ]]
+*  This file:/bisos/apps/defaults/update/sw/icm/py/start/icmLibBasic.py :: [[elisp:(org-cycle)][| ]]
 ** is part of The Libre-Halaal ByStar Digital Ecosystem. http://www.by-star.net
 ** *CopyLeft*  This Software is a Libre-Halaal Poly-Existential. See http://www.freeprotocols.org
 ** A Python Interactively Command Module (PyICM). Part Of ByStar.
@@ -33,7 +33,7 @@ __status__ = "Production"
 
 __credits__ = [""]
 
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/update/sw/icm/py/icmInfo-mbNedaGpl.py"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/icmInfo-mbNedaGpl.py"
 icmInfo = {
     'authors':         ["[[http://mohsen.1.banan.byname.net][Mohsen Banan]]"],
     'copyright':       "Copyright 2017, [[http://www.neda.com][Neda Communications, Inc.]]",
@@ -53,7 +53,7 @@ icmInfo = {
 
 """
 * 
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/pythonWb.org"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/software/plusOrg/dblock/inserts/pythonWb.org"
 *  /Python Workbench/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(python-check (format "pyclbr %s" (bx:buf-fname))))][pyclbr]] || [[elisp:(python-check (format "pyflakes %s" (bx:buf-fname)))][pyflakes]] | [[elisp:(python-check (format "pychecker %s" (bx:buf-fname))))][pychecker (executes)]] | [[elisp:(python-check (format "pep8 %s" (bx:buf-fname))))][pep8]] | [[elisp:(python-check (format "flake8 %s" (bx:buf-fname))))][flake8]] | [[elisp:(python-check (format "pylint %s" (bx:buf-fname))))][pylint]]  [[elisp:(org-cycle)][| ]]
 ####+END:
 """
@@ -194,6 +194,6 @@ This module is part of BISOS and its primary documentation is in  http://www.by-
 """
 ####+END:
 
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/endOfFileControls.org"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/software/plusOrg/dblock/inserts/endOfFileControls.org"
 #+STARTUP: showall
 ####+END:

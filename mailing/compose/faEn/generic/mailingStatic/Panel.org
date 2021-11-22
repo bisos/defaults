@@ -22,7 +22,7 @@
 *      ================
 *      Panel Default ::   [[elisp:(bx:iimp:cmndLineSpecs :name "mailingProc.sh")][IIM Cmnd Line Defaults]]
 *      ================
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/activeDocs/common/iimp/cmndLine/py.org"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/activeDocs/common/iimp/cmndLine/py.org"
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]  /[dblock]/                  *Common Execution Control, Monitoring And Analysis*
 *  [[elisp:(org-cycle)][| ]]  Cmnd Line Ctl ::  Command Line:  [[elisp:(bx:iimp:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] |  [[elisp:(bx:iimp:cmndLineSpecs :verbosity "-v 1" :callTracking "--callTrackings monitor+ --callTrackings invoke+")][Full Verbosity]] | [[elisp:(bx:iimp:cmndLineSpecs :verbosity "-v 30" :callTracking "")][No Verbosity]] [[elisp:(org-cycle)][| ]]
 ** iimWrapper:         [[elisp:(setq bx:iimp:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimWrapper)][Any]] | [[elisp:(setq bx:iimp:iimWrapper "echo")][echo]] | [[elisp:(setq bx:iimp:iimWrapper "time")][time]] | [[elisp:(setq bx:iimp:iimWrapper "python -m cProfile -o profile.$$$(date +%s%N)")][profile]] | [[elisp:(setq bx:iimp:iimWrapper "pycallgraph  --max-depth 5 graphviz -- ")][pycallgraph]]

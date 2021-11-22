@@ -15,7 +15,7 @@ _comment_="
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]  *Common iimStandaloneLib*
 "
 
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/software/bxDblock/bash/iimStandaloneLib.bash"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/software/bxDblock/bash/iimStandaloneLib.bash"
 #
 # /opt/public/osmt/bin/iimStandaloneLib.bash is common code
 # which is included in the begining of iimStandalone modules.
@@ -369,7 +369,7 @@ _CommentEnd_
 
 
 _CommentBegin_
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/topControls.org"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/software/plusOrg/dblock/inserts/topControls.org"
 *      ================
 *  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] | [[elisp:(bx:org:run-me)][Run]] | [[elisp:(bx:org:run-me-eml)][RunEml]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
 ** /Version Control/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
@@ -385,7 +385,7 @@ _CommentEnd_
 function vis_moduleDescription {  cat  << _EOF_
 *  [[elisp:(org-cycle)][| ]]  *[Description:]*
 **  [[elisp:(org-cycle)][| ]]  Xrefs        :: *[Related/Xrefs:]*  <<Xref-Here->>  -- External Documents  [[elisp:(org-cycle)][| ]]
-**  [[elisp:(org-cycle)][| ]]  Panel        :: [[file:/libre/ByStar/InitialTemplates/activeDocs/blee/syncUpdate/virBox/fullUsagePanel-en.org::Xref-][Panel Roadmap Documentation]] [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  Panel        :: [[file:/bisos/apps/defaults/activeDocs/blee/syncUpdate/virBox/fullUsagePanel-en.org::Xref-][Panel Roadmap Documentation]] [[elisp:(org-cycle)][| ]]
 _EOF_
 }
 
@@ -490,7 +490,7 @@ _CommentBegin_
 _CommentEnd_
 
 
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/software/bxDblock/bash/iimStandaloneActions.bash"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/software/bxDblock/bash/iimStandaloneActions.bash"
 #
 # /opt/public/osmt/bin/iimStandaloneLib.bash is common code
 # which is included at the end of iimStandalone modules.

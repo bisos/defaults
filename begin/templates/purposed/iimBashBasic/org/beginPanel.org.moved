@@ -15,7 +15,7 @@
 
 ####+BEGINNOT: bx:dblock:bnsm:agenda-list
 * 
-*  Related:  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] || BxE IIMs || BSIP IIMs  
+*  Related:  [[elisp:(find-file "/bisos/apps/defaults/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] || BxE IIMs || BSIP IIMs  
 ####+END:
 * 
 * /=======================================================================================================/
@@ -36,7 +36,7 @@
 ** 
 ** [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-cycle)][| *IIM Description* | ]]  ::
 ***  [[elisp:(org-cycle)][| ]]  Xrefs         :: *[Related/Xrefs:]*  <<Xref-Here->>  -- External Documents  [[elisp:(org-cycle)][| ]]
-****  [[elisp:(org-cycle)][| ]]  Panel        :: [[file:/libre/ByStar/InitialTemplates/activeDocs/bxServices/versionControl/fullUsagePanel-en.org::Xref-VersionControl][Panel Roadmap Documentation]] [[elisp:(org-cycle)][| ]]
+****  [[elisp:(org-cycle)][| ]]  Panel        :: [[file:/bisos/apps/defaults/activeDocs/bxServices/versionControl/fullUsagePanel-en.org::Xref-VersionControl][Panel Roadmap Documentation]] [[elisp:(org-cycle)][| ]]
 ***  [[elisp:(org-cycle)][| ]]  Info          :: *[Module Description:]* [[elisp:(org-cycle)][| ]]
 ** 
 ** 

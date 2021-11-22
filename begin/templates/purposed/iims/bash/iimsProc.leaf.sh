@@ -30,7 +30,7 @@ fi
 ####+END:
 
 _CommentBegin_
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/topControls.org"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/software/plusOrg/dblock/inserts/topControls.org"
 *  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] | [[elisp:(bx:org:run-me)][Run]] | [[elisp:(bx:org:run-me-eml)][RunEml]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
 ** /Version Control/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
 
@@ -84,13 +84,13 @@ ${G_myName} ${extraInfo} -i pkgInit $(cat _selectedIim)
 ${G_myName} ${extraInfo} -i pkgInfo
 $( examplesSeperatorChapter "*Templates Development*" )
 ----  Initial Templates Development ----
-diff ./iimsProc.sh  /libre/ByStar/InitialTemplates/begin/templates/purposed/iims/bash/iimsProc.leaf.sh
-cp ./iimsProc.sh  /libre/ByStar/InitialTemplates/begin/templates/purposed/iims/bash/iimsProc.leaf.sh
-cp  /libre/ByStar/InitialTemplates/begin/templates/purposed/iims/bash/iimsProc.leaf.sh ./iimsProc.sh 
+diff ./iimsProc.sh  /bisos/apps/defaults/begin/templates/purposed/iims/bash/iimsProc.leaf.sh
+cp ./iimsProc.sh  /bisos/apps/defaults/begin/templates/purposed/iims/bash/iimsProc.leaf.sh
+cp  /bisos/apps/defaults/begin/templates/purposed/iims/bash/iimsProc.leaf.sh ./iimsProc.sh 
 ----  Initial Templates Development ----
-diff ./Panel.org /libre/ByStar/InitialTemplates/begin/templates/purposed/iims/bash/common/beginPanel.org
-cp ./Panel.org /libre/ByStar/InitialTemplates/begin/templates/purposed/iims/bash/common/beginPanel.org
-cp /libre/ByStar/InitialTemplates/begin/templates/purposed/iims/bash/common/beginPanel.org ./Panel.org 
+diff ./Panel.org /bisos/apps/defaults/begin/templates/purposed/iims/bash/common/beginPanel.org
+cp ./Panel.org /bisos/apps/defaults/begin/templates/purposed/iims/bash/common/beginPanel.org
+cp /bisos/apps/defaults/begin/templates/purposed/iims/bash/common/beginPanel.org ./Panel.org 
 _EOF_
  return
 }

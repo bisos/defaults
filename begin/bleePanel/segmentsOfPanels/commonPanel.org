@@ -4,7 +4,7 @@
 **  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]] || [[elisp:(bx:panel:variablesShow)][bx:panel:variablesShow]]  E|
 ####+END
 ####+BEGIN: blee:bxPanel:thisFile
-*  This File :: *= /libre/ByStar/InitialTemplates/activeDocs/common/bxPanels/leafPanels/basic/fullUsagepanel-en.org =* E|
+*  This File :: *= /bisos/apps/defaults/activeDocs/common/bxPanels/leafPanels/basic/fullUsagepanel-en.org =* E|
 ####+END
 ####+BEGIN: blee:bxPanel:bashControls
 *  [[elisp:(org-cycle)][|#Sh|]] :: (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]
@@ -23,8 +23,8 @@
 ####+END:
 ####+BEGIN: blee:bxPanel:relatedPanels :panelsList "bxPanel" :inFile "panelSisters.org"
 * [[elisp:(show-all)][->]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:relatedPanels)][(dblock-func]]
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]   Related Panels ::   [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]]
-*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]   Sister Panels  ::  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/bisos/webServicesDevel/fullUsagePanel-en.org")][Web Services Development]] || 
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]   Related Panels ::   [[elisp:(find-file "/bisos/apps/defaults/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]]
+*  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(beginning-of-buffer)][|^]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]   Sister Panels  ::  [[elisp:(find-file "/bisos/apps/defaults/activeDocs/bisos/webServicesDevel/fullUsagePanel-en.org")][Web Services Development]] || 
 
 * [[elisp:(org-shifttab)][<-]] [[elisp:(describe-function 'org-dblock-write:blee:bxPanel:relatedPanels)][dblock-func)]]  E|
 ####+END

@@ -22,7 +22,7 @@ SEED="
 *  /[dblock]/ /Seed/ :: [[file:/opt/public/osmt/bin/seedAudioProc.sh]] | 
 "
 FILE="
-*  /This File/ :: /libre/ByStar/InitialTemplates/lcnt/dispositions/mmUniteAudio.sh 
+*  /This File/ :: /bisos/apps/defaults/lcnt/dispositions/mmUniteAudio.sh 
 "
 if [ "${loadFiles}" == "" ] ; then
     /opt/public/osmt/bin/seedAudioProc.sh -l $0 "$@" 
@@ -32,7 +32,7 @@ fi
 
 
 _CommentBegin_
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/topControls.org"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/software/plusOrg/dblock/inserts/topControls.org"
 *      ================
 *  /Controls/:  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Vis]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(bx:org:run-me)][RunMe]] | [[elisp:(delete-other-windows)][1 Win]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]
 ** /Version Control/:  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]]
@@ -100,9 +100,9 @@ ${G_myName} ${extraInfo} -i avConvertTo360 ${oneMasterFile}
 ${G_myName} ${extraInfo} -i avConvertTo720 ${oneMasterFile}
 ${G_myName} ${extraInfo} -i avConvertTo1080 ${oneMasterFile}
 $( examplesSeperatorSection "Initial Templates Development" )
-diff ./mmUniteVideo.sh /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
-cp ./mmUniteVideo.sh /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
-cp /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh ./mmUniteVideo.sh 
+diff ./mmUniteVideo.sh /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
+cp ./mmUniteVideo.sh /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
+cp /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh ./mmUniteVideo.sh 
 _EOF_
 }
 

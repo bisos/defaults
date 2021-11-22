@@ -2,7 +2,7 @@
 *  #Controls:  [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] 
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:this-node "basic"
-*  #This Node: /libre/ByStar/InitialTemplates/activeDocs/blee/deviceAndUser/fullUsagePanel-en.org
+*  #This Node: /bisos/apps/defaults/activeDocs/blee/deviceAndUser/fullUsagePanel-en.org
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:menu-stack "basic"
 
@@ -19,7 +19,7 @@
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]
 *   =================
 *  [[elisp:(org-cycle)][| ]]  [All]         ::      /Some Description/   [[elisp:(org-cycle)][| ]]
-*   [[elisp:(blee:bnsm:panel-goto "/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/params")][BxP Parameters And Defaults Panel]]   ||  [[elisp:(blee:bnsm:panel-goto "/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/baseDirs")][Platform Base Dirs Panel]] || [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/baseDirs/disk/fullUsagePanel-en.org][Disks Management]] || [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/baseDirs/nfs/fullUsagePanel-en.org][NFS]] || [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/baseDirs/samba/fullUsagePanel-en.org][SAMBA]] 
+*   [[elisp:(blee:bnsm:panel-goto "/bisos/apps/defaults/activeDocs/bxPlatform/params")][BxP Parameters And Defaults Panel]]   ||  [[elisp:(blee:bnsm:panel-goto "/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs")][Platform Base Dirs Panel]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/disk/fullUsagePanel-en.org][Disks Management]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/nfs/fullUsagePanel-en.org][NFS]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/samba/fullUsagePanel-en.org][SAMBA]] 
 *   =================
 *        /Foldable Menus/   *[[elisp:(org-cycle)][Business: <<BizDev> -- Neda and Payk -- Job Search]]*  [[elisp:(beginning-of-buffer)][Top]]
 *   =================

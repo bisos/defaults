@@ -4,7 +4,7 @@
 **  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]] || [[elisp:(bx:panel:variablesShow)][bx:panel:variablesShow]]  E|
 ####+END
 ####+BEGIN: blee:bxPanel:thisFile
-*  This File :: *= /libre/ByStar/InitialTemplates/activeDocs/common/buePanels/topOfPanels/topOfPanelBasic.org =* E|
+*  This File :: *= /bisos/apps/defaults/activeDocs/common/buePanels/topOfPanels/topOfPanelBasic.org =* E|
 ####+END
 ####+BEGIN: blee:bxPanel:bashControls
 *  [[elisp:(org-cycle)][|#Sh|]] :: (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]

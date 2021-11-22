@@ -13,29 +13,29 @@
 **  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(lsip-local-run-command-here "echo pushd dest")][echo pushd dir]] || [[elisp:(lsip-local-run-command-here "lsf")][lsf]] || [[elisp:(lsip-local-run-command-here "pwd")][pwd]] |
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:agenda-list
-*  [[elisp:(org-cycle)][|#Marshal:|]]  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] ||  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]] || [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]] |
+*  [[elisp:(org-cycle)][|#Marshal:|]]  [[elisp:(find-file "/bisos/apps/defaults/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] ||  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]] || [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]] |
 **  #See:  [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]
 ####+END:
 *      =====================  
 *  [[elisp:(org-cycle)][| ]]  =pnlDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/commonProcTop.org"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/bxt/starts/bxtProc/auxNode/commonProcTop.org"
 *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]               /*  BxTree Common Object Panel (objectType=data) */
 *      ================
-*  [[elisp:(org-cycle)][| ]]  Related BxPanels   ::  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/bxServices/servicesManage/bxSupervision/systemd/fullUsagePanel-en.org")][SystemD]] || [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/baseDirs/fullUsagePanel-en.org][BaseDirs]] || [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/baseDirs/disk/fullUsagePanel-en.org][Disks Management]] || [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/baseDirs/nfs/fullUsagePanel-en.org][NFS]] || [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/baseDirs/samba/fullUsagePanel-en.org][SAMBA]]   [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]]  Related BxPanels   ::  [[elisp:(find-file "/bisos/apps/defaults/activeDocs/bxServices/servicesManage/bxSupervision/systemd/fullUsagePanel-en.org")][SystemD]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/fullUsagePanel-en.org][BaseDirs]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/disk/fullUsagePanel-en.org][Disks Management]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/nfs/fullUsagePanel-en.org][NFS]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/samba/fullUsagePanel-en.org][SAMBA]]   [[elisp:(org-cycle)][| ]]
 *      ================
 
 ####+END:
 *  [[elisp:(beginning-of-buffer)][Top]] =pnlDblock-Ends=   ::  [[elisp:(delete-other-windows)][(1)]] 
 *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *ftoProc.sh Invokations* 
 *  [[elisp:(org-cycle)][| ]]  =pnlDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/commonProcInvokes.org"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/bxt/starts/bxtProc/auxNode/commonProcInvokes.org"
 *      bxtStartCommon.sh  ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "echo" :name "bxtStartCommon.sh" :iif "startObjectGen" :iifArgs "auxNode")][bxtStartCommon.sh -i startObjectGen auxNode]]
-*      Begin Templates    ::  [[elisp:(dired "/libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/")][dired /libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/]]
+*      Begin Templates    ::  [[elisp:(dired "/bisos/apps/defaults/bxt/starts/bxtProc/auxNode/")][dired /bisos/apps/defaults/bxt/starts/bxtProc/auxNode/]]
 *      commonPanel.sh     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "commonProc.sh" :verbosity "" :callTracking "" :iif "" :iifArgs "")][commonProc.sh]]
 *      commonPanel.sh     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "commonProc.sh" :iif "visit" :iifArgs "")][commonProc.sh -i visit]]
 *      commonPanel.sh     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "commonProc.sh" :iif "clean" :iifArgs "")][commonProc.sh -i clean]]
-*      commonPanel.sh     ::  [[elisp:(lsip-local-run-command-here "diff ./commonProc.sh  /libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/commonProc.sh")]]
-*      commonPanel.sh     ::  [[elisp:(lsip-local-run-command-here "diff ./commonPanel.org /libre/ByStar/InitialTemplates/bxt/starts/bxtProc/auxNode/commonPanel.org")]]
+*      commonPanel.sh     ::  [[elisp:(lsip-local-run-command-here "diff ./commonProc.sh  /bisos/apps/defaults/bxt/starts/bxtProc/auxNode/commonProc.sh")]]
+*      commonPanel.sh     ::  [[elisp:(lsip-local-run-command-here "diff ./commonPanel.org /bisos/apps/defaults/bxt/starts/bxtProc/auxNode/commonPanel.org")]]
 
 ####+END:
 *  [[elisp:(beginning-of-buffer)][Top]] =pnlDblock-Ends=   ::  [[elisp:(delete-other-windows)][(1)]] 

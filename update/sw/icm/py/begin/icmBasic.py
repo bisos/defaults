@@ -32,7 +32,7 @@ __status__ = "Production"
 
 __credits__ = [""]
 
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/update/sw/icm/py/icmInfo-mbNedaGpl.py"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/icmInfo-mbNedaGpl.py"
 icmInfo = {
     'authors':         ["[[http://mohsen.1.banan.byname.net][Mohsen Banan]]"],
     'copyright':       "Copyright 2017, [[http://www.neda.com][Neda Communications, Inc.]]",
@@ -303,7 +303,7 @@ class examples(icm.Cmnd):
 
         def execLineEx(cmndStr): icm.ex_gExecMenuItem(execLine=cmndStr)
 
-        templateFile = "/libre/ByStar/InitialTemplates/update/sw/icm/py/start/icmBasic.py"
+        templateFile = "/bisos/apps/defaults/update/sw/icm/py/start/icmBasic.py"
         thisFile = __file__
 
         execLineEx("""diff {thisFile} {templateFile}""".format(thisFile=thisFile, templateFile=templateFile))
@@ -313,7 +313,7 @@ class examples(icm.Cmnd):
         return(thisOutcome)
 
     
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/G_examples.bottom.py"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/software/plusOrg/dblock/inserts/G_examples.bottom.py"
     # Intentionally Left Blank -- previously: lhip.G_devExamples(G_myName)
 
 ####+END:
@@ -434,7 +434,7 @@ g_importedCmnds = {        # Enumerate modules from which CMNDs become invokable
     'bxpBaseDir': bxpBaseDir.__file__,
 }
 
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/update/sw/icm/py/icm2.G_main.py"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/update/sw/icm/py/icm2.G_main.py"
 """
 *  [[elisp:(beginning-of-buffer)][Top]] # /Dblk-Begin/ # [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(delete-other-windows)][(1)]]    *= =Framework::= ICM main() =*
 """
@@ -512,6 +512,6 @@ g_icmMain()
 """
 ####+END:
 
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/endOfFileControls.org"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/software/plusOrg/dblock/inserts/endOfFileControls.org"
 #+STARTUP: showall
 ####+END:

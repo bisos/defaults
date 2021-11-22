@@ -12,7 +12,7 @@
 **  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:agenda-list
-*  #Marshal:  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] ||  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]]    [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]]
+*  #Marshal:  [[elisp:(find-file "/bisos/apps/defaults/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] ||  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]]    [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]]
 ####+END:
 *  [[elisp:(org-cycle)][| ]]  =iimDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
 ####+BEGIN: bx:dblock:org:doc-title :types "lcntPanel"
@@ -26,7 +26,7 @@
 ####+BEGIN: bx:dblock:pres:lcnt-related :types "lcntPanel"
 *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *PresProc Related Panels*
 *      Lcnt Doc Files     ::  [[elisp:(blee:visit-as-content-list "articleEnFa.ttytex")][CL ./articleEnFa.ttytex]] || [[elisp:(blee:visit-as-content-list "presentationEnFa.ttytex")][CL ./presentationEnFa.ttytex]] || 	
-*      Related Panels     ::  [[elisp:(blee:bnsm:panel-goto "/libre/ByStar/InitialTemplates/activeDocs/blee/lcntPublications")][Blee LCNT Panel]] | [[elisp:(blee:bnsm:panel-goto "/libre/ByStar/InitialTemplates/activeDocs/blee/screencasting")][Blee ScreenCasting Panel]] |  [[elisp:(find-file "./PresPanel.org")][Visit ./PresPanel.org]]		    
+*      Related Panels     ::  [[elisp:(blee:bnsm:panel-goto "/bisos/apps/defaults/activeDocs/blee/lcntPublications")][Blee LCNT Panel]] | [[elisp:(blee:bnsm:panel-goto "/bisos/apps/defaults/activeDocs/blee/screencasting")][Blee ScreenCasting Panel]] |  [[elisp:(find-file "./PresPanel.org")][Visit ./PresPanel.org]]		    
 *      General Info       ::  [[elisp:(lsip-local-run-command-here "pwd")][pwd]] | [[elisp:(lsip-local-run-command-here "lsf")][lsf]] | [[elisp:(lsip-local-run-command-here "ls")][ls]] | [[elisp:(lsip-local-run-command-here "lcntProc.sh -i lcntNuOut")][lcntProc.sh -i lcntNuOut]] | [[elisp:(lsip-local-run-command-here "lcntProc.sh")][lcntProc.sh]] | [[file:lcntProc.sh][Visit]] |  [[elisp:(bx:lcnt:info:base-show)][bx:lcnt:info:base-show]]		    
 *      LCNT-Info          ::  [[elisp:(dired "./LCNT-INFO")][dired ./LCNT-INFO]] | [[elisp:(lsip-local-run-command-here "lcnLcntInfo.sh")][lcnLcntInfo.sh]] | NOTYET ReName Facilities
 ####+END:
@@ -35,9 +35,9 @@
 **      IIM               ::   [[elisp:(lsip-local-run-command-here "lcntProc.sh")][lcntProc.sh]]                       [[elisp:(lsip-local-run-command-here "lcntProc.sh -i visit")][Visit]]
 **      IIM               ::   [[elisp:(lsip-local-run-command-here "presProc.sh")][presProc.sh]]                       [[elisp:(lsip-local-run-command-here "presProc.sh -i visit")][Visit]]
 *  [[elisp:(org-cycle)][| ]]  =iimDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/activeDocs/common/iimPanels/cmndLine/allBx.org"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/activeDocs/common/iimPanels/cmndLine/allBx.org"
 *  [[elisp:(org-cycle)][| ]]  [IIMs Exec Cntrl]  ::           *Common Execution Control: ByStar IIMs*  [[elisp:(org-cycle)][| ]]
-**  [[elisp:(org-cycle)][| ]]  BxP Effectives     ::   [[file:/libre/ByStar/InitialTemplates/activeDocs/bxPlatform/params/fullUsagePanel-en.org][Currents/Effective Panel]]  ||  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]] || [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]]   [[elisp:(org-cycle)][| ]]
+**  [[elisp:(org-cycle)][| ]]  BxP Effectives     ::   [[file:/bisos/apps/defaults/activeDocs/bxPlatform/params/fullUsagePanel-en.org][Currents/Effective Panel]]  ||  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]] || [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]]   [[elisp:(org-cycle)][| ]]
 *** lpCurrents Prep        [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -h -v -n showRun -i fullUpdate")][lpCurrentsAdmin.sh -i fullUpdate]]
 *** Set Current Bxo        [[elisp:(lsip-local-run-command "echo lpCurrentsAdmin.sh -h -v -n showRun -i setParam currentBystarUid ea-59043")][echo lpCurrentsAdmin.sh -i setParam currentBystarUid ea-59043]]
 **  [[elisp:(org-cycle)][| ]]  Py IIM Cmnd Ctl    ::   [[elisp:(bx:iimp:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] |  [[elisp:(bx:iimp:cmndLineSpecs :verbosity "-v 1" :callTracking "--callTrackings monitor+ --callTrackings invoke+")][Full Verbosity]] | [[elisp:(bx:iimp:cmndLineSpecs :verbosity "-v 30" :callTracking "")][No Verbosity]] [[elisp:(org-cycle)][| ]]
