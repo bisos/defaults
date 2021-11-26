@@ -7,7 +7,7 @@ ORIGIN="
 "
 
 ####+BEGIN: bx:dblock:bash:top-of-file :vc "cvs" partof: "bystar" :copyleft "halaal+minimal"
-typeset RcsId="$Id: mmUniteVideo.sh,v 1.2 2018-01-24 06:58:31 lsipusr Exp $"
+typeset RcsId="$Id: mmUniteVideo.sh,v 1.1 2018-03-24 18:02:21 lsipusr Exp $"
 __copyLeft__="
 * Copyleft:  This is a Halaal Poly-Existential. See http://www.freeprotocols.org
 "
@@ -93,6 +93,8 @@ $( examplesSeperatorSection "Video Recordings Start/Stop" )
 http://localhost:8080
 screenstudioWebClientIcm.py -v 20  -i recordingStart http://localhost:8080
 screenstudioWebClientIcm.py -v 20  -i recordingStop http://localhost:8080
+$( examplesSeperatorSection "Convert To Mp4" )
+${G_myName} ${extraInfo} -i convertMkvToMp4 ./master-bxElevPitch-fr-180317.mkv
 $( examplesSeperatorSection "Convert Master Video Files" )
 ${G_myName} ${extraInfo} -i masterVideoFilesListGet
 ${G_myName} ${extraInfo} -i avConvertTo144 ${oneMasterFile}
@@ -100,9 +102,9 @@ ${G_myName} ${extraInfo} -i avConvertTo360 ${oneMasterFile}
 ${G_myName} ${extraInfo} -i avConvertTo720 ${oneMasterFile}
 ${G_myName} ${extraInfo} -i avConvertTo1080 ${oneMasterFile}
 $( examplesSeperatorSection "Initial Templates Development" )
-diff ./mmUniteVideo.sh /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
-cp ./mmUniteVideo.sh /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
-cp /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh ./mmUniteVideo.sh 
+diff ./mmUniteVideo.sh /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
+cp ./mmUniteVideo.sh /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
+cp /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh ./mmUniteVideo.sh
 _EOF_
 }
 
@@ -246,6 +248,24 @@ _EOF_
 
     lpReturn
 }
+
+function vis_convertMkvToMp4 {
+    G_funcEntry
+    function describeF {  G_funcEntryShow; cat  << _EOF_
+_EOF_
+    }
+    EH_assert [[ $# -eq 1 ]]
+
+    local inFileName="$1"
+    local fileName=${inFileName}
+    local thisPrefix=$( FN_prefix ${fileName} )
+    local thisExtension=$( FN_extension ${fileName} )
+
+    opDo ffmpeg -i ${inFileName} -codec copy ${thisPrefix}.mp4
+
+    lpReturn
+}
+
 
 
 function vis_fullClean {
