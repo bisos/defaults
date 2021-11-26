@@ -22,7 +22,7 @@
 *      ================
 *      Cmnd Defaults ::  [[elisp:(bx:iimp:cmndLineSpecs :name "comInactivityMonitor.py")][IIMP: Cmnd Line Defaults]]
 *  [[elisp:(org-cycle)][| ]]  BxDE-Dblock-Begin ::  /BxDE-Dblock Begins/   [[elisp:(org-cycle)][| ]]
-####+BEGIN: bx:dblock:global:file-insert :file "/libre/ByStar/InitialTemplates/activeDocs/common/iimp/cmndLine/bash.org"
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/activeDocs/common/iimp/cmndLine/bash.org"
 *  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]  /Inside BxDE-Dblock [RO]/           *Bash: Common Execution Control, Monitoring And Analysis*
 *  [[elisp:(org-cycle)][| ]]  Cmnd Line Ctl ::  Command Line:  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] |  [[elisp:(bx:iimBash:cmndLineSpecs :verbosity "-v" :callTracking "-n showRun")][Full Verbosity]] | [[elisp:(bx:iimBash:cmndLineSpecs :verbosity "" :callTracking "")][No Verbosity]] [[elisp:(org-cycle)][| ]]
 ** iimWrapper:         [[elisp:(setq bx:iimBash:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimWrapper)][Any]] | [[elisp:(setq bx:iimBash:iimWrapper "echo")][echo]] | [[elisp:(setq bx:iimBash:iimWrapper "time")][time]] 

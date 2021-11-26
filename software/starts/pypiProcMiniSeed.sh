@@ -94,9 +94,9 @@ $( examplesSeperatorChapter "REAME.rst Creation" )
 pandoc --from=latex -s -t rst --toc README.tex -o README.rst
 $( examplesSeperatorChapter "pypiProc.sh Maintenance" )
 FN_fileSafeCopy ./pypiProc.sh ./pypiProc.sh.$(DATE_getTag)
-diff ./pypiProc.sh /libre/ByStar/InitialTemplates/software/starts/pypiProc.sh 
-cp ./pypiProc.sh /libre/ByStar/InitialTemplates/software/starts/pypiProc.sh
-cp /libre/ByStar/InitialTemplates/software/starts/pypiProc.sh ./pypiProc.sh 
+diff ./pypiProc.sh /bisos/apps/defaults/software/starts/pypiProc.sh 
+cp ./pypiProc.sh /bisos/apps/defaults/software/starts/pypiProc.sh
+cp /bisos/apps/defaults/software/starts/pypiProc.sh ./pypiProc.sh 
 _EOF_
  return
 }
@@ -629,7 +629,7 @@ _EOF_
 
     manifestFile="./MANIFEST.in"
 
-    opDo cp /libre/ByStar/InitialTemplates/license/lh-agpl3/lh-agpl3-LICENSE.txt  ./lh-agpl3-LICENSE.txt
+    opDo cp /bisos/apps/defaults/license/lh-agpl3/lh-agpl3-LICENSE.txt  ./lh-agpl3-LICENSE.txt
 
     FN_lineIsInFile "^include lh-agpl3-LICENSE.txt" ${manifestFile} ; thisRetVal=$?
     if [[ ${thisRetVal} -eq 0 ]] ; then

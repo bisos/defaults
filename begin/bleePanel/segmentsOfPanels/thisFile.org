@@ -1,3 +1,3 @@
 ####+BEGIN: blee:bxPanel:thisFile
-*  This File :: *= /libre/ByStar/InitialTemplates/activeDocs/common/bxPanels/leafPanels/basic/fullUsagepanel-en.org =* E|
+*  This File :: *= /bisos/apps/defaults/activeDocs/common/bxPanels/leafPanels/basic/fullUsagepanel-en.org =* E|
 ####+END

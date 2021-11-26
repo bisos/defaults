@@ -31,7 +31,7 @@ fi
 ####+END:
 
 _CommentBegin_
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/libre/ByStar/InitialTemplates/software/plusOrg/dblock/inserts/topControls.org"
+####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/software/plusOrg/dblock/inserts/topControls.org"
 *  /Controls/ ::  [[elisp:(org-cycle)][| ]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[file:Panel.org][Panel]] | [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] | [[elisp:(bx:org:run-me)][Run]] | [[elisp:(bx:org:run-me-eml)][RunEml]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] [[elisp:(org-cycle)][| ]]
 ** /Version Control/ ::  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
 
@@ -100,13 +100,13 @@ $( examplesSeperatorSection "Initial Templates Development" )
 ${G_myName} ${extraInfo} -i buildRevealPreview ./presentationEnFa.ttytex
 =====================================
 ---- EnFa - procProc.sh -- Initial Templates Development ----
-diff ./presProc.sh  /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/presProc.leaf.sh
-cp   ./presProc.sh  /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/presProc.leaf.sh
-cp /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/bash/presProc.leaf.sh ./presProc.sh
+diff ./presProc.sh  /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/presProc.leaf.sh
+cp   ./presProc.sh  /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/presProc.leaf.sh
+cp /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/presProc.leaf.sh ./presProc.sh
 ---- EnFa - Panel.org -- Initial Templates Development ----
-diff ./PresPanel.org /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/org/beginPresPanel.org
-cp   ./PresPanel.org /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/org/beginPresPanel.org
-cp /libre/ByStar/InitialTemplates/begin/templates/purposed/lcnt/org/beginPresPanel.org ./PresPanel.org 
+diff ./PresPanel.org /bisos/apps/defaults/begin/templates/purposed/lcnt/org/beginPresPanel.org
+cp   ./PresPanel.org /bisos/apps/defaults/begin/templates/purposed/lcnt/org/beginPresPanel.org
+cp /bisos/apps/defaults/begin/templates/purposed/lcnt/org/beginPresPanel.org ./PresPanel.org 
 _EOF_
 }
 
@@ -134,9 +134,9 @@ $( examplesSeperatorSection "ScreenCasting Preparations And Execution" )
 ${G_myName} ${extraInfo} -i screenCastingFullClean
 ${G_myName} ${extraInfo} -i screenCastingFullUpdate
 $( examplesSeperatorSection "Initial Templates Development" )
-diff ./presDispose.sh /libre/ByStar/InitialTemplates/lcnt/dispositions/presProc.sh
-cp ./presDispose.sh /libre/ByStar/InitialTemplates/lcnt/dispositions/presProc.sh
-cp /libre/ByStar/InitialTemplates/lcnt/dispositions/presProc.sh ./presDispose.sh  
+diff ./presDispose.sh /bisos/apps/defaults/lcnt/dispositions/presProc.sh
+cp ./presDispose.sh /bisos/apps/defaults/lcnt/dispositions/presProc.sh
+cp /bisos/apps/defaults/lcnt/dispositions/presProc.sh ./presDispose.sh  
 _EOF_
 }
 
@@ -236,7 +236,7 @@ _EOF_
 
     opDo mkdir ./audio
 
-    opDo cp /libre/ByStar/InitialTemplates/lcnt/dispositions/audioPresProc.sh ./audio
+    opDo cp /bisos/apps/defaults/lcnt/dispositions/audioPresProc.sh ./audio
 
     lpReturn
 }

@@ -33,13 +33,13 @@ function examplesHookPost {
     cat  << _EOF_
 $( examplesSeperatorTopLabel "EXTENSION EXAMPLES" )
 $( examplesSeperatorSection "commonProc.sh -- Templates Evolution" )
-diff ./commonProc.sh  /libre/ByStar/InitialTemplates/start/fto/commonProc/anyFtoItem/commonProcLeaf.sh
-cp  ./commonProc.sh  /libre/ByStar/InitialTemplates/start/fto/commonProc/anyFtoItem/commonProcLeaf.sh
-cp /libre/ByStar/InitialTemplates/start/fto/commonProc/anyFtoItem/commonProcLeaf.sh ./commonProc.sh  
+diff ./commonProc.sh  /bisos/apps/defaults/start/fto/commonProc/anyFtoItem/commonProcLeaf.sh
+cp  ./commonProc.sh  /bisos/apps/defaults/start/fto/commonProc/anyFtoItem/commonProcLeaf.sh
+cp /bisos/apps/defaults/start/fto/commonProc/anyFtoItem/commonProcLeaf.sh ./commonProc.sh  
 $( examplesSeperatorSection "commonPanel.org -- Templates Evolution" )
-diff ./commonPanel.org  /libre/ByStar/InitialTemplates/start/fto/commonProc/anyFtoItem/commonPanel.org
-cp ./commonPanel.org /libre/ByStar/InitialTemplates/start/fto/commonProc/anyFtoItem/commonPanel.org
-cp /libre/ByStar/InitialTemplates/start/fto/commonProc/anyFtoItem/commonPanel.org ./commonPanel.org
+diff ./commonPanel.org  /bisos/apps/defaults/start/fto/commonProc/anyFtoItem/commonPanel.org
+cp ./commonPanel.org /bisos/apps/defaults/start/fto/commonProc/anyFtoItem/commonPanel.org
+cp /bisos/apps/defaults/start/fto/commonProc/anyFtoItem/commonPanel.org ./commonPanel.org
 _EOF_
  return
 }
