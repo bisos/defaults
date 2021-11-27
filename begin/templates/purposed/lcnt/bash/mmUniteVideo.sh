@@ -17,15 +17,15 @@ __author__="
 * Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 "
 
-####+BEGIN: bx:dblock:lsip:bash:seed-spec :types "seedAudioProc.sh"
+####+BEGIN: bx:bisos:bash:seed-spec :types "/bisos/core/lcnt/bin/seedAudioProc.sh"
 SEED="
-*  /[dblock]/ /Seed/ :: [[file:/opt/public/osmt/bin/seedAudioProc.sh]] | 
+*  /[dblock]/ /Seed/ :: [[file:/bisos/core/lcnt/bin/seedAudioProc.sh]] |
 "
 FILE="
-*  /This File/ :: /bisos/apps/defaults/lcnt/dispositions/mmUniteAudio.sh 
+*  /This File/ :: /bisos/git/auth/bxRepos/bisos/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
 "
 if [ "${loadFiles}" == "" ] ; then
-    /opt/public/osmt/bin/seedAudioProc.sh -l $0 "$@" 
+    /bisos/core/lcnt/bin/seedAudioProc.sh -l $0 "$@"
     exit $?
 fi
 ####+END:
@@ -64,6 +64,7 @@ function cleanPost {
   return
 }
 
+captionFile=""
 
 _CommentBegin_
 *      ======[[elisp:(org-cycle)][Fold]]====== Extension Examples
@@ -71,7 +72,10 @@ _CommentEnd_
 
 function examplesHookPost {
     local oneMasterFile=$( vis_masterVideoFilesListGet | head -1 )
-    
+    local captionFile="engCaptionFile"
+    local inVideoFile="inVideoFile"
+    local captionedVideoFile="~/Videos/captionedVideoFile"
+
     cat  << _EOF_
 $( examplesSeperatorTopLabel "EXTENSION EXAMPLES" )
 ${G_myName} ${extraInfo} -i describeUsage | emlVisit
@@ -101,6 +105,8 @@ ${G_myName} ${extraInfo} -i avConvertTo144 ${oneMasterFile}
 ${G_myName} ${extraInfo} -i avConvertTo360 ${oneMasterFile}
 ${G_myName} ${extraInfo} -i avConvertTo720 ${oneMasterFile}
 ${G_myName} ${extraInfo} -i avConvertTo1080 ${oneMasterFile}
+$( examplesSeperatorSection "Add Captions File" )
+${G_myName} ${extraInfo} -p captionFile=${captionFile} -i addCaptionsFile ${inVideoFile} ${captionedVideoFile} # 2 args
 $( examplesSeperatorSection "Initial Templates Development" )
 diff ./mmUniteVideo.sh /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
 cp ./mmUniteVideo.sh /bisos/apps/defaults/begin/templates/purposed/lcnt/bash/mmUniteVideo.sh
@@ -347,6 +353,42 @@ _EOF_
     
     lpReturn
 }
+
+function vis_addCaptionsFile {
+    G_funcEntry
+    function describeF {  G_funcEntryShow; cat  << _EOF_
+Taken from  https://bernd.dev/2020/04/adding-subtitles/#creating-a-caption-file-automatically-optional
+# Replace with your input video and subtitle files
+INFILE=video.mp4
+SUBTITLESENG=english.vtt
+SUBTITLEGER=german.vtt
+SUBTITLESSPA=spanish.vtt
+
+ffmpeg -i $INFILE -i $SUBTITLESENG -i $SUBTITLESGER -i $SUBTITLESSPA \
+  -map 0 -map 1:s -map 2:s -map 3:s -c copy -c:s mov_text -c:s mov_text c:s mov_text \
+  -metadata:s:s:0 language=eng -metadata:s:s:1 language=ger \
+  -metadata:s:s:2 language=spa outfile_selectable_multi.mp4
+_EOF_
+    }
+    EH_assert [[ $# -eq 2 ]]
+
+    local inVideoFile="$1"
+    local outVideoFile="$2"
+
+    if [ -z "${captionFile}" ] ; then
+        EH_problem "Un-Specified Caption File"
+    fi
+    if [ ! -e "${captionFile}" ] ; then
+        EH_problem "Missing captionFile=${captionFile}"
+    fi
+
+    lpDo echo ffmpeg -i "${inVideoFile}" -i ${captionFile} -c copy -c:s mov_text \
+        -metadata:s:s:0 language=eng "${outVideoFile}"
+
+
+    lpReturn
+}
+
 
 
 
