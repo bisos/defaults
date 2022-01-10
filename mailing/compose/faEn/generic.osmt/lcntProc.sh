@@ -60,8 +60,8 @@ _CommentEnd_
 
 
 function buildPre {
-  #lcntSourceTypeBaseDir="${lcntBaseDir}${lcntAttrGenPub}/${lcntAttrSource}/${lcntAttrPermanence}"
-  lcntSourceTypeBaseDir="NOTYET"
+  #if [[ ! -d tables ]] ; then ln -s ../Q1-2007-BusPlan/tables tables; fi
+  lcntSourceTypeBaseDir="${lcntBaseDir}${lcntAttrGenPub}/${lcntAttrSource}/${lcntAttrPermanence}"
   if [[ ! -d figures ]] ; then ln -s ${lcntSourceTypeBaseDir}/common/figures figures; fi
   return
 }
@@ -71,19 +71,11 @@ function buildPost {
   return
 }
 
+
 function cleanPost {
-    #if [[ -L tables ]] ; then /bin/rm tables; fi
-    #if [[ -L figures ]] ; then /bin/rm figures; fi
-
-    local backupFiles=$( ls content.mail.2* 2> /dev/null )
-
-    if [ ! -z "${backupFiles}" ] ; then
-	lpDo rm ${backupFiles}
-    fi
-    if [ -d rel ] ; then
-	lpDo rm -r -f rel
-    fi
-    return
+  #if [[ -L tables ]] ; then /bin/rm tables; fi
+  #if [[ -L figures ]] ; then /bin/rm figures; fi
+  return
 }
 
 _CommentBegin_
@@ -92,7 +84,6 @@ _CommentEnd_
 
 
 function examplesHookPost {
-  extraInfo="-v -n showRun"
     cat  << _EOF_
 $( examplesSeperatorTopLabel "EXTENSION EXAMPLES" )
 $( examplesSeperatorChapter "Local Results Release" )
@@ -149,6 +140,8 @@ _EOF_
     lpReturn
 }
 
+
+
 function vis_buildResultsRelease {
     G_funcEntry
     function describeF {  G_funcEntryShow; cat  << _EOF_
@@ -166,100 +159,6 @@ _EOF_
 }
 
 
-function vis_mailingName {
-    G_funcEntry
-    function describeF {  G_funcEntryShow; cat  << _EOF_
-_EOF_
-    }
-    EH_assert [[ $# -eq 0 ]]
-
-    local mailingFileName="./content.mail"
-
-    local mailingName="unspecifiedMailingName"
-
-    if [ ! -f "${mailingFileName}" ] ; then
-	EH_problem "Missing mailingName"
-    else
-	mailingName=$( egrep '^X-MailingName:' content.mail | cut -d : -f 2 )
-    fi
-
-    if [ -z "${mailingName}" ] ; then
-	EH_problem "Missing X-MailingName"
-    fi
-
-    echo ${mailingName}
-}
-
-function vis_mailingDoc {
-    G_funcEntry
-    function describeF {  G_funcEntryShow; cat  << _EOF_
-_EOF_
-    }
-    EH_assert [[ $# -eq 0 ]]
-
-    local mailingFileName="./content.mail"
-
-    local mailingDoc="unspecifiedMailingName"
-
-    if [ ! -f "${mailingFileName}" ] ; then
-	EH_problem "Missing mailingName"
-    else
-	mailingDoc=$( egrep '^X-MailingDoc:' content.mail | cut -d : -f 2 )
-    fi
-
-    if [ -z "${mailingDoc}" ] ; then
-	EH_problem "Missing X-MailingDoc: -- X-MailingName used instead"
-	mailingDoc=$( vis_mailingName )
-    fi
-
-    echo ${mailingDoc}
-}
-
-
-function vis_bodyPartsRefresh {
-    G_funcEntry
-    function describeF {  G_funcEntryShow; cat  << _EOF_
-_EOF_
-    }
-    EH_assert [[ $# -eq 0 ]]
-
-    local mailingFileName="./content.mail"
-
-    if [ ! -f "${mailingFileName}" ] ; then
-	EH_problem "Missing ${mailingFileName}"
-	lpReturn 101
-    fi
-
-    local mailingDoc=$( vis_mailingDoc )
-    local dateTag=$( date +%y%m%d%H%M%S )
-    local savedMailingFileName=${mailingFileName}.${dateTag}
-
-    lpDo mv ${mailingFileName} ${savedMailingFileName}
-
-    lpDo eval "sed '/--text follows this line--/q' ${savedMailingFileName} > ${mailingFileName}"
-
-    lpDo rm ${savedMailingFileName}
-
-    cat  << _EOF_ >> ${mailingFileName}
-<#part type="text/html" disposition=inline>
-<!--  [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]]  -->
-<!-- ####+BEGIN: bx:dblock:global:file-insert-process :file "./rel/mailing-html/index.html" :load "./dblockProcess.el" :exec "bx:dblock:body-process"
--->
-<!-- ####+END: -->
-<#/part>
-_EOF_
-
-    if [ "${pdf}" == "pdf" ] ; then
-	cat  << _EOF_ >> ${mailingFileName}
-<#part type="application/pdf" filename="./rel/${mailingDoc}.pdf" disposition=attachment description="Pdf File">
-<#/part>
-_EOF_
-    fi
-
-}
-
-
-
 function vis_resultsRelease {
     G_funcEntry
     function describeF {  G_funcEntryShow; cat  << _EOF_
@@ -267,21 +166,32 @@ _EOF_
     }
     EH_assert [[ $# -eq 0 ]]
 
-    local mailingDoc=$( vis_mailingDoc )
+    if [ ! -f ./mailingStatic/mailingName ] ; then
+	EH_problem "Missing mailingName fileVar"
+	lpReturn 101
+    fi
+    typeset mailingName=$(cat ./mailingStatic/mailingName)
+    if [ -z ${mailingName} ] ; then
+	EH_problem "Missing mailingName Value"
+	lpReturn 101
+    fi
+
+    echo ${mailingName}
 
     if [ ! -d ./rel ] ; then
 	opDo mkdir -p ./rel
     fi
 
-    opDo cp ./mailing.pdf  ./rel/${mailingDoc}.pdf
+    opDo cp ./mailing.pdf  ./rel/${mailingName}.pdf
+    
+    opDo mkdir -p ./rel/${mailingName}-html   
+    opDo cp -r -p ./heveaHtml-mailing/*  ./rel/${mailingName}-html
 
-    opDo mkdir -p ./rel/mailing-html
-    opDo cp -r -p ./heveaHtml-mailing/*  ./rel/mailing-html
-
-    opDo elispFilterHtml.sh -v -n showRun  -i deTitleCompletely ./rel/mailing-html/index.html
+    opDo /opt/public/osmt/bin/elispFilterHtml.sh -v -n showRun  -i deTitleCompletely ./rel/${mailingName}-html/index.html
 
     lpReturn
 }
+
 
 
 ####+BEGIN: bx:dblock:bash:end-of-file :types ""

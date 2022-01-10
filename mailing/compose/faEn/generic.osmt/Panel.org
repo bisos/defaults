@@ -1,0 +1,85 @@
+####+BEGIN: bx:dblock:bnsm:top-of-menu "basic"
+*  #Controls:   [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] 
+####+END:
+####+BEGIN: bx:dblock:bnsm:this-node "basic"
+*  #This Node: /de/bx/nne/mb-tmo/son/reports/mb-2016/20160118/Panel.org
+####+END:
+####+BEGIN: bx:dblock:bnsm:menu-stack "basic"
+
+####+END:
+####+BEGIN: bx:dblock:bnsm:see-related
+*  #Bash:  =[[elisp:(org-cycle)][Fold]]=  (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] )
+**  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]
+####+END:
+####+BEGIN: bx:dblock:bnsm:agenda-list
+*  #Agenda:  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]]    [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]]
+####+END:
+*      ================
+*      ################                      /*LcntProc Static Mailing Panel*/
+*      ################
+*  [[elisp:(org-cycle)][| ]]  Related       ::    [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]] | [[elisp:(find-file "./mailingStatic/content.mail")][Visit ./mailingStatic/content.mail]]| [[elisp:(find-file "./mailingStatic/Panel.org")][Visit ./mailingStatic/Panel.org]]  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]]  Notes         ::   *LcntProc.sh How-To*  [[elisp:(org-cycle)][| ]]
+*      ================
+*      Cmnd Defaults ::  [[elisp:(bx:iimp:cmndLineSpecs :name "comInactivityMonitor.py")][IIMP: Cmnd Line Defaults]]
+*  [[elisp:(org-cycle)][| ]]  BxDE-Dblock-Begin ::  /BxDE-Dblock Begins/   [[elisp:(org-cycle)][| ]]
+####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/activeDocs/common/iimp/cmndLine/bash.org"
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]  /Inside BxDE-Dblock [RO]/           *Bash: Common Execution Control, Monitoring And Analysis*
+*  [[elisp:(org-cycle)][| ]]  Cmnd Line Ctl ::  Command Line:  [[elisp:(bx:iimBash:resultsShow:cmndLineElems)][Show Cmnd Line Elems]] |  [[elisp:(bx:iimBash:cmndLineSpecs :verbosity "-v" :callTracking "-n showRun")][Full Verbosity]] | [[elisp:(bx:iimBash:cmndLineSpecs :verbosity "" :callTracking "")][No Verbosity]] [[elisp:(org-cycle)][| ]]
+** iimWrapper:         [[elisp:(setq bx:iimBash:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimWrapper)][Any]] | [[elisp:(setq bx:iimBash:iimWrapper "echo")][echo]] | [[elisp:(setq bx:iimBash:iimWrapper "time")][time]] 
+** iimName:            [[elisp:(setq bx:iimBash:iimVerbosity "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimName)][Any]] | iimName
+** iimVerbosity:       [[elisp:(setq bx:iimBash:iimVerbosity "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimVerbosity)][Any]] | [[elisp:(setq bx:iimBash:iimVerbosity "-v")][-v]]
+** iimCallTracking:    [[elisp:(setq bx:iimp:iimCallTracking "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimp:iimCallTracking)][Any]] | [[elisp:(setq bx:iimBash:iimCallTracking "-n showRun")][-n showRun]]
+** iimParamsArgs:      [[elisp:(setq bx:iimBash:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimBasharamsArgs)][Any]]
+** iimIif:             [[elisp:(setq bx:iimBash:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimIif)][Any]] | [[elisp:(setq bx:iimBash:iimIif "examples")][examples]] | [[elisp:(setq bx:iimBash:iimIif "describe")][describe]]
+** iimIifArgs:         [[elisp:(setq bx:iimBash:iimWrapper "")][""]] | [[elisp:(bx:valueReader:symbol 'bx:iimBash:iimIifArgs)][Any]]
+** Execute Command Line:   [[elisp:(bx:iimBash:cmndLineExec)][Run Cmnd Line]] | [[elisp:(bx:iimBash:cmndLineExec :wrapper "echo")][Echo Cmnd Line]]
+*  [[elisp:(org-cycle)][| ]]  Dblock-Ends   ::      /BxDE-Dblock Ends/   [[elisp:(org-cycle)][| ]]
+
+####+END:
+       
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *mailingsProc Info/Control*
+*      IIMs Info     ::  [[elisp:(lsip-local-run-command-here "pwd")][pwd]] | [[elisp:(lsip-local-run-command-here "lsf")][lsf]] | [[elisp:(lsip-local-run-command-here "ls")][ls]] | [[elisp:(lsip-local-run-command-here "lcntProc.sh -i lcntNuOut")][lcntProc.sh -i lcntNuOut]] | [[elisp:(lsip-local-run-command-here "lcntProc.sh")][lcntProc.sh]] | [[file:lcntProc.sh][Visit]] 
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Cleanings And Refreshing*  
+*      Cleaning      ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -i fullClean")][lcntProc.sh -i fullClean]]  ||  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i fullRefresh")][lcntProc.sh -v -n showRun -i fullRefresh]]
+*      Sync          ::  [[elisp:(cvs-update "." t)][Version Control]]
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Building*
+*      BuildPdfPreview   ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildPdfPreview &")][lcntProc.sh -v -n showRun -i buildPdfPreview]]
+*      BuildHtmlPreview  ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildHtmlPreview &")][lcntProc.sh -v -n showRun -i buildHtmlPreview]]
+*      Build Pdf         ::  [[elisp:(lsip-local-run-command-here "lcnLcntInputProc.sh -p inFormat=xelatex -p outputs=pdf -i buildDocs mailing.ttytex")][lcnLcntInputProc.sh -p inFormat=xelatex -p outputs=pdf -i buildDocs mailing.ttytex]]
+*      Build Hevea Html  ::  [[elisp:(lsip-local-run-command-here "lcnLcntInputProc.sh -p inFormat=xelatex -p outputs=heveaHtml -i buildDocs mailing.ttytex")][lcnLcntInputProc.sh -p inFormat=xelatex -p outputs=heveaHtml -i buildDocs mailing.ttytex]]
+*      Build All         ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i fullBuild")][lcntProc.sh -v -n showRun -i fullBuild]]
+*      Previews          ::  [[elisp:(lsip-local-run-command-here "acroread mailing.pdf")][acroread mailing.pdf]]  ||  [[elisp:(lsip-local-run-command-here "eoe-browser ./heveaHtml-mailing/index.html")][Browse index.html]]
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Releasing*
+*      Release       ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i resultsRelease")][lcntProc.sh -v -n showRun -i resultsRelease]]
+*      Build+Release ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildResultsRelease")][lcntProc.sh -v -n showRun -i buildResultsRelease]]
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Mailing*
+*      Content.Mail  ::  [[elisp:(find-file "./mailingStatic/content.mail")][Visit ./mailingStatic/content.mail]]
+*      Release       ::  [[elisp:(find-file "./mailingStatic/Panel.org")][Visit ./mailingStatic/Panel.org]]
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Publishing*
+*      Web Publish   ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -p bystarUid=sa-20000 -i plone3FullPublish")][lcntProc.sh -v -n showRun -p bystarUid=sa-20000 -i plone3FullPublish]]
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]]                               *Development -- Evolution*
+*  [[elisp:(org-cycle)][| ]]  Agenda        ::  Development, Ideas, Tasks, Todo, Agenda:  [[elisp:(org-cycle)][| ]]
+** TODO Enhancement  ::  Description 
+*      ================
+*  [[elisp:(beginning-of-buffer)][Top]] ################ [[elisp:(delete-other-windows)][(1)]] 
+*      ================ /End Of Editable/
+####+BEGIN: bx:dblock:org:parameters :types "agenda"
+#+STARTUP: lognotestate
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+####+END:
+
+
+####+BEGIN: bx:dblock:bnsm:end-of-menu "basic"
+*  #Controls:  [[elisp:(blee:bnsm:menu-back)][Back]]  [[elisp:(toggle-read-only)][toggle-read-only]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Glob Vis]]  [[elisp:(delete-other-windows)][1 Win]]  [[elisp:(save-buffer)][Save]]   [[elisp:(kill-buffer)][Quit]]
+####+END:
+
+* Parameters:
+#+CATEGORY: tbd
+#+STARTUP: overview
