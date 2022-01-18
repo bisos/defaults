@@ -9,7 +9,8 @@
 *  /Controls/:  [[elisp:(org-cycle)][Fold]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(bx:org:run-me)][RunMe]] | [[elisp:(delete-other-windows)][(1)]]  | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]] 
 
 ** /Version Control/:  [[elisp:(call-interactively (quote cvs-update))][cvs-update]]  [[elisp:(vc-update)][vc-update]] | [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda-List]]  [[elisp:(bx:org:todo:this-file-otherWin)][ToDo-List]] 
-*  [[elisp:(org-cycle)][| ]]  Related           ::  [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]] | [[elisp:(find-file "./content.mail")][Visit ./content.mail]]| [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]]  [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]]  Related           ::  [[elisp:(mcdt/gotoMailBuf)][Visit MailBuf]] | [[elisp:(find-file "./Panel.org")][Visit ./Panel.org]]  [[elisp:(org-cycle)][| ]]
+*      Build+Rel+Visit   ::  [[elisp:(mcdt:content:tex/buildReleaseAndMailBuf)][Build + ReleaseResults + Visit MailBuffer]]
 *      Build+Release     ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildResultsRelease")][lcntProc.sh -v -n showRun -i buildResultsRelease]]
 *      BuildPdfPreview   ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildPdfPreview &")][lcntProc.sh -v -n showRun -i buildPdfPreview]]
 *      BuildHtmlPreview  ::  [[elisp:(lsip-local-run-command-here "lcntProc.sh -v -n showRun -i buildHtmlPreview &")][lcntProc.sh -v -n showRun -i buildHtmlPreview]]

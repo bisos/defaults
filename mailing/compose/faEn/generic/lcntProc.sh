@@ -7,7 +7,7 @@ ORIGIN="
 "
 
 ####+BEGIN: bx:dblock:bash:top-of-file :vc "cvs" partof: "bystar" :copyleft "halaal+minimal"
-typeset RcsId="$Id: lcntProc.sh,v 1.4 2016-02-07 01:44:28 lsipusr Exp $"
+typeset RcsId="$Id: lcntProc.sh,v 1.5 2016-02-07 02:40:12 lsipusr Exp $"
 # *CopyLeft*
 #  This is a Halaal Poly-Existential. See http://www.freeprotocols.org
 
@@ -22,7 +22,7 @@ SEED="
 *  /[dblock]/ /Seed/ :: [[file:/bisos/core/lcnt/bin/seedLcntProc.sh]] |
 "
 FILE="
-*  /This File/ :: /bisos/git/auth/bxRepos/bisos/defaults/mailing/compose/faEn/generic/lcntProc.sh
+*  /This File/ :: /bisos/git/auth/bxRepos/bisos/defaults/mailing/compose/enFa/generic/lcntProc.sh
 "
 if [ "${loadFiles}" == "" ] ; then
     /bisos/core/lcnt/bin/seedLcntProc.sh -l $0 "$@"
@@ -54,15 +54,20 @@ function vis_describe {  cat  << _EOF_
 _EOF_
 }
 
+
+pdf=""
+
+
 _CommentBegin_
 *      ======[[elisp:(org-cycle)][Fold]]====== Seed Hooks
 _CommentEnd_
 
 
 function buildPre {
-  #lcntSourceTypeBaseDir="${lcntBaseDir}${lcntAttrGenPub}/${lcntAttrSource}/${lcntAttrPermanence}"
-  lcntSourceTypeBaseDir="NOTYET"
-  if [[ ! -d figures ]] ; then ln -s ${lcntSourceTypeBaseDir}/common/figures figures; fi
+  #if [[ ! -d tables ]] ; then ln -s ../Q1-2007-BusPlan/tables tables; fi
+    #lcntSourceTypeBaseDir="${lcntBaseDir}${lcntAttrGenPub}/${lcntAttrSource}/${lcntAttrPermanence}"
+    lcntSourceTypeBaseDir="NOTYET"
+  if [[ ! -L figures ]] ; then ln -s ${lcntSourceTypeBaseDir}/common/figures figures; fi
   return
 }
 
@@ -71,10 +76,11 @@ function buildPost {
   return
 }
 
+
 function cleanPost {
     #if [[ -L tables ]] ; then /bin/rm tables; fi
     #if [[ -L figures ]] ; then /bin/rm figures; fi
-
+    
     local backupFiles=$( ls content.mail.2* 2> /dev/null )
 
     if [ ! -z "${backupFiles}" ] ; then
@@ -92,38 +98,44 @@ _CommentEnd_
 
 
 function examplesHookPost {
-  extraInfo="-v -n showRun"
+    extraInfo="-v -n showRun"
     cat  << _EOF_
 $( examplesSeperatorTopLabel "EXTENSION EXAMPLES" )
+$( examplesSeperatorChapter "Mailing Info" )
+${G_myName} ${extraInfo} -i mailingName
+${G_myName} ${extraInfo} -i mailingDoc
 $( examplesSeperatorChapter "Local Results Release" )
+${G_myName} ${extraInfo} -i bodyPartsRefresh
+${G_myName} ${extraInfo} -p pdf=pdf -i bodyPartsRefresh
+$( examplesSeperatorChapter "Initial Setups" )
 ${G_myName} ${extraInfo} -i resultsRelease
 ${G_myName} ${extraInfo} -i buildResultsRelease
 $( examplesSeperatorChapter "Presentation / Disposition Processing" )
 ./presProc.sh
 ---- EnFa - lcntProc.sh -- Initial Templates Development ----
-diff ./lcntProc.sh  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/lcntProc.sh
-cp  ./lcntProc.sh  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/lcntProc.sh
-cp  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/lcntProc.sh ./lcntProc.sh
+diff ./lcntProc.sh  /bisos/apps/defaults/mailing/compose/enFa/generic/lcntProc.sh
+cp  ./lcntProc.sh  /bisos/apps/defaults/mailing/compose/enFa/generic/lcntProc.sh
+cp  /bisos/apps/defaults/mailing/compose/enFa/generic/lcntProc.sh ./lcntProc.sh
 ---- EnFa - Panel.org -- Initial Templates Development ----
-diff ./Panel.org  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/Panel.org
-cp  ./Panel.org  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/Panel.org
-cp  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/Panel.org ./Panel.org
+diff ./Panel.org  /bisos/apps/defaults/mailing/compose/enFa/generic/Panel.org
+cp  ./Panel.org  /bisos/apps/defaults/mailing/compose/enFa/generic/Panel.org
+cp  /bisos/apps/defaults/mailing/compose/enFa/generic/Panel.org ./Panel.org
 ---- EnFa - mailing.ttytex -- Initial Templates Development ----
-diff ./mailing.ttytex  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/mailing.ttytex
-cp  ./mailing.ttytex  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/mailing.ttytex
-cp  /bisos/apps/defaults/mailing/staticMailing/enFa/generic/mailing.ttytex ./mailing.ttytex
+diff ./mailing.ttytex  /bisos/apps/defaults/mailing/compose/enFa/generic/mailing.ttytex
+cp  ./mailing.ttytex  /bisos/apps/defaults/mailing/compose/enFa/generic/mailing.ttytex
+cp  /bisos/apps/defaults/mailing/compose/enFa/generic/mailing.ttytex ./mailing.ttytex
 ---- FaEn - lcntProc.sh -- Initial Templates Development ----
-diff ./lcntProc.sh  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/lcntProc.sh
-cp  ./lcntProc.sh  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/lcntProc.sh
-cp  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/lcntProc.sh ./lcntProc.sh
+diff ./lcntProc.sh  /bisos/apps/defaults/mailing/compose/faEn/generic/lcntProc.sh
+cp  ./lcntProc.sh  /bisos/apps/defaults/mailing/compose/faEn/generic/lcntProc.sh
+cp  /bisos/apps/defaults/mailing/compose/faEn/generic/lcntProc.sh ./lcntProc.sh
 ---- FaEn - Panel.org -- Initial Templates Development ----
-diff ./Panel.org  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/Panel.org
-cp  ./Panel.org  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/Panel.org
-cp  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/Panel.org ./Panel.org
+diff ./Panel.org  /bisos/apps/defaults/mailing/compose/faEn/generic/Panel.org
+cp  ./Panel.org  /bisos/apps/defaults/mailing/compose/faEn/generic/Panel.org
+cp  /bisos/apps/defaults/mailing/compose/faEn/generic/Panel.org ./Panel.org
 ---- FaEn - mailing.ttytex -- Initial Templates Development ----
-diff ./mailing.ttytex  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/mailing.ttytex
-cp  ./mailing.ttytex  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/mailing.ttytex
-cp  /bisos/apps/defaults/mailing/staticMailing/faEn/generic/mailing.ttytex ./mailing.ttytex
+diff ./mailing.ttytex  /bisos/apps/defaults/mailing/compose/faEn/generic/mailing.ttytex
+cp  ./mailing.ttytex  /bisos/apps/defaults/mailing/compose/faEn/generic/mailing.ttytex
+cp  /bisos/apps/defaults/mailing/compose/faEn/generic/mailing.ttytex ./mailing.ttytex
 _EOF_
 }
 
@@ -149,6 +161,8 @@ _EOF_
     lpReturn
 }
 
+
+
 function vis_buildResultsRelease {
     G_funcEntry
     function describeF {  G_funcEntryShow; cat  << _EOF_
@@ -165,7 +179,6 @@ _EOF_
     lpReturn
 }
 
-
 function vis_mailingName {
     G_funcEntry
     function describeF {  G_funcEntryShow; cat  << _EOF_
@@ -176,7 +189,7 @@ _EOF_
     local mailingFileName="./content.mail"
 
     local mailingName="unspecifiedMailingName"
-
+    
     if [ ! -f "${mailingFileName}" ] ; then
 	EH_problem "Missing mailingName"
     else
@@ -200,7 +213,7 @@ _EOF_
     local mailingFileName="./content.mail"
 
     local mailingDoc="unspecifiedMailingName"
-
+    
     if [ ! -f "${mailingFileName}" ] ; then
 	EH_problem "Missing mailingName"
     else
@@ -211,7 +224,7 @@ _EOF_
 	EH_problem "Missing X-MailingDoc: -- X-MailingName used instead"
 	mailingDoc=$( vis_mailingName )
     fi
-
+    
     echo ${mailingDoc}
 }
 
@@ -242,7 +255,7 @@ _EOF_
 
     cat  << _EOF_ >> ${mailingFileName}
 <#part type="text/html" disposition=inline>
-<!--  [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]]  -->
+<!--  [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]]  | [[elisp:(message-mode)][message-mode]] | [[elisp:(mcdt:setup-and-compose/with-curBuffer)][Compose]]  | [[elisp:(mcdt:setup-and-originate/with-curBuffer)][Originate]] -->
 <!-- ####+BEGIN: bx:dblock:global:file-insert-process :file "./rel/mailing-html/index.html" :load "./dblockProcess.el" :exec "bx:dblock:body-process"
 -->
 <!-- ####+END: -->
@@ -255,7 +268,7 @@ _EOF_
 <#/part>
 _EOF_
     fi
-
+    
 }
 
 
@@ -274,14 +287,15 @@ _EOF_
     fi
 
     opDo cp ./mailing.pdf  ./rel/${mailingDoc}.pdf
-
-    opDo mkdir -p ./rel/mailing-html
+    
+    opDo mkdir -p ./rel/mailing-html   
     opDo cp -r -p ./heveaHtml-mailing/*  ./rel/mailing-html
 
     opDo elispFilterHtml.sh -v -n showRun  -i deTitleCompletely ./rel/mailing-html/index.html
 
     lpReturn
 }
+
 
 
 ####+BEGIN: bx:dblock:bash:end-of-file :types ""
