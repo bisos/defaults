@@ -255,7 +255,7 @@ _EOF_
 
     cat  << _EOF_ >> ${mailingFileName}
 <#part type="text/html" disposition=inline>
-<!--  [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]]  -->
+<!--  [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]]  | [[elisp:(message-mode)][message-mode]] | [[elisp:(mcdt:setup-and-compose/with-curBuffer)][Compose]]  | [[elisp:(mcdt:setup-and-originate/with-curBuffer)][Originate]] -->
 <!-- ####+BEGIN: bx:dblock:global:file-insert-process :file "./rel/mailing-html/index.html" :load "./dblockProcess.el" :exec "bx:dblock:body-process"
 -->
 <!-- ####+END: -->
