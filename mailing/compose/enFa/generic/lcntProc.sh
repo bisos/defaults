@@ -84,11 +84,11 @@ function cleanPost {
     local backupFiles=$( ls content.mail.2* 2> /dev/null )
 
     if [ ! -z "${backupFiles}" ] ; then
-	lpDo rm ${backupFiles}
+        lpDo rm ${backupFiles}
     fi
-    if [ -d rel ] ; then
-	lpDo rm -r -f rel
-    fi
+    #if [ -d rel ] ; then
+        #lpDo rm -r -f rel
+    #fi
     return
 }
 
@@ -191,13 +191,13 @@ _EOF_
     local mailingName="unspecifiedMailingName"
     
     if [ ! -f "${mailingFileName}" ] ; then
-	EH_problem "Missing mailingName"
+        EH_problem "Missing mailingName"
     else
-	mailingName=$( egrep '^X-MailingName:' content.mail | cut -d : -f 2 )
+        mailingName=$( egrep '^X-MailingName:' content.mail | cut -d : -f 2 )
     fi
 
     if [ -z "${mailingName}" ] ; then
-	EH_problem "Missing X-MailingName"
+        EH_problem "Missing X-MailingName"
     fi
 
     echo ${mailingName}
@@ -215,14 +215,14 @@ _EOF_
     local mailingDoc="unspecifiedMailingName"
     
     if [ ! -f "${mailingFileName}" ] ; then
-	EH_problem "Missing mailingName"
+        EH_problem "Missing mailingName"
     else
-	mailingDoc=$( egrep '^X-MailingDoc:' content.mail | cut -d : -f 2 )
+        mailingDoc=$( egrep '^X-MailingDoc:' content.mail | cut -d : -f 2 )
     fi
 
     if [ -z "${mailingDoc}" ] ; then
-	EH_problem "Missing X-MailingDoc: -- X-MailingName used instead"
-	mailingDoc=$( vis_mailingName )
+        EH_problem "Missing X-MailingDoc: -- X-MailingName used instead"
+        mailingDoc=$( vis_mailingName )
     fi
     
     echo ${mailingDoc}
@@ -239,8 +239,8 @@ _EOF_
     local mailingFileName="./content.mail"
 
     if [ ! -f "${mailingFileName}" ] ; then
-	EH_problem "Missing ${mailingFileName}"
-	lpReturn 101
+        EH_problem "Missing ${mailingFileName}"
+        lpReturn 101
     fi
 
     local mailingDoc=$( vis_mailingDoc )
@@ -255,7 +255,7 @@ _EOF_
 
     cat  << _EOF_ >> ${mailingFileName}
 <#part type="text/html" disposition=inline>
-<!--  [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]]  | [[elisp:(message-mode)][message-mode]] | [[elisp:(mcdt:setup-and-compose/with-curBuffer)][Compose]]  | [[elisp:(mcdt:setup-and-originate/with-curBuffer)][Originate]] -->
+<!--  [[elisp:(find-file "./mailing.ttytex")][Visit ./mailing.ttytex]]  -->
 <!-- ####+BEGIN: bx:dblock:global:file-insert-process :file "./rel/mailing-html/index.html" :load "./dblockProcess.el" :exec "bx:dblock:body-process"
 -->
 <!-- ####+END: -->
@@ -263,7 +263,7 @@ _EOF_
 _EOF_
 
     if [ "${pdf}" == "pdf" ] ; then
-	cat  << _EOF_ >> ${mailingFileName}
+        cat  << _EOF_ >> ${mailingFileName}
 <#part type="application/pdf" filename="./rel/${mailingDoc}.pdf" disposition=attachment description="Pdf File">
 <#/part>
 _EOF_
@@ -283,7 +283,7 @@ _EOF_
     local mailingDoc=$( vis_mailingDoc )
 
     if [ ! -d ./rel ] ; then
-	opDo mkdir -p ./rel
+        opDo mkdir -p ./rel
     fi
 
     opDo cp ./mailing.pdf  ./rel/${mailingDoc}.pdf
