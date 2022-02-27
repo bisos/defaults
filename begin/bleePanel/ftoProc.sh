@@ -57,14 +57,14 @@ _CommentEnd_
 ####+BEGIN: bx:dblock:ploneProc:bash:nodesList :types ""
 # {{{ DBLOCK-nodesList
 nodesList="
-branchPanels
-basicPanels
-sisterPanels
-start
-segmentsOfPanels
 topOfPanels
-leafPanels
 bottomOfPanels
+sisterPanels
+basicPanels
+start
+branchPanels
+segmentsOfPanels
+leafPanels
 "
 # }}} DBLOCK-nodesList
 ####+END:

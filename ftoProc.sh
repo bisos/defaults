@@ -57,12 +57,14 @@ _CommentEnd_
 ####+BEGIN: bx:dblock:ploneProc:bash:nodesList :types ""
 # {{{ DBLOCK-nodesList
 nodesList="
-software
-bashrc
 begin
 update
-mailing
 pals
+audio
+bashrc
+web
+mailing
+software
 "
 # }}} DBLOCK-nodesList
 ####+END:
