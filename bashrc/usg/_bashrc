@@ -342,6 +342,7 @@ fi
 #set history=100
 alias clear='tput clear'
 alias lsf='ls --color -C -F'
+alias lsfa='ls --color -C -F -a'
 alias -- 0='dirs'
 alias -- +='pushd'
 alias -- -='popd'
@@ -364,7 +365,7 @@ alias ossh='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 '
 
 
 unset G_emacsServerPid
-export G_emacsServerPid=$(ps ho ppid $$)
+export G_emacsServerPid=$(echo $(ps ho ppid $$))  # The extra echo gets rid of possible spaces
 
 # NOTYET, this belongs in the collective
 if [ -d /bisos/pipx ] ; then
