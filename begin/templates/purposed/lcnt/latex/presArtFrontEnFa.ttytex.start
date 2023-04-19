@@ -160,72 +160,7 @@
 %%%#+END:
 
 
-%%%#+BEGIN: bx:dblock:lcnt:latex:title-page :class "pres+art" :langs "en+fa"
-\begin{comment}
-*  [[elisp:(org-cycle)][| ]]  [[elisp:(blee:ppmm:org-mode-toggle)][Nat]] [[elisp:(beginning-of-buffer)][Top]] [[elisp:(delete-other-windows)][(1)]] || /DBLOCK: title-page/  ::  [[elisp:(org-cycle)][| ]]
-\end{comment}
-
-\mode<all>  % Important -- Must Be Here
-
-\begin{latexonly}
-
-\title[GOSSONoT ICMs Collection]
-{GOSSONoT ICMs Collection}
-
-\subtitle[Generalized Open-Source Self Organizing Network of Things]
-{Generalized Open-Source Self Organizing Network of Things}
-
-\author[Neda Communications, Inc.] 
-{Neda Communications, Inc.\\
-Email: \href{http://www.by-star.net/contact}{http://www.by-star.net/contact}\\
-}
-
-\institute[PLPC-180052] 
-{\href{http://www.by-star.net/PLPC/180052}{http://www.by-star.net/PLPC/180052}}
-
-\date[January 21, 2018]
-{January 21, 2018\\Varbatim Copying Permitted}
-
-\subject{Generalized Open-Source Self Organizing Network of Things}
-
-% No Blank Cover Page -- Select dblock :coverPage blank if desired
-
-
-  \begin{frame}[label=titlePage]
-    \titlepage
-    \frameaudio{"audio/titlePage.mp3"}
-%BxPy: impressiveFrameParSet('titlePage', 'always', 'True')
-%BxPy: impressiveFrameParSet('titlePage', 'transition', 'UnSpecified')
-%BxPy: impressiveFrameParSet('titlePage', 'onLeave', 'UnSpecified')
-  \end{frame}
-\end{latexonly}
-
-\begin{htmlonly}
-  \begin{frame}[label=titlePage]
-  \frameaudio{"audio/titlePage.mp3"}
-
-  \frametitle{GOSSONoT ICMs Collection}
-Generalized Open-Source Self Organizing Network of Things\\
-With: Interactive Command Modules (ICMs)\\
-\begin{center}
-{\large Document \#PLPC-180052\\
-Version 0.1\\
-January 21, 2018}
-\end{center}
-\vspace{0.05in}
-
-\begin{center}
-{\large This Document is Available on-line at:\\
-\href{http://www.by-star.net/PLPC/180052}{http://www.by-star.net/PLPC/180052}}
-\end{center}
-
-\begin{center}
-{\large {\bf Neda Communications, Inc.}\\
-  Email: \href{http://www.by-star.net/contact}{http://www.by-star.net/contact}\\
-}\end{center}
-  \end{frame}
-\end{htmlonly}
-
+%%%#+BEGIN: bx:dblock:lcnt:latex:title-page :class "pres+art" :langs "en+fa"  :coverPage "derived"
 
 %%%#+END:
 

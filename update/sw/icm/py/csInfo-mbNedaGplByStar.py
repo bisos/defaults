@@ -1,0 +1,6 @@
+csInfo['authors'] = "[[http://mohsen.1.banan.byname.net][Mohsen Banan]]"
+csInfo['copyright'] = "Copyright 2017, [[http://www.neda.com][Neda Communications, Inc.]]"
+csInfo['licenses'] = "[[https://www.gnu.org/licenses/agpl-3.0.en.html][Affero GPL]]", "Libre-Halaal Services License", "Neda Commercial License"
+csInfo['maintainers'] = "[[http://mohsen.1.banan.byname.net][Mohsen Banan]]"
+csInfo['contacts'] = "[[http://mohsen.1.banan.byname.net/contact]]"
+csInfo['partOf'] = "[[http://www.by-star.net][Libre-Halaal ByStar Digital Ecosystem]]"
