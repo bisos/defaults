@@ -1,4 +1,4 @@
-# 
+#
 # ~/.bashrc: executed by bash(1) for INTERACTIVE non-login shells.
 #
 # Initial template for this .bashrc file is at:
@@ -363,7 +363,6 @@ export LS_COLORS
 alias acroread='acroread -openInNewInstance'
 alias ossh='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 '
 
-
 unset G_emacsServerPid
 export G_emacsServerPid=$(echo $(ps ho ppid $$))  # The extra echo gets rid of possible spaces
 
@@ -374,10 +373,13 @@ if [ -d /bisos/pipx ] ; then
     export PIPX_BIN_DIR=/bisos/pipx/bin
 fi
 
-export PATH=".:${PATH}"
+export PATH=".:$HOME/bpos/usageEnvs/fullUse/sys/bin:$HOME/bpos/sites/siteConfigs/sys/bin:/bisos/core/bpip/bin:${PATH}"
 
 eval `dbus-launch` ; export DBUS_SESSION_BUS_ADDRESS
 
 # Where is the best for this? Shoult be subjected to realms and git revision
 git config --global init.defaultBranch master
 git config --global pull.rebase false
+
+# Credentials
+export OPENAI_API_KEY=$(cat "/bxo/usg/bystar/bpos/usageEnvs/fullUse/credentials/openAi/openAiApiKey")
