@@ -1,0 +1,24 @@
+####+BEGIN: bx:dblock:bnsm:top-of-menu "basic"
+####+END:
+####+BEGIN: bx:dblock:bnsm:this-node "basic"
+####+END:
+####+BEGIN: bx:dblock:bnsm:see-related
+####+END:
+####+BEGIN: bx:dblock:bnsm:agenda-list
+####+END:
+*      ================
+*      ================    *Mailing Notes*
+*      ================
+**     ============  /Progress and Status/
+
+*      ================
+*      ================   /Editable Text Ends Here/
+####+BEGIN: bx:dblock:bnsm:end-of-menu "basic"
+####+END:
+
+####+BEGIN: bx:dblock:org:parameters  :types "agenda"
+####+END:
+
+* Parameters:
+#+CATEGORY: Mailings
+#+STARTUP: showall
