@@ -36,7 +36,7 @@
 ** [[elisp:(org-show-subtree)][=|=]]  [[elisp:(org-cycle)][| *IIM Description* | ]]  ::
 ***  [[elisp:(org-cycle)][| ]]  [Xrefs]        :: *[Related/Xrefs:]*  <<Xref->>  -- External Documents  [[elisp:(org-cycle)][| ]]
 ****  [[elisp:(org-cycle)][| ]]  Primary Panel :: [[file:/bisos/apps/defaults/activeDocs/bxRefModel/bxSrf/fullUsagePanel-en.org::bxt][BISOS Bxt Panel Xref]] [[elisp:(org-cycle)][| ]]
-***  [[elisp:(org-cycle)][| ]]  [Info]         :: *[Module Description:]* [[elisp:(org-cycle)][| ]]
+***  [[elisp:(org-cycle)][| ]]  [Info]         :: *[Module contributor:]* [[elisp:(org-cycle)][| ]]
 ** 
 
 ####+END:

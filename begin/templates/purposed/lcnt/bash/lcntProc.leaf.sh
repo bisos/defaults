@@ -48,7 +48,7 @@ _CommentEnd_
 
 function vis_moduleDescription {  cat  << _EOF_
 *  [[elisp:(org-cycle)][| ]]  Xrefs         :: *[Related/Xrefs:]*  <<Xref->>  -- External Documents  [[elisp:(org-cycle)][| ]]
-*  [[elisp:(org-cycle)][| ]]  Info          :: *[Module Description:]* [[elisp:(org-cycle)][| ]]
+*  [[elisp:(org-cycle)][| ]]  Info          :: *[Module contributor:]* [[elisp:(org-cycle)][| ]]
 _EOF_
 }
 

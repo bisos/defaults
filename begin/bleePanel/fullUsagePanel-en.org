@@ -3,7 +3,7 @@
 *  [[elisp:(org-cycle)][|#Control|]] :: [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]] [[elisp:(save-buffer)][Save]] [[elisp:(kill-buffer)][Quit]] [[elisp:(bury-buffer)][Bury]]  [[elisp:(magit)][Magit]]  [[elisp:(org-cycle)][| ]]
 **  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]] || [[elisp:(bx:panel:variablesShow)][bx:panel:variablesShow]]
 **  [[elisp:(blee:menu-sel:comeega:maintenance:popupMenu)][||Maintenance]] 
-**  This File :: *= /bisos/apps/defaults/activeDocs/common/buePanels/fullUsagePanel-en.org =* 
+**  This File :: *= /bisos/apps/defaults/begin/bleePanel/fullUsagePanel-en.org =* 
 *  [[elisp:(org-cycle)][|#Select|]]  :: (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]
 **  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(lsip-local-run-command-here "echo pushd dest")][echo pushd dir]] || [[elisp:(lsip-local-run-command-here "lsf")][lsf]] || [[elisp:(lsip-local-run-command-here "pwd")][pwd]] |**  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]] || [[elisp:(bx:panel:variablesShow)][bx:panel:variablesShow]] 
 **  [[elisp:(org-cycle)][|#Destinations|]] :: [[Evolution]] | [[Maintainers]]  [[elisp:(org-cycle)][| ]]
@@ -37,7 +37,7 @@
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :title "Common Leaf Panels" :anchor "" :extraInfo ""
 * [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]       [[elisp:(org-cycle)][| *Common Leaf Panels:* |]]    [[elisp:(org-shifttab)][<)]] E|
 ####+END
-***  [[elisp:(dired "/bisos/apps/defaults/activeDocs/common/buePanels")][buePanels Dired]]
+***  [[elisp:(dired "/bisos/apps/defaults/begin/bleePanel")][buePanels Dired]]
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :title "Overview" :anchor "" :extraInfo ""
 ** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]       [[elisp:(org-cycle)][| /Overview:/ |]]    [[elisp:(org-shifttab)][<)]] E|
 ####+END
@@ -55,13 +55,13 @@ blee:bxPanel:runResult dblock skipped due to blee:dblockEnabler 202004-03-11:38:
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :title "leafBegin" :anchor "" :extraInfo ""
 ** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]       [[elisp:(org-cycle)][| /leafBegin:/ |]]    [[elisp:(org-shifttab)][<)]] E|
 ####+END
-***  [[elisp:(find-file "/bisos/apps/defaults/activeDocs/common/buePanels/leafPanels/leafBegin.org")][leafBegin.org]]
+***  [[elisp:(find-file "/bisos/apps/defaults/begin/bleePanel/leafPanels/leafBegin.org")][leafBegin.org]]
 *** B|
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :title "CommonPanelBegin" :anchor "" :extraInfo ""
 ** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]       [[elisp:(org-cycle)][| /CommonPanelBegin:/ |]]    [[elisp:(org-shifttab)][<)]] E|
 ####+END
 *** 
-***  basicPanel.yas  :: [[elisp:(find-file "/bisos/apps/defaults/activeDocs/common/buePanels/basicPanels/commonPanel.org")]]
+***  basicPanel.yas  :: [[elisp:(find-file "/bisos/apps/defaults/begin/bleePanel/basicPanels/commonPanel.org")]]
 *** 
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 2 :title "instructionsBegin" :anchor "" :extraInfo ""
 ** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]       [[elisp:(org-cycle)][| /instructionsBegin:/ |]]    [[elisp:(org-shifttab)][<)]] E|
@@ -87,8 +87,8 @@ blee:bxPanel:runResult dblock skipped due to blee:dblockEnabler 202004-03-11:38:
 ** [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]       [[elisp:(org-cycle)][| /Begin:/ |]]    [[elisp:(org-shifttab)][<)]] E|
 ####+END
 *** 
-***    [[elisp:(find-file "/bisos/apps/defaults/activeDocs/common/buePanels/nodePanels/nodeBegin.org")][nodeBegin.org]] 
-***    [[elisp:(find-file "/bisos/apps/defaults/activeDocs/common/buePanels/nodePanels/menuBegin.org")][menuBegin.org]] 
+***    [[elisp:(find-file "/bisos/apps/defaults/begin/bleePanel/nodePanels/nodeBegin.org")][nodeBegin.org]] 
+***    [[elisp:(find-file "/bisos/apps/defaults/begin/bleePanel/nodePanels/menuBegin.org")][menuBegin.org]] 
 **** 
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 1 :title "Blee Leaf And Node Panels" :anchor "" :extraInfo ""
 * [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]       [[elisp:(org-cycle)][| *Blee Leaf And Node Panels:* |]]    [[elisp:(org-shifttab)][<)]] E|

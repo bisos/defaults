@@ -25,7 +25,7 @@ iicmName=@iicmName@
 
 ####+BEGIN: iicm:py:panel:module-title :mode "default"
 *  *Pyton IICM Execution Panel* :: For [[elisp:(lsip-local-run-command-here "msgOutIicm.py -i visit")][@iicmName@]] in =file:/de/bx/nne/dev-py/iimsPkgs/bxMsgExamples/=	  
-* [[elisp:(org-cycle)][| *Description:* | ]] =Summary= ::  A basic example and starting point for IICM (Interactively Invokable Command Modules.).
+* [[elisp:(org-cycle)][| *contributor:* | ]] =Summary= ::  A basic example and starting point for IICM (Interactively Invokable Command Modules.).
 ####+END:
 * 
 * /=======================================================================================================/
