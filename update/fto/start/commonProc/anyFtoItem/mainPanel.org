@@ -1,33 +1,30 @@
 ####+BEGIN: bx:dblock:bnsm:top-of-menu :types "basic"
-*  #Controls:  [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]]  [[elisp:(bury-buffer)][Bury]]  [[elisp:(org-cycle)][| ]]
-**  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]]
+*  [[elisp:(org-cycle)][|#Controls:|]]  [[elisp:(blee:bnsm:menu-back)][Back]] [[elisp:(toggle-read-only)][read/wr]] | [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]]  [[elisp:(save-buffer)][Save]]  [[elisp:(kill-buffer)][Quit]]  [[elisp:(bury-buffer)][Bury]]  [[elisp:(org-cycle)][| ]]
+**  [[elisp:(blee:buf:re-major-mode)][Re-Major-Mode]] ||  [[elisp:(org-dblock-update-buffer-bx)][Update Buf Dblocks]] || [[elisp:(org-dblock-bx-blank-buffer)][Blank Buf Dblocks]] || [[elisp:(bx:panel:variablesShow)][bx:panel:variablesShow]]  E|
 ####+END:
-####+BEGIN: bx:dblock:bnsm:this-node "basic"
+####+BEGINNOT: bx:dblock:bnsm:this-node "basic"
 *  This File :: *= /de/bx/nne/dev-py/pypi/pkgs/unisos/Panel.org =*
 ####+END:
-####+BEGIN: bx:dblock:bnsm:menu-stack "basic"
+####+BEGINNOT: bx:dblock:bnsm:menu-stack "basic"
 
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:see-related
-*  #Bash:  [[elisp:(org-cycle)][| ]] (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]
-**  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]
+*  [[elisp:(org-cycle)][|#Bash:|]] (Results: [[elisp:(blee:bnsm:results-here)][Here]] | [[elisp:(blee:bnsm:results-split-below)][Below]] | [[elisp:(blee:bnsm:results-split-right)][Right]] | [[elisp:(blee:bnsm:results-other)][Other]] | [[elisp:(blee:bnsm:results-popup)][Popup]]) (Select:  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh -i currentsGetThenShow")][Show Currents]]  [[elisp:(lsip-local-run-command "lpCurrentsAdmin.sh")][lpCurrentsAdmin.sh]] ) [[elisp:(org-cycle)][| ]]
+**  #See:  (Window: [[elisp:(blee:bnsm:results-window-show)][?]] | [[elisp:(blee:bnsm:results-window-set 0)][0]] | [[elisp:(blee:bnsm:results-window-set 1)][1]] | [[elisp:(blee:bnsm:results-window-set 2)][2]] | [[elisp:(blee:bnsm:results-window-set 3)][3]] ) || [[elisp:(lsip-local-run-command-here "echo pushd dest")][echo pushd dir]] || [[elisp:(lsip-local-run-command-here "lsf")][lsf]] || [[elisp:(lsip-local-run-command-here "pwd")][pwd]] |
 ####+END:
 ####+BEGIN: bx:dblock:bnsm:agenda-list
-*  #Marshal:  [[elisp:(find-file "/bisos/apps/defaults/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] ||  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]]    [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]]
+*  [[elisp:(org-cycle)][|#Marshal:|]]  [[elisp:(find-file "/libre/ByStar/InitialTemplates/activeDocs/listOfDocs/fullUsagePanel-en.org")][BxDE Top Panel]] ||  [[elisp:(bx:org:agenda:this-file-otherWin)][Agenda List This]] || [[elisp:(bx:org:todo:this-file-otherWin)][ToDo List This]] |
+**  #See:  [[elisp:(bx:bnsm:top:panel-blee)][Blee]] | [[elisp:(bx:bnsm:top:panel-listOfDocs)][All Docs]]
 ####+END:
 *      =====================  
 *  [[elisp:(org-cycle)][| ]]  =pnlDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
-####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/bxt/starts/bxtProc/auxNode/commonProcTop.org"
-*  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]               /*  BxTree Common Object Panel (objectType=data) */
-*      ================
-*  [[elisp:(org-cycle)][| ]]  Related BxPanels   ::  [[elisp:(find-file "/bisos/apps/defaults/activeDocs/bxServices/servicesManage/bxSupervision/systemd/fullUsagePanel-en.org")][SystemD]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/fullUsagePanel-en.org][BaseDirs]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/disk/fullUsagePanel-en.org][Disks Management]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/nfs/fullUsagePanel-en.org][NFS]] || [[file:/bisos/apps/defaults/activeDocs/bxPlatform/baseDirs/samba/fullUsagePanel-en.org][SAMBA]]   [[elisp:(org-cycle)][| ]]
-*      ================
+####+BEGINNOT: bx:dblock:global:file-insert :file "/bisos/apps/defaults/bxt/starts/bxtProc/auxNode/commonProcTop.org"
 
 ####+END:
 *  [[elisp:(beginning-of-buffer)][Top]] =pnlDblock-Ends=   ::  [[elisp:(delete-other-windows)][(1)]] 
 *  [[elisp:(beginning-of-buffer)][Top]] #####################  [[elisp:(delete-other-windows)][(1)]]      *ftoProc.sh Invokations* 
 *  [[elisp:(org-cycle)][| ]]  =pnlDblock-Begins= ::  [[elisp:(org-cycle)][| ]]
-####+BEGIN: bx:dblock:global:file-insert :file "/bisos/apps/defaults/bxt/starts/bxtProc/auxNode/commonProcInvokes.org"
+####+BEGINNOT: bx:dblock:global:file-insert :file "/bisos/apps/defaults/bxt/starts/bxtProc/auxNode/commonProcInvokes.org"
 *      bxtStartCommon.sh  ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "echo" :name "bxtStartCommon.sh" :iif "startObjectGen" :iifArgs "auxNode")][bxtStartCommon.sh -i startObjectGen auxNode]]
 *      Begin Templates    ::  [[elisp:(dired "/bisos/apps/defaults/bxt/starts/bxtProc/auxNode/")][dired /bisos/apps/defaults/bxt/starts/bxtProc/auxNode/]]
 *      commonPanel.sh     ::  [[elisp:(bx:iimBash:cmndLineExec :wrapper "" :name "commonProc.sh" :verbosity "" :callTracking "" :iif "" :iifArgs "")][commonProc.sh]]
@@ -56,7 +53,7 @@
 ####+END:
 
 
-####+BEGIN: bx:dblock:bnsm:end-of-menu "basic"
+####+BEGINNOT: bx:dblock:bnsm:end-of-menu "basic"
 *  #Controls:  [[elisp:(blee:bnsm:menu-back)][Back]]  [[elisp:(toggle-read-only)][toggle-read-only]]  [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Cycle Glob Vis]]  [[elisp:(delete-other-windows)][1 Win]]  [[elisp:(save-buffer)][Save]]   [[elisp:(kill-buffer)][Quit]]
 ####+END:
 *  [[elisp:(org-cycle)][| ]]  Local Vars  ::                  *Org-Mode And Emacs Specific Configurations*   [[elisp:(org-cycle)][| ]]

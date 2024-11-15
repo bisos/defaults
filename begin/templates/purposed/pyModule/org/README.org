@@ -3,8 +3,9 @@
 #+AUTHOR: Mohsen BANAN
 #+OPTIONS: toc:4
 
-Panel Controls:: [[elisp:(show-all)][Show-All]]  [[elisp:(org-shifttab)][Overview]]  [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]] [[elisp:(save-buffer)][Save]] [[elisp:(kill-buffer)][Quit]] [[elisp:(bury-buffer)][Bury]]
-Links: [[file:./panels/_nodeBase_/fullUsagePanel-en.org]] (Package Panel)
+~Blee Panel Controls~: [[elisp:(show-all)][Show-All]] | [[elisp:(org-shifttab)][Overview]] | [[elisp:(progn (org-shifttab) (org-content))][Content]] | [[elisp:(delete-other-windows)][(1)]] | [[elisp:(progn (save-buffer) (kill-buffer))][S&Q]] | [[elisp:(save-buffer)][Save]]  | [[elisp:(kill-buffer)][Quit]]  | [[elisp:(bury-buffer)][Bury]]  \\
+~Panel Links~:  [[file:../_nodeBase_/fullUsagePanel-en.org][Blee Panel]]  | [[file:./py3/panels/bisos.facter/_nodeBase_/fullUsagePanel-en.org][Github Panel]]
+~See Also~: [[https://pypi.org/project/bisos.facter][At PYPI]] | [[https://github.com/bisos-pip/pycs][bisos.PyCS]] | [[https://github.com/bisos-pip/cmdb][bisos.cmdb]]
 
 * Overview
 bisos.MODULE is a python package that uses the PyCS-Framework for NOTYET.
@@ -17,13 +18,13 @@ management of multiple systems.
 
 * Table of Contents     :TOC:
 - [[#overview][Overview]]
-- [[#about-bisos-----bystar-internet-services-operating-system][About BISOS --- ByStar Internet Services Operating System]]
+- [[#part-of-bisos-----bystar-internet-services-operating-system][Part of BISOS --- ByStar Internet Services Operating System]]
 - [[#bisosmodule-is-a-command-services-pycs-facility][bisos.MODULE is a Command Services (PyCS) Facility]]
 -  [[#uses-of-bisosmodule][Uses of bisos.MODULE]]
 - [[#bisosmodule-as-a-standalone-piece-of-bisos][bisos.MODULE as a Standalone Piece of BISOS]]
 - [[#installation][Installation]]
-  - [[#with-pip][With pip]]
-  - [[#with-pipx][With pipx]]
+  - [[#installation-with-pip][Installation With pip]]
+  - [[#installation-with-pipx][Installation With pipx]]
 - [[#usage][Usage]]
   - [[#locally-system-command-line][Locally (system command-line)]]
   - [[#remotely-as-a-service----performerinvoker][Remotely (as a service -- Performer+Invoker)]]
@@ -36,17 +37,17 @@ management of multiple systems.
   - [[#bisosmodule-blee-panels][bisos.MODULE Blee-Panels]]
 - [[#support][Support]]
 
-* About BISOS --- ByStar Internet Services Operating System
+* Part of BISOS --- ByStar Internet Services Operating System
 
 Layered on top of Debian, *BISOS*: (By* Internet Services Operating System) is a
 unified and universal framework for developing both internet services and
 software-service continuums that use internet services. See [[https://github.com/bxGenesis/start][Bootstrapping
-ByStar, BISOS and Blee]] for information about getting started with BISOS.
+ByStar, BISOS and Blee]] for information about getting started with BISOS.\\
+*BISOS* is a foundation for *The Libre-Halaal ByStar Digital Ecosystem* which is
+described as a cure for losses of autonomy and privacy in a book titled: [[https://github.com/bxplpc/120033][Nature
+of Polyexistentials]]
 
-/bisos.MODULE/ as a PyCS facility is a small piece of a much bigger picture. *BISOS*
-is a foundation for *The Libre-Halaal ByStar Digital Ecosystem* which is described
-as a cure for losses of autonomy and privacy that we are experiencing in a book
-titled: [[https://github.com/bxplpc/120033][Nature of Polyexistentials]]
+/bisos.MODULE/ is part of BISOS.
 
 * bisos.MODULE is a Command Services (PyCS) Facility
 
@@ -90,7 +91,7 @@ https://pypi.org/project/bisos.MODULE
 
 You can install bisos.MODULE with pip or pipx.
 
-** With pip
+** Installation With pip
 
 If you need access to bisos.MODULE as a python module, you can install it with pip:
 
@@ -98,7 +99,7 @@ If you need access to bisos.MODULE as a python module, you can install it with p
 pip install bisos.MODULE
 #+end_src
 
-** With pipx
+** Installation With pipx
 
 If you only need access to bisos.MODULE as a command on command-line, you can install it with pipx:
 

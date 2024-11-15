@@ -45,7 +45,7 @@ esac
 #set +x
 #set -x
 
-#aProfVerboseLevel=1
+# aProfVerboseLevel=1
 aProfVerboseLevel=0
 
 export G_verbose="notVerbose"
@@ -266,6 +266,11 @@ aProfRunOrdered ucbFeatures
 # bisosBase Configuration
 #
 
+#
+#  VERY IMPORTANT:: All of the above path settings are overwriten in aProf_path_bisos
+#
+# aProf_path_bisos sources /bisos/core/bsip/lib/ocp-general.sh in which path is set staring with .
+#
 aProf_path_bisos
 
 # aProf_bsip_bisos
@@ -322,7 +327,6 @@ case ${hostIdForPrompt} in
        ;;
   esac
 
-
 export PROMPT="${hostIdForPrompt}${acctName}# "
 export PS1="${hostIdForPrompt}${acctName}# "
 export PS2="${hostIdForPrompt}${acctName}# "
@@ -333,14 +337,14 @@ export UBUNTU_MENUPROXY=0
 
 unalias perhapsEcho
 
-
-#. /opt/public/osmt/lib/dir.ksh 
+#. /opt/public/osmt/lib/dir.ksh
 if [[ "${BASH_VERSION}X" = "X" ]] ; then
   . /opt/public/osmt/lib/pushpopdirs.ksh 
 fi
 
 #set history=100
 alias clear='tput clear'
+alias l='ls --color -C -F'
 alias lsf='ls --color -C -F'
 alias lsfa='ls --color -C -F -a'
 alias -- 0='dirs'
@@ -362,6 +366,7 @@ export LS_COLORS
 #alias rsz='eval `resize`'
 alias acroread='acroread -openInNewInstance'
 alias ossh='ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 '
+alias rehash='hash -r'
 
 unset G_emacsServerPid
 export G_emacsServerPid=$(echo $(ps ho ppid $$))  # The extra echo gets rid of possible spaces
