@@ -1,8 +1,6 @@
 %%% -*- Mode: LaTeX; -*-
 %%%#+BEGIN: bx:dblock:lcnt:latex:doc-class :class "art+pres" :langs "en+fa" :texClass "article"
-%%% Args: :class "pres+art|art+pres|art|memo|book" :langs "en+fa|fa+en|en" :texClass "book|article"
-\documentclass{article}
-\usepackage{comment}
+
 %%%#+END:
 
 %%%#+BEGIN: bx:dblock:global:org-controls :disabledP "false" :mode "auto"
