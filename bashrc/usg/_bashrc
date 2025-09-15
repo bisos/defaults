@@ -387,4 +387,6 @@ git config --global init.defaultBranch master
 git config --global pull.rebase false
 
 # Credentials
-export OPENAI_API_KEY=$(cat "/bxo/usg/bystar/bpos/usageEnvs/fullUse/credentials/openAi/openAiApiKey")
+if [ -f /bxo/usg/bystar/bpos/usageEnvs/fullUse/credentials/openAi/openAiApiKey ] ; then
+   export OPENAI_API_KEY=$(cat "/bxo/usg/bystar/bpos/usageEnvs/fullUse/credentials/openAi/openAiApiKey")
+fi
