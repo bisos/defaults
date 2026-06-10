@@ -1,0 +1,31 @@
+#+title: AI Agents Guidance for bisos.newPkg
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+* Table of Contents     :TOC:
+- [[#development-and-continuation-of-development][Development and Continuation of Development]]
+- [[#what-this-is][What this is]]
+- [[#general-aspects-of-this-package][General Aspects of This Package]]
+- [[#specific-this-repo-is-layered-on-top-of-bisosnotyet][Specific: This Repo is Layered on top of bisos.NOTYET]]
+
+* Development and Continuation of Development
+
+AI collaborative developemnt uses [[file:./AI-DevStatus.org]]
+
+@./AI-DevStatus.org
+
+
+* Project Overview
+
+NOTYET: Ask Claude to fill this in after you have copied this file to the new repo.
+
+* General Aspects of This Package
+
+See [[file:./AI-AGENTS-GENERAL.org]] for details.
+
+@./AI-AGENTS-GENERAL.org
+
+* Specific: This Repo is Layered on top of bisos.NOTYET
+
+See @/bisos/git/bxRepos/bisos-pip/NOTYET/CLAUDE.md
+

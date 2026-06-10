@@ -1,0 +1,24 @@
+#+title: bisos.newPackage --- Development Status & Continuation Handoff
+#+TAGS: me(m) ai(a)
+
+This file is a working-state handoff so development can continue on another
+machine (which has this repo but NOT the developer's =~=). It captures the
+architecture, what works, what is untested, the config/venv setup that lives
+OUTSIDE the repo, and the design decisions made so far.
+
+Companion docs: [[file:AI-AGENTS.org][AI-AGENTS.org]] (agent guidance / layering), [[file:README.org][README.org]] (overview).
+
+* Open items / TODO
+** +
+** TODO [#A] example of a work item :me:ai:
+SCHEDULED: <2026-06-09 Tue>
+Here is an example of work item
+** -
+
+* Specific: NOTYET
+
+NOTYET: The overall evolution of the project and its goals are described here.
+
+# Local Variables:
+# eval: (setq-local toc-org-max-depth 4)
+# End:
