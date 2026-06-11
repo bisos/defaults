@@ -1,4 +1,4 @@
-#+title: someNewPkg --- Development Status & Continuation Handoff
+#+title: bisos.newPackage --- Development Status & Continuation Handoff
 #+TAGS: me(m) ai(a)
 
 This file is a working-state handoff so development can continue on another

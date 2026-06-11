@@ -1,45 +1,31 @@
-#+title: AI Agents Guidance for someNewPkg
+#+title: AI Agents Guidance for bisos.newPkg
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-It is usually sourced from CLAUDE.md
 
 * Table of Contents     :TOC:
-- [[#development][Development]]
-- [[#what-this-is][What this is]]
-- [[#general-this-repo-is-part-of-bystar][General: This Repo is Part of ByStar]]
-- [[#general-python-programming-and-testing][General: Python Programming and Testing]]
-- [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
-- [[#specific-commands-and-python-programming-and-testing][Specific Commands and Python Programming and Testing]]
+- [[#development-and-continuation-of-development][Development and Continuation of Development]]
+- [[#project-overview][Project Overview]]
+- [[#general-aspects-of-this-package][General Aspects of This Package]]
+- [[#specific-this-repo-is-layered-on-top-of-bisosnotyet][Specific: This Repo is Layered on top of bisos.NOTYET]]
 
-* Development
+* Development and Continuation of Development
 
-AI collaborative developemnt uses [[file:./AI-DevStatus.org]]
+AI collaborative developemnt uses [[file:./AI-WorkPlan.org]]
 
-@./AI-DevStatus.org
+@./AI-WorkPlan.org
+
 
 * Project Overview
 
 NOTYET: Ask Claude to fill this in after you have copied this file to the new repo.
 
-* General: This Repo is Part of ByStar
+* General Aspects of This Package
 
-There are no particular atributes for this at this time.
+See [[file:./AI-AGENTS-GENERAL.org]] for details.
 
-* General: Python Programming and Testing
+@./AI-AGENTS-GENERAL.org
 
-For any new project or module or file, use type hinting.
-For exisiting code, if type hinting is not used, don't add any hints.
+* Specific: This Repo is Layered on top of bisos.NOTYET
 
-Ranautomation projects don't have a CI/CD or liniting tools.
+See @/bisos/git/bxRepos/bisos-pip/NOTYET/CLAUDE.md
 
-See Specific for smoke tests.
-
-* Git Commits and Git Pushes
-
-I don't want Claude to suggest the prompt of "commit this" or "push this".
-I want to do all the commits and pushes myself.
-Instead just suggest that I can commit.
-
-* Specific Commands and Python Programming and Testing
-
-NOTYET: Per project specifics
