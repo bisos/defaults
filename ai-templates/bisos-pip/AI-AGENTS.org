@@ -1,31 +1,45 @@
-#+title: AI Agents Guidance for bisos.newPkg
+#+title: AI Agents Guidance for aNewRepo
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+It is usually sourced from CLAUDE.md
 
 * Table of Contents     :TOC:
-- [[#development-and-continuation-of-development][Development and Continuation of Development]]
-- [[#what-this-is][What this is]]
 - [[#general-aspects-of-this-package][General Aspects of This Package]]
-- [[#specific-this-repo-is-layered-on-top-of-bisosnotyet][Specific: This Repo is Layered on top of bisos.NOTYET]]
+- [[#development-status-and-continuation-of-development][Development Status and Continuation of Development]]
+- [[#work-plan][Work Plan]]
+- [[#project-overview][Project Overview]]
+- [[#specific-commands-and-python-programming-and-testing][Specific Commands and Python Programming and Testing]]
 
-* Development and Continuation of Development
+* AI Collaboration Workflow
 
-AI collaborative developemnt uses [[file:./AI-DevStatus.org]]
+See [[file:./MB-AI-WorkFlow.org]] for Mohsen's overall AI collaborative development workflow.
+
+@./MB-AI-WorkFlow.org
+
+* General Aspects of This Package
+
+See [[file:./AI-GENERAL.org]] for details.
+
+@./AI-GENERAL.org
+
+
+* Development Status and Continuation of Development
+
+Current state of development is at: [[file:./AI-DevStatus.org]]
 
 @./AI-DevStatus.org
 
+* Work Plan
+
+AI collaborative developemnt uses [[file:./AI-WorkPlan.org]]
+
+@./AI-WorkPlan.org
 
 * Project Overview
 
 NOTYET: Ask Claude to fill this in after you have copied this file to the new repo.
 
-* General Aspects of This Package
 
-See [[file:./AI-AGENTS-GENERAL.org]] for details.
+* Specific Commands and Python Programming and Testing
 
-@./AI-AGENTS-GENERAL.org
-
-* Specific: This Repo is Layered on top of bisos.NOTYET
-
-See @/bisos/git/bxRepos/bisos-pip/NOTYET/CLAUDE.md
-
+NOTYET: Per project specifics
