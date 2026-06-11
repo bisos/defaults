@@ -6,7 +6,7 @@
 
 This is an overview of my collaborative AI development workflow. It is
 generalized and not specific to any particular activity. I use it for
-developing and updating documents and presentations (usually with LaTeX),
+developing and updating documents, books and presentations (usually with LaTeX),
 software development in Python and elisp or even short notes like this one.
 
 For each of those activities I maintain a set of starting point templates.

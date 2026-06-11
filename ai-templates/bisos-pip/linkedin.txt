@@ -1,0 +1,29 @@
+How I collaborate with AI across every project — a workflow that actually
+scales.
+
+I use Claude for software development, writing documents, books, and
+presentations. The biggest challenge isn't the AI itself — it's maintaining
+context across sessions and machines. Claude doesn't remember yesterday's
+conversation.
+
+My solution: a small set of structured files I keep in every project repo.
+
+Each repo gets:
+
+CLAUDE.md — the entry point, tells Claude where to find everything else
+
+AI-AGENTS.org — master context file describing the project and importing all other files
+
+AI-GENERAL.org — my standing preferences (e.g. use type hints in Python, don't suggest commits)
+
+AI-DevStatus.org — after every major session, I ask Claude to update this with what it understood and where things stand. This lets me (or a colleague) pick up the work on any machine.
+
+AI-WorkPlan.org — where I actually drive the work. I break interactions into Stages, each with a TODO list. I assign tasks to Claude or to myself, then ask Claude to mark them done and archive them when complete.
+
+The key insight: this is about maintaining a precise, evolving, long-context that survives session boundaries.
+
+I work in Emacs with org-mode, which gives me outlining, cross-referencing, TODO lists, scheduling, and archiving in one place. But the file-based approach works regardless of your editor.
+
+We are in the early days of human-AI collaboration. The workflows that work well are still being figured out. I'd be genuinely interested in how others are handling this — what's working, what isn't.
+
+#AI #AIWorkflow #ClaudeAI #SoftwareDevelopment #Emacs #OrgMode #Productivity
