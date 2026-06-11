@@ -4,6 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 It is usually sourced from CLAUDE.md
 
 * Table of Contents     :TOC:
+- [[#ai-collaboration-workflow][AI Collaboration Workflow]]
 - [[#general-aspects-of-this-package][General Aspects of This Package]]
 - [[#development-status-and-continuation-of-development][Development Status and Continuation of Development]]
 - [[#work-plan][Work Plan]]
@@ -12,9 +13,9 @@ It is usually sourced from CLAUDE.md
 
 * AI Collaboration Workflow
 
-See [[file:./MB-AI-WorkFlow.org]] for Mohsen's overall AI collaborative development workflow.
+See [[file:./AI-WorkFlow.org]] for Mohsen's overall AI collaborative development workflow.
 
-@./MB-AI-WorkFlow.org
+@./AI-WorkFlow.org
 
 * General Aspects of This Package
 
