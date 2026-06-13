@@ -1,4 +1,4 @@
-#+title: AI-WorkFlow --- Mohsen's Collaborative AI Development Workflow
+#+title: AI-Workflow --- Mohsen's Collaborative AI Development Workflow
 #+DATE: <2026-06-10 Wed 13:54>
 #+AUTHOR: Mohsen BANAN
 #+OPTIONS: toc:4
@@ -22,7 +22,7 @@ completing the task, I ask Claude to summarize it, mark it as done and archive
 it.
 
 Here is a list of the AI collaboration files that I maintain for each project/repo.
-The third column is one of: const, ai, you, u+ai --- which says who produces the file.
+The third column is one of: const(constant), ai, you, u+ai --- which says who produces the file.
 
 |--------------------+------------------------------------------------------------------+-------|
 | ./CLAUDE.md        | Default for Claude, imports ./AI-AGENTS.org to enable org-mode   | const |
@@ -30,6 +30,8 @@ The third column is one of: const, ai, you, u+ai --- which says who produces the
 | ./AI-AGENTS.org    | Master for importing everything else and describing the project  | u+ai  |
 |                    | It imports ./AI-GENERAL.org, ./AI-DevStatus.org,                 |       |
 |                    | ./AI-WorkPlan.org and  ./AI-WorkPlan-archive.org                 |       |
+|--------------------+------------------------------------------------------------------+-------|
+| ./AI-Workflow.org  | A description of this workflow, for the AI-Assistant's benefit.  | const |
 |--------------------+------------------------------------------------------------------+-------|
 | ./AI-GENERAL.org   | Here I keep all of my activity related preferences,              | you   |
 |                    | For example, for python; use type hints                          |       |
@@ -54,7 +56,8 @@ experiment, learn and share our experiences.
 
 I'd be interested in your feedback and knowing about your own AI workflow experiences.
 
-Here is where I keep my AI Templates for bisos: https://github.com/bisos/defaults/tree/master/ai-templates
+Here is where I keep my AI Templates for bisos:
+https://github.com/bisos/defaults/tree/master/ai-templates/bisos-pip
 Here is an example of an AI Collaborative project at bisos.gitist: https://github.com/bisos-pip/gitist
 
 # Local Variables:
