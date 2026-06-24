@@ -28,6 +28,7 @@ tramp
 
 # AUCTeX auto folder
 /auto/
+/.auctex-auto/
 
 # cask packages
 .cask/
