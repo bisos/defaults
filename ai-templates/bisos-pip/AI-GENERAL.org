@@ -12,9 +12,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 * General: This Repo is Part of bisos-pip -- Common Structure of Repos in the bisos-pip Organization
 
-See
+Read
 
-@/bisos/git/bxRepos/bisos-pip/.github/profile/readme.org
+/bisos/git/bxRepos/bisos-pip/.github/profile/readme.org
+
+when needed.
 
 * General: Python Programming and Testing
 
