@@ -1,5 +1,5 @@
 #+title: Development Status & Continuation Handoff
-#+TAGS: me(m) ai(a)
+#+TAGS: me ai joint
 
 This file is a working-state handoff so development can continue on another
 machine (which has this repo but NOT the developer's =~=). It captures the
