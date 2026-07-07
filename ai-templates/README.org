@@ -1,0 +1,63 @@
+#+title: AI-Templates
+
+
+* Overview of Starting Point Templates
+
+This directory contains starting point templates for ByStar AI Colaborative development
+of various activities.
+
+These directories are meant to be comulative. In other words you can combine them.
+
+|----------+---------------+-------------------------------------------------------|
+| Activity | Directory     | Comments                                              |
+|----------+---------------+-------------------------------------------------------|
+|----------+---------------+-------------------------------------------------------|
+| Any      | ./bystar      | Generic Master CLAUDE.md, AI-AGENTNS.org, AI-Workflow |
+|----------+---------------+-------------------------------------------------------|
+| Python   | ./bisos-pip   | For Building BISOS PYPI  Packages                     |
+|----------+---------------+-------------------------------------------------------|
+| Elisp    | ./blee-pkgs   | Place Holder                                          |
+|----------+---------------+-------------------------------------------------------|
+| LaTeX    | ./lcnt        | LCNT Content (article, books, presentation)           |
+|----------+---------------+-------------------------------------------------------|
+| Org      | ./blee-panels | For Development of Blee Panels                        |
+|----------+---------------+-------------------------------------------------------|
+
+* Overview of Use Of These Templates At The Repo Base
+
+Depending on the type of activity, in the subject Repo, you would run
+
+####+BEGINNOT: blee:bxPanel:runResult :outLevel 2  :command "startAiAt.cs -i initiate -p root=repo -p activity=bisos-pip"  :results "none" :comment "Initial Templates" :afterComment "-- to be tailored"
+-  [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiAt.cs -i initiate -p root=repo -p activity=bisos-pip")][startAiAt.cs -i initiate -p root=repo -p activity=bisos-pip]] *|*  =Initial Templates= *|*  -- to be tailored  [[elisp:(org-shifttab)][<)]] E|
+####+END:
+
+This will create the following =constant= files at the Repos base:
+
+- ./bystar/CLAUDE.md
+- ./bystar/AI-AGENTS.org
+- ./bystar/AI-Workflow.org
+
+It will also create the following =initial= files at the Repos base:
+
+ - ./bisos-pip/AI-GENERAL.org    # For you to =cusomize=
+ - ./bisos-pip/AI-WorkPlan.org   # For you to =develop=
+ - ./bisos-pip/AI-DevStatus.org  # For AI to =update=
+
+* Overview of Use Of These Templates At The Project Directory Base
+
+Depending on the type of activity, in the subject project directory, you would run
+
+####+BEGINNOT: blee:bxPanel:runResult :outLevel 99  :command "startAiAt.cs -i initiate -p root=curDir -p activity=bisos-pip"  :results "none" :comment "Initial Templates" :afterComment "-- to be tailored"
+- [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiAt.cs -i initiate -p root=curDir -p activity=bisos-pip")][startAiAt.cs -i initiate -p root=curDir -p activity=bisos-pip]] *|*  =Initial Templates= *|*  -- to be tailored  [[elisp:(org-shifttab)][<)]] E|
+####+END:
+
+This will create the following =initial= files at the project directory base:
+
+ - ./bisos-pip/AI-GENERAL.org    # For you to =cusomize=
+ - ./bisos-pip/AI-WorkPlan.org   # For you to =develop=
+ - ./bisos-pip/AI-DevStatus.org  # For AI to =update=
+
+* The ./startAiAt.cs Directory and Script
+
+The *startAiAt.cs* PyCS-XU copies files from this /bisos/apps/defaults/ai-templates/ directory
+to the repo base and the project directory base.

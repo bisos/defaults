@@ -1,0 +1,20 @@
+#+title: BISOS Defaults and Templates
+
+
+* About This Repo
+
+This repo is part of BISOS.
+
+It is cloned in the platform during the RawBisos phase and is referenced as /bisos/apps/defaults/
+by various BISOS utilities and applications.
+
+* Contents of This Repo
+
+ In tabular form, contents of this repo are presented below:
+
+ | directory      | Description                                                      |
+ |----------------+------------------------------------------------------------------|
+ | ./ai-templates | Starting point templates for use in collaborative AI development |
+ | ./mailings     | Templates                                                        |
+ |----------------+------------------------------------------------------------------|
+ |                |                                                                  |
