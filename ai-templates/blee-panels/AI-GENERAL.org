@@ -1,0 +1,48 @@
+#+title: AI Agents Guidance for bisos.newPkg
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+* Table of Contents     :TOC:
+- [[#general-this-repo-is-part-of-bystar-bisos-and-blee][General: This Repo is Part of ByStar, BISOS and Blee]]
+- [[#general-about-blee-panels-in-general][General: About Blee Panels in General]]
+- [[#general-public-bisospanels--and-httpsgithubcomorgsblee-bindersrepositories][General: Public /bisos/panels  and https://github.com/orgs/blee-binders/repositories]]
+- [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
+
+* General: This Repo is Part of ByStar, BISOS and Blee
+
+Read
+
+/bisos/git/bxRepos/bisos-pip//.github/profile/readme.org
+
+when needed.
+
+* General: About Blee Panels in General
+
+Blee Panels are a pattern of org-mode files that are structured in a file hierarchy as a tree.
+The leaves are laidout in a flat directory. The branches are in a directory that also include a _nodeBase_ sub directory.
+
+There are many trees. And the collection of the trees form a web of blee-panels.
+
+The fullUsagePanel-en.org is the prime source of information for each panel.
+
+blee-panels browsing is meant to be similar to web browsing as point and click.
+
+Use of blee-panels is generalized. Each panel has icons that clarifies if it is public or which ByStar Realm it belongs to.
+
+Blee-panels are the primary method of documentation in the ByStar Digital Ecosystem
+
+* General: Public /bisos/panels  and https://github.com/orgs/blee-binders/repositories
+
+Use of blee-panels is BISOS and Blee spans the following:
+
+- /bisos/panels
+
+  Repos of  https://github.com/orgs/blee-binders are cloned  here.
+
+
+* Git Commits and Git Pushes
+
+I don't want Claude to suggest me to prompt me:  "commit this" or "push this".
+I want to do all the commits and pushes myself.
+Instead just suggest that I myself can commit.
+
