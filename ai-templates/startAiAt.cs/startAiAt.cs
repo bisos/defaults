@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """ #+begin_org
-* ~[Summary]~ :: A =CSXU= (Pkged, Direct, Seeded) for players information.
+* ~[Summary]~ :: A =CSXU= for initiating AI collaborative development templates.
 #+end_org """
 
 """ #+begin_org
@@ -38,8 +38,7 @@
 ####+BEGIN: b:prog:file/particulars :authors ("./inserts/authors-mb.org")
 """ #+begin_org
 * *[[elisp:(org-cycle)][| Particulars |]]* :: Authors, version
-** This File: /bisos/git/bxRepos/bisos-pip/csPlayer/py3/bin/player.cs
-** File True Name: /bisos/git/auth/bxRepos/bisos-pip/csPlayer/py3/bin/player.cs
+** This File: /bisos/apps/defaults/ai-templates/startAiAt.cs/startAiAt.cs
 ** Authors: Mohsen BANAN, http://mohsen.banan.1.byname.net/contact
 #+end_org """
 ####+END:
@@ -49,10 +48,10 @@
 * *[[elisp:(org-cycle)][| Particulars-csInfo |]]*
 #+end_org """
 import typing
-csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['player'], }
-csInfo['version'] = '202601111431'
+csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['startAiAt'], }
+csInfo['version'] = '202507081500'
 csInfo['status']  = 'inUse'
-csInfo['panel'] = 'player-Panel.org'
+csInfo['panel'] = 'startAiAt-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
 csInfo['cmndParts'] = 'IcmCmndParts[common] IcmCmndParts[param]'
 ####+END:
@@ -79,37 +78,18 @@ csInfo['cmndParts'] = 'IcmCmndParts[common] IcmCmndParts[param]'
 from bisos import b
 from bisos.b import cs
 from bisos.b import b_io
+from bisos.common import csParam
 
 import collections
 ####+END:
 
 import pathlib
-
 import typing
-import sys
-import os
-
-####+BEGIN: b:py3:cs:framework/csxuSeeded :disabled? t :comment "Import plantedCsu"
-""" #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /DISABLED/   [[elisp:(outline-show-subtree+toggle)][||]] *b:py3:cs:framework/csxuSeeded*  [[elisp:(org-cycle)][| ]]
-#+end_org """
-####+END:
-
-""" #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~csuList emacs-list Specifications~  [[elisp:(blee:org:code-block/above-run)][ /Eval Below/ ]] [[elisp:(org-cycle)][| ]]
-#+BEGIN_SRC emacs-lisp
-(setq  b:py:cs:csuList
-  (list
- ))
-#+END_SRC
-#+RESULTS:
-#+end_org """
 
 ####+BEGIN: b:py3:cs:framework/csuListProc :pyImports t :csuImports t :csuParams t :csxuParams nil
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Process CSU List~ with /0/ in csuList pyImports=t csuImports=t csuParams=t
 #+end_org """
-
 
 csuList = [ ]
 
@@ -117,29 +97,49 @@ g_importedCmndsModules = cs.csuList_importedModules(csuList)
 
 def g_extraParams():
     csParams = cs.param.CmndParamDict()
+    commonParamsSpecify(csParams)
     cs.csuList_commonParamsSpecify(csuList, csParams)
     cs.argsparseBasedOnCsParams(csParams)
 
 ####+END:
 
-####+BEGIN: b:py3:cs:main/exposedSymbols :disabled? t :classes ()
+####+BEGIN: b:py3:cs:orgItem/section :title "Common Parameters Specification"
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /DISABLED/   [[elisp:(outline-show-subtree+toggle)][||]] *b:py3:cs:main/exposedSymbols*  [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  /Section/    [[elisp:(outline-show-subtree+toggle)][||]] *Common Parameters Specification*  [[elisp:(org-cycle)][| ]]
 #+end_org """
 ####+END:
+
+def commonParamsSpecify(
+        csParams: cs.param.CmndParamDict,
+) -> None:
+    csParams.parDictAdd(
+        parName='root',
+        parDescription="Target root: 'repo' for repo base, 'curDir' for current project directory.",
+        parDataType=None,
+        parDefault='curDir',
+        parChoices=['repo', 'curDir'],
+        argparseShortOpt=None,
+        argparseLongOpt='--root',
+    )
+    csParams.parDictAdd(
+        parName='activity',
+        parDescription="Template activity type matching a directory under ai-templates/.",
+        parDataType=None,
+        parDefault=None,
+        parChoices=[],
+        argparseShortOpt=None,
+        argparseLongOpt='--activity',
+    )
+
+
+g_templatesBase = pathlib.Path('/bisos/apps/defaults/ai-templates')
+
 
 ####+BEGIN: b:py3:cs:main/outcomeReportControl :disabled? nil :cmnd t :ro nil
 """ #+begin_org
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Invokation's Outcome Reporting Control~ with /cmnd=t/ /ro=nil/
 #+end_org """
 # cs.invOutcomeReportControl(cmnd=True, ro=True)
-####+END:
-
-
-####+BEGIN: b:py3:cs:framework/uploadLoader :disabled? nil :comment "upload with loader_facter"
-""" #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CsFrmWrk   [[elisp:(outline-show-subtree+toggle)][||]] ~Upload Loader~ Setup Loader
-#+end_org """
 ####+END:
 
 
@@ -174,90 +174,110 @@ class examples(cs.Cmnd):
 ***** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Conventional top level example.
         #+end_org """)
 
-        cs.G.icmRunArgsGet().perfName = None   # NOTYET
-
-        od = collections.OrderedDict
-        cmnd = cs.examples.cmndEnter
-        literal = cs.examples.execInsert
-
-        #logControler = b_io.log.Control()
-        #logControler.loggerSetLevel(20)
-
         cs.examples.myName(cs.G.icmMyName(), cs.G.icmMyFullName())
         cs.examples.commonBrief()
 
-        cs.examples.menuChapter('=Misc=  *Facilities*')
+        cs.examples.menuChapter('=initiate=  *AI Template Initiation*')
 
-        cmnd('someCmnd', args='', verb=['none', 'little'], comment="# No Args")
-        cmnd('someCmnd', args='With Some Args', comment="# Some Args")
+        od = collections.OrderedDict
+        cmnd = cs.examples.cmndEnter
 
-        cs.examples.menuChapter('=ExecLine Example=  *Example Of Command Line*')
-
-        literal(f"""echo This is just a place holder""")
+        cmnd('initiate',
+             pars=od([('root', 'curDir'), ('activity', 'bisos-pip')]),
+             comment="# Install bisos-pip templates into current directory")
+        cmnd('initiate',
+             pars=od([('root', 'repo'), ('activity', 'xu-single')]),
+             comment="# Install xu-single templates at repo base")
 
         return(cmndOutcome)
 
-####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "someCmnd" :comment "" :extent "verify" :ro "cli" :parsMand "" :parsOpt "" :argsMin 0 :argsMax 9999 :pyInv ""
+
+####+BEGIN: b:py3:cs:cmnd/classHead :cmndName "initiate" :comment "Install AI templates via symlinks and safe-copy" :extent "verify" :ro "cli" :parsMand "activity" :parsOpt "root" :argsMin 0 :argsMax 0 :pyInv ""
 """ #+begin_org
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<someCmnd>>  =verify= argsMax=9999 ro=cli   [[elisp:(org-cycle)][| ]]
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  CmndSvc-   [[elisp:(outline-show-subtree+toggle)][||]] <<initiate>>  =verify= parsMand=activity parsOpt=root ro=cli   [[elisp:(org-cycle)][| ]]
 #+end_org """
-class someCmnd(cs.Cmnd):
-    cmndParamsMandatory = [ ]
-    cmndParamsOptional = [ ]
-    cmndArgsLen = {'Min': 0, 'Max': 9999,}
+class initiate(cs.Cmnd):
+    cmndParamsMandatory = [ 'activity', ]
+    cmndParamsOptional = [ 'root', ]
+    cmndArgsLen = {'Min': 0, 'Max': 0,}
 
     @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
     def cmnd(self,
              rtInv: cs.RtInvoker,
              cmndOutcome: b.op.Outcome,
-             argsList: typing.Optional[list[str]]=None,  # CsArgs
+             activity: typing.Optional[str]=None,  # Cs Mandatory Param
+             root: typing.Optional[str]=None,       # Cs Optional Param
     ) -> b.op.Outcome:
 
         failed = b_io.eh.badOutcome
-        callParamsDict = {}
-        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, argsList).isProblematic():
+        callParamsDict = {'activity': activity, 'root': root, }
+        if self.invocationValidate(rtInv, cmndOutcome, callParamsDict, None).isProblematic():
             return failed(cmndOutcome)
-        cmndArgsSpecDict = self.cmndArgsSpec()
+        activity = csParam.mappedValue('activity', activity)
+        root = csParam.mappedValue('root', root)
 ####+END:
         self.cmndDocStr(f""" #+begin_org
-** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  A starting point command.
+** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Install AI collaborative development templates.
+Symlinks constant files from bystar/. Symlinks AI-GENERAL.org from <activity>/.
+Safe-copies AI-DevStatus.org and AI-WorkPlan.org from <activity>/.
         #+end_org """)
 
-        cmndArgs = self.cmndArgsGet("0&9999", cmndArgsSpecDict, argsList)
+        activityDir = g_templatesBase / activity
+        if not activityDir.is_dir():
+            b_io.eh.problem_usageError(f"Activity directory not found: {activityDir}")
+            return failed(cmndOutcome)
 
-        cmndArgsStr = ""
-        for each in cmndArgs:
-            cmndArgsStr = cmndArgsStr + " " + each
+        if root == 'repo':
+            import subprocess
+            result = subprocess.run(
+                ['git', 'rev-parse', '--show-toplevel'],
+                capture_output=True, text=True,
+            )
+            if result.returncode != 0:
+                b_io.eh.problem_usageError("Could not determine repo root (not in a git repo?)")
+                return failed(cmndOutcome)
+            targetDir = pathlib.Path(result.stdout.strip())
+        else:
+            targetDir = pathlib.Path.cwd()
 
-        if b.subProc.WOpW(invedBy=self, log=1).bash(
-                f"""echo hello World -- {cmndArgsStr}""",
-        ).isProblematic():  return(b_io.eh.badOutcome(cmndOutcome))
+        bystarDir = g_templatesBase / 'bystar'
+
+        # Constant files — always symlinked to bystar/
+        constantFiles = ['CLAUDE.md', 'AI-AGENTS.org', 'AI-Workflow.org']
+        for fname in constantFiles:
+            src = bystarDir / fname
+            dst = targetDir / fname
+            if dst.exists() or dst.is_symlink():
+                b_io.ann.note(f"SKIP (exists): {dst}")
+            else:
+                dst.symlink_to(src)
+                b_io.ann.note(f"SYMLINKED: {dst} -> {src}")
+
+        # AI-GENERAL.org — symlinked to activity/
+        generalSrc = activityDir / 'AI-GENERAL.org'
+        generalDst = targetDir / 'AI-GENERAL.org'
+        if generalDst.exists() or generalDst.is_symlink():
+            b_io.ann.note(f"SKIP (exists): {generalDst}")
+        else:
+            generalDst.symlink_to(generalSrc)
+            b_io.ann.note(f"SYMLINKED: {generalDst} -> {generalSrc}")
+
+        # Initial files — safe-copied from activity/
+        initialFiles = ['AI-DevStatus.org', 'AI-WorkPlan.org']
+        for fname in initialFiles:
+            src = activityDir / fname
+            dst = targetDir / fname
+            if dst.exists():
+                b_io.ann.note(f"SKIP (exists): {dst}")
+            else:
+                import shutil
+                shutil.copy2(src, dst)
+                b_io.ann.note(f"COPIED: {src} -> {dst}")
 
         return cmndOutcome.set(
-            # opError=b.op.OpError.Success,
-            opResults="Results: cmnd results come here",
+            opError=b.op.OpError.Success,
+            opResults=f"AI templates initiated for activity={activity} at {targetDir}",
         )
-
-####+BEGIN: b:py3:cs:method/args :methodName "cmndArgsSpec" :methodType "anyOrNone" :retType "bool" :deco "default" :argsList "self"
-    """ #+begin_org
-**  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Mtd-T-anyOrNone [[elisp:(outline-show-subtree+toggle)][||]] /cmndArgsSpec/ deco=default  deco=default  [[elisp:(org-cycle)][| ]]
-    #+end_org """
-    @cs.track(fnLoc=True, fnEntry=True, fnExit=True)
-    def cmndArgsSpec(self, ):
-####+END:
-        """  #+begin_org
-*** [[elisp:(org-cycle)][| *cmndArgsSpec:* | ]] First arg defines rest
-        #+end_org """
-
-        cmndArgsSpecDict = cs.arg.CmndArgsSpecDict()
-        cmndArgsSpecDict.argsDictAdd(
-            argPosition="0&9999",
-            argName="actionArgs",
-            argChoices=[],
-            argDescription="Rest of args for use by action"
-        )
-
-        return cmndArgsSpecDict
 
 
 ####+BEGIN: blee:bxPanel:foldingSection :outLevel 0 :sep nil :title "Main" :anchor ""  :extraInfo "Framework DBlock"
@@ -274,9 +294,9 @@ class someCmnd(cs.Cmnd):
 if __name__ == '__main__':
     cs.main.g_csMain(
         csInfo=csInfo,
-        noCmndEntry=examples,  # specify a Cmnd name
+        noCmndEntry=examples,
         extraParamsHook=g_extraParams,
-        ignoreUnknownParams=False,  # True is for Uploaded Modules
+        ignoreUnknownParams=False,
         importedCmndsModules=g_importedCmndsModules,
     )
 
