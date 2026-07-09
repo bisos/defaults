@@ -220,7 +220,7 @@ class initiate(cs.Cmnd):
 ####+END:
         self.cmndDocStr(f""" #+begin_org
 ** [[elisp:(org-cycle)][| *CmndDesc:* | ]]  Install AI collaborative development templates.
-Symlinks constant files from bystar/. Symlinks AI-GENERAL.org from <activity>/.
+Symlinks constant files from bystar/. Symlinks AI-Activity.org from <activity>/.
 Safe-copies AI-DevStatus.org and AI-WorkPlan.org from <activity>/.
         #+end_org """)
 
@@ -244,7 +244,7 @@ Safe-copies AI-DevStatus.org and AI-WorkPlan.org from <activity>/.
         bystarDir = g_templatesBase / 'bystar'
 
         # Constant files — always symlinked to bystar/
-        constantFiles = ['CLAUDE.md', 'AI-AGENTS.org', 'AI-Workflow.org']
+        constantFiles = ['CLAUDE.md', 'AI-AGENTS.org', 'AI-WORKFLOW.org']
         for fname in constantFiles:
             src = bystarDir / fname
             dst = targetDir / fname
@@ -254,9 +254,9 @@ Safe-copies AI-DevStatus.org and AI-WorkPlan.org from <activity>/.
                 dst.symlink_to(src)
                 b_io.ann.note(f"SYMLINKED: {dst} -> {src}")
 
-        # AI-GENERAL.org — symlinked to activity/
-        generalSrc = activityDir / 'AI-GENERAL.org'
-        generalDst = targetDir / 'AI-GENERAL.org'
+        # AI-Activity.org — symlinked to activity/
+        generalSrc = activityDir / 'AI-Activity.org'
+        generalDst = targetDir / 'AI-Activity.org'
         if generalDst.exists() or generalDst.is_symlink():
             b_io.ann.note(f"SKIP (exists): {generalDst}")
         else:
@@ -282,10 +282,11 @@ Safe-copies AI-DevStatus.org and AI-WorkPlan.org from <activity>/.
                 else:
                     b_io.ann.note(f"DBLOCK-UPDATE FAILED: {dst}: {result.stderr.strip()}")
 
-        # .claude/ — install settings.json and commands/initiate.md
-        # Use activity-specific .claude/ if it exists, else fall back to bystar/.claude/
-        activityClaudeDir = activityDir / '.claude'
-        bystarClaudeDir = g_templatesBase / 'bystar' / '.claude'
+        # .claude/ — install settings.json and commands/
+        # Source is _claude/ in templates (visible); installed as .claude/ in target
+        # Use activity-specific _claude/ if it exists, else fall back to bystar/_claude/
+        activityClaudeDir = activityDir / '_claude'
+        bystarClaudeDir = g_templatesBase / 'bystar' / '_claude'
         claudeSrcDir = activityClaudeDir if activityClaudeDir.is_dir() else bystarClaudeDir
 
         for claudeSrcFile in claudeSrcDir.rglob('*'):

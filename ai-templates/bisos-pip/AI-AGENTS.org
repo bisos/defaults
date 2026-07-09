@@ -13,9 +13,9 @@ It is usually sourced from CLAUDE.md
 
 * AI Collaboration Workflow
 
-See [[file:./AI-Workflow.org]] for Mohsen's overall AI collaborative development workflow.
+See [[file:./AI-WORKFLOW.org]] for Mohsen's overall AI collaborative development workflow.
 
-@./AI-Workflow.org
+@./AI-WORKFLOW.org
 
 * General Aspects of This Package
 

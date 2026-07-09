@@ -31,7 +31,7 @@ The third column is one of: const(constant), ai, you, u+ai --- which says who pr
 |                    | It imports ./AI-GENERAL.org, ./AI-DevStatus.org,                 |       |
 |                    | ./AI-WorkPlan.org and  ./AI-WorkPlan-archive.org                 |       |
 |--------------------+------------------------------------------------------------------+-------|
-| ./AI-Workflow.org  | A description of this workflow, for the AI-Assistant's benefit.  | const |
+| ./AI-WORKFLOW.org  | A description of this workflow, for the AI-Assistant's benefit.  | const |
 |--------------------+------------------------------------------------------------------+-------|
 | ./AI-GENERAL.org   | Here I keep all of my activity related preferences,              | you   |
 |                    | For example, for python; use type hints                          |       |

@@ -10,7 +10,7 @@
   Working Directory: /bisos/apps/defaults/ai-templates/startAiAt.cs
   File: /bisos/git/auth/bxRepos/bisos/defaults/ai-templates/startAiAt.cs/AI-WorkPlan.org
   Activity: xu-single
-  Companion Docs: AI-AGENTS.org, AI-Workflow.org, AI-GENERAL.org, AI-DevStatus.org
+  Companion Docs: AI-AGENTS.org, AI-WORKFLOW.org, AI-GENERAL.org, AI-DevStatus.org
 
 ####+END:
 

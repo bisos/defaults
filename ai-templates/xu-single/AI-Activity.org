@@ -5,10 +5,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 * Table of Contents     :TOC:
 - [[#general-overview-of-pycs-single-xu-development][General: Overview of PyCS Single-XU Development]]
 - [[#about-bisos-blee-and-bystar-concepts-and-terminology][About BISOS, Blee and ByStar Concepts and Terminology]]
-- [[#about-comeega----collaborative-org-mode-enhanced-emacs-generalized-authorship][About COMEEGA -- Collaborative Org-Mode Enhanced Emacs Generalized Authorship/]]
+- [[#about-comeega----collaborative-org-mode-enhanced-emacs-generalized-authorship][About COMEEGA -- Collaborative Org-Mode Enhanced Emacs Generalized Authorship]]
 - [[#about-poly-dblock][About poly-dblock]]
 - [[#use-of-dblocks-for-unit-testing][Use of dblocks for unit testing]]
 - [[#programming-conventions][Programming Conventions]]
+- [[#python-library-preferences][Python Library Preferences]]
 - [[#python-typing-hints-and-static-checks--linting][Python Typing Hints And Static Checks / Linting]]
 - [[#cicd-and-totality-validating-and-testing][CI/CD and Totality Validating and Testing]]
 - [[#general-python-programming-and-testing][General: Python Programming and Testing]]
@@ -31,7 +32,7 @@ If needed read -- //bisos/git/bxRepos/bisos-pip//.github/profile/readme.org ---
 For Concepts and Terminology, import
 @/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel
 
-* About COMEEGA -- Collaborative Org-Mode Enhanced Emacs Generalized Authorship/
+* About COMEEGA -- Collaborative Org-Mode Enhanced Emacs Generalized Authorship
 
 All of BISOS and Blee software development uses the COMEEGA syntax.
 The source code is a combination of python and org-mode.
@@ -71,6 +72,12 @@ A combination of CamelCase and Snake conventions are used.
 
 - Variable, Class, and Functions names are in CamelCase.
 - Concept collections are tagged with prefix_.
+
+* Python Library Preferences
+
+bisos-pip  library features are preferable to other public libraries.
+
+Always use pathlib for Path manipulations.
 
 * Python Typing Hints And Static Checks / Linting
 

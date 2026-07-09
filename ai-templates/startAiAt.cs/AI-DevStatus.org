@@ -27,24 +27,35 @@ Parameters:
 
 ** What =initiate= does
 
-1. Symlinks =CLAUDE.md=, =AI-AGENTS.org=, =AI-Workflow.org= from =bystar/=
-2. Symlinks =AI-GENERAL.org= from =<activity>/=
+1. Symlinks =CLAUDE.md=, =AI-AGENTS.org=, =AI-WORKFLOW.org= from =bystar/=
+2. Symlinks =AI-Activity.org= from =<activity>/=
 3. Safe-copies =AI-DevStatus.org= and =AI-WorkPlan.org= from =<activity>/=,
    then runs =bx-dblock -i dblockUpdateFiles= on each to expand the
    =b:ai:file/particulars= dblock with target-directory context
-4. Safe-copies =.claude/= contents (=settings.json= + =commands/initiate.md=),
-   preferring activity-specific =.claude/= over =bystar/.claude/= as fallback
+4. Safe-copies =_claude/= contents into =.claude/= at the target
+   (prefers activity-specific =_claude/= over =bystar/_claude/= as fallback)
 
 All operations skip if destination already exists (safe/idempotent).
 
-** .claude layout
+** File Naming Convention
 
-=settings.json= pre-authorizes: =startAiAt.cs*=, =git= read-only commands,
-=find=, =ls=, =cat=, =grep=, venv python, pyflakes, flake8.
+All-caps = constant/symlinked (hands-off): =CLAUDE.md=, =AI-AGENTS.org=, =AI-WORKFLOW.org=
+Mixed-case = local/editable: =AI-Activity.org=, =AI-DevStatus.org=, =AI-WorkPlan.org=
 
-=commands/initiate.md= provides the =/initiate <activity>= slash command:
-runs =startAiAt.cs= then reads the full import chain. Note: not relevant to
-the Emacs workflow where CLAUDE.md is read automatically at startup.
+** _claude/ layout
+
+Template source is =_claude/= (visible in repo); installed as =.claude/= in target.
+
+=settings.json= pre-authorizes: =Read(*)=, =startAiAt.cs*=, =git= read-only
+commands, =find=, =ls=, =cat=, =grep=, venv python, pyflakes, flake8.
+
+Slash commands in =_claude/commands/=:
+- =bx-confirm0= :: enumerate imported files and confirm understanding at session start
+- =bx-status= :: summarize current dev state and list open TODOs
+- =bx-done <anchor>= :: mark a TODO DONE and write AI Results section
+- =bx-update-status= :: rewrite AI-DevStatus.org to reflect current state
+- =initiate= :: (for non-Emacs workflows only) run =startAiAt.cs= then orient Claude;
+  not relevant to Emacs workflow where CLAUDE.md is read automatically at startup
 
 ** b:ai:file/particulars dblock
 
@@ -52,13 +63,13 @@ Defined in =dblock-comeega-prog.el=. Emits into =AI-WorkPlan.org= and
 =AI-DevStatus.org= at copy time:
 - Working Directory
 - File (canonical path)
-- Activity (resolved from =AI-GENERAL.org= symlink target)
+- Activity (resolved from =AI-Activity.org= symlink target)
 - Companion Docs (dynamically, based on files present in directory)
 
 * What Is Untested
 
 - =bx-dblock= failure path (non-zero return) — only logged, not fatal
-- Activity-specific =.claude/= override (most activities use =bystar/.claude/=)
+- Activity-specific =_claude/= override (most activities use =bystar/_claude/=)
 - =root=repo= mode across all activity types
 
 # Local Variables:

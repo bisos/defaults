@@ -11,15 +11,15 @@ It is usually sourced from CLAUDE.md
 
 * AI Collaboration Workflow
 
-See [[file:./AI-Workflow.org]] for ByStar's (BISOS, Blee) overall AI collaborative development workflow.
+See [[file:./AI-WORKFLOW.org]] for ByStar's (BISOS, Blee) overall AI collaborative development workflow.
 
-@./AI-Workflow.org
+@./AI-WORKFLOW.org
 
 * General Aspects of This Repo
 
-See [[file:./AI-GENERAL.org]] for details.
+See [[file:./AI-Activity.org]] for details.
 
-@./AI-GENERAL.org
+@./AI-Activity.org
 
 which describes the repo and provides a global overview.
 
