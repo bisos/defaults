@@ -1,100 +1,94 @@
-#+title: AI Agents Guidance for bisos.newPkg
+#+title: AI Activity Guidance --- ByStar Generic Baseline
+#+OPTIONS: toc:4
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+It covers the generic ByStar/BISOS/Blee context that applies to all activities.
+Activity-specific guidance should be added in the sections marked below.
 
 * Table of Contents     :TOC:
-- [[#general-this-repo-is-part-of-bisos-pip----common-structure-of-repos-in-the-bisos-pip-organization][General: This Repo is Part of bisos-pip -- Common Structure of Repos in the bisos-pip Organization]]
-- [[#general-python-programming-and-testing][General: Python Programming and Testing]]
+- [[#about-bystar-bisos-and-blee][About ByStar, BISOS and Blee]]
+- [[#comeega----collaborative-org-mode-enhanced-emacs-generalized-authorship][COMEEGA -- Collaborative Org-Mode Enhanced Emacs Generalized Authorship]]
+- [[#poly-dblock][poly-dblock]]
+- [[#bystar-naming-conventions][ByStar Naming Conventions]]
+- [[#cicd-rawbisos-vagrant-based-reconstruction][CI/CD: RawBisos Vagrant-Based Reconstruction]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
-- [[#general-this-repo-is-layered-on-top-of-pycs-framework-bisosb-and-bisospycs][General: This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)]]
-- [[#general-commands][General: Commands]]
-- [[#general-writing-cs-commands][General: Writing CS commands]]
+- [[#activity-specific-guidance][Activity-Specific Guidance]]
 
-* General: This Repo is Part of bisos-pip -- Common Structure of Repos in the bisos-pip Organization
+* About ByStar, BISOS and Blee
 
-See
+This repo is part of the Libre-Halaal ByStar Digital Ecosystem.
 
+For an overview of ByStar, BISOS and Blee, read:
 @/bisos/git/bxRepos/bisos-pip/.github/profile/readme.org
 
-* General: Python Programming and Testing
+For Concepts and Terminology, import:
+@/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel
 
-For any new project or module or file, use type hinting.
-For exisiting code, if type hinting is not used, don't add any hints.
+BISOS (ByStar Internet Services OS) is a unified framework for developing internet
+services and software-service continuums, layered on top of Debian.
 
-This  project does not have a CI/CD or liniting tools.
+Blee (BISOS Libre-Halaal Emacs Environment) is the primary usage and development
+environment, fully integrated with BISOS.
 
-See Specific for smoke tests.
+* COMEEGA -- Collaborative Org-Mode Enhanced Emacs Generalized Authorship
+
+All BISOS and Blee software development uses the COMEEGA syntax. Source files are
+a combination of the native programming language and org-mode.
+
+For an overview, import:
+@/bisos/git/bxRepos/blee/comeega/README.org
+
+COMEEGA makes heavy use of org-mode dynamic blocks (dblocks) which insert
+language-specific and org content into source files. Do not hand-edit content
+between =####+BEGIN:= and =####+END:= dblock markers — those are generated.
+
+* poly-dblock
+
+org-mode dynamic blocks are used heavily throughout BISOS and Blee.
+
+For an overview, import:
+@/bisos/git/bxRepos/blee/poly-dblock/README.org
+
+All dblock definitions are in =/bisos/blee/env3/dblocks/= — read them when needed.
+
+Dblocks are also used for inline unit testing: a dblock executes a bash command
+and captures its output directly in the source file. This is the primary
+verification mechanism when no separate test suite exists.
+
+* ByStar Naming Conventions
+
+ByStar uses a combination of CamelCase and Snake conventions, applied consistently
+across the digital ecosystem:
+
+- Variable, class, and function names: CamelCase
+- Concept collections: tagged with a =prefix_= (snake prefix, CamelCase body)
+- File names: follow the pattern of their type (=.cs=, =.pcs=, =.org=, etc.)
+- Always use =pathlib= for path manipulations (never =os.path=)
+- =bisos-pip= library features are preferable to other public libraries
+
+* CI/CD: RawBisos Vagrant-Based Reconstruction
+
+BISOS and Blee do not use conventional CI/CD pipelines (no GitHub Actions, Jenkins, etc.).
+
+Instead, validation is done through periodic complete VM reconstruction using Vagrant.
+This is called RawBisos reconstruction. All bisos-pip packages are exercised in that context.
+
+See: =/bisos/git/bxRepos/bxGenesis/start/README.org= and https://github.com/bxgenesis/start
+
+If the subject of this repo relates to a Capability, it will be validated through
+the Capability's Inceptor.
+
+Linting is done at release time using linters in =/bisos/pipx/bin/=
+(=pyflakes=, =flake8=, =pylint=, =pycodestyle=, =mypy=).
 
 * Git Commits and Git Pushes
 
-I don't want Claude to suggest the prompt of "commit this" or "push this".
-I want to do all the commits and pushes myself.
+I don't want Claude to suggest "commit this" or "push this".
+I want to do all commits and pushes myself.
 Instead just suggest that I can commit.
 
-* General: This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)
+* Activity-Specific Guidance
 
-PyCS-Framework is documented in:
-
-@/bisos/panels/bisos-core/PyCsFwrk/_nodeBase_/fullUsagePanel-en.org
---- the framework's own usage panel; read for the semantics of =cs.Cmnd=,
-=g_csMain=, =cs.examples.*=, parameter / argument specs, and RO (remote
-operations).
-
-The PyCS-Framework package is at: /bisos/git/bxRepos/bisos-pip/pycs
---- the framework source (=bisos.csPlayer= and related); consult when you need
-how the CS player, =csuList= imports, or seeding hooks actually work.
-
-PyCS-Framework augments the bisos.b package which is at /bisos/git/bxRepos/bisos-pip/b
---- =bisos.b= provides the =cs=, =b_io=, and =b.op= APIs this repo imports.
-Its Blee-Panel is @/bisos/git/bxRepos/bisos-pip/b/py3/panels/bisos.b/_nodeBase_/fullUsagePanel-en.org
-
-When descending into either repo, follow its own =AI-AGENTS.org= (if present)
-the same way this file points up to the org-wide readme.
-
-* General: Commands
-
-All commands assume you are in =py3/=. For build, install, and publish, see
-*bisos-pip Build System* above.
-
-- *Lint / type-check* (paths from the in-file "Workbench" headers): the venv
-  interpreter is =/bisos/venv/py3/bisos3/bin/python=; linters live in
-  =/bisos/pipx/bin/= (=pyflakes=, =flake8=, =pylint=, =pycodestyle=). =mypy= is
-  used (a =.mypy_cache/= for py3.11 is present).
-- *Smoke test* (no test suite exists): run a seed's example menu, e.g.
-  =bin/addCmnds-helloWorld.pcs= (prints the example menu) or
-  =bin/addCmnds-helloWorld.pcs -i helloWorld= (runs the =helloWorld= command).
-
-There is no unit-test framework in this repo. Verification is done by running
-the =.cs=/=.pcs= executables and inspecting their output --- the expected output
-is captured inline in each command via =self.captureRunStr(...)=.
-
-Some execution examples are at:
-@/bisos/git/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org
-
-* General: Writing CS commands
-
-Commands are classes subclassing =cs.Cmnd= (from =bisos.b import cs=). Each
-declares =cmndParamsMandatory=, =cmndParamsOptional=, =cmndArgsLen=, and a
-=cmnd()= method that does the work. The gitist commands live in
-=py3/bisos/gitist/gitist_csu.py= --- read =whichReactFramework= and
-=placeHolder= there as templates.
-
-The class header (the =class <Name>(cs.Cmnd):= line and the =cmnd()= signature)
-is generated from a =####+BEGIN: b:py3:cs:cmnd/classHead ...= dblock --- do not
-hand-edit between the =BEGIN=/=END= markers. Author only the body *after* the
-=####+END:= marker:
-
-- =cmndParamsMandatory= / =cmndParamsOptional= :: lists of parameter names the
-  command accepts (declared on the =classHead= dblock as =:parsMand= / =:parsOpt=).
-- =cmndArgsLen= :: =({'Min': N, 'Max': M})= positional-argument bounds. When the
-  command takes args, also define a =cmndArgsSpec()= method (its own
-  =b:py3:cs:method/args= dblock) using =cs.CmndArgsSpecDict().argsDictAdd(...)=,
-  and read them in =cmnd()= with =self.cmndArgsGet(...)=.
-- =cmnd(self, rtInv, cmndOutcome, ...)= :: the implementation. Start by calling
-  =self.cmndDocStr(...)= for the org description, optionally
-  =self.captureRunStr(...)= to capture expected example output (this *is* the
-  test --- see *Commands* above), do the work, and return
-  =cmndOutcome.set(opError=b.OpError.Success, opResults=...)=.
-
-Register the command in the seed's example menu (=examples_csu= /
-=examples_seed= in the same file) so it shows up in the plant's example output.
+[Replace this section with guidance specific to this activity.
+Describe the repo's purpose, its key frameworks, commands, and conventions
+that go beyond the ByStar generic baseline above.]

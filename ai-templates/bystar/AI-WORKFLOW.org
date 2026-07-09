@@ -1,4 +1,4 @@
-#+title: AI-Workflow --- ByStar's Collaborative AI Development Workflow
+#+title: AI-WORKFLOW --- ByStar's Collaborative AI Development Workflow
 #+DATE: <2026-06-10 Wed 13:54>
 #+AUTHOR: Mohsen BANAN
 #+OPTIONS: toc:4
@@ -63,8 +63,8 @@ The third column is one of: const(constant), ai, you, u+ai --- which says who pr
 |--------------------+------------------------------------------------------------------+-------|
 | ./AI-WORKFLOW.org  | A description of this workflow, for the AI-Assistant's benefit.  | const |
 |--------------------+------------------------------------------------------------------+-------|
-| ./AI-Activity.org   | Here I keep all of my activity related preferences,              | you   |
-|                    | For example, for python; use type hints                          |       |
+| ./AI-Activity.org  | Activity-specific guidance: repo purpose, frameworks,            | you   |
+|                    | conventions, and ByStar/BISOS/Blee context for this activity.    |       |
 |--------------------+------------------------------------------------------------------+-------|
 | ./AI-DevStatus.org | After every major interaction, I ask Claude to update this with  | ai    |
 |                    | details of what it has understood and where the project stands   |       |
@@ -79,7 +79,7 @@ The third column is one of: const(constant), ai, you, u+ai --- which says who pr
 |--------------------+------------------------------------------------------------------+-------|
 
 
-This is all about establishing a precise, evolving and maintainable long-context.
+The goal is to establish a precise, evolving and maintainable long-context across sessions and machines.
 
 ** Claude Slash Commands
 
@@ -98,17 +98,16 @@ with these =bx-= commands available inside Claude:
 | /bx-update-status  | Rewrite AI-DevStatus.org to reflect current state.             |
 |                    | Use after completing a stage or before a release.              |
 |--------------------+----------------------------------------------------------------|
+| /bx-initiate       | Run startAiAt.cs then read the full import chain.              |
+|                    | For non-Emacs workflows only — Emacs reads CLAUDE.md           |
+|                    | automatically at startup, making this redundant.               |
+|--------------------+----------------------------------------------------------------|
 
-Note: these commands are most useful in non-Emacs workflows. In the Emacs workflow,
-CLAUDE.md is read automatically at startup so =/bx-confirm0= is optional but still
-useful as an explicit confirmation step.
+Note: in the Emacs workflow, CLAUDE.md is read automatically at startup.
+=/bx-confirm0= is optional but useful as an explicit session-start confirmation.
 
-These are the very early days of our interactions with LLM-AI. We need to
-experiment, learn and share our experiences.
-
-Here is where I keep my AI Templates:
-https://github.com/bisos/defaults/tree/master/ai-templates
-Here is an example of an AI Collaborative project at bisos.gitist: https://github.com/bisos-pip/gitist
+AI Templates are kept at: https://github.com/bisos/defaults/tree/master/ai-templates
+An example AI collaborative project: https://github.com/bisos-pip/gitist
 
 # Local Variables:
 # eval: (setq-local toc-org-max-depth 4)

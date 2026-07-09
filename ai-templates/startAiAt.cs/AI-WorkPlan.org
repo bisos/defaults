@@ -74,6 +74,11 @@ as .claude/ in the target. Added bx- slash commands to bystar/_claude/commands/:
 - bx-status: summarize current dev state and list open TODOs
 - bx-done <anchor>: mark a TODO DONE and write AI Results
 - bx-update-status: rewrite AI-DevStatus.org to reflect current state
+Renamed AI-GENERAL.org → AI-Activity.org and AI-Workflow.org → AI-WORKFLOW.org everywhere.
+Naming convention: all-caps = constant/symlinked, mixed-case = local/editable.
+Improved examples command: dynamically discovers activity directories (excludes bystar,
+startAiAt.cs, test), generates two menuChapter sections (root=curDir default, root=repo),
+one entry per activity each. New activities appear automatically.
 ** -
 
 

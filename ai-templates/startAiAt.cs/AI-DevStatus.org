@@ -57,6 +57,15 @@ Slash commands in =_claude/commands/=:
 - =initiate= :: (for non-Emacs workflows only) run =startAiAt.cs= then orient Claude;
   not relevant to Emacs workflow where CLAUDE.md is read automatically at startup
 
+** examples command
+
+Dynamically discovers activity directories by listing =g_templatesBase=, excluding
+=bystar=, =startAiAt.cs=, and =test=. Generates two =menuChapter= sections:
+- =root=curDir= (default) — one entry per activity
+- =root=repo= — one entry per activity
+
+New activities appear automatically without editing the script.
+
 ** b:ai:file/particulars dblock
 
 Defined in =dblock-comeega-prog.el=. Emits into =AI-WorkPlan.org= and

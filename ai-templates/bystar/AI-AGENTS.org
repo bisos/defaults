@@ -17,22 +17,20 @@ See [[file:./AI-WORKFLOW.org]] for ByStar's (BISOS, Blee) overall AI collaborati
 
 * General Aspects of This Repo
 
-See [[file:./AI-Activity.org]] for details.
+See [[file:./AI-Activity.org]] for activity-specific guidance: repo purpose, frameworks,
+conventions, and ByStar/BISOS/Blee generic context.
 
 @./AI-Activity.org
 
-which describes the repo and provides a global overview.
-
-
 * Development Status and Continuation of Development
 
-Current state of development is at: [[file:./AI-DevStatus.org]]
+Current working state and continuation handoff is at: [[file:./AI-DevStatus.org]]
 
 @./AI-DevStatus.org
 
 * Work Plan
 
-AI collaborative developemnt uses [[file:./AI-WorkPlan.org]]
+AI collaborative development is driven by [[file:./AI-WorkPlan.org]]
 
 @./AI-WorkPlan.org
 

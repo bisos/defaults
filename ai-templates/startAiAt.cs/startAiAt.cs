@@ -49,7 +49,7 @@
 #+end_org """
 import typing
 csInfo: typing.Dict[str, typing.Any] = { 'moduleName': ['startAiAt'], }
-csInfo['version'] = '202507081500'
+csInfo['version'] = '202507091200'
 csInfo['status']  = 'inUse'
 csInfo['panel'] = 'startAiAt-Panel.org'
 csInfo['groupingType'] = 'IcmGroupingType-pkged'
@@ -179,17 +179,26 @@ class examples(cs.Cmnd):
         cs.examples.myName(cs.G.icmMyName(), cs.G.icmMyFullName())
         cs.examples.commonBrief()
 
-        cs.examples.menuChapter('=initiate=  *AI Template Initiation*')
-
         od = collections.OrderedDict
         cmnd = cs.examples.cmndEnter
 
-        cmnd('initiate',
-             pars=od([('root', 'curDir'), ('activity', 'bisos-pip')]),
-             comment="# Install bisos-pip templates into current directory")
-        cmnd('initiate',
-             pars=od([('root', 'repo'), ('activity', 'xu-single')]),
-             comment="# Install xu-single templates at repo base")
+        excludedDirs = {'bystar', 'startAiAt.cs', 'test'}
+        activities = sorted([
+            d.name for d in g_templatesBase.iterdir()
+            if d.is_dir() and d.name not in excludedDirs
+        ])
+
+        cs.examples.menuChapter('=initiate= *root=curDir* (default) -- install into current directory')
+        for activity in activities:
+            cmnd('initiate',
+                 pars=od([('root', 'curDir'), ('activity', activity)]),
+                 comment=f"# Install {activity} templates into current directory")
+
+        cs.examples.menuChapter('=initiate= *root=repo* -- install at git repo base')
+        for activity in activities:
+            cmnd('initiate',
+                 pars=od([('root', 'repo'), ('activity', activity)]),
+                 comment=f"# Install {activity} templates at repo base")
 
         return(cmndOutcome)
 
