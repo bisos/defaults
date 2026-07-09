@@ -1,14 +1,22 @@
-#+title: Capabilities Improvement for airflow.here --- Work Plan
+#+title: Work Plan
 #+DATE: <2026-06-10 Wed 13:54>
 #+AUTHOR: Mohsen BANAN
 #+OPTIONS: toc:4
 #+TAGS: me(m) ai(a)
 
+
+####+BEGIN: b:ai:file/particulars
+* AI Working Context
+  Working Directory: /bisos/apps/defaults/ai-templates/startAiAt.cs
+  File: /bisos/git/auth/bxRepos/bisos/defaults/ai-templates/startAiAt.cs/AI-WorkPlan.org
+  Activity: xu-single
+  Companion Docs: AI-AGENTS.org, AI-Workflow.org, AI-GENERAL.org, AI-DevStatus.org
+
+####+END:
+
 This Work Plan file drives the AI collaborative development.
 Interactions are broken down into "Stages". Each Stage has a set
 of TODOs that I work with Claude to accomplish.
-
-Companion docs: [[file:AI-AGENTS.org][AI-AGENTS.org]] (agent guidance / layering), [[file:README.org][README.org]] (overview).
 
 * Stage 1 TODOs
 ** +

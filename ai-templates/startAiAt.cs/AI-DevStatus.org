@@ -10,7 +10,56 @@ prompted to update this document.
 
 Companion docs: [[file:AI-AGENTS.org][AI-AGENTS.org]] (agent guidance / layering), [[file:README.org][README.org]] (overview).
 
+* Current State: Functional
 
+=startAiAt.cs= is fully implemented and in use.
+
+* Architecture
+
+Single PyCS-XU script at =/bisos/apps/defaults/ai-templates/startAiAt.cs/startAiAt.cs=.
+Templates base: =/bisos/apps/defaults/ai-templates/=.
+
+One primary command: =initiate=.
+
+Parameters:
+- =activity= (mandatory): must match a subdirectory under the templates base
+- =root= (optional, default =curDir=): =curDir= = cwd, =repo= = git repo root
+
+** What =initiate= does
+
+1. Symlinks =CLAUDE.md=, =AI-AGENTS.org=, =AI-Workflow.org= from =bystar/=
+2. Symlinks =AI-GENERAL.org= from =<activity>/=
+3. Safe-copies =AI-DevStatus.org= and =AI-WorkPlan.org= from =<activity>/=,
+   then runs =bx-dblock -i dblockUpdateFiles= on each to expand the
+   =b:ai:file/particulars= dblock with target-directory context
+4. Safe-copies =.claude/= contents (=settings.json= + =commands/initiate.md=),
+   preferring activity-specific =.claude/= over =bystar/.claude/= as fallback
+
+All operations skip if destination already exists (safe/idempotent).
+
+** .claude layout
+
+=settings.json= pre-authorizes: =startAiAt.cs*=, =git= read-only commands,
+=find=, =ls=, =cat=, =grep=, venv python, pyflakes, flake8.
+
+=commands/initiate.md= provides the =/initiate <activity>= slash command:
+runs =startAiAt.cs= then reads the full import chain. Note: not relevant to
+the Emacs workflow where CLAUDE.md is read automatically at startup.
+
+** b:ai:file/particulars dblock
+
+Defined in =dblock-comeega-prog.el=. Emits into =AI-WorkPlan.org= and
+=AI-DevStatus.org= at copy time:
+- Working Directory
+- File (canonical path)
+- Activity (resolved from =AI-GENERAL.org= symlink target)
+- Companion Docs (dynamically, based on files present in directory)
+
+* What Is Untested
+
+- =bx-dblock= failure path (non-zero return) — only logged, not fatal
+- Activity-specific =.claude/= override (most activities use =bystar/.claude/=)
+- =root=repo= mode across all activity types
 
 # Local Variables:
 # eval: (setq-local toc-org-max-depth 4)

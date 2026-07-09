@@ -1,11 +1,17 @@
-#+title: RepoNameComesHere --- Work Plan
+#+title: Work Plan
 #+DATE: <2026-06-10 Wed 13:54>
 #+AUTHOR: Mohsen BANAN
 #+OPTIONS: toc:4
 #+TAGS: me ai aiAndMe
 
-* Working Context
-Working directory: /bisos/apps/defaults/ai-templates/startAiAt.cs
+####+BEGIN: b:ai:file/particulars
+* AI Working Context
+  Working Directory: /bisos/apps/defaults/ai-templates/startAiAt.cs
+  File: /bisos/git/auth/bxRepos/bisos/defaults/ai-templates/startAiAt.cs/AI-WorkPlan.org
+  Activity: xu-single
+  Companion Docs: AI-AGENTS.org, AI-Workflow.org, AI-GENERAL.org, AI-DevStatus.org
+
+####+END:
 
 This Work Plan file drives the AI collaborative development.
 Interactions are broken down into "Stages". Each Stage has a set
@@ -30,25 +36,6 @@ Working directory: /bisos/apps/defaults/ai-templates/startAiAt.cs
 Imported (via @ directives): CLAUDE.md → AI-AGENTS.org (bystar/) → AI-Workflow.org (bystar/), AI-GENERAL.org (xu-single/), AI-DevStatus.org (local), AI-WorkPlan.org (local).
 
 Key context: This is a Single-XU PyCS template directory. Shared/canonical files come in via symlinks from bystar/ and xu-single/; AI-DevStatus.org and AI-WorkPlan.org are local and project-specific. AI-GENERAL.org (xu-single) covers COMEEGA, poly-dblock, CamelCase conventions, no CI/CD, RawBisos regression model, and CS command structure.
-** DONE [#A] <<../README.org>> describes how :ai:
-./startAiAt.cs is expected to work
-SCHEDULED: <2026-07-08 Wed>
-Describe What you have understood from that. What Cmnds need to be impliemented What params are to be added.
-What args are to be processed.
------ AI Results: ------
-startAiAt.cs is a PyCS-XU with one primary Cmnd: =initiate=.
-
-Params:
-- =root=: either =repo= (repo base) or =curDir= (current project directory)
-- =activity=: template type — =bisos-pip=, =blee-panels=, =lcnt=, =xu-single=, etc.
-
-No positional args.
-
-=initiate= does two things based on root+activity:
-1. Install *constant* files from bystar/ (CLAUDE.md, AI-AGENTS.org, AI-Workflow.org) — as symlinks, never modified
-2. Install *initial* files for the activity (AI-GENERAL.org, AI-WorkPlan.org, AI-DevStatus.org) — as local copies, for user/AI to customize
-
-Open design question: copy vs symlink for constant files — current startAiAt.cs directory uses symlinks for constants; that pattern should be preserved in the implementation.
 ** -
 
 * Stage 2: Implement startAiAt.cs based on [[../README.org]] TODO
@@ -57,15 +44,30 @@ Goal: A functional startAiAt.cs
 
 * Stage 2 TODOs
 ** +
-** TODO [#A] <<Implement>> based on these specifications :ai:
+** DONE [#A] <<Implement>> based on these specifications :ai:
 SCHEDULED: <2026-06-09 Tue>
 Parameter activity: should match name of a directory in
 /bisos/apps/defaults/ai-templates
 The CLAUDE.md AI-AGENTS.org AI-Workflow are always symlinked to /bisos/apps/defaults/ai-templates/bystar
 The AI-GENERAL.org is symlinked to  /bisos/apps/defaults/ai-templates/<activity>
-The AI-DevStatus.org and AI-WorkPlan.org are safe copied from  /bisos/apps/defaults/ai-templates/<activity> to the current directory.
+The AI-DevStatus.org and AI-WgorkPlan.org are safe copied from  /bisos/apps/defaults/ai-templates/<activity> to the current directory.
 Use pathlib for implemetation.
 ----- AI Results: ------
+Implemented in startAiAt.cs as the =initiate= Cmnd. Uses pathlib throughout.
+Symlinks: CLAUDE.md, AI-AGENTS.org, AI-Workflow.org → bystar/; AI-GENERAL.org → <activity>/.
+Safe-copies: AI-DevStatus.org, AI-WorkPlan.org from <activity>/.
+Additional: also safe-copies .claude/ directory (settings.json + commands/initiate.md),
+preferring activity-specific .claude/ over bystar/.claude/ as fallback.
+settings.json pre-authorizes Bash(startAiAt.cs*). commands/initiate.md implements
+/initiate <activity> as a Claude slash command: runs startAiAt.cs then reads the full
+import chain to orient Claude at session start.
+Note: /initiate is not relevant to the Emacs workflow. When Claude is started via Emacs,
+CLAUDE.md is already present and the full import chain is read automatically at startup.
+Enhanced b:ai:file/particulars dblock (dblock-comeega-prog.el) to also emit: File (canonical
+path), Activity (resolved from AI-GENERAL.org symlink target), and Companion Docs (dynamically
+based on files present in the directory).
+After safe-copying AI-DevStatus.org and AI-WorkPlan.org, startAiAt.cs now runs
+bx-dblock -i dblockUpdateFiles on each to expand the dblock with target-directory context.
 ** -
 
 

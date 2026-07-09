@@ -84,6 +84,8 @@ import collections
 ####+END:
 
 import pathlib
+import shutil
+import subprocess
 import typing
 
 ####+BEGIN: b:py3:cs:framework/csuListProc :pyImports t :csuImports t :csuParams t :csxuParams nil
@@ -228,7 +230,6 @@ Safe-copies AI-DevStatus.org and AI-WorkPlan.org from <activity>/.
             return failed(cmndOutcome)
 
         if root == 'repo':
-            import subprocess
             result = subprocess.run(
                 ['git', 'rev-parse', '--show-toplevel'],
                 capture_output=True, text=True,
@@ -270,9 +271,34 @@ Safe-copies AI-DevStatus.org and AI-WorkPlan.org from <activity>/.
             if dst.exists():
                 b_io.ann.note(f"SKIP (exists): {dst}")
             else:
-                import shutil
                 shutil.copy2(src, dst)
                 b_io.ann.note(f"COPIED: {src} -> {dst}")
+                result = subprocess.run(
+                    ['bx-dblock', '-i', 'dblockUpdateFiles', str(dst)],
+                    capture_output=True, text=True,
+                )
+                if result.returncode == 0:
+                    b_io.ann.note(f"DBLOCK-UPDATED: {dst}")
+                else:
+                    b_io.ann.note(f"DBLOCK-UPDATE FAILED: {dst}: {result.stderr.strip()}")
+
+        # .claude/ — install settings.json and commands/initiate.md
+        # Use activity-specific .claude/ if it exists, else fall back to bystar/.claude/
+        activityClaudeDir = activityDir / '.claude'
+        bystarClaudeDir = g_templatesBase / 'bystar' / '.claude'
+        claudeSrcDir = activityClaudeDir if activityClaudeDir.is_dir() else bystarClaudeDir
+
+        for claudeSrcFile in claudeSrcDir.rglob('*'):
+            if not claudeSrcFile.is_file():
+                continue
+            relPath = claudeSrcFile.relative_to(claudeSrcDir)
+            claudeDst = targetDir / '.claude' / relPath
+            claudeDst.parent.mkdir(parents=True, exist_ok=True)
+            if claudeDst.exists():
+                b_io.ann.note(f"SKIP (exists): {claudeDst}")
+            else:
+                shutil.copy2(claudeSrcFile, claudeDst)
+                b_io.ann.note(f"COPIED: {claudeSrcFile} -> {claudeDst}")
 
         return cmndOutcome.set(
             opError=b.op.OpError.Success,
