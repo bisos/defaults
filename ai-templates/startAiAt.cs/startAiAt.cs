@@ -272,10 +272,12 @@ Safe-copies AI-DevStatus.org and AI-WorkPlan.org from <activity>/.
             generalDst.symlink_to(generalSrc)
             b_io.ann.note(f"SYMLINKED: {generalDst} -> {generalSrc}")
 
-        # Initial files — safe-copied from activity/
+        # Initial files — safe-copied from activity/, falling back to bystar/
         initialFiles = ['AI-DevStatus.org', 'AI-WorkPlan.org']
         for fname in initialFiles:
-            src = activityDir / fname
+            activitySrc = activityDir / fname
+            bystarSrc = bystarDir / fname
+            src = activitySrc if activitySrc.exists() else bystarSrc
             dst = targetDir / fname
             if dst.exists():
                 b_io.ann.note(f"SKIP (exists): {dst}")

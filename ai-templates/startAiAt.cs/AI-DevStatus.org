@@ -10,9 +10,9 @@ prompted to update this document.
 
 Companion docs: [[file:AI-AGENTS.org][AI-AGENTS.org]] (agent guidance / layering), [[file:README.org][README.org]] (overview).
 
-* Current State: Functional
+* Current State: Released --- 2026-07-09
 
-=startAiAt.cs= is fully implemented and in use.
+=startAiAt.cs= is fully implemented, reviewed and released.
 
 * Architecture
 
@@ -54,7 +54,7 @@ Slash commands in =_claude/commands/=:
 - =bx-status= :: summarize current dev state and list open TODOs
 - =bx-done <anchor>= :: mark a TODO DONE and write AI Results section
 - =bx-update-status= :: rewrite AI-DevStatus.org to reflect current state
-- =initiate= :: (for non-Emacs workflows only) run =startAiAt.cs= then orient Claude;
+- =bx-initiate= :: (for non-Emacs workflows only) run =startAiAt.cs= then orient Claude;
   not relevant to Emacs workflow where CLAUDE.md is read automatically at startup
 
 ** examples command

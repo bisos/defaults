@@ -41,6 +41,10 @@ Key context: This is a Single-XU PyCS template directory. Shared/canonical files
 * Stage 2: Implement startAiAt.cs based on [[../README.org]] TODO
 Goal: A functional startAiAt.cs
 
+* Release 1: 2026-07-09
+
+Released. All Stage 2 work complete. See AI-DevStatus.org for full architecture summary.
+
 
 * Stage 2 TODOs
 ** +
