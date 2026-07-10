@@ -4,8 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 * Table of Contents     :TOC:
 - [[#general-this-repo-is-part-of-bystar-bisos-and-blee][General: This Repo is Part of ByStar, BISOS and Blee]]
-- [[#general-about-blee-panels-in-general][General: About Blee Panels in General]]
-- [[#general-public-bisospanels--and-httpsgithubcomorgsblee-bindersrepositories][General: Public /bisos/panels  and https://github.com/orgs/blee-binders/repositories]]
+- [[#about-blee-panels-in-general][About Blee Panels in General]]
+- [[#public-bisospanels--and-httpsgithubcomorgsblee-bindersrepositories][Public /bisos/panels  and https://github.com/orgs/blee-binders/repositories]]
 - [[#general-private-blee-panels][General: Private Blee Panels]]
 - [[#general-realm-based-extension-of-blee-core-blee-panels][General: Realm based extension of blee-core blee panels]]
 - [[#general-bash-execution-from-within-blee-panel][General: Bash execution from within blee-panel]]
@@ -19,7 +19,7 @@ Read
 
 when needed.
 
-* General: About Blee Panels in General
+* About Blee Panels in General
 
 Blee Panels are a pattern of org-mode files that are structured in a file hierarchy as a tree.
 The leaves are laidout in a flat directory. The branches are in a directory that also include a _nodeBase_ sub directory.
@@ -34,7 +34,7 @@ Use of blee-panels is generalized. Each panel has icons that clarifies if it is 
 
 Blee-panels are the primary method of documentation in the ByStar Digital Ecosystem
 
-* General: Public /bisos/panels  and https://github.com/orgs/blee-binders/repositories
+* Public /bisos/panels  and https://github.com/orgs/blee-binders/repositories
 
 Use of blee-panels is BISOS and Blee spans the following:
 
