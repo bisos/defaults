@@ -1,46 +1,120 @@
-#+title: AI Agents Guidance for bisos.newPkg
+#+title: AI Agents Guidance for Single-XU  PyCS
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 * Table of Contents     :TOC:
-- [[#general-this-repo-is-part-of-bisos-pip----common-structure-of-repos-in-the-bisos-pip-organization][General: This Repo is Part of bisos-pip -- Common Structure of Repos in the bisos-pip Organization]]
-- [[#general-python-programming-and-testing][General: Python Programming and Testing]]
+- [[#general-overview-of-pycs-single-xu-development][General: Overview of PyCS Single-XU Development]]
+- [[#about-bisos-blee-and-bystar-concepts-and-terminology][About BISOS, Blee and ByStar Concepts and Terminology]]
+- [[#about-comeega----collaborative-org-mode-enhanced-emacs-generalized-authorship][About COMEEGA -- Collaborative Org-Mode Enhanced Emacs Generalized Authorship]]
+- [[#about-poly-dblock][About poly-dblock]]
+- [[#use-of-dblocks-for-unit-testing][Use of dblocks for unit testing]]
+- [[#programming-conventions][Programming Conventions]]
+- [[#python-library-preferences][Python Library Preferences]]
+- [[#python-typing-hints-and-static-checks--linting][Python Typing Hints And Static Checks / Linting]]
+- [[#cicd-and-totality-validating-and-testing][CI/CD and Totality Validating and Testing]]
+- [[#no-multi-platform--compatibility----only-one-of-the-latest-2-release-debian][No multi-platform  Compatibility -- Only one of the Latest 2 Release Debian]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
-- [[#only-one-of-the-latest-2-release-debian-and-only-one-of-the-latest-2-releases-of-any-given-app][Only one of the Latest 2 Release Debian and only one of the Latest 2 Releases of any given App]]
-- [[#general-this-repo-is-layered-on-top-of-pycs-framework-bisosb-and-bisospycs][General: This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)]]
-- [[#general-commands][General: Commands]]
-- [[#general-writing-cs-commands][General: Writing CS commands]]
-- [[#concept-of-bisos-capabilities][Concept of BISOS Capabilities]]
-  - [[#web-virtual-domain-services-wvds-pattern][Web Virtual Domain Services (wvds) Pattern]]
-  - [[#cbs-triggers-hierarchy-for-rawbisos][CBS Triggers Hierarchy for rawBisos]]
+- [[#this-repo-is-layered-on-top-of-pycs-framework-bisosb-and-bisospycs][This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)]]
+- [[#writing-cs-commands][Writing CS commands]]
+- [[#relevant-examples-of-single-xus][Relevant Examples of Single-Xus]]
+- [[#documentation-hierarchy][Documentation Hierarchy]]
+- [[#bisos-pip-package][bisos-pip Package]]
 
-* General: This Repo is Part of bisos-pip -- Common Structure of Repos in the bisos-pip Organization
+* General: Overview of PyCS Single-XU Development
 
-Read
+A Single-XU is a PyCS (Python Command Services) eXecution Unit
 
-/bisos/git/bxRepos/bisos-pip/.github/profile/readme.org
+@/bisos/panels/development/bisos-dev/pythonDev/_nodeBase_/fullUsagePanel-en.org
 
-when needed.
+* About BISOS, Blee and ByStar Concepts and Terminology
 
-* General: Python Programming and Testing
+If needed read -- //bisos/git/bxRepos/bisos-pip//.github/profile/readme.org ---
 
-For any new project or module or file, use type hinting.
-For exisiting code, if type hinting is not used, don't add any hints.
+For Concepts and Terminology, import
+@/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel
 
-This  project does not have a CI/CD or liniting tools.
+* About COMEEGA -- Collaborative Org-Mode Enhanced Emacs Generalized Authorship
 
-See Specific for smoke tests.
+All of BISOS and Blee software development uses the COMEEGA syntax.
+The source code is a combination of python and org-mode.
+
+For an overview, import:
+@/bisos/git/bxRepos/blee/comeega/README.org
+
+COMEEGA, makes heavy use of org-mode dynamic blocks which insert
+python and org content in the source code.
+
+* About poly-dblock
+
+org-mode dynamic blocks are used heavily in python code.
+
+For an overview, import:
+@/bisos/git/bxRepos/blee/poly-dblock/README.org
+
+All the dblocks are in /bisos/blee/env3/dblocks --- Read them when needed.
+
+* Use of dblocks for unit testing
+
+For some PyCS Cmnds, we include the ability to run that Cmnd of XU inside of the Cmnd.
+That is done as a dblock which executes a bash command and captures the results.
+
+We don't always do unit testing. But when desired, it is done through dblocks within the Cmnd itself.
+
+There is no unit-test framework in this repo. Verification is done by running
+the =.cs=/=.pcs= executables and inspecting their output --- the expected output
+is captured inline in each command via =self.captureRunStr(...)=.
+
+
+* Programming Conventions
+
+Instead of language specific conventions, we use digital ecosystem wide programming conventions.
+
+A combination of CamelCase and Snake conventions are used.
+
+- Variable, Class, and Functions names are in CamelCase.
+- Concept collections are tagged with prefix_.
+
+* Python Library Preferences
+
+bisos-pip  library features are preferable to other public libraries.
+
+Always use pathlib for Path manipulations.
+
+* Python Typing Hints And Static Checks / Linting
+
+Use python typing hints in all of PyCS and BISOS modules.
+
+For any external module that has not been using typing hints, dont do typing hints.
+
+We typically do linting at final release time.
+
+linters live in
+  =/bisos/pipx/bin/= (=pyflakes=, =flake8=, =pylint=, =pycodestyle=). =mypy= is
+  used (a =.mypy_cache/= for py3.11 is present).
+
+
+* CI/CD and Totality Validating and Testing
+
+BISOS/Blee don't use conventional CI/CD pipelines.
+
+Instead, we regularly create complete VMs, using Vagrant.
+
+If the subject XU relates to RawBisos, it will be validated through rawBisos
+regression builds.
+The regression testing has the form of RawBisos re-construction.
+All of bisos-pip packages are used in that context.
 
 The regression testing has the form of RawBisos re-construction.
 All of bisos-pip packages are used in that context.
 
-* Git Commits and Git Pushes
+See /bisos/git/bxRepos/bxGenesis/start/README.org  --  https://github.com/bxgenesis/start
+for RawBisos reconstruction.
 
-I don't want Claude to suggest me to prompt me:  "commit this" or "push this".
-I want to do all the commits and pushes myself.
-Instead just suggest that I myself can commit.
+If the subject XU relates to a Capability, it will be validated through the Capability's Inceptor.
 
-* Only one of the Latest 2 Release Debian and only one of the Latest 2 Releases of any given App
+* No multi-platform  Compatibility -- Only one of the Latest 2 Release Debian
+
+nd only one of the Latest 2 Releases of any given App
 
 None of what we do needs to be multi-platform. We only care about our own
 ByStar Digital Ecosystem.
@@ -48,7 +122,15 @@ ByStar Digital Ecosystem.
 Windows compatibility is never required.
 Backwards compatibility is limited only to the two latest releases.
 
-* General: This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)
+
+* Git Commits and Git Pushes
+
+I don't want Claude to suggest me to prompt me:  "commit this" or "push this".
+I want to do all the commits and pushes myself.
+Instead just suggest that I myself can commit.
+
+
+* This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)
 
 PyCS-Framework is documented in:
 
@@ -68,28 +150,8 @@ Its Blee-Panel is @/bisos/git/bxRepos/bisos-pip/b/py3/panels/bisos.b/_nodeBase_/
 When descending into either repo, follow its own =AI-AGENTS.org= (if present)
 the same way this file points up to the org-wide readme.
 
-* General: Commands
 
-All commands assume you are in =py3/=. For build, install, and publish, see
-*bisos-pip Build System* above.
-
-- *Lint / type-check* (paths from the in-file "Workbench" headers): the venv
-  interpreter is =/bisos/venv/py3/bisos3/bin/python=; linters live in
-  =/bisos/pipx/bin/= (=pyflakes=, =flake8=, =pylint=, =pycodestyle=). =mypy= is
-  used (a =.mypy_cache/= for py3.11 is present).
-
-- *Smoke test* (no test suite exists): run a seed's example menu, e.g.
-  =bin/addCmnds-helloWorld.pcs= (prints the example menu) or
-  =bin/addCmnds-helloWorld.pcs -i helloWorld= (runs the =helloWorld= command).
-
-There is no unit-test framework in this repo. Verification is done by running
-the =.cs=/=.pcs= executables and inspecting their output --- the expected output
-is captured inline in each command via =self.captureRunStr(...)=.
-
-Some execution examples are at:
-@/bisos/git/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org
-
-* General: Writing CS commands
+* Writing CS commands
 
 Commands are classes subclassing =cs.Cmnd= (from =bisos.b import cs=). Each
 declares =cmndParamsMandatory=, =cmndParamsOptional=, =cmndArgsLen=, and a
@@ -117,46 +179,38 @@ hand-edit between the =BEGIN=/=END= markers. Author only the body *after* the
 Register the command in the seed's example menu (=examples_csu= /
 =examples_seed= in the same file) so it shows up in the plant's example output.
 
-* Concept of BISOS Capabilities
+* Relevant Examples of Single-Xus
 
- BISOS Capabilities allow for addition of features to BISOS.
+For a simple single-xu consider
+@/bisos/core/bpip/examples/exmpl-xu-oneSubProc.cs
 
- Read
+For a more featurefull example consider
+@/bisos/apps/defaults//ai-templates/startAiAt.cs/startAiAt.cs
 
- @/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel-en.org
+bisos-pip examples are at:
+/bisos/git/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org
 
- Which describes the Model and Teminology of BISOS and ByStar.
+ Look for more examples by running find | grep \.cs$
+ in /bisos/git/bxRepos/bisos-pip
 
-Also Read
+* Documentation Hierarchy
 
- @/bisos/panels/bisos-core/bisos-pip/bisos.capability/_nodeBase_/fullUsagePanel-en.org
+Through out development and AI-Activity, Claude is expected to maintain and update relevant documentation.
 
- Which describes some details of how BISOS-capabilities  are implemented.
+There are many places where we maintain ByStar related documentation during an AI-Activity.
 
- Exisiting web virtual domain services are at the following directory.
+- AI-WorkPlan.org is most immediate for Claude. It will be org-archived and is to be considered somewhat ehpemera.
+  
+- AI-DevStatus.org is to be updated by Claude and is for development use.
+  
+- Directory README.org is narrow in scope and is Human Oriented.
 
- @/bisos/asc/web/bin/
+- Repo README.org has a repo scope and is Human Oriented.
 
-** Web Virtual Domain Services (wvds) Pattern
+- Relevant Blee Panels are most important and most permanant. These are to be
+  specified in the AI-WorkPlan.org and Claude should update them along with
+  AI-DevStatus.org
 
-This is a common category of web services in which a service run at a port and then
-is exposed at a virtual domain. In addition to the ByStar domain specification is general
-the web service is also exposed at localhost.
+  An overview of Blee Panels is available at /bisos/apps/defaults/ai-templates//blee-panels/AI-Activity.org
 
-See
-
-@/etc/hosts
-
-As a wvds, consider airflow in the context of airflow.here of /etc/hosts as an example:
-
-@/bisos/asc/web/bin/airflow-sbom.pcs                 :: Installs airflow and its dependencies
-@/bisos/asc/web/bin/airflow-webserver-sysd.pcs       :: Creates systemd entry/ies for airflow
-@/bisos/asc/web/bin/airflow-here-wvds-nginx.pcs      :: NOTYET, creates virdom entry for here and airflow
-@/bisos/asc/web/bin/airflow-here-dns.pcs             :: NOTYET, for here, run dblock on etc/hosts
-@/bisos/asc/web/bin/airflow-cbs-wvds-np-sysd.pcs     :: Does all of the above
-
-** CBS Triggers Hierarchy for rawBisos
-
-@ /bisos/git/bxRepos/bxObjects/bro_rawBisos/bro_rawBisosPlatform
-@ /bisos/git/bxRepos/bxObjects/bro_rawBisos/bro_rawBisosPals
-@ /bisos/git/bxRepos/bxObjects/bro_rawBisos/bro_rawBisos_pbsi-here
+* bisos-pip Package

@@ -12,12 +12,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - [[#python-library-preferences][Python Library Preferences]]
 - [[#python-typing-hints-and-static-checks--linting][Python Typing Hints And Static Checks / Linting]]
 - [[#cicd-and-totality-validating-and-testing][CI/CD and Totality Validating and Testing]]
-- [[#general-python-programming-and-testing][General: Python Programming and Testing]]
+- [[#no-multi-platform--compatibility----only-one-of-the-latest-2-release-debian][No multi-platform  Compatibility -- Only one of the Latest 2 Release Debian]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
 - [[#this-repo-is-layered-on-top-of-pycs-framework-bisosb-and-bisospycs][This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)]]
-- [[#commands][Commands]]
 - [[#writing-cs-commands][Writing CS commands]]
 - [[#relevant-examples-of-single-xus][Relevant Examples of Single-Xus]]
+- [[#documentation-hierarchy][Documentation Hierarchy]]
 
 * General: Overview of PyCS Single-XU Development
 
@@ -103,24 +103,24 @@ regression builds.
 The regression testing has the form of RawBisos re-construction.
 All of bisos-pip packages are used in that context.
 
+The regression testing has the form of RawBisos re-construction.
+All of bisos-pip packages are used in that context.
+
 See /bisos/git/bxRepos/bxGenesis/start/README.org  --  https://github.com/bxgenesis/start
 for RawBisos reconstruction.
 
-If the subject XU relates to a Capability, it will be validated through the Capability's
-Inceptor.
+If the subject XU relates to a Capability, it will be validated through the Capability's Inceptor.
 
+* No multi-platform  Compatibility -- Only one of the Latest 2 Release Debian
 
-* General: Python Programming and Testing
+nd only one of the Latest 2 Releases of any given App
 
-For any new project or module or file, use type hinting.
-For exisiting code, if type hinting is not used, don't add any hints.
+None of what we do needs to be multi-platform. We only care about our own
+ByStar Digital Ecosystem.
 
-This  project does not have a CI/CD or liniting tools.
+Windows compatibility is never required.
+Backwards compatibility is limited only to the two latest releases.
 
-See Specific for smoke tests.
-
-The regression testing has the form of RawBisos re-construction.
-All of bisos-pip packages are used in that context.
 
 * Git Commits and Git Pushes
 
@@ -149,11 +149,6 @@ Its Blee-Panel is @/bisos/git/bxRepos/bisos-pip/b/py3/panels/bisos.b/_nodeBase_/
 When descending into either repo, follow its own =AI-AGENTS.org= (if present)
 the same way this file points up to the org-wide readme.
 
-* Commands
-
-
-Some execution examples are at:
-@/bisos/git/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org
 
 * Writing CS commands
 
@@ -188,5 +183,32 @@ Register the command in the seed's example menu (=examples_csu= /
 For a simple single-xu consider
 @/bisos/core/bpip/examples/exmpl-xu-oneSubProc.cs
 
+For a more featurefull example consider
+@/bisos/apps/defaults//ai-templates/startAiAt.cs/startAiAt.cs
+
+bisos-pip examples are at:
+/bisos/git/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org
+
  Look for more examples by running find | grep \.cs$
  in /bisos/git/bxRepos/bisos-pip
+
+* Documentation Hierarchy
+
+Through out development and AI-Activity, Claude is expected to maintain and update relevant documentation.
+
+There are many places where we maintain ByStar related documentation during an AI-Activity.
+
+- AI-WorkPlan.org is most immediate for Claude. It will be org-archived and is to be considered somewhat ehpemera.
+  
+- AI-DevStatus.org is to be updated by Claude and is for development use.
+  
+- Directory README.org is narrow in scope and is Human Oriented.
+
+- Repo README.org has a repo scope and is Human Oriented.
+
+- Relevant Blee Panels are most important. These are to be specified in the AI-WorkPlan.org and
+  Claude should update them along with AI-DevStatus.org
+
+  
+  
+
