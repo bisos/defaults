@@ -206,9 +206,9 @@ There are many places where we maintain ByStar related documentation during an A
 
 - Repo README.org has a repo scope and is Human Oriented.
 
-- Relevant Blee Panels are most important. These are to be specified in the AI-WorkPlan.org and
-  Claude should update them along with AI-DevStatus.org
+- Relevant Blee Panels are most important and most permanant. These are to be
+  specified in the AI-WorkPlan.org and Claude should update them along with
+  AI-DevStatus.org
 
-  
-  
-
+  An overview of Blee Panels is available at
+@/bisos/panels/blee-core/blee-panels/_nodeBase_/fullUsagePanel-en.org

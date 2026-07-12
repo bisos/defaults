@@ -5,10 +5,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 * Table of Contents     :TOC:
 - [[#general-this-repo-is-part-of-bystar-bisos-and-blee][General: This Repo is Part of ByStar, BISOS and Blee]]
 - [[#about-blee-panels-in-general][About Blee Panels in General]]
-- [[#public-bisospanels--and-httpsgithubcomorgsblee-bindersrepositories][Public /bisos/panels  and https://github.com/orgs/blee-binders/repositories]]
-- [[#general-private-blee-panels][General: Private Blee Panels]]
-- [[#general-realm-based-extension-of-blee-core-blee-panels][General: Realm based extension of blee-core blee panels]]
-- [[#general-bash-execution-from-within-blee-panel][General: Bash execution from within blee-panel]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
 
 * General: This Repo is Part of ByStar, BISOS and Blee
@@ -21,51 +17,9 @@ when needed.
 
 * About Blee Panels in General
 
-Blee Panels are a pattern of org-mode files that are structured in a file hierarchy as a tree.
-The leaves are laidout in a flat directory. The branches are in a directory that also include a _nodeBase_ sub directory.
+Blee-Panels are described in:
 
-There are many trees. And the collection of the trees form a web of blee-panels.
-
-The fullUsagePanel-en.org is the prime source of information for each panel.
-
-blee-panels browsing is meant to be similar to web browsing as point and click.
-
-Use of blee-panels is generalized. Each panel has icons that clarifies if it is public or which ByStar Realm it belongs to.
-
-Blee-panels are the primary method of documentation in the ByStar Digital Ecosystem
-
-* Public /bisos/panels  and https://github.com/orgs/blee-binders/repositories
-
-Use of blee-panels is BISOS and Blee spans the following:
-
-- /bisos/panels
-
-  Repos of  https://github.com/orgs/blee-binders are cloned  in /bisos/panels/.
-  These are then made available through the "Panles" blee menu bar.
-
-- bisos-pip/py3/panels
-
-  Each bisos.pkg at pypi has a panel.
-  These are then made available at
-  /bisos/git/auth/bxRepos/blee-binders/bisos-core/bisos-pip/_nodeBase_/fullUsagePanel-en.org
-  through symlinks.
-
-- blee emacs packages.
-  These are then made available at
-  /bisos/git/auth/bxRepos/blee-binders/blee-core/blee-pkgs/_nodeBase_/fullUsagePanel-en.org
-
-* General: Private Blee Panels
-
-Blee-panels can be used anywhere in an adhoc manner.
-
-* General: Realm based extension of blee-core blee panels
-
-This can be done with dblock inclusion or with pointers
-
-* General: Bash execution from within blee-panel
-
-Just execute or capture stdout/stderr dblocks.
-
+@/bisos/panels/blee-core/blee-panels/_nodeBase_/fullUsagePanel-en.org
 
 * Git Commits and Git Pushes
 

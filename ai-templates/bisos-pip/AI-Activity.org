@@ -1,4 +1,4 @@
-#+title: AI Agents Guidance for Single-XU  PyCS
+#+title: AI Agents Guidance for bisos-pip PyCS Packages
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -18,7 +18,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - [[#writing-cs-commands][Writing CS commands]]
 - [[#relevant-examples-of-single-xus][Relevant Examples of Single-Xus]]
 - [[#documentation-hierarchy][Documentation Hierarchy]]
-- [[#bisos-pip-package][bisos-pip Package]]
+- [[#bisos-pip-packaging-machinary][bisos-pip Packaging Machinary]]
+- [[#list-of-bisos-pip-packages-and-their-status][List of bisos-pip Packages and Their Status]]
+- [[#pycs-framework-layerings-and-bisos-pip-package-types][PyCS Framework Layerings and bisos-pip Package Types]]
+- [[#here-bisos-platform-pycs-framework-layerings][Here-BISOS Platform PyCS Framework Layerings]]
+- [[#site-bisos-platform-pycs-framework-layerings][Site-BISOS Platform PyCS Framework Layerings]]
+- [[#pycs-as-a-universal-substrate-for-bystar-digital-ecosystem][PyCS as a Universal Substrate for ByStar Digital Ecosystem]]
+- [[#adopted-packages-of-pycs-framework][Adopted Packages of PyCS Framework]]
+- [[#pycs-players][PyCS Players]]
 
 * General: Overview of PyCS Single-XU Development
 
@@ -207,10 +214,62 @@ There are many places where we maintain ByStar related documentation during an A
 
 - Repo README.org has a repo scope and is Human Oriented.
 
-- Relevant Blee Panels are most important and most permanant. These are to be
+- Relevant Blee-Panels are most important and most permanant. These are to be
   specified in the AI-WorkPlan.org and Claude should update them along with
   AI-DevStatus.org
 
-  An overview of Blee Panels is available at /bisos/apps/defaults/ai-templates//blee-panels/AI-Activity.org
+  An overview of Blee Panels is available at
+@/bisos/panels/blee-core/blee-panels/_nodeBase_/fullUsagePanel-en.org
 
-* bisos-pip Package
+bisos-pip pypi packages and blee emacs packages have their own Blee-Panel hierearchies.
+
+Update Blee-Panels of bisos-pip and blee packages first and point to those through /bisos/panels afterwards.
+
+* bisos-pip Packaging Machinary
+
+@/bisos/panels/bisos-core/PyCsFwrk/bisos-pip-packaging/_nodeBase_/fullUsagePanel-en.org
+
+
+Comprehensive README of bisos-pip Organization --- [[file:/bisos/git/bxRepos/bisos-pip/_github/profile/readme.org]]
+@/bisos/git/bxRepos/bisos-pip/_github/profile/readme.org
+
+* List of bisos-pip Packages and Their Status
+
+Blee-Panel-Links to bisos-pip packages are maintained in
+
+@/bisos/panels/bisos-core/bisos-pip/_nodeBase_/fullUsagePanel-en.org
+
+Current status of relevant bisos-pip packages are maintained here.
+
+* PyCS Framework Layerings and bisos-pip Package Types
+
+@/bisos/panels/bisos-core/PyCsFwrk/pycsFwrkLayerings/_nodeBase_/fullUsagePanel-en.org
+
+And also see [[/lcnt/lgpc/bystar/permanent/common/figures/pycsFramework.pdf]] when needed.
+
+bisos.b is PyCS-Core
+bisos.pycs is PyCS-Foundation
+Totality of all packages that can be used outside of BISOS is PyCS-Framework.
+PyCS-Framework is the universal substrate of BISOS and BISOS-Platforms
+
+* Here-BISOS Platform PyCS Framework Layerings
+
+And also see [[/lcnt/lgpc/bystar/permanent/common/figures/hereBisosPycs.pdf]] when needed.
+
+* Site-BISOS Platform PyCS Framework Layerings
+
+And also see [[/lcnt/lgpc/bystar/permanent/common/figures/siteBisosPycs.pdf]] when needed.
+
+* PyCS as a Universal Substrate for ByStar Digital Ecosystem
+
+And also see [[/lcnt/lgpc/bystar/permanent/common/figures/bystarOverPycsSubstrate.pdf]] when needed.
+
+* Adopted Packages of PyCS Framework
+
+@/bisos/panels/bisos-core/PyCsFwrk/pyAdoptedPkgs/_nodeBase_/fullUsagePanel-en.org
+
+* PyCS Players
+
+Both Web-UI and Blee PyCS will be documented in
+
+@/bisos/panels/bisos-core/PyCsFwrk/csPlayers/_nodeBase_/fullUsagePanel-en.org
