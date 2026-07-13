@@ -16,7 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
 - [[#this-repo-is-layered-on-top-of-pycs-framework-bisosb-and-bisospycs][This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)]]
 - [[#writing-cs-commands][Writing CS commands]]
-- [[#relevant-examples-of-single-xus][Relevant Examples of Single-Xus]]
+- [[#relevant-examples-and-full-code-base][Relevant Examples and Full Code Base]]
 - [[#documentation-hierarchy][Documentation Hierarchy]]
 - [[#bisos-pip-packaging-machinary][bisos-pip Packaging Machinary]]
 - [[#list-of-bisos-pip-packages-and-their-status][List of bisos-pip Packages and Their Status]]
@@ -137,6 +137,32 @@ I want to do all the commits and pushes myself.
 Instead just suggest that I myself can commit.
 
 
+* bisos-pip Packages Are Local pip-Installed — Edit the Source Repo
+
+All bisos-pip packages (including =bisos.b=) are installed locally via =pip install -e=
+(editable/development mode) from their source repos under =/bisos/git/auth/bxRepos/bisos-pip/=.
+
+*Important*: The venv at =/bisos/venv/py3/bisos3/= picks up those packages directly
+from the source tree. Do NOT edit files under
+=/bisos/venv/py3/bisos3/lib/python3.11/site-packages/=.
+Always make changes in the corresponding source repo:
+
+| Package    | Source repo                                              |
+|------------+----------------------------------------------------------|
+| bisos.b    | /bisos/git/auth/bxRepos/bisos-pip/b/py3/bisos/b/        |
+| bisos.pycs | /bisos/git/auth/bxRepos/bisos-pip/pycs/                 |
+
+For example, to add =parPermanence= to =CmndParam=, edit
+=/bisos/git/auth/bxRepos/bisos-pip/b/py3/bisos/b/cs/param.py=
+(not the site-packages copy).
+
+If the package is installed non-editable (the site-packages copy does not
+reflect source changes), copy the modified file into place:
+: cp /bisos/git/auth/bxRepos/bisos-pip/b/py3/bisos/b/cs/param.py \
+:    /bisos/venv/py3/bisos3/lib/python3.11/site-packages/bisos/b/cs/param.py
+Or reinstall editable:
+: pip install -e /bisos/git/auth/bxRepos/bisos-pip/b/py3
+
 * This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)
 
 PyCS-Framework is documented in:
@@ -157,6 +183,45 @@ Its Blee-Panel is @/bisos/git/bxRepos/bisos-pip/b/py3/panels/bisos.b/_nodeBase_/
 When descending into either repo, follow its own =AI-AGENTS.org= (if present)
 the same way this file points up to the org-wide readme.
 
+
+* The csuListProc Dblock Pattern (csxu-s only)
+
+In a *csxu* (CS eXecution Unit — the top-level =.cs= script), the
+=####+BEGIN: b:py3:cs:framework/csuListProc= dblock is *not* self-contained.
+It reads the elisp variable =b:py:cs:csuList= set by the =#+BEGIN_SRC emacs-lisp=
+block that must appear immediately above it:
+
+#+begin_example
+""" #+begin_org
+...  ~csuList emacs-list Specifications~  ...
+#+BEGIN_SRC emacs-lisp
+(setq  b:py:cs:csuList
+  (list
+   "bisos.startAiActivity.userConfig_csu"
+ ))
+#+END_SRC
+#+RESULTS:
+| bisos.startAiActivity.userConfig_csu |
+#+end_org """
+
+####+BEGIN: b:py3:cs:framework/csuListProc :pyImports t :csuImports t :csuParams t :csxuParams nil
+...generated Python: from ... import ..., csuList = [...], g_extraParams...
+####+END:
+#+end_example
+
+When the dblock is updated in Blee/Emacs, it evaluates that elisp, reads the
+list, and regenerates the Python wiring inside the dblock (the =from ... import=
+statements, =csuList = [...]= and the =g_extraParams= function body).
+
+*Do not hand-author the csuListProc dblock body.* Author only the elisp
+=b:py:cs:csuList= list above it; the dblock engine writes the Python.
+
+Also note: =g_extraParams= (generated inside the dblock) calls only
+=cs.csuList_commonParamsSpecify(csuList, csParams)= — it does *not* call the
+csxu's own =commonParamsSpecify=. That is wired separately by the framework.
+
+This pattern applies to *csxu-s only*. CSU files (=_csu.py=) do not have a
+=csuListProc= dblock.
 
 * Writing CS commands
 
@@ -186,7 +251,7 @@ hand-edit between the =BEGIN=/=END= markers. Author only the body *after* the
 Register the command in the seed's example menu (=examples_csu= /
 =examples_seed= in the same file) so it shows up in the plant's example output.
 
-* Relevant Examples of Single-Xus
+* Relevant Examples and Full Code Base
 
 For a simple single-xu consider
 @/bisos/core/bpip/examples/exmpl-xu-oneSubProc.cs
@@ -200,6 +265,9 @@ bisos-pip examples are at:
  Look for more examples by running find | grep \.cs$
  in /bisos/git/bxRepos/bisos-pip
 
+To fdully understand how PyCS and bisos-pip works,
+read everything under /bisos/git/bxRepos/bisos-pip.
+
 * Documentation Hierarchy
 
 Through out development and AI-Activity, Claude is expected to maintain and update relevant documentation.
@@ -207,9 +275,9 @@ Through out development and AI-Activity, Claude is expected to maintain and upda
 There are many places where we maintain ByStar related documentation during an AI-Activity.
 
 - AI-WorkPlan.org is most immediate for Claude. It will be org-archived and is to be considered somewhat ehpemera.
-  
+
 - AI-DevStatus.org is to be updated by Claude and is for development use.
-  
+
 - Directory README.org is narrow in scope and is Human Oriented.
 
 - Repo README.org has a repo scope and is Human Oriented.
@@ -224,6 +292,102 @@ There are many places where we maintain ByStar related documentation during an A
 bisos-pip pypi packages and blee emacs packages have their own Blee-Panel hierearchies.
 
 Update Blee-Panels of bisos-pip and blee packages first and point to those through /bisos/panels afterwards.
+
+* README.org Authorship and Conversion to README.rst
+
+Each bisos-pip repo has two README files:
+
+- =README.org= — the *source*, authored in org-mode, lives at the repo root.
+  Claude authors and maintains this file.
+
+- =py3/README.rst= — the *converted* form for PyPI, lives under =py3/=.
+  This is what PyPI displays on the package page.
+
+** Authorship scope
+
+=README.org= covers the *command-only* perspective of the package:
+- Overview (what the package does, one paragraph)
+- Part of BISOS (standard boilerplate linking to ByStar ecosystem)
+- "Command-Only PyCS Facility" section (for packages with no RO/service layer)
+- Post-Installation Setup (user-config init, if applicable)
+- Installation (pip and pipx sections; list commands made available)
+- Usage (the key CLI invocations, one section per major operation)
+- Key Files (the =py3/bin/= and =py3/bisos/<pkg>/= files that matter)
+- Documentation and Blee-Panels (link to =py3/panels/=)
+- Support (standard Mohsen Banan contact block)
+- Planned Improvements (open items)
+
+Do *not* include RO, performer, daemon, or service sections for
+command-only packages.
+
+** Conversion from README.org to README.rst
+
+=py3/README.rst= is produced by converting =README.org= via pandoc or
+ox-rst from Emacs. Claude writes the RST directly when the org source is
+available; the conversion is not automated in CI.
+
+When writing =README.rst= directly (without a running pandoc/ox-rst),
+follow these RST conventions that match what the converters produce:
+
+- Section titles: overline/underline with =====; subsections with -----.
+- Code blocks: =.. code:: bash= followed by 3-space-indented content.
+- Inline code: =``backtick backtick``= (RST literal).
+- Hyperlinks: `` `label <url>`__ `` (anonymous reference, two underscores).
+- Bullet lists: =- item= (single dash).
+- Numbered lists: =#. item= (auto-numbered).
+- Line blocks for multi-line prose without a break: =| first line=.
+
+Keep the RST closely parallel to the org source so both stay in sync.
+
+* Blee-Panel Authorship for bisos-pip Packages
+
+Each bisos-pip package has a primary Blee-Panel at:
+=py3/panels/<pkg-name>/_nodeBase_/fullUsagePanel-en.org=
+
+** Standard panel structure
+
+A fullUsagePanel-en.org follows this skeleton (in order):
+
+1. *Standard header dblocks* (do not hand-edit):
+   - =bxPanel:common/title-plus= — panel title and metadata
+   - =topPanelControls= — Blee navigation links
+   - =title= — formatted title line
+   - =terseTreeNavigator= — folding TOC
+
+2. *Overview section* — one paragraph describing what the package does.
+
+3. *Package Installation section* — =pipx install= and =pipx uninstall=
+   commands as =runResult= dblocks (output captured inline).
+
+4. *Main command intro* — =blee:panel:icm:py:intro= dblock pointing to the
+   =.cs= executable; this shows the command's self-described usage.
+
+5. *Feature sections* — one section per logical group of commands, each with:
+   - =runResult= dblocks for read-only/query commands (output captured)
+   - =icm:py:cmnd= dblocks for action commands (invocable from panel)
+
+6. *User Config section* (if the package uses =userConfig_csu=):
+   - =userConfig_get= runResult for each persistent param
+   - =userConfig_set= cmnd dblock for setting each param
+
+7. *Design and Evolution TODOs* — org TODO items for planned improvements.
+
+8. *Standard footer dblocks* — closing panel controls (do not hand-edit).
+
+** What to include vs. exclude
+
+Include only what the package *currently* provides.
+- Command-only packages: no RO, performer, daemon, or service sections.
+- Each =icm:py:cmnd= or =runResult= dblock maps to a real =.cs= invocation
+  that can be executed from within Blee.
+
+** Dblock content policy
+
+Do *not* hand-edit content between =####+BEGIN:= and =####+END:= markers.
+These blocks are generated by Blee/Emacs dblock machinery. When Claude
+writes or updates a panel, it writes the dblock *header line* (the
+=####+BEGIN: ...= with parameters) and placeholder content between the
+markers; Blee regenerates the body when the panel is opened in Emacs.
 
 * bisos-pip Packaging Machinary
 

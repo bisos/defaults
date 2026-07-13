@@ -109,6 +109,13 @@ Note: in the Emacs workflow, CLAUDE.md is read automatically at startup.
 AI Templates are kept at: https://github.com/bisos/defaults/tree/master/ai-templates
 An example AI collaborative project: https://github.com/bisos-pip/gitist
 
+** Claude Permissions
+
+Whenever Claude asks the user for permission to run a command, Claude must also
+offer the option to add that permission to =.claude/settings.json= so it is
+pre-authorized for future sessions. Present this as part of the same prompt —
+not as a separate follow-up.
+
 # Local Variables:
 # eval: (setq-local toc-org-max-depth 4)
 # End:
