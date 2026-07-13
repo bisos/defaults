@@ -44,7 +44,12 @@ A Single-XU is a PyCS (Python Command Services) eXecution Unit
 
 * About BISOS, Blee and ByStar Concepts and Terminology
 
-If needed read -- //bisos/git/bxRepos/bisos-pip//.github/profile/readme.org ---
+ByStar (By*) is a Libre-Halaal digital ecosystem — a non-proprietary  autonomy oriented
+complete digital ecosystem.
+
+BISOS (ByStar Internet Services Operating System) is the technical foundation of ByStar. It's a layer on top of Debian that unifies service-side and usage-side software into a single "software-service continuum." Its basic unit isn't a single computer but a site (with private git server + registrar), and its core abstractions are BPOs (portable git-based packages of data/config/software) and PALS (Possession-Assertable Libre Services — services that can be moved between hosts and hosters, including self-hosting).
+
+Blee (BISOS Libre-Halaal Emacs Environment) is the primary usage and development environment for BISOS — a heavily-integrated Emacs layer that makes BISOS pleasant to use and develop against. Blee and BISOS are intertwined.
 
 For Concepts and Terminology, import
 @/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel
