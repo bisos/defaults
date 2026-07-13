@@ -72,6 +72,8 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+py3/README.rst
+py3/_description.org
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

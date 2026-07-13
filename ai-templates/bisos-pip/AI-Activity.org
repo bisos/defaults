@@ -14,10 +14,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - [[#cicd-and-totality-validating-and-testing][CI/CD and Totality Validating and Testing]]
 - [[#no-multi-platform--compatibility----only-one-of-the-latest-2-release-debian][No multi-platform  Compatibility -- Only one of the Latest 2 Release Debian]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
+- [[#bisos-pip-packages-are-local-pip-installed--edit-the-source-repo][bisos-pip Packages Are Local pip-Installed — Edit the Source Repo]]
 - [[#this-repo-is-layered-on-top-of-pycs-framework-bisosb-and-bisospycs][This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)]]
+- [[#the-csulistproc-dblock-pattern-csxu-s-only][The csuListProc Dblock Pattern (csxu-s only)]]
 - [[#writing-cs-commands][Writing CS commands]]
 - [[#relevant-examples-and-full-code-base][Relevant Examples and Full Code Base]]
 - [[#documentation-hierarchy][Documentation Hierarchy]]
+- [[#readmeorg-authorship-and-conversion-to-readmerst][README.org Authorship and Conversion to README.rst]]
+  - [[#authorship-scope][Authorship scope]]
+  - [[#conversion-from-readmeorg-to-readmerst][Conversion from README.org to README.rst]]
+- [[#blee-panel-authorship-for-bisos-pip-packages][Blee-Panel Authorship for bisos-pip Packages]]
+  - [[#standard-panel-structure][Standard panel structure]]
+  - [[#what-to-include-vs-exclude][What to include vs. exclude]]
+  - [[#dblock-content-policy][Dblock content policy]]
 - [[#bisos-pip-packaging-machinary][bisos-pip Packaging Machinary]]
 - [[#list-of-bisos-pip-packages-and-their-status][List of bisos-pip Packages and Their Status]]
 - [[#pycs-framework-layerings-and-bisos-pip-package-types][PyCS Framework Layerings and bisos-pip Package Types]]
@@ -396,6 +405,9 @@ markers; Blee regenerates the body when the panel is opened in Emacs.
 
 Comprehensive README of bisos-pip Organization --- [[file:/bisos/git/bxRepos/bisos-pip/_github/profile/readme.org]]
 @/bisos/git/bxRepos/bisos-pip/_github/profile/readme.org
+
+The repo must have a .gitignore that is same as /bisos/apps/defaults/begin/templates/moded/git/gitignore/emacs+py+tex
+If that is not the case, point it out.
 
 * List of bisos-pip Packages and Their Status
 
