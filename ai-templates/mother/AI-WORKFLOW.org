@@ -23,31 +23,45 @@ it.
 
 ** How These Files Are Set Up
 
-The AI collaboration files in any given project/repo are installed by =startAiAt.cs=,
-a PyCS command located at =/bisos/apps/defaults/ai-templates/startAiAt.cs/startAiAt.cs=.
+The AI collaboration files in any given project/repo are installed by
+=startAiActivity.cs=, a PyCS command shipped as the =bisos.startAiActivity=
+pip package (installable via =pipx install bisos.startAiActivity=;
+sources at =/bisos/git/auth/bxRepos/bisos-pip/startAiActivity=).
 
 Before starting Claude in a new project directory, the developer runs:
 
-: startAiAt.cs -i initiate --activity=<activity>
+: startAiActivity.cs -i initiate --activity=<activity>
+
+For a slim overlay in a subproject of an already-initiated repo, use:
+
+: startAiActivity.cs -i initiateSub --activity=<activity>
 
 where =<activity>= matches a subdirectory under =/bisos/apps/defaults/ai-templates/=
 (e.g. =bisos-pip=, =xu-single=, =blee-panels=, =lcnt=).
 
 This installs:
-- Symlinks for constant files (=CLAUDE.md=, =AI-AGENTS.org=, =AI-WORKFLOW.org=) from =bystar/=
+- Symlinks for constant files (=CLAUDE.md=, =AI-AGENTS.org=, =AI-WORKFLOW.org=) from =mother/=
 - A symlink for =AI-Activity.org= from =<activity>/= (activity-specific conventions)
 - Local copies of =AI-DevStatus.org= and =AI-WorkPlan.org= from =<activity>/=
-  (with dblocks expanded via =bx-dblock= to reflect the target directory)
-- =.claude/= directory with =settings.json= (pre-authorized commands) and =bx-= slash commands
+  (with =b:ai:file/particulars= dblocks expanded via =bisos.pyDblock= to reflect the target directory)
+- =.claude/= directory with =settings.json= (pre-authorized commands), =commands/=
+  (=bx-= slash commands), and optionally =skills/= (activity-specific skills)
+
+When =initiateSub= is used instead of =initiate=, only =CLAUDE.md= (slim overlay
+imports only the local trio), =AI-Activity.org= (symlinked), =AI-DevStatus.org=,
+and =AI-WorkPlan.org= are installed. The invariants (=AI-AGENTS.org=,
+=AI-WORKFLOW.org=, =.claude/=) are inherited from a parent directory via
+Claude Code's =CLAUDE.md= walk-up. =initiateSub= refuses if no initiated
+parent is found.
 
 This means: when you (Claude) see this file in a project, the symlinks point back to
-the canonical templates in =/bisos/apps/defaults/ai-templates/bystar/=, and the local
+the canonical templates in =/bisos/apps/defaults/ai-templates/mother/=, and the local
 copies of =AI-DevStatus.org= and =AI-WorkPlan.org= are project-specific and editable.
 
 ** File Naming Convention
 
 All-caps filenames (=CLAUDE.md=, =AI-AGENTS.org=, =AI-WORKFLOW.org=) are constant —
-always symlinked from =bystar/=, never edited in the project.
+always symlinked from =mother/=, never edited in the project.
 Mixed-case filenames (=AI-Activity.org=, =AI-DevStatus.org=, =AI-WorkPlan.org=) are
 local and editable — either symlinked from =<activity>/= or safe-copied for the project.
 
@@ -83,7 +97,7 @@ The goal is to establish a precise, evolving and maintainable long-context acros
 
 ** Claude Slash Commands
 
-Each project initialized with =startAiAt.cs= gets a =.claude/commands/= directory
+Each project initialized with =startAiActivity.cs= gets a =.claude/commands/= directory
 with these =bx-= commands available inside Claude:
 
 |--------------------+----------------------------------------------------------------|
@@ -98,7 +112,7 @@ with these =bx-= commands available inside Claude:
 | /bx-update-status  | Rewrite AI-DevStatus.org to reflect current state.             |
 |                    | Use after completing a stage or before a release.              |
 |--------------------+----------------------------------------------------------------|
-| /bx-initiate       | Run startAiAt.cs then read the full import chain.              |
+| /bx-initiate       | Run startAiActivity.cs then read the full import chain.        |
 |                    | For non-Emacs workflows only — Emacs reads CLAUDE.md           |
 |                    | automatically at startup, making this redundant.               |
 |--------------------+----------------------------------------------------------------|

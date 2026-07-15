@@ -173,9 +173,9 @@ call it via `pyCmnd()`.
 
 - Templates in this repo (start here):
   - `py3/bin/startAiActivity.cs` — csxu with multiple commands
-    (`initiate`, `deClaudify`, `aiSuspend`, `aiResume`, `examples`)
+    (`initiate`, `initiateSub`, `deClaudify`, `aiSuspend`, `aiResume`,
+    `userConfig_get`, `userConfig_set`, `examples`)
 - For a simple single-XU: `/bisos/core/bpip/examples/exmpl-xu-oneSubProc.cs`
-- For a rich example: `/bisos/apps/defaults/ai-templates/startAiAt.cs/startAiAt.cs`
 - For CS-Unit patterns: `bisos.b.userConfig_csu` in
   `/bisos/git/auth/bxRepos/bisos-pip/b/py3/bisos/b/userConfig_csu.py`
 - For more commands: `find /bisos/git/bxRepos/bisos-pip -name '*.cs'`

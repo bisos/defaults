@@ -12,7 +12,7 @@ These directories are meant to be comulative. In other words you can combine the
 | Activity | Directory     | Comments                                              |
 |----------+---------------+-------------------------------------------------------|
 |----------+---------------+-------------------------------------------------------|
-| Any      | ./bystar      | Generic Master CLAUDE.md, AI-AGENTNS.org, AI-Workflow |
+| Any      | ./mother      | Generic Master CLAUDE.md, AI-AGENTS.org, AI-Workflow  |
 |----------+---------------+-------------------------------------------------------|
 | Python   | ./bisos-pip   | For Building BISOS PYPI  Packages                     |
 |----------+---------------+-------------------------------------------------------|
@@ -27,37 +27,54 @@ These directories are meant to be comulative. In other words you can combine the
 
 Depending on the type of activity, in the subject Repo, you would run
 
-####+BEGINNOT: blee:bxPanel:runResult :outLevel 2  :command "startAiAt.cs -i initiate -p root=repo -p activity=bisos-pip"  :results "none" :comment "Initial Templates" :afterComment "-- to be tailored"
--  [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiAt.cs -i initiate -p root=repo -p activity=bisos-pip")][startAiAt.cs -i initiate -p root=repo -p activity=bisos-pip]] *|*  =Initial Templates= *|*  -- to be tailored  [[elisp:(org-shifttab)][<)]] E|
+####+BEGINNOT: blee:bxPanel:runResult :outLevel 2  :command "startAiActivity.cs -i initiate --root=repo --activity=bisos-pip"  :results "none" :comment "Initial Templates" :afterComment "-- to be tailored"
+-  [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiActivity.cs -i initiate --root=repo --activity=bisos-pip")][startAiActivity.cs -i initiate --root=repo --activity=bisos-pip]] *|*  =Initial Templates= *|*  -- to be tailored  [[elisp:(org-shifttab)][<)]] E|
 ####+END:
 
-This will create the following =constant= files at the Repos base:
+This will create the following =constant= files (symlinks) at the Repo base:
 
-- ./bystar/CLAUDE.md
-- ./bystar/AI-AGENTS.org
-- ./bystar/AI-WORKFLOW.org
+- ./CLAUDE.md         (→ mother/CLAUDE.md)
+- ./AI-AGENTS.org     (→ mother/AI-AGENTS.org)
+- ./AI-WORKFLOW.org   (→ mother/AI-WORKFLOW.org)
+- ./AI-Activity.org   (→ <activity>/AI-Activity.org)
 
-It will also create the following =initial= files at the Repos base:
+It will also create the following =initial= files (safe-copies) at the Repo base:
 
- - ./bisos-pip/AI-Activity.org    # For you to =cusomize=
- - ./bisos-pip/AI-WorkPlan.org   # For you to =develop=
- - ./bisos-pip/AI-DevStatus.org  # For AI to =update=
+ - ./AI-DevStatus.org    # For AI to =update=
+ - ./AI-WorkPlan.org     # For you to =develop=
+
+Plus a =.claude/= directory with symlinks for =settings.json=, =commands/=,
+and (if the activity ships one) =skills/=.
 
 * Overview of Use Of These Templates At The Project Directory Base
 
 Depending on the type of activity, in the subject project directory, you would run
 
-####+BEGINNOT: blee:bxPanel:runResult :outLevel 99  :command "startAiAt.cs -i initiate -p root=curDir -p activity=bisos-pip"  :results "none" :comment "Initial Templates" :afterComment "-- to be tailored"
-- [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiAt.cs -i initiate -p root=curDir -p activity=bisos-pip")][startAiAt.cs -i initiate -p root=curDir -p activity=bisos-pip]] *|*  =Initial Templates= *|*  -- to be tailored  [[elisp:(org-shifttab)][<)]] E|
+####+BEGINNOT: blee:bxPanel:runResult :outLevel 99  :command "startAiActivity.cs -i initiate --root=curDir --activity=bisos-pip"  :results "none" :comment "Initial Templates" :afterComment "-- to be tailored"
+- [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiActivity.cs -i initiate --root=curDir --activity=bisos-pip")][startAiActivity.cs -i initiate --root=curDir --activity=bisos-pip]] *|*  =Initial Templates= *|*  -- to be tailored  [[elisp:(org-shifttab)][<)]] E|
 ####+END:
 
-This will create the following =initial= files at the project directory base:
+This will create the same set of files listed above, but in the current
+directory rather than at the git repo base.
 
- - ./bisos-pip/AI-Activity.org    # For you to =cusomize=
- - ./bisos-pip/AI-WorkPlan.org   # For you to =develop=
- - ./bisos-pip/AI-DevStatus.org  # For AI to =update=
+For a slim subproject overlay (when an ancestor directory already has
+been =initiate=-d), use =initiateSub= instead:
 
-* The ./startAiAt.cs Directory and Script
+####+BEGINNOT: blee:bxPanel:runResult :outLevel 99  :command "startAiActivity.cs -i initiateSub --activity=bisos-pip"  :results "none" :comment "Slim Subproject Overlay" :afterComment ""
+- [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiActivity.cs -i initiateSub --activity=bisos-pip")][startAiActivity.cs -i initiateSub --activity=bisos-pip]] *|*  =Slim Subproject Overlay= *|*    [[elisp:(org-shifttab)][<)]] E|
+####+END:
 
-The *startAiAt.cs* PyCS-XU copies files from this /bisos/apps/defaults/ai-templates/ directory
-to the repo base and the project directory base.
+=initiateSub= installs only the local trio (=AI-Activity.org=,
+=AI-DevStatus.org=, =AI-WorkPlan.org=) plus a slim =CLAUDE.md= that
+imports them. The invariants (=AI-AGENTS.org=, =AI-WORKFLOW.org=,
+=.claude/=) are inherited from a parent directory via Claude Code's
+=CLAUDE.md= walk-up.
+
+* The startAiActivity.cs Command
+
+The *startAiActivity.cs* PyCS command copies files from this
+=/bisos/apps/defaults/ai-templates/= directory to the target directory
+(via symlinks for constants and safe-copies for editable initial state).
+
+Source repo: =/bisos/git/auth/bxRepos/bisos-pip/startAiActivity=
+PyPI: =bisos.startAiActivity= (installable via =pipx install bisos.startAiActivity=)
