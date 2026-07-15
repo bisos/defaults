@@ -113,6 +113,16 @@ at multiple levels:
 Update Blee-Panels of bisos-pip and blee packages *first*; point to those
 from =/bisos/panels= afterwards.
 
+*Important — =README.rst= is generated, not authored.* Every bisos-pip
+package has =README.org= (source, at repo root) and =py3/README.rst= (PyPI
+form). =README.rst= is regenerated from =README.org= by
+=py3/pypiProc.sh -i fullPrep= (and by =fullPrepBuild forPypi= which calls
+it). *Never hand-edit =README.rst=* — edits will be silently overwritten
+at release time. If you need to update the README, edit =README.org= and
+let =pypiProc.sh= regenerate the RST when releasing. Between releases,
+=README.rst= being stale relative to =README.org= is expected and
+harmless.
+
 An overview of Blee Panels:
 @/bisos/panels/blee-core/blee-panels/_nodeBase_/fullUsagePanel-en.org
 
@@ -125,7 +135,7 @@ Claude on demand when the current task matches:
 |-------------------------+-------------------------------------------------------------|
 | =writing-cs-commands=   | Writing or modifying a =cs.Cmnd= subclass (=.cs= / =_csu.py=) |
 | =dblock-authoring=      | Working with poly-dblock =####+BEGIN:= blocks, csuListProc, or dblock-based unit tests |
-| =readme-authorship=     | Writing or updating =README.org= / =py3/README.rst=         |
+| =readme-authorship=     | Writing or updating =README.org= (repo root — the ONLY authored README; =py3/README.rst= is *generated* by =pypiProc.sh -i fullPrep= and must never be hand-edited) |
 | =blee-panel-authorship= | Writing or updating =py3/panels/.../fullUsagePanel-en.org=  |
 | =bisos-pip-release=     | Preparing a PyPI release: linting, packaging, upload        |
 

@@ -2,6 +2,14 @@
   "permissions": {
     "allow": [
       "Read(*)",
+      "Bash(cd)",
+      "Bash(cd *)",
+      "Bash(pushd)",
+      "Bash(pushd *)",
+      "Bash(popd)",
+      "Bash(popd *)",
+      "Bash(echo)",
+      "Bash(echo *)",
       "Bash(ls)",
       "Bash(ls *)",
       "Bash(cat *)",

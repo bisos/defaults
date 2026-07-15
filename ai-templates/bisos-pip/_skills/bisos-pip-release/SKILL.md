@@ -1,6 +1,6 @@
 ---
 name: bisos-pip-release
-description: Use when preparing a bisos-pip package for release to PyPI — bumping the version, running the release-time linters (pyflakes, flake8, pylint, pycodestyle, mypy), regenerating `py3/README.rst` from `README.org`, building the sdist/wheel, and uploading via `pypiProc.sh`. Also covers the pipx install verification step and the Test-PyPI trial-upload workflow.
+description: Use when preparing a bisos-pip package for release to PyPI — bumping the version, running the release-time linters (pyflakes, flake8, pylint, pycodestyle, mypy), building the sdist/wheel via `pypiProc.sh` (which handles README.org → README.rst regeneration automatically), and uploading. Also covers the pipx install verification step and the Test-PyPI trial-upload workflow.
 ---
 
 # bisos-pip Release Preparation
@@ -50,9 +50,18 @@ Convention: `0.1`, `0.2`, ..., `1.0` — no patch versions unless a hotfix.
 Also bump `csInfo['version']` inside the main `.cs` file (the value looks
 like `'202507111200'` — set to current YYYYMMDDHHmm).
 
-**2. Sync `py3/README.rst` from `README.org`.** The RST is what PyPI
-displays. Regenerate via Emacs `org-rst-export-to-rst` or `pandoc -f org -t rst`.
-See the `readme-authorship` skill for the conversion conventions.
+**2. Regenerate `py3/README.rst` from `README.org` via `pypiProc.sh`.**
+`README.rst` is what PyPI displays. It is generated (never hand-authored):
+
+```bash
+cd py3
+./pypiProc.sh -i fullPrep     # updates _description + README.rst from ../README.org
+```
+
+`fullPrep` is also invoked automatically by `fullPrepBuild forPypi` (step 6),
+so an explicit call here is only needed if you want to inspect the
+regenerated `README.rst` before building. See the `readme-authorship` skill
+for details on the generation model.
 
 **3. Regenerate Blee-Panel captured output.** If any `runResult` dblocks in
 `py3/panels/<pkg>/_nodeBase_/fullUsagePanel-en.org` reference commands
@@ -64,22 +73,21 @@ what works, what is untested, key design decisions since last release.
 
 **5. Run linters.** Address findings. See the linter table above.
 
-**6. Trial upload to Test-PyPI first.**
+**6. Trial upload to Test-PyPI first via `pypiProc.sh`.**
+
+`pypiProc.sh` drives the whole flow. `fullPrepBuild forPypi` calls
+`fullPrep` (README.rst + _description regeneration) and then builds the
+sdist/wheel:
 
 ```bash
 cd py3
-./pypiProc.sh          # inspect the script — it drives sdist + wheel + upload
-```
-
-Or explicitly:
-
-```bash
-cd py3
-rm -rf build dist *.egg-info
-python3 setup.py sdist bdist_wheel
-twine check dist/*                          # RST validation for PyPI display
+./pypiProc.sh -i fullPrepBuild forPypi        # regen artifacts + build
+twine check dist/*                            # RST validation for PyPI display
 twine upload --repository testpypi dist/*
 ```
+
+Inspect `pypiProc.sh -i examples` for the full command menu (upload flags,
+version bumping, artifact refresh, etc.) — the driver has many modes.
 
 Verify on Test-PyPI:
 
@@ -121,20 +129,40 @@ follow-up items surfaced by the release.
 
 ## `pypiProc.sh` — the driver script
 
-Every bisos-pip repo has `py3/pypiProc.sh`. It typically:
+Every bisos-pip repo has `py3/pypiProc.sh`. It is a thin wrapper that
+loads `/bisos/core/bsip/bin/seedPypiProc.sh` (the shared seed) and drives
+the full release pipeline. Key commands (see `./pypiProc.sh -i examples`
+for the complete menu):
 
-- Cleans previous `build/`, `dist/`, `*.egg-info/`
-- Runs `python3 setup.py sdist bdist_wheel`
-- Runs `twine check dist/*`
-- Uploads via `twine upload`
+- **`fullPrep`** — regenerate `_description` and `README.rst` from
+  `../README.org`. Idempotent; safe to run any time.
+- **`fullPrepBuild forPypi`** — full path: `fullPrep` + sdist/wheel
+  build, with the PyPI version increment.
+- **`fullPrepBuild forLocal`** — same but for a local install version
+  (does not bump PyPI version).
+- **`distBuild`** — bare `python3 -m build` (no `fullPrep` — use only
+  when artifacts are already current).
+- **`artifactsList`** / **`artifactsUpdate`** — list / refresh the
+  package's boilerplate files (setup.py template, .gitignore, etc.).
+- **`readmeToDescriptionOrg ../README.org ./_description.org`** — the
+  `README.org` → `_description.org` conversion step used inside `fullPrep`.
 
-Inspect the script before running — some variants have interactive prompts
-or environment-variable switches for Test-PyPI vs. real PyPI.
+The generation of `README.rst` from `README.org` is done by `fullPrep`
+via pandoc under the hood (`pandoc --from=org -s -t rst --toc README.org
+-o README.rst`), but **do not invoke pandoc directly** — go through
+`pypiProc.sh` so associated artifacts stay in sync.
 
 ## Common pitfalls
 
+- **Hand-edited `README.rst`** → gets overwritten silently by `fullPrep`.
+  Always edit `README.org`; run `pypiProc.sh -i fullPrep` to regenerate.
 - **`README.rst` malformed** → PyPI page shows plain text. Run
-  `twine check dist/*` before every upload; it validates RST.
+  `twine check dist/*` before every upload; it validates RST. If the
+  RST is bad, the fix is in `README.org` (source), not in `README.rst`
+  (generated).
+- **Skipped `fullPrep` before upload** → PyPI page shows a stale README
+  (last-generated content). Always run `fullPrepBuild forPypi` (which
+  includes `fullPrep`) rather than `distBuild` alone.
 - **`long_description` missing from `setup.py`** → PyPI page is empty. Ensure
   `setup.py` reads `py3/README.rst` into `long_description` and sets
   `long_description_content_type="text/x-rst"`.
@@ -161,7 +189,12 @@ the smoke commands. This is Stage 9 in the workflow — track it in
 - Do NOT skip the Test-PyPI trial upload for a first release or a major
   version bump. PyPI won't let you delete or re-upload a bad version.
 - Do NOT `twine upload` without running `twine check dist/*` first.
-- Do NOT edit `py3/README.rst` directly — always sync from `README.org`.
+- Do NOT edit `py3/README.rst` directly — it is generated by `fullPrep`.
+  Edit `README.org` instead.
+- Do NOT invoke `pandoc` yourself to regenerate `README.rst` — go through
+  `pypiProc.sh -i fullPrep`.
+- Do NOT skip `fullPrep` (or `fullPrepBuild forPypi`) before uploading —
+  otherwise PyPI shows a stale README.
 - Do NOT push the git tag on the developer's behalf — suggest they push.
 - Do NOT release with failing linters. Fix the findings first; if a
   specific check is intentionally suppressed, document why in the source.
