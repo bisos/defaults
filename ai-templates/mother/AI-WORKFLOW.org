@@ -89,7 +89,11 @@ The third column is one of: const(constant), ai, you, u+ai --- which says who pr
 |                    | I break down my interactions into "Stages". Each Stage has a set |       |
 |                    | of TODOs that I work with Claude to accomplish.                  |       |
 |--------------------+------------------------------------------------------------------+-------|
-| ./xx.org_archive   | From time to time I move Done subtrees to org archive files.     | u+ai  |
+| ./xx.org_archive   | From time to time I move Done subtrees to org archive files      | u+ai  |
+|                    | (via org-mode's =org-archive-subtree=, standard =C-c C-x C-a=).  |       |
+|                    | The =bisos.startAiActivity= repo ships a real                    |       |
+|                    | =AI-WorkPlan.org_archive= alongside =AI-WorkPlan.org= as a       |       |
+|                    | working example of the pattern.                                  |       |
 |--------------------+------------------------------------------------------------------+-------|
 
 

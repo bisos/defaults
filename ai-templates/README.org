@@ -1,80 +1,242 @@
-#+title: AI-Templates
+#+title: ai-templates: BISOS-Provisioned Template Content for bisos.startAiActivity
 
+* What This Directory Is
 
-* Overview of Starting Point Templates
+This directory contains the *template content* consumed by
+[[https://github.com/bisos-pip/startAiActivity][=bisos.startAiActivity=]] on a BISOS system. It is *Part 2* of a
+two-part architecture:
 
-This directory contains starting point templates for ByStar AI Colaborative development
-of various activities.
+- *Part 1 --- the execution engine* --- =bisos.startAiActivity= (PyPI:
+  =pipx install bisos.startAiActivity=). The engine ships only the
+  =startAiActivity.cs= command; it contains no template content.
+- *Part 2 --- the templates (this directory)* --- baseline invariants
+  under =mother/= plus one directory per activity (=basic=, =bisos-pip=,
+  =xu-single=, =bisos-core=, =blee-panels=, =lcnt=).
 
-These directories are meant to be comulative. In other words you can combine them.
+BISOS provisions this directory at =/bisos/apps/defaults/ai-templates=
+as part of the standard environment. The engine auto-detects the path
+--- no =git clone= step, no =userConfig_set= step required on a BISOS
+system.
 
-|----------+---------------+-------------------------------------------------------|
-| Activity | Directory     | Comments                                              |
-|----------+---------------+-------------------------------------------------------|
-|----------+---------------+-------------------------------------------------------|
-| Any      | ./mother      | Generic Master CLAUDE.md, AI-AGENTS.org, AI-Workflow  |
-|----------+---------------+-------------------------------------------------------|
-| Python   | ./bisos-pip   | For Building BISOS PYPI  Packages                     |
-|----------+---------------+-------------------------------------------------------|
-| Elisp    | ./blee-pkgs   | Place Holder                                          |
-|----------+---------------+-------------------------------------------------------|
-| LaTeX    | ./lcnt        | LCNT Content (article, books, presentation)           |
-|----------+---------------+-------------------------------------------------------|
-| Org      | ./blee-panels | For Development of Blee Panels                        |
-|----------+---------------+-------------------------------------------------------|
+This directory is the *BISOS-hosted mirror* of the public
+[[https://github.com/bxexamples/aiActivityTemplates][=bxexamples/aiActivityTemplates=]] repo. The contents are kept in sync
+with that upstream. Users outside of BISOS clone from that repo
+directly; BISOS users get it here.
 
-* Overview of Use Of These Templates At The Repo Base
+For the model behind all of this --- what an *AI Activity* is, why the
+engine and templates are split, and how Claude Code consumes the
+installed layout --- read the engine's README:
 
-Depending on the type of activity, in the subject Repo, you would run
+[[https://github.com/bisos-pip/startAiActivity][=bisos.startAiActivity= on GitHub]]
 
-####+BEGINNOT: blee:bxPanel:runResult :outLevel 2  :command "startAiActivity.cs -i initiate --root=repo --activity=bisos-pip"  :results "none" :comment "Initial Templates" :afterComment "-- to be tailored"
--  [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiActivity.cs -i initiate --root=repo --activity=bisos-pip")][startAiActivity.cs -i initiate --root=repo --activity=bisos-pip]] *|*  =Initial Templates= *|*  -- to be tailored  [[elisp:(org-shifttab)][<)]] E|
-####+END:
+* The Concept of an AI Activity (Brief)
 
-This will create the following =constant= files (symlinks) at the Repo base:
+An *AI Activity* is a durable, collaborative effort between a human and
+Claude Code toward a specific purpose --- writing a document, building
+new software, enhancing existing software, and so on. Unlike a one-shot
+chat, an activity spans many sessions across time and machines. Its
+state lives in files under version control.
 
-- ./CLAUDE.md         (→ mother/CLAUDE.md)
-- ./AI-AGENTS.org     (→ mother/AI-AGENTS.org)
-- ./AI-WORKFLOW.org   (→ mother/AI-WORKFLOW.org)
-- ./AI-Activity.org   (→ <activity>/AI-Activity.org)
+Two org-mode files encode the activity:
 
-It will also create the following =initial= files (safe-copies) at the Repo base:
+- =AI-Activity.org= --- the human's *usual way of doing that kind of
+  work* (conventions, preferred libraries, patterns). Reusable across
+  every project of that kind. This directory ships one =AI-Activity.org=
+  per activity directory.
+- =AI-WorkPlan.org= --- the specific effort's stages and TODOs.
+  Per-effort, edited freely, org-archived as work completes. Paired
+  with =AI-DevStatus.org= (where the effort stands right now). This
+  directory ships starter versions of both under each activity
+  directory.
 
- - ./AI-DevStatus.org    # For AI to =update=
- - ./AI-WorkPlan.org     # For you to =develop=
+Activities are *classes of work*; WorkPlans are *instances*. This
+directory holds the classes; each project that is =initiate=-d gets
+its own instance.
 
-Plus a =.claude/= directory with symlinks for =settings.json=, =commands/=,
-and (if the activity ships one) =skills/=.
+* Activities Available in This Directory
 
-* Overview of Use Of These Templates At The Project Directory Base
+|-----------------+-------------------------------+--------------------------------------------------------|
+| Activity        | Directory                     | Comments                                               |
+| Category        | (of Activity)                 |                                                        |
+|-----------------+-------------------------------+--------------------------------------------------------|
+|-----------------+-------------------------------+--------------------------------------------------------|
+| Any             | [[mother][./mother]]                  | Constant invariants: =CLAUDE.md=, =AI-AGENTS.org=,     |
+|                 |                               | =AI-WORKFLOW.org=, =_claude/=, =initiateSub/=.         |
+|                 |                               | Symlinked into every activity below.                   |
+|-----------------+-------------------------------+--------------------------------------------------------|
+| General         | [[basic][./basic]]                    | Typically installed at a repo root that will contain   |
+|                 |                               | multiple heterogeneous subprojects. Deliberately low   |
+|                 |                               | specificity --- each nested =initiateSub= specifies    |
+|                 |                               | its own activity.                                      |
+|-----------------+-------------------------------+--------------------------------------------------------|
+| Python (BISOS)  | [[bisos-pip][./bisos-pip]]            | For building =bisos-pip= (BISOS PyPI) packages.        |
+|                 | [[xu-single][./xu-single]]            | For single PyCS eXecution Unit scripts.                |
+|                 | [[bisos-core][./bisos-core]]          | For BISOS-core / infrastructure work.                  |
+|-----------------+-------------------------------+--------------------------------------------------------|
+| Org             | [[blee-panels][./blee-panels]]        | For Blee panel org-file authorship.                    |
+|-----------------+-------------------------------+--------------------------------------------------------|
+| LaTeX           | [[lcnt][./lcnt]]                      | For LCNT content (articles, books, presentations).     |
+|-----------------+-------------------------------+--------------------------------------------------------|
 
-Depending on the type of activity, in the subject project directory, you would run
+The =mother/= baseline is *symlinked into every activity*, not duplicated.
+The invariants (=CLAUDE.md=, =AI-AGENTS.org=, =AI-WORKFLOW.org=) apply
+uniformly; per-activity content (=AI-Activity.org=, initial
+=AI-WorkPlan.org= / =AI-DevStatus.org=, optional =_skills/=) overrides
+or extends where relevant.
 
-####+BEGINNOT: blee:bxPanel:runResult :outLevel 99  :command "startAiActivity.cs -i initiate --root=curDir --activity=bisos-pip"  :results "none" :comment "Initial Templates" :afterComment "-- to be tailored"
-- [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiActivity.cs -i initiate --root=curDir --activity=bisos-pip")][startAiActivity.cs -i initiate --root=curDir --activity=bisos-pip]] *|*  =Initial Templates= *|*  -- to be tailored  [[elisp:(org-shifttab)][<)]] E|
-####+END:
+* Per-Activity Notes
 
-This will create the same set of files listed above, but in the current
-directory rather than at the git repo base.
+Details on when to pick each activity, what conventions it encodes, and
+what (if anything) it ships beyond the standard file set.
 
-For a slim subproject overlay (when an ancestor directory already has
-been =initiate=-d), use =initiateSub= instead:
+** <<mother>> --- constant invariants
 
-####+BEGINNOT: blee:bxPanel:runResult :outLevel 99  :command "startAiActivity.cs -i initiateSub --activity=bisos-pip"  :results "none" :comment "Slim Subproject Overlay" :afterComment ""
-- [[elisp:(show-all)][(>]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]     [[elisp:(lsip-local-run-command "startAiActivity.cs -i initiateSub --activity=bisos-pip")][startAiActivity.cs -i initiateSub --activity=bisos-pip]] *|*  =Slim Subproject Overlay= *|*    [[elisp:(org-shifttab)][<)]] E|
-####+END:
+Not an activity you =initiate= directly. Its contents (=CLAUDE.md=,
+=AI-AGENTS.org=, =AI-WORKFLOW.org=, =_claude/settings.json=,
+=_claude/commands/=, =initiateSub/CLAUDE.md=) are what every =initiate=
+symlinks in. ByStar-wide conventions that should apply to every activity
+live here.
 
-=initiateSub= installs only the local trio (=AI-Activity.org=,
-=AI-DevStatus.org=, =AI-WorkPlan.org=) plus a slim =CLAUDE.md= that
-imports them. The invariants (=AI-AGENTS.org=, =AI-WORKFLOW.org=,
-=.claude/=) are inherited from a parent directory via Claude Code's
-=CLAUDE.md= walk-up.
+Edit =mother/= carefully: changes propagate live to every project that
+has been =initiate=-d against this templates directory (that's the
+point of the symlink architecture). Since this is the BISOS-provisioned
+directory, edits here affect every BISOS user's projects that use the
+auto-detected default.
 
-* The startAiActivity.cs Command
+** <<basic>> --- general-purpose repo-root scaffold
 
-The *startAiActivity.cs* PyCS command copies files from this
-=/bisos/apps/defaults/ai-templates/= directory to the target directory
-(via symlinks for constants and safe-copies for editable initial state).
+Pick =basic= when the target directory is a repo root that will contain
+multiple, heterogeneous subprojects, each with its own activity. =basic=
+establishes the invariant CLAUDE.md hierarchy at the top so that nested
+=initiateSub= calls in subdirectories can walk up and find it.
 
-Source repo: =/bisos/git/auth/bxRepos/bisos-pip/startAiActivity=
-PyPI: =bisos.startAiActivity= (installable via =pipx install bisos.startAiActivity=)
+Not appropriate for a leaf project doing one specific kind of work
+--- for those, pick the matching activity directly.
+
+** <<bisos-pip>> --- building bisos-pip PyPI packages
+
+Pick this for authoring a =bisos-pip= Python package (a PyCS
+command-service unit installable via =pip= or =pipx=). Its
+=AI-Activity.org= describes the =bisos-pip= conventions: PyCS
+=cs.Cmnd= subclasses, poly-dblock authoring, =bisos.b= dependencies,
+=setup.py= structure, and the release workflow via =pypiProc.sh=.
+
+Ships =_skills/= (loaded on demand by Claude Code): =writing-cs-commands=,
+=dblock-authoring=, =readme-authorship=, =blee-panel-authorship=,
+=bisos-pip-release=. These are procedural knowledge only loaded when
+the current task matches --- see the engine README for the skills
+mechanism.
+
+** <<xu-single>> --- single PyCS eXecution Unit scripts
+
+Pick this for a standalone =.cs= or =.pcs= script that isn't part of a
+=bisos-pip= package. Simpler scope than =bisos-pip= --- no packaging,
+no PyPI, just a single-file PyCS command.
+
+** <<bisos-core>> --- BISOS-core / infrastructure work
+
+Pick this for work on BISOS-core packages and infrastructure --- lower
+layers of BISOS that are not =bisos-pip= application packages.
+
+** <<blee-panels>> --- Blee panel authorship
+
+Pick this for authoring Blee panels (org-mode files under
+=_nodeBase_/fullUsagePanel-en.org= etc.). Its =AI-Activity.org= covers
+the panel skeleton conventions and dblock content policy.
+
+** <<lcnt>> --- LCNT content authorship
+
+Pick this for authoring LCNT content: articles, books, presentations
+in LaTeX with XeLaTeX / HeVeA / reveal.js output paths. Its
+=AI-Activity.org= covers LCNT authoring conventions.
+
+* Using This Directory
+
+BISOS provisions this directory at =/bisos/apps/defaults/ai-templates=
+and the engine auto-detects it --- no explicit setup step needed for
+BISOS users. On any BISOS-provisioned machine, once you have the engine
+installed:
+
+#+begin_src bash
+pipx install bisos.startAiActivity      # if not already installed
+startAiActivity.cs -i userConfig_get --parName=templates
+#+end_src
+
+The =userConfig_get= should already return
+=/bisos/apps/defaults/ai-templates= --- no =userConfig_set= call
+needed.
+
+** Initiate a project
+
+At a git repo root:
+
+#+begin_src bash
+startAiActivity.cs -i initiate --root=repo --activity=bisos-pip
+#+end_src
+
+Or in the current directory:
+
+#+begin_src bash
+startAiActivity.cs -i initiate --root=curDir --activity=bisos-pip
+#+end_src
+
+Replace =--activity=bisos-pip= with any activity from the table above.
+
+** For nested subprojects: initiateSub
+
+When an ancestor directory has already been =initiate=-d, a nested
+subproject can install a slim overlay:
+
+#+begin_src bash
+startAiActivity.cs -i initiateSub --activity=bisos-pip
+#+end_src
+
+The invariants (=AI-AGENTS.org=, =AI-WORKFLOW.org=, =.claude/=) come
+from the ancestor via Claude Code's =CLAUDE.md= walk-up.
+
+* Overriding the Default with a Personal Fork
+
+BISOS users can point the engine at a personal fork of the templates
+--- typically to customize =mother/= for their own conventions or to
+add activity directories the BISOS baseline doesn't ship.
+
+Two ways to do this:
+
+*Preferred* --- clone the fork to =~/aiActivityTemplates=; the engine's
+auto-detect probes there first, so it takes precedence over the BISOS
+system copy automatically with no =userConfig_set= step:
+
+#+begin_src bash
+git clone <your-fork-url> ~/aiActivityTemplates
+#+end_src
+
+*Or* --- clone anywhere, then set the path explicitly:
+
+#+begin_src bash
+git clone <your-fork-url> /some/other/path
+startAiActivity.cs -i userConfig_set --parName=templates --parValue=/some/other/path
+#+end_src
+
+To revert to the BISOS default, either remove =~/aiActivityTemplates=
+(if using the preferred method) or =userConfig_set= back to
+=/bisos/apps/defaults/ai-templates=.
+
+* Relationship to COMEEGA
+
+Within BISOS and Blee, the org-mode substrate that underpins the AI
+Activity state files extends further to source-code authorship itself
+through *COMEEGA* (Collaborative Org-Mode Enhanced Emacs Generalized
+Authorship). This is a BISOS/Blee integration detail; outside Blee the
+source files still work as ordinary Python, Bash, or Elisp, and the AI
+Activity model itself does not depend on COMEEGA.
+
+* See Also
+
+- Engine: [[https://github.com/bisos-pip/startAiActivity][=bisos.startAiActivity= on GitHub]]
+  --- PyPI, source, the full README explaining the AI Activity model,
+  the file hierarchy, and Claude Code's walk-up consumption.
+- Public templates: [[https://github.com/bxexamples/aiActivityTemplates][=bxexamples/aiActivityTemplates= on GitHub]]
+  --- the canonical public copy of this content, for non-BISOS users
+  who need to clone it.
+- BISOS overview: [[https://github.com/bxGenesis/start][Bootstrapping ByStar, BISOS and Blee]].
+- The book: [[https://github.com/bxplpc/120033][Nature of Polyexistentials]].
