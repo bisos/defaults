@@ -60,7 +60,7 @@ its own instance.
 | Category        | (of Activity)                 |                                                        |
 |-----------------+-------------------------------+--------------------------------------------------------|
 |-----------------+-------------------------------+--------------------------------------------------------|
-| Any             | [[mother][./mother]]                  | Constant invariants: =CLAUDE.md=, =AI-AGENTS.org=,     |
+| Any             | [[mother][./mother]]                  | Constant invariants: =CLAUDE.md=,     |
 |                 |                               | =AI-WORKFLOW.org=, =_claude/=, =initiateSub/=.         |
 |                 |                               | Symlinked into every activity below.                   |
 |-----------------+-------------------------------+--------------------------------------------------------|
@@ -79,7 +79,7 @@ its own instance.
 |-----------------+-------------------------------+--------------------------------------------------------|
 
 The =mother/= baseline is *symlinked into every activity*, not duplicated.
-The invariants (=CLAUDE.md=, =AI-AGENTS.org=, =AI-WORKFLOW.org=) apply
+The invariants (=CLAUDE.md=, =AI-WORKFLOW.org=) apply
 uniformly; per-activity content (=AI-Activity.org=, initial
 =AI-WorkPlan.org= / =AI-DevStatus.org=, optional =_skills/=) overrides
 or extends where relevant.
@@ -92,7 +92,7 @@ what (if anything) it ships beyond the standard file set.
 ** <<mother>> --- constant invariants
 
 Not an activity you =initiate= directly. Its contents (=CLAUDE.md=,
-=AI-AGENTS.org=, =AI-WORKFLOW.org=, =_claude/settings.json=,
+=AI-WORKFLOW.org=, =_claude/settings.json=,
 =_claude/commands/=, =initiateSub/CLAUDE.md=) are what every =initiate=
 symlinks in. ByStar-wide conventions that should apply to every activity
 live here.
@@ -191,7 +191,7 @@ subproject can install a slim overlay:
 startAiActivity.cs -i initiateSub --activity=bisos-pip
 #+end_src
 
-The invariants (=AI-AGENTS.org=, =AI-WORKFLOW.org=, =.claude/=) come
+The invariants (=AI-WORKFLOW.org=, =.claude/=) come
 from the ancestor via Claude Code's =CLAUDE.md= walk-up.
 
 * Overriding the Default with a Personal Fork
