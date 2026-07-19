@@ -10,9 +10,11 @@ below.
 * Table of Contents     :TOC:
 - [[#about-bisos-blee-and-bystar][About BISOS, Blee and ByStar]]
 - [[#about-pycs-framework-python-command-services][About PyCS Framework (Python Command-Services)]]
-- [[#about-bisossbom----bisos-sboms-software-bill-of-materials][About bisos.sbom -- BISOS-SBOMs (Software Bill Of Materials)]]
+- [[#about-bisossbom----bisos-sboms-software-bill-of-materials-and--sbompcs-files][About bisos.sbom -- BISOS-SBOMs (Software Bill Of Materials) and -sbom.pcs files]]
 - [[#about-bisosgitist][About bisos.gitist]]
-- [[#concept-of-bisos-capabilities][Concept of BISOS Capabilities]]
+- [[#about-bisoscapdns-and--dnspcs-files][About bisos.capDns and -dns.pcs files]]
+- [[#about-bisoswebcap-and--wvdpcs-files][About bisos.webCap and -wvd.pcs files]]
+- [[#concept-of-bisos-capabilities-and-the--cbspcs-files][Concept of BISOS Capabilities and the -cbs.pcs files]]
   - [[#web-virtual-domain-services-wvds-pattern][Web Virtual Domain Services (wvds) Pattern]]
   - [[#cbs-triggers-hierarchy-for-rawbisos][CBS Triggers Hierarchy for rawBisos]]
 
@@ -40,7 +42,7 @@ For concepts and terminology, import:
 PyCS Framework is a set of Python Libraries that collectively provide for
 development of consistent commands and services in a unified manner.
 
-* About bisos.sbom -- BISOS-SBOMs (Software Bill Of Materials)
+* About bisos.sbom -- BISOS-SBOMs (Software Bill Of Materials) and -sbom.pcs files
 
 Installment of debian packages, python pip and pipx packages, creation of
 associated directories and cloning of git repos are all facilitated through the
@@ -74,7 +76,37 @@ The following Panels are relevant:
   - /bisos/git/auth/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/README
   - /bisos/git/auth/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org
 
-* Concept of BISOS Capabilities
+* About bisos.capDns and -dns.pcs files
+
+Inception of BISOS Capabilities involves creation of dns entries or addition of
+entries in /etc/hosts.
+
+The bisos.capDns pip package residing at /bisos/git/bxRepos/bisos-pip/capDns is responsible
+for management of DNS entries for capabilities.
+
+NOTYET -- This pip package is under construction.
+
+A typical entry for a DNS capability has the -dns.pcs end suffix and extention for its file name.
+In the example of airflow, it is airflow-dns.pcs
+
+Specifics of how dns entries are to be created are communicated at invokation by -cbs.pcs files.
+
+* About bisos.webCap and -wvd.pcs files
+
+Inception of Web BISOS Capabilities involves creation of virtual web domain
+entries in the NGIND available and enabled directories.
+
+The bisos.webCap pip package residing at /bisos/git/bxRepos/bisos-pip/webCap is responsible
+for management of Web Virtual Domains for capabilities.
+
+NOTYET -- This pip package is under construction.
+
+A typical entry for a wvd capability has the -wvd.pcs end suffix and extention for its file name.
+In the example of airflow, it is airflow-wvd.pcs
+
+Specifics of how dns entries are to be created are communicated at invokation by -cbs.pcs files.
+
+* Concept of BISOS Capabilities and the -cbs.pcs files
 
  BISOS Capabilities allow for addition of features to BISOS.
 
