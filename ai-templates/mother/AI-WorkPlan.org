@@ -29,11 +29,12 @@ Goal: Confirm AI's understanding of the context and capture that in [[Context Co
 
 * Stage 1 TODOs
 ** +
-** TODO [#A] <<Context Confirmation>> for AI (typically triggered by /bx-confirm0) :ai:
+** TODO [#A] <<Context Confirmation>> for AI (typically triggered by /bx-confirm0) :aiAndMe:
 SCHEDULED: <2026-06-09 Tue>
 Based on the series of files starting from CLAUDE.md in this repo,
 describe succinctly what you have understood.
 Enumerate explicitly which files you have imported and which you have considered.
+Prompt the user to confirm that the desired/appropriate model (/model) is being used for this project.
 ----- AI Results: ------
 ** -
 
