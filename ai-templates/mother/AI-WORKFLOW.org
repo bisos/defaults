@@ -118,10 +118,24 @@ with these =bx-= commands available inside Claude:
 |                    | automatically at startup, making this redundant.               |
 |--------------------+----------------------------------------------------------------|
 
-Note: in the Emacs workflow, CLAUDE.md is read automatically at startup.
+Note: in the workflow, CLAUDE.md is read automatically at startup.
 =/bx-confirm0= is optional but useful as an explicit session-start confirmation.
 
-AI Templates are kept at: https://github.com/bxexamples/aiActivityTemplates
+** Stage 0 of ./AI-WorkPlan.org
+
+Stage 0 of ./AI-WorkPlan.org is to be repeated each time a new instance of claude is used.
+/bx-confirm0 can be used for this. Before getting started with a new Claude I want
+to make sure that I am using the right model and I want to make sure that everything
+that I expect to have been imported has been imported. Work plan can follow after that.
+
+** Location of AI-Templates
+
+Location of AI Templates is determined by the --templates parameter of startAiActivity.c which is a
+persistent parameter.
+
+Dfeault AI Templates are kept at: https://github.com/bxexamples/aiActivityTemplates
+These are to be customized.
+
 The tool itself is developed as an AI collaborative project: https://github.com/bisos-pip/startAiActivity
 
 ** Claude Permissions

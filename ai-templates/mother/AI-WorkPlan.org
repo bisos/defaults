@@ -22,15 +22,16 @@ TODO below is the standard first step, or use =/bx-confirm0= as the automated eq
 TODOs tagged =:ai:= are assigned to Claude. After completing a TODO, summarize results
 under =----- AI Results: ------= and mark it DONE.
 
-* Stage 1: Confirm AI's Understanding of This Repo's Context
+* Stage 0: Confirm AI's Understanding of This Repo's Context
 
 Goal: Confirm AI's understanding of the context and capture that in [[Context Confirmation]] TODO.
 
 
-* Stage 1 TODOs
+* Stage 0 TODOs
 ** +
 ** TODO [#A] <<Context Confirmation>> for AI (typically triggered by /bx-confirm0) :aiAndMe:
 SCHEDULED: <2026-06-09 Tue>
+Must be repeated each time a new Claude instance is started here.
 Based on the series of files starting from CLAUDE.md in this repo,
 describe succinctly what you have understood.
 Enumerate explicitly which files you have imported and which you have considered.
@@ -38,12 +39,12 @@ Prompt the user to confirm that the desired/appropriate model (/model) is being 
 ----- AI Results: ------
 ** -
 
-* Stage 2: Description of This Stage Comes Here
+* Stage 1: Description of This Stage Comes Here
 
 Goal: Describe what the goal of this stage is.
 
 
-* Stage 2 TODOs
+* Stage 1 TODOs
 ** +
 ** TODO [#A] Example of a work-item for AI :ai:
 SCHEDULED: <2026-06-09 Tue>
