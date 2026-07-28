@@ -156,7 +156,7 @@ Reference panels for deeper context, imported on demand:
 - bisos-pip packaging machinery — @/bisos/panels/bisos-core/PyCsFwrk/bisos-pip-packaging/_nodeBase_/fullUsagePanel-en.org
 - COMEEGA — @/bisos/git/bxRepos/blee/comeega/README.org
 - poly-dblock — @/bisos/git/bxRepos/blee/poly-dblock/README.org
-- Comprehensive bisos-pip README — @/bisos/git/bxRepos/bisos-pip/_github/profile/readme.org
+- Comprehensive bisos-pip README — /bisos/git/bxRepos/bisos-pip/_github/profile/readme.org
 
 CI/CD is via *RawBisos Vagrant-based reconstruction*, not conventional
 pipelines. All bisos-pip packages are exercised in that context.
