@@ -1,0 +1,18 @@
+#+title: AI Agents Guidance for graphviz PyCS Planted Command Services (-graphviz.pcs)
+
+This file provides always-loaded orientation for Claude Code when working
+in a bisos-pip repo. Task-specific procedural knowledge (how to write a CS
+command, how to author a Blee panel, how to release to PyPI, etc.) lives
+in skills under =.claude/skills/= — Claude loads those on demand when the
+current task calls for them. See the "Available Skills" section below.
+
+* Table of Contents     :TOC:
+- [[#pycs-graphviz-planteed-command-services][PyCS Graphviz Planteed Command Services]]
+
+* PyCS Graphviz Planteed Command Services
+
+Typically in a directory called images, there is a xxx-graphviz.pcs.
+
+This file is a PyCS planted command service that uses graphviz python bindings.
+
+The seed is cabable of generating most of the output formats that graphviz produces.
