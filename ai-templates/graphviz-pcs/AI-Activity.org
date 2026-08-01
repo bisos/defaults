@@ -97,6 +97,72 @@ Adding a new graph to an existing =.pcs= file is a three-line change:
 3. The PyCS examples menu re-generates automatically --- no other
    registration needed.
 
+** Manifest-at-top ordering: use a forward-reference lambda
+
+The natural Python order is *function definitions first, then
+=namedGraphsList= at the bottom*. This is what the older corpus
+files use.
+
+An alternative --- placing =namedGraphsList= and =graphvizSeed.setup()=
+*near the top* as a "manifest" of what the file exports, with
+function bodies below --- is also legitimate and can be more
+readable. But Python resolves names at line-evaluation time, so
+=ng("myGraph", func=myGraph)= at line 30 raises =NameError= if
+=myGraph= isn't defined until line 60.
+
+The fix is a *nullary lambda* that defers name resolution to call
+time:
+
+#+begin_src python
+namedGraphsList = [
+    # Forward reference: myGraph is defined below this block.
+    ng("myGraph", func=lambda: myGraph()),
+]
+#+end_src
+
+The seed engine calls =func()= when it needs the =Digraph=; by then
+=myGraph= is bound in module globals and the lambda dereferences it.
+Add a one-line comment explaining the deferral --- the lambda looks
+unusual and a reader will otherwise wonder why not just =func=myGraph=.
+
+Choose ordering by preference: functions-first is idiomatic Python;
+manifest-at-top reads like a table of contents. Both work.
+
+** =title= and =caption= for LCNT integration
+
+Each =ng(...)= entry can carry optional =title= and =caption= kwargs.
+When present, =--format=lcnt= writes plain-text sibling files
+=<name>.title= and =<name>.caption= into the images directory,
+alongside the rendered =.pdf= / =.png= / =.svg= etc:
+
+#+begin_src python
+namedGraphsList = [
+    ng("myGraph",
+       func=lambda: myGraph(),
+       title="Short One-Line Title",
+       caption="A longer prose caption describing what the "
+               "figure shows, suitable for a figure caption "
+               "in a LaTeX document or an org-mode #+CAPTION."),
+]
+#+end_src
+
+These sidecars are consumed by LCNT-framework tooling (LaTeX
+=\input{myGraph.title}= / =\input{myGraph.caption}=, org-mode
+=#+INCLUDE=, Blee-panel snippets, etc.). =graphviz-cs= stays neutral
+about the envelope --- consumers wrap the raw text in whatever
+figure-environment their format requires.
+
+Semantics:
+- Both =title= and =caption= are optional. If both are =None=, no
+  sidecar files are written.
+- If one is set and the other =None=, only the non-None sidecar
+  appears.
+- =--format=all= *includes* =lcnt=, so a routine "build everything"
+  invocation refreshes the sidecars alongside the graphics.
+- =ngClean --format=all= removes =.title= / =.caption= (treated like
+  =.gv=: regenerable from source).
+- =ngClean --format=lcnt= removes only the two sidecars.
+
 * Running and Previewing
 
 Standard invocation forms:
@@ -109,13 +175,19 @@ Standard invocation forms:
   produces =<graphName>.pdf= *and* opens it in Evince for preview.
   This is the primary iteration loop.
 - =myFile-graphviz.pcs -i ngProcess --format=all <graphName>= →
-  produces every supported format.
+  produces every supported format including LCNT sidecars.
+- =myFile-graphviz.pcs -i ngProcess --format=lcnt <graphName>= →
+  produces =<graphName>.title= and =<graphName>.caption= plain-text
+  sidecars (only if the graph declares =title= / =caption= --- see
+  "=title= and =caption= for LCNT integration" below).
 - =myFile-graphviz.pcs -i ngProcess --format=all all= → renders
   every named graph in every format (batch build).
 - =myFile-graphviz.pcs -i ngClean --format=all all= → cleans
-  intermediates (keeps =.pdf= and =.svg=).
+  intermediates (keeps =.pdf=, =.svg=, and =.odg=).
 - =myFile-graphviz.pcs -i ngClean --format=full all= → cleans
   everything.
+- =myFile-graphviz.pcs -i ngClean --format=lcnt all= → cleans
+  only the =.title= and =.caption= sidecars.
 
 For iterative work, add the =#+begin_src sh :results output :session
 shared= trailer next to each graph function so Emacs C-c C-c evals it

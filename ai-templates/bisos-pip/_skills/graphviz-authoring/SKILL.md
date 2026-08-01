@@ -99,6 +99,60 @@ Three edits, in order:
 No other registration is needed. The PyCS seed engine auto-discovers
 whatever is in `namedGraphsList`.
 
+### Manifest-at-top layout: forward reference via lambda
+
+Some authors prefer to place `namedGraphsList` and `graphvizSeed.setup()`
+*at the top* of the file (a "manifest" of what the file exports), with
+function bodies below. This is a legitimate authorship style but
+requires a small trick — Python resolves names at line-evaluation time,
+so `ng("myGraph", func=myGraph)` at line 30 raises `NameError` when
+`myGraph` isn't defined until line 60.
+
+The fix is a nullary lambda:
+
+```python
+namedGraphsList = [
+    # Forward reference: myGraph is defined below this block.
+    ng("myGraph", func=lambda: myGraph()),
+]
+```
+
+The seed engine calls `func()` when it needs the `Digraph`; by then
+`myGraph` is bound in module globals and the lambda dereferences it.
+Always add the explanatory comment — the lambda looks unusual and a
+reader will otherwise wonder why not just `func=myGraph`.
+
+The functions-first layout (natural Python order, no lambda needed) is
+also fine. Pick by preference — some readers prefer the manifest at the
+top like a table of contents; others prefer natural declaration order.
+
+### Declaring title and caption for LCNT sidecars
+
+If the figure will be included in a LaTeX document, org-mode `#+INCLUDE`,
+or Blee panel with a caption, declare `title` and `caption` on the
+`ng(...)` entry:
+
+```python
+namedGraphsList = [
+    ng("myGraph",
+       func=lambda: myGraph(),
+       title="Short One-Line Title",
+       caption="A longer prose caption describing what the figure "
+               "shows, suitable for a figure caption in a LaTeX "
+               "document or an org-mode #+CAPTION."),
+]
+```
+
+Then `--format=lcnt` writes plain-text sibling files `myGraph.title`
+and `myGraph.caption` alongside the rendered `.pdf` / `.png` / etc.
+Consumers `\input{myGraph.title}` (LaTeX) or `#+INCLUDE:
+"./myGraph.caption" export ascii` (org-mode) to embed the text in
+their own figure envelope.
+
+`--format=all` includes `lcnt`, so a routine "regenerate everything"
+before commit will refresh the sidecars. Both fields are optional —
+if omitted, no sidecar files are written for that graph.
+
 ## Choosing shape and colour — the semantic palette
 
 Colours and shapes in the BISOS graphviz-pcs corpus are **semantic**, not
