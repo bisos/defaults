@@ -227,17 +227,7 @@
 *  [[elisp:(org-cycle)][| ]] [[elisp:(org-show-subtree)][|=]] [[elisp:(show-children 10)][|V]] [[elisp:(bx:orgm:indirectBufOther)][|>]] [[elisp:(bx:orgm:indirectBufMain)][|I]] [[elisp:(blee:ppmm:org-mode-toggle)][|N]] [[elisp:(org-top-overview)][|O]] [[elisp:(progn (org-shifttab) (org-content))][|C]] [[elisp:(delete-other-windows)][|1]]  /Note:/  =Your Early Un-Common Packages=  ::  [[elisp:(org-cycle)][| ]]
 \end{comment}
 
-%%%#+BEGIN: bx:dblock:lcnt:latex:bx-bidi :class "art+pres" :langs "en+fa"
-%%% Args: :class "pres+art" :langs "en+fa"
-\begin{comment}
-* [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: BX-BIDI/  =With HeVeA Support= ::  [[elisp:(org-cycle)][| ]]
-\end{comment}
-\newenvironment{bidiSepBeforeHevea}{}{}
-\usepackage{bidi}
-\newenvironment{bidiSepAfterHevea}{}{}
-
-\usepackage{bystarpersian}   % Defines: \newfontfamily{\persian}, \newcommand{\farsi}, \newenvironment{faPar},{fa}
-\usepackage{bystararticle}   % Defines: \excludecomment{presentationMode} \newcommand{\pnote}
+%%%#+BEGIN: bx:dblock:lcnt:latex:bx-bidi :class "art" :langs "en+fa"
 
 %%%#+END:
 
@@ -323,26 +313,7 @@
 
 %%%#+END:
 
-%%%#+BEGIN: bx:lcnt:latex:title-page-titles :class "art+pres" :langs "en+fa" :style "Huge" :spacing t
-%%% Args: :class "book|pres+art" :langs "en+fa" :curBuild nil|t :paperSize "8.5x11|6x9" :style "HUGE|Huge|huge" :spacing nil|t
-\begin{comment}
-** [[elisp:(blee:ppmm:org-mode-toggle)][|n]] [[elisp:(blee:menu-sel:outline:popupMenu)][+-]] [[elisp:(blee:menu-sel:navigation:popupMenu)][==]]  /DBLOCK: Title Page Titles --- curBuild=t paperSize=nil style=Huge spacing=t/  == ::  [[elisp:(org-cycle)][| ]]
-\end{comment}
-
-%%% Titles paperSize=8.5x11
-
-
-\title{roVerifier}
-
-\thispagestyle{empty}
-
-\begin{center}
-{\Huge {\bf roVerifier}}\\
-
-\end{center}
-
-
-\vspace{0.35in}
+%%%#+BEGIN: bx:lcnt:latex:title-page-titles :class "art+pres" :langs "en+fa" :style "HUGE" :spacing t
 
 %%%#+END:
 

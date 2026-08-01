@@ -1,0 +1,96 @@
+%%% -*- Mode: LaTeX; -*-
+
+%%%#+BEGIN: bx:dblock:global:this-file :disabledP "false" :mode "auto"
+\begin{whenOrg}
+*  #This File: /bxo/r3/iso/pip_mbPersonalProjs/accounting/income/socialSecurity/socSec-overpayment-2025/tmpArticle/bodyArticleEnFa.tex
+
+\end{whenOrg}
+%%%#+END:
+
+
+
+\vspace*{-0.5in}
+
+\begin{flushleft}
+{\Huge {\bf Mohsen Banan}}
+\end{flushleft}
+
+\vspace*{-.5in}
+
+\begin{flushright}
+{\Huge {\bf \begin{fa}محسن بنان\end{fa}}}
+\end{flushright}
+
+\vspace*{-.15in}
+
+\makebox[6.5in]{\hrulefill}
+
+\vspace*{-.15in}
+
+
+\begin{flushright}
+{\small 3610 164th Place SE}\\
+{\small Bellevue, WA 98008}\\
+{\small Phone: +1 (425) 555-5555}\\
+{\small E-mail: libre@mohsen.1.banan.byname.net}
+\end{flushright}
+
+\noindent\begin{tabular}{ll}
+Date:      & October 17, 2011\\
+To:        & Recipient\\
+From:      & Mohsen BANAN\\
+Subject:   & This Matter\\
+\\
+\end{tabular}
+
+
+Some Text Comes Here
+
+
+
+
+\begin{faPar}
+
+سلام حال شما چطور است. اميدوارم  \LRE{One Two Three} يک دو سه.
+
+\end{faPar}
+
+Some English \RLE{\persian{درست وصت انگليسى}} comes here.
+Some \begin{fa}درست وصت انگليسى\end{fa} English comes here.
+
+
+
+
+%%%#+BEGIN: blee:bxPanel:footerOrgParams 
+\begin{whenOrg}
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(org-cycle)][| *= Org-Mode Local Params: =* | ]]
+#+STARTUP: overview
+#+STARTUP: lognotestate
+#+STARTUP: inlineimages
+#+SEQ_TODO: TODO WAITING DELEGATED | DONE DEFERRED CANCELLED
+#+TAGS: @desk(d) @home(h) @work(w) @withInternet(i) @road(r) call(c) errand(e)
+#+CATEGORY: L:tmpArticle
+
+\end{whenOrg}
+%%%#+END
+
+%%%#+BEGIN: blee:bxPanel:footerEmacsParams :primMode "latex-mode" :latexMasters "articleEnFa.ttytex"
+\begin{whenOrg}
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*     [[elisp:(org-cycle)][| *= Emacs Local Params: =* | ]]
+%Local Variables:
+%eval: (setq-local toc-org-max-depth 4)
+%eval: (setq-local ~selectedSubject "noSubject")
+%eval: (setq-local ~primaryMajorMode 'latex-mode)
+%eval: (setq-local ~blee:panelUpdater nil)
+%eval: (setq-local ~blee:dblockEnabler nil)
+%eval: (setq-local ~blee:dblockController "interactive")
+%eval: (img-link-overlays)
+%eval: (setq-local ~lcnt:texClass nil)
+%eval: (setq-local ~lcnt:bibProvider nil)
+%eval: (setq-local ~lcnt:paperSize nil)
+%TeX-master: "articleEnFa.ttytex"
+%eval: (bx:load-file:ifOneExists "./panelActions.el")
+%End:
+
+\end{whenOrg}
+%%%#+END

@@ -3,17 +3,27 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 * Table of Contents     :TOC:
-- [[#general-this-repo-contains-lcnts][General: This Repo contains LCNT's]]
-- [[#general-running-latex-on-inputs][General: Running LaTeX on Inputs]]
+- [[#this-repo-contains-lcnts][This Repo contains LCNT's]]
+- [[#running-latex-on-inputs][Running LaTeX on Inputs]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
 
-* General: This Repo contains LCNT's
+* This Repo contains LCNT's
 
-See NOTYET
+ByStar LCNT (Libre CoNtenT) is a layer on top of LaTeX and HeVeA and Reveal for consistent production of
+pdf, html and reveal content.
 
-* General: Running LaTeX on Inputs
+The scope of types of content spans: memos, articles, books and multimedia presentation.
 
-Make sure that lcntProc.sh has NOTYET
+Read everything under /bisos/panels/bisos-apps/lcnt to understand various aspects of LCNT.
+
+
+* Running LaTeX on Inputs
+
+After edits to latex files, run:
+
+lcntProc.sh -h -v -n showRun -p pre="clean" -p extent="build" -i lcntBuild cur  # Runs dblock
+
+to produce pdf and other outputs.
 
 * Git Commits and Git Pushes
 
