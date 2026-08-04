@@ -1,14 +1,14 @@
-#+title: ai-templates: BISOS-Provisioned Template Content for bisos.startAiActivity
+#+title: ai-templates: BISOS-Provisioned Template Content for bisos.aiActivity
 
 * What This Directory Is
 
 This directory contains the *template content* consumed by
-[[https://github.com/bisos-pip/startAiActivity][=bisos.startAiActivity=]] on a BISOS system. It is *Part 2* of a
+[[https://github.com/bisos-pip/aiActivity][=bisos.aiActivity=]] on a BISOS system. It is *Part 2* of a
 two-part architecture:
 
-- *Part 1 --- the execution engine* --- =bisos.startAiActivity= (PyPI:
-  =pipx install bisos.startAiActivity=). The engine ships only the
-  =startAiActivity.cs= command; it contains no template content.
+- *Part 1 --- the execution engine* --- =bisos.aiActivity= (PyPI:
+  =pipx install bisos.aiActivity=). The engine ships only the
+  =aiActivity.cs= command; it contains no template content.
 - *Part 2 --- the templates (this directory)* --- baseline invariants
   under =mother/= plus one directory per activity (=basic=, =bisos-pip=,
   =xu-single=, =bisos-core=, =blee-panels=, =lcnt=).
@@ -27,7 +27,7 @@ For the model behind all of this --- what an *AI Activity* is, why the
 engine and templates are split, and how Claude Code consumes the
 installed layout --- read the engine's README:
 
-[[https://github.com/bisos-pip/startAiActivity][=bisos.startAiActivity= on GitHub]]
+[[https://github.com/bisos-pip/aiActivity][=bisos.aiActivity= on GitHub]]
 
 * The Concept of an AI Activity (Brief)
 
@@ -158,8 +158,8 @@ BISOS users. On any BISOS-provisioned machine, once you have the engine
 installed:
 
 #+begin_src bash
-pipx install bisos.startAiActivity      # if not already installed
-startAiActivity.cs -i userConfig_get --parName=templates
+pipx install bisos.aiActivity      # if not already installed
+aiActivity.cs -i userConfig_get --parName=templates
 #+end_src
 
 The =userConfig_get= should already return
@@ -171,13 +171,13 @@ needed.
 At a git repo root:
 
 #+begin_src bash
-startAiActivity.cs -i initiate --root=repo --activity=bisos-pip
+aiActivity.cs -i initiate --root=repo --activity=bisos-pip
 #+end_src
 
 Or in the current directory:
 
 #+begin_src bash
-startAiActivity.cs -i initiate --root=curDir --activity=bisos-pip
+aiActivity.cs -i initiate --root=curDir --activity=bisos-pip
 #+end_src
 
 Replace =--activity=bisos-pip= with any activity from the table above.
@@ -188,7 +188,7 @@ When an ancestor directory has already been =initiate=-d, a nested
 subproject can install a slim overlay:
 
 #+begin_src bash
-startAiActivity.cs -i initiateSub --activity=bisos-pip
+aiActivity.cs -i initiateSub --activity=bisos-pip
 #+end_src
 
 The invariants (=AI-WORKFLOW.org=, =.claude/=) come
@@ -214,7 +214,7 @@ git clone <your-fork-url> ~/aiActivityTemplates
 
 #+begin_src bash
 git clone <your-fork-url> /some/other/path
-startAiActivity.cs -i userConfig_set --parName=templates --parValue=/some/other/path
+aiActivity.cs -i userConfig_set --parName=templates --parValue=/some/other/path
 #+end_src
 
 To revert to the BISOS default, either remove =~/aiActivityTemplates=
@@ -232,7 +232,7 @@ Activity model itself does not depend on COMEEGA.
 
 * See Also
 
-- Engine: [[https://github.com/bisos-pip/startAiActivity][=bisos.startAiActivity= on GitHub]]
+- Engine: [[https://github.com/bisos-pip/aiActivity][=bisos.aiActivity= on GitHub]]
   --- PyPI, source, the full README explaining the AI Activity model,
   the file hierarchy, and Claude Code's walk-up consumption.
 - Public templates: [[https://github.com/bxexamples/aiActivityTemplates][=bxexamples/aiActivityTemplates= on GitHub]]
