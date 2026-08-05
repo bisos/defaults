@@ -138,6 +138,8 @@ Claude on demand when the current task matches:
 | =readme-authorship=     | Writing or updating =README.org= (repo root — the ONLY authored README; =py3/README.rst= is *generated* by =pypiProc.sh -i fullPrep= and must never be hand-edited) |
 | =blee-panel-authorship= | Writing or updating =py3/panels/.../fullUsagePanel-en.org=  |
 | =bisos-pip-release=     | Preparing a PyPI release: linting, packaging, upload        |
+| =configfile-pattern=    | Wiring a seed package to manage a config file via =configFile.ConfigFile= subclass, =--cls=, and the required =csuList= entries |
+| =banna-lookup=          | Looking up TCP port numbers or IP addresses for BISOS services via =bisos.banna= (never hardcode ports that banna tracks) |
 
 Skills also work as human-readable documentation — the =SKILL.md= inside
 each folder describes when and how to do that specific kind of work.
