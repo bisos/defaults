@@ -140,6 +140,7 @@ Claude on demand when the current task matches:
 | =bisos-pip-release=     | Preparing a PyPI release: linting, packaging, upload        |
 | =configfile-pattern=    | Wiring a seed package to manage a config file via =configFile.ConfigFile= subclass, =--cls=, and the required =csuList= entries |
 | =banna-lookup=          | Looking up TCP port numbers or IP addresses for BISOS services via =bisos.banna= (never hardcode ports that banna tracks) |
+| =sysd-pcs-authorship=   | Authoring a =*-sysd.pcs= planted file: =systemd_seedInfo.setup()= params, =sysdUnitFileFunc=, =preFunc=/=postFunc= hooks, oneshot units, =Requires=/=After== ordering, CBS assembly |
 
 Skills also work as human-readable documentation — the =SKILL.md= inside
 each folder describes when and how to do that specific kind of work.
