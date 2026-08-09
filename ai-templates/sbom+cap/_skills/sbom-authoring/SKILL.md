@@ -11,6 +11,11 @@ The `pkgsSeed` module provides the API. Existing examples live at:
 - `/bisos/core/bsip/bin/*-sbom.pcs`
 - `/bisos/asc/web/bin/*-sbom.pcs`
 
+**Scope — Debian/apt only.** `pkgsSeed` supports `apt`, `pip`, and `pipx`
+only; there is **no `dnf`/`rpm` support**. For RHEL/dnf hosts, package lists
+must be handled manually (or captured as reference data) until `bisos.sbom`
+grows dnf support.
+
 ## File Structure
 
 ```python
@@ -65,6 +70,8 @@ Followed by a `readme` command class and `examples_csu()` function (see below).
 | Python package — importable as library AND CLI | `pp("pkg-name")` with `pkgsSeed.pkgsSeedInfo.virtenv` set |
 | Python package — CLI only, isolated | `pipxPkg("pkg-name")` (pipx) |
 | Post-install step after a pip install (e.g. `playwright install`) | `pp("stepName", func=myPostInstallFn)` |
+| Host/user config step after install (write `~/.config`, drop files) | named `func=` pseudo-entry: `ap("stepName", func=fn)` |
+| Step needing root (write `/etc`, `systemctl`, `loginctl`) | `func=` pseudo-entry running a `sudo -s` block (see Root / sudo Steps) |
 | This sbom depends on another sbom being run first | `sbom("/absolute/path/to/other-sbom.pcs")` |
 
 **Key rule:** use `func=` only when custom shell logic is required (adding an apt
@@ -87,7 +94,25 @@ packages end up in different venvs and imports will fail.
 
 ## The `func=` Pattern
 
-Use for apt custom sources:
+### Execution contract
+
+- **No arguments.** A func is defined `def myFn():` — it takes no parameters.
+- **Body is shell, not Python.** Do the work through
+  `b.subProc.WOpW(invedBy=None, log=1).bash(f"""...""")`. Do **not** use
+  pure-Python file/dir manipulation (`os.makedirs`, `open().write()`) — keep to
+  shell so behavior and logging match the rest of BISOS.
+- **The func owns its work.** When `func=` is set, the framework runs the func
+  *instead of* a plain install of that entry's name. So the name is either a
+  **real package** whose func installs it via a custom source (e.g.
+  `ap("gh", func=ghAptSource)` where the func runs `apt install gh`), or an
+  arbitrary **pseudo-entry** label for a step that installs nothing (e.g.
+  `pp("playwrightInstall", ...)`, `ap("myConfigStep", ...)`). A pseudo-entry
+  name is never apt/pip-installed — this is why the shipped examples with
+  non-package names work.
+- **Idempotent.** Funcs re-run on every `sbom_fullUpdate`; guard writes
+  (`[ ! -f ... ]`, `mkdir -p`, never clobber existing user config).
+
+### Custom apt source (func installs a real package)
 
 ```python
 def myToolAptSource():
@@ -106,7 +131,7 @@ aptPkgsList = [
 ]
 ```
 
-Use for post-install steps:
+### pip post-install step (pseudo-entry)
 
 ```python
 def playwrightInstall():
@@ -119,6 +144,82 @@ pipPkgsList = [
     pp("playwrightInstall", func=playwrightInstall),
 ]
 ```
+
+### Host/user config step (pseudo-entry, no sudo)
+
+Write user config after install. Idempotent, and parameterize host-specific
+values (see Parameters below):
+
+```python
+import os
+MY_STORE = ""   # parameter; env override below; empty => skip
+
+def myUserConfig():
+    store = os.environ.get("MY_STORE", MY_STORE)
+    b.subProc.WOpW(invedBy=None, log=1).bash(f"""
+mkdir -p ~/.config/mytool
+if [ -n "{store}" ] && [ ! -f ~/.config/mytool/conf ]; then
+  echo 'store = "{store}"' > ~/.config/mytool/conf
+fi
+""")
+
+aptPkgsList = [
+    ap("mytool"),                              # real package, plain install
+    ap("myUserConfig", func=myUserConfig),     # pseudo-entry, post-install config
+]
+```
+
+### Root / sudo steps
+
+For steps needing root (writing `/etc`, `systemctl`, `loginctl`), run the
+privileged commands in a **single `sudo -s` shell**. Caveats:
+
+- **Non-interactive risk.** Funcs may run without a TTY, so a `sudo` password
+  prompt can **hang or fail**. Either the host grants `NOPASSWD` for these
+  commands, or the sbom must be run interactively. Document which.
+- **Capture the invoking user before the sudo shell** — inside `sudo` you are
+  root, so grab `id -un` first if a step (e.g. `loginctl enable-linger`) needs
+  the real user.
+- **Deferred effects.** Some changes (e.g. a `user@.service` drop-in) apply
+  only after `systemctl daemon-reload` **and a re-login** — say so in output.
+
+```python
+def myRootStep():
+    b.subProc.WOpW(invedBy=None, log=1).bash(f"""
+targetUser="$(id -un)"
+sudo -s <<EOF
+mkdir -p /etc/systemd/system/user@.service.d
+cat > /etc/systemd/system/user@.service.d/delegate.conf <<'CONF'
+[Service]
+Delegate=cpu cpuset io memory pids
+CONF
+systemctl daemon-reload
+loginctl enable-linger "$targetUser"
+EOF
+""")
+```
+
+(Note the nested heredocs: quote the inner `'CONF'` so its body is literal;
+leave the outer `EOF` unquoted only if you need a var like `$targetUser` to
+expand from the calling shell.)
+
+### Parameters
+
+For host-specific values (a path, a store location), use an **environment
+variable with a module-level default**, and **skip cleanly when unset** rather
+than hardcoding a wrong value:
+
+```python
+MY_STORE = os.environ.get("MY_STORE", "")   # empty => the step skips itself
+```
+
+### Ordering
+
+Place post-install `func=` pseudo-entries **last** in the list, after the real
+packages they depend on (and user-scoped steps before root-scoped ones when
+both apply). *[Verify the framework's list-ordering guarantee before relying on
+it — the install/func-dispatch logic lives in the seed harness, not
+`pkgsSeed.py`.]*
 
 ## Sbom Dependencies
 
