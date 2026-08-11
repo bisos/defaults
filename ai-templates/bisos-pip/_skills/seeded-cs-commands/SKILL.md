@@ -430,6 +430,33 @@ other module alongside it.
 
 ## Reference Files
 
+**Primary templates — `bisos.csSeed` (addCmnds seed) and `bisos.gitist`**
+
+`bisos.csSeed` ships minimal reference seeds that are the canonical starting
+points. Read these before any domain-specific example:
+
+- Seed `.cs`: `/bisos/git/auth/bxRepos/bisos-pip/csSeed/py3/bin/addCmnds-seed.cs`
+- Example `.pcs`: `/bisos/git/auth/bxRepos/bisos-pip/csSeed/py3/bin/exmpl-addCmnds.pcs`
+- csCmndsList seed: `/bisos/git/auth/bxRepos/bisos-pip/csSeed/py3/bin/csCmndsList-seed.cs`
+- Example csCmndsList `.pcs`: `/bisos/git/auth/bxRepos/bisos-pip/csSeed/py3/bin/exmpl-csCmndsList.pcs`
+
+`bisos.gitist` is a scalar controlInfo seed that operates on Git repositories
+across providers (Github, Gitlab). It demonstrates the combination of:
+- A rich `CmndsControlInfo` dataclass with enums (`GitProviderBrand`,
+  `GitAccessType`, `GitAuthAccessMethod`)
+- A separate `cmndsControlInfo` singleton used by all four `.pcs` variants
+- Four `.pcs` files encoding provider × access-type in the filename
+
+Key files:
+- `_seedInfo.py`: `/bisos/git/auth/bxRepos/bisos-pip/gitist/py3/bisos/gitist/gitist_seedInfo.py`
+- `_seed.py`: `/bisos/git/auth/bxRepos/bisos-pip/gitist/py3/bisos/gitist/gitist_seed.py`
+- `_csu.py`: `/bisos/git/auth/bxRepos/bisos-pip/gitist/py3/bisos/gitist/gitist_csu.py`
+- Seed `.cs`: `/bisos/git/auth/bxRepos/bisos-pip/gitist/py3/bin/gitist-seed.cs`
+- `.pcs` (anon github): `/bisos/git/auth/bxRepos/bisos-pip/gitist/py3/bin/pub-anon-github-gitist.pcs`
+- `.pcs` (auth github): `/bisos/git/auth/bxRepos/bisos-pip/gitist/py3/bin/pub-auth-github-gitist.pcs`
+- `.pcs` (anon gitlab): `/bisos/git/auth/bxRepos/bisos-pip/gitist/py3/bin/pub-anon-gitlab-gitist.pcs`
+- `.pcs` (auth gitlab): `/bisos/git/auth/bxRepos/bisos-pip/gitist/py3/bin/pub-auth-gitlab-gitist.pcs`
+
 **Scalar controlInfo style (`bisos.capDns`)**
 - `_seedInfo.py`: `/bisos/git/auth/bxRepos/bisos-pip/capDns/py3/bisos/capDns/capDns_seedInfo.py`
 - `_seed.py`: `/bisos/git/auth/bxRepos/bisos-pip/capDns/py3/bisos/capDns/capDns_seed.py`
@@ -444,6 +471,15 @@ other module alongside it.
 - `_seed.cs`: `/bisos/git/auth/bxRepos/bisos-pip/sbom/py3/bin/seedSbom.cs`
 - Minimal `.pcs`: `/bisos/git/auth/bxRepos/bisos-pip/sbom/py3/bin/exmpl-sbom.pcs`
 - Featured `.pcs`: `/bisos/git/auth/bxRepos/bisos-pip/sbom/py3/bin/exmpl-featured-sbom.pcs`
+
+**Spread Planted CS style (`bisos.webCap`)**
+- `djangoProc.spcs`: `/bisos/git/auth/bxRepos/bisos-pip/webCap/py3/bin/djangoProc.spcs`
+- `reactProc.spcs`: `/bisos/git/auth/bxRepos/bisos-pip/webCap/py3/bin/reactProc.spcs`
+- seed data module: `/bisos/git/auth/bxRepos/bisos-pip/webCap/py3/bisos/webCap/djangoProc_seedInfo.py`
+
+**Spread Planted CS style (planned — `bisos.dockerProc`)**
+- Concept and path-parameter mapping: `/bisos/git/auth/bxRepos/bxObjects/bro_dockerfiles/AI-WorkPlan.org` Stage 5
+- Blee panel: `/bisos/git/auth/bxRepos/bisos-pip/csSeed/py3/panels/bisos.csSeed/dotSPCS-SpreadPlantedCS/_nodeBase_/fullUsagePanel-en.org`
 
 **Framework**
 - `bisos.csSeed` source: `/bisos/git/auth/bxRepos/bisos-pip/csSeed/`

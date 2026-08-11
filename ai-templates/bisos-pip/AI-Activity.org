@@ -135,6 +135,7 @@ Claude on demand when the current task matches:
 |-------------------------+-------------------------------------------------------------|
 | =writing-cs-commands=   | Writing or modifying a =cs.Cmnd= subclass (=.cs= / =_csu.py=) |
 | =dblock-authoring=      | Working with poly-dblock =####+BEGIN:= blocks, csuListProc, or dblock-based unit tests |
+| =bisos-pip-setup-py=    | Reading, understanding, or modifying =py3/setup.py= in any bisos-pip package — covers dblock-driven structure, which scripts belong in the =scripts= list (only =.cs= and =.spcs=; never =.pcs=), what must NEVER be hand-edited, and mandatory COMEEGA dblock structure for new =.cs= files |
 | =readme-authorship=     | Writing or updating =README.org= (repo root — the ONLY authored README; =py3/README.rst= is *generated* by =pypiProc.sh -i fullPrep= and must never be hand-edited) |
 | =blee-panel-authorship= | Writing or updating =py3/panels/.../fullUsagePanel-en.org=  |
 | =bisos-pip-release=     | Preparing a PyPI release: linting, packaging, upload        |
