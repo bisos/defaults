@@ -8,7 +8,9 @@ current task calls for them. See the "Available Skills" section below.
 
 * Table of Contents     :TOC:
 - [[#about-bisos-blee-and-bystar][About BISOS, Blee and ByStar]]
+- [[#core-vocabulary][Core Vocabulary]]
 - [[#programming-conventions][Programming Conventions]]
+- [[#comeega-authorship][COMEEGA Authorship]]
 - [[#python-library-preferences][Python Library Preferences]]
 - [[#python-typing-hints][Python Typing Hints]]
 - [[#no-multi-platform-compatibility][No Multi-Platform Compatibility]]
@@ -38,12 +40,127 @@ Blee and BISOS are intertwined.
 For concepts and terminology, import:
 @/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel
 
+* Core Vocabulary
+
+BISOS has a small set of precise terms whose distinctions matter for
+reading code and directory trees. Getting these wrong (e.g. calling a
+CBM a CBS, or using =band= where =realm= is the term) leads to
+mislayered work that has to be redone.
+
+** BXO / BPO / BRO --- ByStar Objects
+
+- *BXO* --- generic /ByStar Object/. Umbrella term. Any BISOS-managed
+  object is a BXO.
+- *BPO* --- /ByStar *Portable* Object/. A site-gitlab account that
+  holds one or more repos. Portable because it moves with the
+  site-gitlab, not tied to a host.
+- *BRO* --- /ByStar *Repo* Object/. A single git repository, typically
+  public, typically hosted on public GitHub or GitLab. One repo, one
+  BRO. Subdirectories inside a BRO are logical partitions, not separate
+  BROs.
+
+** =sys= vs =platform= --- self-reference vs generic
+
+- *=platform=* --- the /generic/ concept. A platform is an abstraction
+  any host could realise. Used in framework code and documentation to
+  mean "a platform, any platform."
+- *=sys=* --- /this specific platform, the one currently running/.
+  Wherever =sys/= appears in the tree, it means "the state of this
+  host, right here, right now." Self-reference, not a generic namespace.
+
+So =bro_rawBisosPlatform/= is the repo view of what belongs to a
+platform, and =bro_rawBisosPlatform/sys/= is the running state of
+/this/ platform.
+
+** realm / capabilityType --- two-level organisation under =sys/cbm/=
+
+Every CBM leaf lives at:
+
+: sys/cbm/<realm>/<capabilityType>/<capabilityName>/
+
+- *realm* --- a /domain of customization/. Which BXO owns / customizes
+  this capability. Five sibling realms exist today: =platform=, =site=,
+  =pals=, =user=, =collective=.
+- *capabilityType* --- /how/ the capability is delivered. Service vs.
+  no-service; local vs. remote; HTTP vs. mail vs. RPyC. Current types:
+  =hereWeb= (HTTP via =.here= domain), =hereMail= (mail via =.here=),
+  =rpyc= (PyCS RPyC performer), =induct= (non-service software
+  induction, e.g. LCNT).
+- *capabilityName* --- the specific capability (=airflow=, =nextcloud=,
+  =lcnt=, ...). Leaf directory name.
+
+*Do NOT use =band=.* An earlier draft used it; =realm= is the correct
+term.
+
+** CBA / CBS / CBM --- capability bundle triad
+
+- *CBA* --- Capability Bundle /Abstraction/. The framework layer. Lives
+  in =bisos.capability= (files =cba_seed.py=, =cba_sysd_seed.py=,
+  =cba_csu.py=, =cba_sysd_csu.py=).
+- *CBS* --- Capability Bundle /Specification/. A standalone executable
+  =.pcs= file that declares one specific capability's contents
+  (sbom + sysd units + dns + vhost + ...). Example:
+  =/bisos/asc/web/bin/airflow-cbs.pcs=.
+- *CBM* --- Capability Bundle /Materialization/. A =cbmProc.spcs=
+  planted at a leaf in the CBM tree, gated by a sibling
+  =cbmProc.control= file. *Points to* a CBS; does NOT duplicate CBS
+  content. When materialization runs, CBM subprocess-invokes the CBS.
+
+Load-bearing principle: *CBM sits on top of CBS, does not duplicate
+it.* See the =cbm-authorship= skill for the full pattern.
+
 * Programming Conventions
 
 Digital-ecosystem-wide programming conventions apply, not language-specific ones:
 
 - Variable, class, and function names: CamelCase
 - Concept collections: tagged with =prefix_= (snake prefix, CamelCase body)
+
+* COMEEGA Authorship
+
+*COMEEGA* (Collaborative Org-Mode Enhanced Emacs Generalized Authorship)
+is the standard authorship model for all BISOS source. It applies to
+Python, elisp, bash, LaTeX (and HTML, stubbed). In COMEEGA, org-mode
+content is embedded inside each language's comment-block or docstring
+syntax, and org-mode dynamic blocks (=####+BEGIN: ... ####+END:=) are
+extended to non-org files.
+
+*Universal rule.* Never hand-edit content between =####+BEGIN:= and
+=####+END:= markers. That content is *generated* — either by Blee/Emacs
+(=M-x org-dblock-update=) or by =py-dblock.cs= for pure-Python
+regeneration. Edit only the =####+BEGIN:= header line and the body
+*after* the =####+END:= marker.
+
+*Header dblock chain.* Every hand-authored BISOS Python source file
+(=.cs=, =.spcs=, =_csu.py=, =_seed.py=, =_seedInfo.py=) opens with a
+sequence of dblocks:
+
+- =b:py3:cs:file/dblockControls :classification "<cls>"= — cs-mu / cs-u / cs-lib / bpf-lib / pyLibPure
+- =b:prog:file/proclamations= — AGPL + BISOS + Poly-COMEEGA proclamation
+- =b:prog:file/particulars= — authors, this-file paths
+- =b:py3:file/particulars-csInfo= — the =csInfo= dict
+- =b:prog:file/orgTopControls= — org navigation controls
+- =b:py3:file/workbench= — Blee workbench links (pyflakes, pylint, ...)
+- =b:py3:cs:framework/imports :basedOn "classification"= — standard imports
+- (for =.cs= csxu files) =b:py3:cs:framework/csxuSeeded=, =csuListProc=,
+  =main/exposedSymbols=, =main/outcomeReportControl=, =framework/main=,
+  =framework/endOfFile=
+
+For any =cs.Cmnd= subclass, the class header is generated by a
+=b:py3:cs:cmnd/classHead= dblock — author the body *after* =####+END:=.
+
+*Canonical reference.* Read the full model in
+=/bisos/git/bxRepos/blee/comeega/README.org= (URL fallback:
+https://github.com/bx-blee/comeega). This covers the per-language
+comment-block/docstring/dblock syntax for Python, elisp, bash, LaTeX,
+and HTML.
+
+*Relevant skills.* The =comeega-authorship= skill covers the COMEEGA
+model, cross-language. The =dblock-authoring= skill covers dblock
+mechanics. The =writing-cs-commands= skill covers the
+=b:py3:cs:cmnd/classHead= dblock in detail. The =bisos-pip-setup-py=
+skill has the concrete recipe for a new =.cs= file's header dblock
+chain.
 
 * Python Library Preferences
 
@@ -133,6 +250,7 @@ Claude on demand when the current task matches:
 
 | Skill                   | Trigger — when Claude loads it                              |
 |-------------------------+-------------------------------------------------------------|
+| =comeega-authorship=    | Understanding or applying the COMEEGA (Collaborative Org-Mode Enhanced Emacs Generalized Authorship) model — the cross-language convention behind all BISOS source (Python, elisp, bash, LaTeX, HTML) |
 | =writing-cs-commands=   | Writing or modifying a =cs.Cmnd= subclass (=.cs= / =_csu.py=) |
 | =dblock-authoring=      | Working with poly-dblock =####+BEGIN:= blocks, csuListProc, or dblock-based unit tests |
 | =bisos-pip-setup-py=    | Reading, understanding, or modifying =py3/setup.py= in any bisos-pip package — covers dblock-driven structure, which scripts belong in the =scripts= list (only =.cs= and =.spcs=; never =.pcs=), what must NEVER be hand-edited, and mandatory COMEEGA dblock structure for new =.cs= files |
@@ -142,6 +260,7 @@ Claude on demand when the current task matches:
 | =configfile-pattern=    | Wiring a seed package to manage a config file via =configFile.ConfigFile= subclass, =--cls=, and the required =csuList= entries |
 | =banna-lookup=          | Looking up TCP port numbers or IP addresses for BISOS services via =bisos.banna= (never hardcode ports that banna tracks) |
 | =sysd-pcs-authorship=   | Authoring a =*-sysd.pcs= planted file: =systemd_seedInfo.setup()= params, =sysdUnitFileFunc=, =preFunc=/=postFunc= hooks, oneshot units, =Requires=/=After== ordering, CBS assembly |
+| =cbm-authorship=        | Authoring a =cbmProc.spcs= CBM leaf, =cbmProc-seed.cs=, =cbm_*= Cmnds, or the =cbmProc.control=/=cbmProc.status= gate files. Covers CBM/CBS layering (CBM subprocess-invokes CBS; does NOT duplicate it), the pointer pattern (=capabilityName= + =cbsSpec=), gate-as-Cmnd-body, =cbsSpec= resolution (absolute or PATH-basename), and the non-invasive rule for =cba_*= files |
 
 Skills also work as human-readable documentation — the =SKILL.md= inside
 each folder describes when and how to do that specific kind of work.
