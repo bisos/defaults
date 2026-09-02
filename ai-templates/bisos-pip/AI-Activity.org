@@ -261,6 +261,7 @@ Claude on demand when the current task matches:
 | =banna-lookup=          | Looking up TCP port numbers or IP addresses for BISOS services via =bisos.banna= (never hardcode ports that banna tracks) |
 | =sysd-pcs-authorship=   | Authoring a =*-sysd.pcs= planted file: =systemd_seedInfo.setup()= params, =sysdUnitFileFunc=, =preFunc=/=postFunc= hooks, oneshot units, =Requires=/=After== ordering, CBS assembly |
 | =cbm-authorship=        | Authoring a =cbmProc.spcs= CBM leaf, =cbmProc-seed.cs=, =cbm_*= Cmnds, or the =cbmProc.control=/=cbmProc.status= gate files. Covers CBM/CBS layering (CBM subprocess-invokes CBS; does NOT duplicate it), the pointer pattern (=capabilityName= + =cbsSpec=), gate-as-Cmnd-body, =cbsSpec= resolution (absolute or PATH-basename), and the non-invasive rule for =cba_*= files |
+| =icm-to-pycs-conversion= | Converting a Bash-ICM library (=*_lib.sh= under =/bisos/core/bsip/bin/=, =vis_*= functions, =G_funcEntry=, =EH_assert=, =FN_*= helpers) into PyCS =cs.Cmnd= classes in a =_csu.py= module. Covers the idiom mapping table, picking the right target csu module, and the copy-vs-move rule when another pip package has overlapping code |
 
 Skills also work as human-readable documentation — the =SKILL.md= inside
 each folder describes when and how to do that specific kind of work.
