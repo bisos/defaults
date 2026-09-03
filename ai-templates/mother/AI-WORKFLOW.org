@@ -110,16 +110,56 @@ with these =bx-= commands available inside Claude:
 |--------------------+----------------------------------------------------------------|
 | /bx-done <anchor>  | Mark the TODO with <<anchor>> as DONE and write AI Results.    |
 |--------------------+----------------------------------------------------------------|
+| /bx-archive        | Move DONE subtrees to AI-WorkPlan.org_archive (org-archive).   |
+|                    | Optional arg limits which. Advises on facts recorded nowhere   |
+|                    | else, but writes only AI-WorkPlan.org + the archive.           |
+|--------------------+----------------------------------------------------------------|
+| /bx-import-archive | Read archived work back in during a session (read-only).       |
+|                    | No arg = index grouped by stage; arg = matching subtrees.      |
+|--------------------+----------------------------------------------------------------|
 | /bx-update-status  | Rewrite AI-DevStatus.org to reflect current state.             |
 |                    | Use after completing a stage or before a release.              |
 |--------------------+----------------------------------------------------------------|
-| /bx-initiate       | Run aiActivity.cs then read the full import chain.        |
+| /bx-initiate       | Run aiActivity.cs then read the full import chain.             |
 |                    | For non-Emacs workflows only — Emacs reads CLAUDE.md           |
 |                    | automatically at startup, making this redundant.               |
 |--------------------+----------------------------------------------------------------|
 
 Note: in the workflow, CLAUDE.md is read automatically at startup.
 =/bx-confirm0= is optional but useful as an explicit session-start confirmation.
+
+** Archiving And Retrieval --- The Round Trip
+
+Everything in the CLAUDE.md import chain is loaded on /every/ session, so a
+=AI-WorkPlan.org= fat with finished work is a recurring cost for a one-time
+benefit. Archiving converts it. =/bx-archive= is the cut; =/bx-import-archive= is
+the way back.
+
+The pair matters more than either half. A cut only needs to be lossless if it is
+irreversible --- because =/bx-import-archive= can retrieve archived subtrees on
+demand mid-session, =/bx-archive= can stay narrow and you can archive
+aggressively. Archive files are deliberately NOT in the import chain: archived
+content is invisible to Claude until you ask for it. That is the point, and it
+means the archive serves you and git history rather than Claude's default context.
+
+Division of labour, which should not blur:
+
+- =/bx-archive= belongs to the org-mode TODO lifecycle (TODO → DONE → archived)
+  and writes only =AI-WorkPlan.org= and its archive file.
+- =/bx-update-status= owns =AI-DevStatus.org=; promoting a durable fact out of a
+  finished TODO into the handoff document is /its/ job, not the archiver's.
+
+=/bx-archive= therefore advises without writing: it reports facts from the
+subtrees it archived that appear in no file a fresh Claude loads, and leaves the
+promotion to you. Watch for /negative results/ in particular --- "we tried X and
+it broke". Durable documents naturally restate what IS (architecture, ports,
+layerings), so positive facts tend to survive archiving on their own, while what
+was tried and rejected has no natural home and is what silently disappears.
+Consider giving =AI-DevStatus.org= an explicit section for them.
+
+When archived material comes back in, treat it as historical as of its =CLOSED=
+date and not since re-verified. Where it conflicts with =AI-DevStatus.org=,
+=README.org= or the current source, current state wins.
 
 ** Stage 0 of ./AI-WorkPlan.org
 
