@@ -161,6 +161,37 @@ When archived material comes back in, treat it as historical as of its =CLOSED=
 date and not since re-verified. Where it conflicts with =AI-DevStatus.org=,
 =README.org= or the current source, current state wins.
 
+** Documentation Outside The Import Chain
+
+Everything CLAUDE.md imports is loaded every session. Nothing else is. That "nothing
+else" routinely includes the authoritative record of a decision --- a Blee panel under
+=/bisos/panels/=, something in blee-binders, a doc in a sibling repo, a
+=fullUsagePanel-en.org= that a source file names as its own documentation of record.
+Writing there is often exactly right. But a fresh Claude will not see any of it unless
+something inside the chain points at it.
+
+This is the archiving problem arriving from the other direction. Archiving removes
+something Claude used to load; writing out of chain never put it there. Both end at the
+same place --- a durable decision that is invisible by default --- and the same kind goes
+quietest: the deferred and the negative. "We will do X once Y is dropped." "We tried X
+and it broke." Architecture documents naturally restate what IS, so positive facts tend
+to resurface on their own. A plan contingent on a future condition has no such home.
+
+Rule: when a decision, plan or finding is written to a file outside the import chain,
+record a pointer in =AI-DevStatus.org= --- one line giving what was decided, where the
+record lives, and what condition would make it actionable. The pointer is not a copy.
+The out-of-chain file stays authoritative; the pointer only has to be enough for a fresh
+Claude to know the record exists and go read it. Promoting it is =/bx-update-status='s
+job, the same way it owns promotion out of archived TODOs.
+
+Claude should offer this at the time of writing out of chain, not as cleanup later.
+
+Two properties are worth carrying in the pointer, because they are expensive to
+rediscover and cheap to note:
+- whether the out-of-chain file is under version control --- some panel and binder trees
+  are not, so edits there have no revert path and warrant a backup first
+- the date its contents were last verified against a live system
+
 ** Stage 0 of ./AI-WorkPlan.org
 
 Stage 0 of ./AI-WorkPlan.org is to be repeated each time a new instance of claude is used.
