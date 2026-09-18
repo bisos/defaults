@@ -11,7 +11,7 @@ tramp
 
 # Org-mode
 .org-id-locations
-*_archive
+#  _archive   # We often want to keep the org archives as well.
 
 # flymake-mode
 *_flymake.*
