@@ -74,6 +74,10 @@ The third column is one of: const(constant), ai, you, u+ai --- which says who pr
 |--------------------+------------------------------------------------------------------+-------|
 | ./AI-WORKFLOW.org  | A description of this workflow, for the AI-Assistant's benefit.  | const |
 |--------------------+------------------------------------------------------------------+-------|
+| ./AI-Outputs.org   | Central, cross-project ledger of action items and defects found  | const |
+|                    | during AI collaboration --- see its own section below. Optional: |       |
+|                    | present only if the templates tree ships =mother/AI-Outputs.org=.|       |
+|--------------------+------------------------------------------------------------------+-------|
 | ./AI-Activity.org  | Activity-specific guidance: repo purpose, frameworks,            | you   |
 |                    | conventions, and any relevant context for this activity.         |       |
 |--------------------+------------------------------------------------------------------+-------|
@@ -101,29 +105,36 @@ The goal is to establish a precise, evolving and maintainable long-context acros
 Each project initialized with =aiActivity.cs= gets a =.claude/commands/= directory
 with these =bx-= commands available inside Claude:
 
-|--------------------+----------------------------------------------------------------|
-| /bx-confirm0       | Enumerate imported files and confirm understanding of context  |
-|                    | Use at the start of every session.                             |
-|--------------------+----------------------------------------------------------------|
-| /bx-status         | Summarize current dev state and list open TODOs.               |
-|                    | Use when resuming work after a break.                          |
-|--------------------+----------------------------------------------------------------|
-| /bx-done <anchor>  | Mark the TODO with <<anchor>> as DONE and write AI Results.    |
-|--------------------+----------------------------------------------------------------|
-| /bx-archive        | Move DONE subtrees to AI-WorkPlan.org_archive (org-archive).   |
-|                    | Optional arg limits which. Advises on facts recorded nowhere   |
-|                    | else, but writes only AI-WorkPlan.org + the archive.           |
-|--------------------+----------------------------------------------------------------|
-| /bx-import-archive | Read archived work back in during a session (read-only).       |
-|                    | No arg = index grouped by stage; arg = matching subtrees.      |
-|--------------------+----------------------------------------------------------------|
-| /bx-update-status  | Rewrite AI-DevStatus.org to reflect current state.             |
-|                    | Use after completing a stage or before a release.              |
-|--------------------+----------------------------------------------------------------|
-| /bx-initiate       | Run aiActivity.cs then read the full import chain.             |
-|                    | For non-Emacs workflows only — Emacs reads CLAUDE.md           |
-|                    | automatically at startup, making this redundant.               |
-|--------------------+----------------------------------------------------------------|
+|--------------------+---------------------------------------------------------------|
+| /bx-confirm0       | Enumerate imported files and confirm understanding of context |
+|                    | Use at the start of every session.                            |
+|--------------------+---------------------------------------------------------------|
+| /bx-confirm-here   | Like /bx-confirm0, but oriented on wherever you've just       |
+|                    | navigated to in the IDE (or an explicit path), not cwd. Loads |
+|                    | that project's chain as the active context, mid-session.      |
+|--------------------+---------------------------------------------------------------|
+| /bx-status         | Summarize current dev state and list open TODOs.              |
+|                    | Use when resuming work after a break.                         |
+|--------------------+---------------------------------------------------------------|
+| /bx-done <anchor>  | Mark the TODO with <<anchor>> as DONE and write AI Results.   |
+|--------------------+---------------------------------------------------------------|
+| /bx-archive        | Move DONE subtrees to AI-WorkPlan.org_archive (org-archive).  |
+|                    | Optional arg limits which. Advises on facts recorded nowhere  |
+|                    | else, but writes only AI-WorkPlan.org + the archive.          |
+|--------------------+---------------------------------------------------------------|
+| /bx-import-archive | Read archived work back in during a session (read-only).      |
+|                    | No arg = index grouped by stage; arg = matching subtrees.     |
+|--------------------+---------------------------------------------------------------|
+| /bx-update-status  | Rewrite AI-DevStatus.org to reflect current state.            |
+|                    | Use after completing a stage or before a release.             |
+|--------------------+---------------------------------------------------------------|
+| /bx-initiate       | Run aiActivity.cs then read the full import chain.            |
+|                    | For non-Emacs workflows only — Emacs reads CLAUDE.md          |
+|                    | automatically at startup, making this redundant.              |
+|--------------------+---------------------------------------------------------------|
+| /bx-ai-outputs     | Read (index) or capture into AI-Outputs.org, the central      |
+|                    | cross-project findings ledger. No arg = index; arg = capture. |
+|--------------------+---------------------------------------------------------------|
 
 Note: in the workflow, CLAUDE.md is read automatically at startup.
 =/bx-confirm0= is optional but useful as an explicit session-start confirmation.
@@ -191,6 +202,45 @@ rediscover and cheap to note:
 - whether the out-of-chain file is under version control --- some panel and binder trees
   are not, so edits there have no revert path and warrant a backup first
 - the date its contents were last verified against a live system
+
+** AI-Outputs.org --- Cross-Project Findings Ledger
+
+=AI-Outputs.org= is a central, cross-project ledger of action items,
+defects and findings that Claude turns up while working --- items whose
+scope is *global*, not specific to whichever project they happened to be
+discovered in (e.g. a bug in a shared framework package, found while
+working a completely unrelated project).
+
+Like =AI-WORKFLOW.org=, it lives in =mother/= and is symlinked next to
+=CLAUDE.md= in each initiated project --- one file, many projects, edits
+visible everywhere immediately. Unlike =AI-WORKFLOW.org=, in BISOS
+=mother/AI-Outputs.org= is itself a second symlink pointing *out* of the
+templates tree, into a separate blee-binders repo
+(=blee-binders/evolution/aiActivity-outputs/=). This keeps the templates
+tree --- meant to stay pristine and read-only from a project's
+perspective --- out of the write path; all the churn of a growing ledger
+lands in the binder repo instead. A templates tree that doesn't want this
+indirection can instead make =mother/AI-Outputs.org= a real (non-symlinked)
+file directly; =bxexamples= is expected to do this rather than depend on a
+BISOS-internal binder repo.
+
+Entries use not-done keywords beyond plain =TODO=: =WORKAROUND= (broken,
+*and* a workaround is documented and in use --- still needs an upstream
+fix; highest broadcast value, since these save the next Claude from
+rediscovering the breakage) and =INFO= (captured knowledge, no action
+required). Each actionable entry carries a =:REPO:= property naming where
+the fix belongs, since these items are found in one repo and fixed in
+another --- without it, dispatch becomes guesswork once the context is
+gone.
+
+Deliberately *not* =@=-imported by =CLAUDE.md=: auto-loading would give
+=WORKAROUND= entries their full broadcast value, but at the cost of every
+project carrying the whole ledger every session, and the found-rate across
+BISOS tends to exceed the fix-rate. Read it via =/bx-ai-outputs= (index
+mode, no argument) or by opening the file directly when relevant, not as
+background context in every session. Capture a new finding the same way,
+with an argument describing it — see =/bx-ai-outputs='s own spec for the
+keyword/=:REPO:= discipline it enforces at capture time.
 
 ** Stage 0 of ./AI-WorkPlan.org
 
