@@ -132,6 +132,10 @@ with these =bx-= commands available inside Claude:
 |                    | For non-Emacs workflows only — Emacs reads CLAUDE.md          |
 |                    | automatically at startup, making this redundant.              |
 |--------------------+---------------------------------------------------------------|
+| /bx-commit-msg     | Draft a commit message for staged changes, write it to        |
+|                    | .git/CLAUDE_COMMIT_MSG. Claude never commits — the user runs  |
+|                    | =git commit -t .git/CLAUDE_COMMIT_MSG= themselves.              |
+|--------------------+---------------------------------------------------------------|
 | /bx-ai-outputs     | Read (index) or capture into AI-Outputs.org, the central      |
 |                    | cross-project findings ledger. No arg = index; arg = capture. |
 |--------------------+---------------------------------------------------------------|
