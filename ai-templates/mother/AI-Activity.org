@@ -11,6 +11,7 @@ Activity-specific guidance should be added in the sections marked below.
 - [[#poly-dblock][poly-dblock]]
 - [[#bystar-naming-conventions][ByStar Naming Conventions]]
 - [[#cicd-rawbisos-vagrant-based-reconstruction][CI/CD: RawBisos Vagrant-Based Reconstruction]]
+- [[#repo-paths-always-via-bisosgitbxrepos][Repo Paths: Always Via =/bisos/git/bxRepos=]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
 - [[#activity-specific-guidance][Activity-Specific Guidance]]
 
@@ -80,6 +81,21 @@ the Capability's Inceptor.
 
 Linting is done at release time using linters in =/bisos/pipx/bin/=
 (=pyflakes=, =flake8=, =pylint=, =pycodestyle=, =mypy=).
+
+* Repo Paths: Always Via =/bisos/git/bxRepos=
+
+Repos may be cloned under both =/bisos/git/anon/bxRepos/= (anonymous,
+read-only) and =/bisos/git/auth/bxRepos/= (authenticated, writable).
+Which of the two is authoritative on a given host is determined by the
+end of the =/bisos/git/bxRepos= symlink --- check with
+=readlink -f /bisos/git/bxRepos=. The other tree, if present, may be a
+stale clone weeks behind.
+
+- Always reference repos through =/bisos/git/bxRepos/...=, in docs,
+  code and commands. Never spell out =anon/= or =auth/=.
+- When a search (=find=, =grep -r=) lands in a path under
+  =/bisos/git/anon/= or =/bisos/git/auth/=, check it is inside the
+  =/bisos/git/bxRepos= target before reading or reporting state from it.
 
 * Git Commits and Git Pushes
 

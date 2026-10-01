@@ -14,6 +14,7 @@ current task calls for them. See the "Available Skills" section below.
 - [[#python-library-preferences][Python Library Preferences]]
 - [[#python-typing-hints][Python Typing Hints]]
 - [[#no-multi-platform-compatibility][No Multi-Platform Compatibility]]
+- [[#repo-paths-always-via-bisosgitbxrepos][Repo Paths: Always Via =/bisos/git/bxRepos=]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
 - [[#bisos-pip-packages-are-local-pip-installed][bisos-pip Packages Are Local pip-Installed]]
 - [[#this-repo-is-layered-on-top-of-pycs-framework][This Repo is Layered on Top of PyCS-Framework]]
@@ -180,6 +181,21 @@ Only one of the two latest Debian releases is supported. Windows
 compatibility is never required. Backward compatibility is limited to the
 two latest releases.
 
+* Repo Paths: Always Via =/bisos/git/bxRepos=
+
+Repos may be cloned under both =/bisos/git/anon/bxRepos/= (anonymous,
+read-only) and =/bisos/git/auth/bxRepos/= (authenticated, writable).
+Which of the two is authoritative on a given host is determined by the
+end of the =/bisos/git/bxRepos= symlink --- check with
+=readlink -f /bisos/git/bxRepos=. The other tree, if present, may be a
+stale clone weeks behind.
+
+- Always reference repos through =/bisos/git/bxRepos/...=, in docs,
+  code and commands. Never spell out =anon/= or =auth/=.
+- When a search (=find=, =grep -r=) lands in a path under
+  =/bisos/git/anon/= or =/bisos/git/auth/=, check it is inside the
+  =/bisos/git/bxRepos= target before reading or reporting state from it.
+
 * Git Commits and Git Pushes
 
 Do NOT suggest "commit this" or "push this". The developer performs all
@@ -190,7 +206,7 @@ commits and pushes. Instead, when work is complete, say something like:
 
 All bisos-pip packages (including =bisos.b=) are installed via
 =pip install -e= (editable/development mode) from their source repos under
-=/bisos/git/auth/bxRepos/bisos-pip/=. The venv at =/bisos/venv/py3/bisos3/=
+=/bisos/git/bxRepos/bisos-pip/=. The venv at =/bisos/venv/py3/bisos3/=
 picks up packages directly from the source tree.
 
 *Do NOT edit files under* =/bisos/venv/py3/bisos3/lib/python3.11/site-packages/=.
@@ -198,13 +214,13 @@ Always edit the corresponding source repo:
 
 | Package    | Source repo                                         |
 |------------+-----------------------------------------------------|
-| bisos.b    | /bisos/git/auth/bxRepos/bisos-pip/b/py3/bisos/b/    |
-| bisos.pycs | /bisos/git/auth/bxRepos/bisos-pip/pycs/             |
+| bisos.b    | /bisos/git/bxRepos/bisos-pip/b/py3/bisos/b/         |
+| bisos.pycs | /bisos/git/bxRepos/bisos-pip/pycs/                  |
 
 If the package is installed non-editable and the site-packages copy does
 not reflect source changes, reinstall editable:
 
-: pip install -e /bisos/git/auth/bxRepos/bisos-pip/b/py3
+: pip install -e /bisos/git/bxRepos/bisos-pip/b/py3
 
 * This Repo is Layered on Top of PyCS-Framework
 

@@ -10,6 +10,7 @@ below.
 * Table of Contents     :TOC:
 - [[#about-bisos-blee-and-bystar][About BISOS, Blee and ByStar]]
 - [[#about-pycs-framework-python-command-services][About PyCS Framework (Python Command-Services)]]
+- [[#repo-paths-always-via-bisosgitbxrepos][Repo Paths: Always Via =/bisos/git/bxRepos=]]
 - [[#about-bisossbom----bisos-sboms-software-bill-of-materials-and--sbompcs-files][About bisos.sbom -- BISOS-SBOMs (Software Bill Of Materials) and -sbom.pcs files]]
 - [[#about-bisosgitist][About bisos.gitist]]
 - [[#about-bisoscapdns-and--dnspcs-files][About bisos.capDns and -dns.pcs files]]
@@ -42,6 +43,21 @@ For concepts and terminology, import:
 PyCS Framework is a set of Python Libraries that collectively provide for
 development of consistent commands and services in a unified manner.
 
+* Repo Paths: Always Via =/bisos/git/bxRepos=
+
+Repos may be cloned under both =/bisos/git/anon/bxRepos/= (anonymous,
+read-only) and =/bisos/git/auth/bxRepos/= (authenticated, writable).
+Which of the two is authoritative on a given host is determined by the
+end of the =/bisos/git/bxRepos= symlink --- check with
+=readlink -f /bisos/git/bxRepos=. The other tree, if present, may be a
+stale clone weeks behind.
+
+- Always reference repos through =/bisos/git/bxRepos/...=, in docs,
+  code and commands. Never spell out =anon/= or =auth/=.
+- When a search (=find=, =grep -r=) lands in a path under
+  =/bisos/git/anon/= or =/bisos/git/auth/=, check it is inside the
+  =/bisos/git/bxRepos= target before reading or reporting state from it.
+
 * About bisos.sbom -- BISOS-SBOMs (Software Bill Of Materials) and -sbom.pcs files
 
 Installment of debian packages, python pip and pipx packages, creation of
@@ -71,10 +87,10 @@ Cloning git repos is also a form of sbom.
 
 For now bisos.gitist has not been integrated with bisos.sbom.
 
-bisos.gitist repo is at: /bisos/git/auth/bxRepos/bisos-pip/gitist.
+bisos.gitist repo is at: /bisos/git/bxRepos/bisos-pip/gitist.
 The following Panels are relevant:
-  - /bisos/git/auth/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/README
-  - /bisos/git/auth/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org
+  - /bisos/git/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/README
+  - /bisos/git/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org
 
 * About bisos.capDns and -dns.pcs files
 

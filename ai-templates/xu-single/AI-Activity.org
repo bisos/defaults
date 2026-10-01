@@ -13,6 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - [[#python-typing-hints-and-static-checks--linting][Python Typing Hints And Static Checks / Linting]]
 - [[#cicd-and-totality-validating-and-testing][CI/CD and Totality Validating and Testing]]
 - [[#no-multi-platform--compatibility----only-one-of-the-latest-2-release-debian][No multi-platform  Compatibility -- Only one of the Latest 2 Release Debian]]
+- [[#repo-paths-always-via-bisosgitbxrepos][Repo Paths: Always Via =/bisos/git/bxRepos=]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
 - [[#this-repo-is-layered-on-top-of-pycs-framework-bisosb-and-bisospycs][This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)]]
 - [[#writing-cs-commands][Writing CS commands]]
@@ -122,6 +123,21 @@ Windows compatibility is never required.
 Backwards compatibility is limited only to the two latest releases.
 
 
+* Repo Paths: Always Via =/bisos/git/bxRepos=
+
+Repos may be cloned under both =/bisos/git/anon/bxRepos/= (anonymous,
+read-only) and =/bisos/git/auth/bxRepos/= (authenticated, writable).
+Which of the two is authoritative on a given host is determined by the
+end of the =/bisos/git/bxRepos= symlink --- check with
+=readlink -f /bisos/git/bxRepos=. The other tree, if present, may be a
+stale clone weeks behind.
+
+- Always reference repos through =/bisos/git/bxRepos/...=, in docs,
+  code and commands. Never spell out =anon/= or =auth/=.
+- When a search (=find=, =grep -r=) lands in a path under
+  =/bisos/git/anon/= or =/bisos/git/auth/=, check it is inside the
+  =/bisos/git/bxRepos= target before reading or reporting state from it.
+
 * Git Commits and Git Pushes
 
 I don't want Claude to suggest me to prompt me:  "commit this" or "push this".
@@ -184,7 +200,7 @@ For a simple single-xu consider
 @/bisos/core/bpip/examples/exmpl-xu-oneSubProc.cs
 
 For a more featurefull example consider
-@/bisos/git/auth/bxRepos/bisos-pip/aiActivity/py3/bin/aiActivity.cs
+@/bisos/git/bxRepos/bisos-pip/aiActivity/py3/bin/aiActivity.cs
 
 bisos-pip examples are at:
 /bisos/git/bxRepos/bisos-pip/gitist/py3/panels/bisos.gitist/_nodeBase_/fullUsagePanel-en.org

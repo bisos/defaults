@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 * Table of Contents     :TOC:
 - [[#general-this-repo-is-part-of-bisos-pip----common-structure-of-repos-in-the-bisos-pip-organization][General: This Repo is Part of bisos-pip -- Common Structure of Repos in the bisos-pip Organization]]
 - [[#general-python-programming-and-testing][General: Python Programming and Testing]]
+- [[#repo-paths-always-via-bisosgitbxrepos][Repo Paths: Always Via =/bisos/git/bxRepos=]]
 - [[#git-commits-and-git-pushes][Git Commits and Git Pushes]]
 - [[#general-this-repo-is-layered-on-top-of-pycs-framework-bisosb-and-bisospycs][General: This Repo is Layered on Top of PyCS-Framework (bisos.b and bisos.pycs)]]
 - [[#general-commands][General: Commands]]
@@ -24,6 +25,21 @@ For exisiting code, if type hinting is not used, don't add any hints.
 This  project does not have a CI/CD or liniting tools.
 
 See Specific for smoke tests.
+
+* Repo Paths: Always Via =/bisos/git/bxRepos=
+
+Repos may be cloned under both =/bisos/git/anon/bxRepos/= (anonymous,
+read-only) and =/bisos/git/auth/bxRepos/= (authenticated, writable).
+Which of the two is authoritative on a given host is determined by the
+end of the =/bisos/git/bxRepos= symlink --- check with
+=readlink -f /bisos/git/bxRepos=. The other tree, if present, may be a
+stale clone weeks behind.
+
+- Always reference repos through =/bisos/git/bxRepos/...=, in docs,
+  code and commands. Never spell out =anon/= or =auth/=.
+- When a search (=find=, =grep -r=) lands in a path under
+  =/bisos/git/anon/= or =/bisos/git/auth/=, check it is inside the
+  =/bisos/git/bxRepos= target before reading or reporting state from it.
 
 * Git Commits and Git Pushes
 
