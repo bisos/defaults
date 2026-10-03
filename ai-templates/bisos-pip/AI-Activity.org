@@ -39,7 +39,7 @@ development environment for BISOS — a heavily-integrated Emacs layer.
 Blee and BISOS are intertwined.
 
 For concepts and terminology, import:
-@/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel
+@/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel-en.org
 
 * Core Vocabulary
 
@@ -72,6 +72,37 @@ mislayered work that has to be redone.
 So =bro_rawBisosPlatform/= is the repo view of what belongs to a
 platform, and =bro_rawBisosPlatform/sys/= is the running state of
 /this/ platform.
+
+** The BISOS Platform --- edge-oriented, with a desktop
+
+The /BISOS Platform/ is not the usual server-versus-workstation split. It is
+edge-oriented: it typically includes Gnome or another thin desktop, and ordinary
+users manage their own platform. A graphical tool on a BISOS host is therefore
+normal, not an exception that needs justifying --- do not reject GUI software
+for a BISOS host on "servers are headless" grounds. Hosts are multi-tenant VMs,
+not containers; full materialization of capabilities is done on VMs.
+
+Vocabulary, as Mohsen uses it:
+
+- *Box* --- computer hardware without regard to its OS, physical or virtual.
+- *BISOS-Compatible-OS* --- an OS onto which BISOS can be loaded. All are Debian:
+  Debian (one of the two latest releases) on a Box, Debian as a VM under ChromeOS
+  (ChromeOsDeb), and Termux, a limited Debian in the userland of Android.
+- *BISOS-Compatible-Box* --- a Box plus a BISOS-Compatible-OS (DebianBox,
+  ChromeOsDeb, AndroidBox). A bare ChromeBox is not one.
+- *BISOS-Platform* --- the general concept of a platform (see =sys= vs =platform=
+  above).
+- *BISOS-System* --- /this/ particular platform, the one on which we are
+  executing. It is what =sys/= denotes. (It used to also name the kind of Box
+  that can become a Platform; that is now the BISOS-Compatible-Box.)
+- *Raw-Platform* (RAW-BISOS) --- a /stage/ in the build evolution of a platform:
+  a BISOS-Compatible-Box derived from a Fresh-Debian, loaded with BISOS software,
+  and not yet "sited" (not registered in a BISOS-Site). A Raw-Platform registered
+  in a BISOS-Site is a Reg-Platform.
+
+The terminology panel imported above has the formal list, in its "System,
+Platform, BpoHolder" section, updated on 2026-10-03 to match. The edge-oriented
+usage model is not stated in that panel.
 
 ** realm / capabilityType --- two-level organisation under =sys/cbm/=
 

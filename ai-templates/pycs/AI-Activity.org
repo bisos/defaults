@@ -39,7 +39,7 @@ development environment for BISOS — a heavily-integrated Emacs layer.
 Blee and BISOS are intertwined.
 
 For concepts and terminology, import:
-@/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel
+@/bisos/panels/bisos-core/modelAndTerminology/_nodeBase_/fullUsagePanel-en.org
 
 * About PyCS Framework (Python Command-Services)
 
