@@ -57,6 +57,9 @@ This means: when you (Claude) see this file in a project, the symlinks point bac
 the canonical templates in =/bisos/apps/defaults/ai-templates/mother/=, and the local
 copies of =AI-DevStatus.org= and =AI-WorkPlan.org= are project-specific and editable.
 
+A figure of the setup lifecycle (discover, install, inspect, trim, maintain) is at
+[[file:../_nonTemplate_/images/aiStartupWorkflow.png]] in the templates tree.
+
 ** File Naming Convention
 
 All-caps filenames (=CLAUDE.md=, =AI-WORKFLOW.org=) are constant —
@@ -145,9 +148,15 @@ with these =bx-= commands available inside Claude:
 |                    | For the CURRENT session, use the built-in /context.           |
 |--------------------+---------------------------------------------------------------|
 
-A figure of these commands in session order (setup, session start, per-TODO
-loop, session end; colored by read/write) is at
-[[file:../_nonTemplate_/images/aiWorkflow.png]] in the templates tree.
+A figure of these commands in session order (session start, per-TODO loop,
+session end), with the subject each one writes (repo content, repo git,
+WorkPlan, DevStatus, AI-Outputs), is at
+[[file:../_nonTemplate_/images/aiUsageWorkflow.png]] in the templates tree;
+the full read/write table is in
+[[file:../_nonTemplate_/images/aiUsageWorkflow.org]]. The commands and skills
+as trees, showing where each lives: general (workflow) at
+[[file:../_nonTemplate_/images/aiGeneralTree.png]], digital-ecosystem specific
+(with "load first" prerequisites) at [[file:../_nonTemplate_/images/aiEcosystemTree.png]].
 
 Note: in the workflow, CLAUDE.md is read automatically at startup.
 =/bx-confirm0= is optional but useful as an explicit session-start confirmation.
