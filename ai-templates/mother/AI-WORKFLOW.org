@@ -139,6 +139,15 @@ with these =bx-= commands available inside Claude:
 | /bx-ai-outputs     | Read (index) or capture into AI-Outputs.org, the central      |
 |                    | cross-project findings ledger. No arg = index; arg = capture. |
 |--------------------+---------------------------------------------------------------|
+| /bx-context-trim   | Estimate the NEXT session's startup tokens (runs              |
+|                    | aiActivity.cs -i startupClaudeTokens) and propose trims.      |
+|                    | Optional arg = target budget. Edits only after confirmation.  |
+|                    | For the CURRENT session, use the built-in /context.           |
+|--------------------+---------------------------------------------------------------|
+
+A figure of these commands in session order (setup, session start, per-TODO
+loop, session end; colored by read/write) is at
+[[file:../_nonTemplate_/images/aiWorkflow.png]] in the templates tree.
 
 Note: in the workflow, CLAUDE.md is read automatically at startup.
 =/bx-confirm0= is optional but useful as an explicit session-start confirmation.

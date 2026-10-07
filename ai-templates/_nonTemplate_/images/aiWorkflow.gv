@@ -1,0 +1,84 @@
+digraph {
+	nodesep=0.35 rankdir=TB ranksep=0.45
+	node [fontsize=12]
+	lyr_setup [label="Setup
+(once per directory)" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_start [label="Session start" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_loop1 [label="Work loop
+(per TODO)" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_loop2 [label="" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_loop3 [label="" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_loop4 [label="" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_loop5 [label="" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_end [label="Session end" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_setup -> lyr_start [style=invis]
+	lyr_start -> lyr_loop1 [style=invis]
+	lyr_loop1 -> lyr_loop2 [style=invis]
+	lyr_loop2 -> lyr_loop3 [style=invis]
+	lyr_loop3 -> lyr_loop4 [style=invis]
+	lyr_loop4 -> lyr_loop5 [style=invis]
+	lyr_loop5 -> lyr_end [style=invis]
+	{
+		rank=same
+		lyr_setup
+		initiate [label="/bx-initiate
+(or aiActivity.cs -i initiate
+from the shell)" fillcolor=plum shape=rectangle style="filled,dashed"]
+	}
+	{
+		rank=same
+		lyr_start
+		confirm0 [label="/bx-confirm0" fillcolor=lightskyblue shape=rectangle style=filled]
+		confirmHere [label="/bx-confirm-here" fillcolor=lightskyblue shape=rectangle style="filled,dashed"]
+		status [label="/bx-status" fillcolor=lightskyblue shape=rectangle style="filled,dashed"]
+	}
+	{
+		rank=same
+		lyr_loop1
+		importArchive [label="/bx-import-archive" fillcolor=lightskyblue shape=rectangle style="filled,dashed"]
+	}
+	{
+		rank=same
+		lyr_loop2
+		work [label="Work on the selected TODO
+in AI-WorkPlan.org" fillcolor=plum shape=rectangle style="filled,rounded,bold"]
+	}
+	{
+		rank=same
+		lyr_loop3
+		commitMsg [label="git add, then
+/bx-commit-msg" fillcolor=plum shape=rectangle style="filled,dashed"]
+	}
+	{
+		rank=same
+		lyr_loop4
+		aiOutputs [label="/bx-ai-outputs" fillcolor=plum shape=rectangle style="filled,dashed"]
+	}
+	{
+		rank=same
+		lyr_loop5
+		done [label="/bx-done <anchor>" fillcolor=lightpink shape=rectangle style=filled]
+	}
+	{
+		rank=same
+		lyr_end
+		updateStatus [label="/bx-update-status" fillcolor=lightpink shape=rectangle style=filled]
+		archive [label="/bx-archive" fillcolor=plum shape=rectangle style="filled,dashed"]
+		contextTrim [label="/bx-context-trim" fillcolor=plum shape=rectangle style="filled,dashed"]
+	}
+	initiate -> confirm0
+	initiate -> confirmHere [arrowhead=none style=dashed]
+	confirm0 -> importArchive
+	importArchive -> work
+	work -> commitMsg
+	commitMsg -> aiOutputs
+	aiOutputs -> done
+	done -> updateStatus [label="  end of session  " fontsize=10]
+	done -> importArchive [label="  next TODO  " color=darkgreen constraint=false fontcolor=darkgreen fontsize=10 penwidth=1.6]
+	confirm0 -> confirmHere [label=" or " arrowhead=none fontsize=10 style=dotted]
+	confirmHere -> status [label=" and/or " arrowhead=none fontsize=10 style=dotted]
+	updateStatus -> archive [arrowhead=none style=dotted]
+	archive -> contextTrim [arrowhead=none style=dotted]
+	legend [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="lightskyblue">read</TD><TD BGCOLOR="lightpink">write</TD><TD BGCOLOR="plum">read-write</TD><TD>solid border = always</TD><TD STYLE="dashed">dashed border = perhaps</TD></TR></TABLE>> fontsize=10 shape=plaintext]
+	lyr_end -> legend [style=invis]
+}

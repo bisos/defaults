@@ -1,0 +1,1 @@
+The /bx-* slash commands in the order a typical session uses them: setup once, confirm context at session start, a per-TODO work loop, and housekeeping at session end. Fill shows what a command does to files: blue reads into the session, pink writes session knowledge to files, purple does both. Solid borders are always done; dashed borders are 'perhaps'.
