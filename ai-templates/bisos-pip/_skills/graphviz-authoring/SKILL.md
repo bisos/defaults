@@ -261,6 +261,33 @@ When graphviz places nodes unexpectedly:
 - **Layout dramatically changes between renders**: you may be using
   graphviz's non-deterministic layouts. Prefer `dot` (the default);
   avoid `neato` / `fdp` unless you specifically want force-directed.
+- **Nodes in a `rank='same'` row come out in the wrong left-to-right
+  order**: `dot` does *not* honour source order within the subgraph,
+  and neither `dir='back'` nor a labelled flat edge pins it. Add
+  invisible flat edges in the order you want
+  (`d.edge(left, right, style='invis')`); `dot` always draws a flat edge
+  tail-left, head-right.
+- **A long back-edge (e.g. a "next item" loop) routes round the wrong side
+  and crosses everything**: ports (`tailport='w'`) don't steer it. Route
+  it through invisible waypoints, one `shape='point'` node per rank,
+  pinned to the side you want. Chain the segments *top-down* (the ranking
+  direction), with `dir='back'` on the segment whose arrowhead should show
+  and `dir='none'` on the rest. A zero-size point leaves a visible gap in
+  the line; use `width='0.03'` in the edge colour.
+- **Many long edges back up to a few nodes at the top tangle**: draw
+  thin-bordered *reference nodes* on the writer's own rank ("see above")
+  so every edge is short, and explain the thin border in the legend.
+- **A column of side nodes won't line up**: give them a shared `group`
+  and chain them with invisible edges; `group` only straightens edges
+  *between* members.
+- **The legend widens or lengthens the image**: anchor it where there is
+  already empty space. In TB figures, put it under the main path, not
+  under a side label column. In LR trees, put it on the root's rank (a
+  `rank='same'` subgraph with the root): that column is otherwise empty.
+
+Worked examples of all of the above:
+`bisos/defaults/ai-templates/_nonTemplate_/images/` (`aiUsageWorkflow`,
+`aiStartupWorkflow`, `aiCommandsSkillsTrees`).
 
 ## When *not* to write a graphviz figure
 

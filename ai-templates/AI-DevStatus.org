@@ -21,23 +21,58 @@ architecture, what works, what is untested and the design decisions made so far.
 This file is maintained by Claude. Updates are typically triggered by the
 =/bx-update-status= slash command, after major interactions, or before a release.
 
-Note to a fresh Claude: this file is intentionally sparse at project start.
-Fill in the sections below when asked to update, following the structure provided.
-
 * Current State
-  [To be filled in by Claude after first substantive interaction]
+
+As of 2026-10-07: this is the BISOS canonical templates tree. It is also
+self-hosted: =initiate=-d against itself with =--activity=custom
+--noLink=AI-Activity.org=. The engine that installs it is
+=bisos-pip/aiActivity=, whose =AI-DevStatus.org= is the main handoff.
+This file covers only what is specific to the templates tree.
+
+Recent changes (2026-10-07):
+- =mother/_claude/commands/bx-context-trim.md= (new).
+- =_nonTemplate_/images/= (new): the four workflow figures, with sources.
+- =mother/AI-WORKFLOW.org=: the =/bx-context-trim= row, and pointers to the
+  figures. The figure line under the slash-commands table is loaded every
+  session; it is a few tokens.
+Not yet propagated to =bxexamples= or the rana fork; tracked in the engine
+WorkPlan's Stage 15 LOOP.
 
 * Architecture
-  [Key components, file structure, entry points]
+
+- =mother/= --- the baseline installed into every project: =CLAUDE.md=,
+  =AI-WORKFLOW.org=, =AI-Outputs.org= (a symlink out into blee-binders),
+  =_claude/{settings.json,commands/}= (11 =/bx-*= commands), and
+  =initiateSub/CLAUDE.md=.
+- =<activity>/= --- one per activity: =AI-Activity.org=, seed
+  =AI-DevStatus.org= / =AI-WorkPlan.org=, optional =_claude/= and
+  =_skills/=. Skills today: =bisos-pip/_skills/= (16),
+  =aiActivity/_skills/= (=authoring-skills=), =sbom+cap/_skills/=
+  (=sbom-authoring=).
+- =_nonTemplate_/= --- not an activity and not installed: material about
+  the tree. =images/= holds the workflow figures.
+- Root =AI-*.org=, =CLAUDE.md=, =.claude/= --- this tree's own
+  self-hosted AI-Activity install. Not propagated to forks.
 
 * What Works
-  [Verified functionality]
+
+- The figures render with
+  =PYTHONPATH=/bisos/git/bxRepos/bisos-pip/graphviz-cs/py3 ./<name>-graphviz.pcs --format=all -i ngProcess all=
+  run in =_nonTemplate_/images/=. The prefix works around the old
+  =bisos.graphviz= in the bisos3 venv.
 
 * What Is Untested
-  [Known gaps]
+
+- =/bx-context-trim= through a full apply cycle.
 
 * Key Design Decisions
-  [Non-obvious choices and their rationale]
+
+- *=_nonTemplate_/= is the single escape from the templates concept.*
+  Rationale and alternatives are in the engine =AI-DevStatus.org=.
+- *Figures live here, next to the commands and skills they depict.* The
+  engine README carries PNG copies as a version-matched snapshot.
+- *=mother/= stays the install source only.* Nothing that isn't installed
+  goes in it; that is why the figures are not in =mother/_images/=.
 
 # Local Variables:
 # eval: (setq-local toc-org-max-depth 4)

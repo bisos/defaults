@@ -67,7 +67,58 @@ org-log-done should be there as:
    SCHEDULED: <2026-06-09 Tue>
    Across here, /bxRepos/bxexamples/aiActivityTemplates/ and propritary projects.
    ----- AI Results: ------
-   
+   Tracked from the engine side as the Stage 15 LOOP in
+   =bisos-pip/aiActivity/AI-WorkPlan.org= ([[15.1]] there). It lists the
+   2026-10-07 items that are pending propagation to bxexamples and the rana
+   fork.
+
+** -
+
+* Stage 3: Workflow figures, /bx-context-trim, _nonTemplate_
+
+Goal: Make the AI-Activity workflow visible, and give the templates tree a
+place for material that is not a template. The work was driven from
+=bisos-pip/aiActivity/AI-WorkPlan.org= ([[14.2]], [[14.3]], [[14.13]],
+[[16.4]] there); this records the templates-side result.
+
+* Stage 3 TODOs
+** +
+** DONE [#A] Add /bx-context-trim to mother/_claude/commands :aiAndMe:
+CLOSED: [2026-10-07 Wed]
+----- Results: ------
+=mother/_claude/commands/bx-context-trim.md=:
+- Runs =aiActivity.cs -i startupClaudeTokens=, then proposes trims ranked
+  by tokens saved, each marked local or shared (a shared edit is
+  confirmed separately).
+- Hands off to =/bx-archive= and =/bx-update-status= rather than doing
+  their work itself.
+- Changes nothing without confirmation.
+- No settings change was needed: =aiActivity.cs *= is already
+  pre-authorized.
+- =mother/AI-WORKFLOW.org= has a row for it in the slash-commands table.
+- Named object-first, then verb ("context", then "trim"). The convention
+  is recorded as [[14.11]] in the engine WorkPlan.
+
+** DONE [#A] Create _nonTemplate_/ and the workflow figures :aiAndMe:
+CLOSED: [2026-10-07 Wed]
+----- Results: ------
+- =_nonTemplate_/= is the tree's one escape from the templates concept.
+  The engine excludes it from =examples= and refuses it as =--activity=
+  (=nonActivityDirs= in =aiActivity.cs=).
+- =_nonTemplate_/images/=, each with its =.pcs= source and all rendered
+  outputs:
+  - =aiUsageWorkflow= (+ =aiUsageWorkflow.org=, the full read/write map):
+    using an existing setup.
+  - =aiStartupWorkflow=: creating and shaping a setup.
+  - =aiCommandsSkillsTrees= → =aiGeneralTree= and =aiEcosystemTree=:
+    every command and skill, where it lives, and the "load first"
+    prerequisites.
+- =mother/AI-WORKFLOW.org= points to all of them.
+- The PNGs are copied into the engine repo (=py3/images/fromTemplates/=) for
+  its README.
+- The figures expose a provisioning gap: 15 of the 16 ecosystem skills are in
+  =bisos-pip/_skills/=, so non-=bisos-pip= activities don't see them. See
+  the engine =AI-DevStatus.org=, Known Gaps.
 ** -
 
 
