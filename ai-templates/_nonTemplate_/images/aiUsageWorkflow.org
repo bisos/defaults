@@ -15,20 +15,20 @@ which subject each step reads (R) and writes (W).
 
 * Read/Write Map
 
-| Step                            | Repo content | Repo git        | AI-WorkPlan.org (+ =_archive=) | AI-DevStatus.org | AI-Outputs.org |
-|---------------------------------+--------------+-----------------+--------------------------------+------------------+----------------|
-| =/bx-confirm0=                  |              |                 | R                              | R                |                |
-| =/bx-confirm-here=              |              |                 | R                              | R                |                |
-| =/bx-status=                    |              |                 | R                              | R                |                |
-| =/bx-import-archive=            |              |                 | R (=_archive=)                 |                  |                |
-| Work on the selected TODO       | RW           |                 | R                              |                  |                |
-| /You:/ =git add=, =git commit=  | R            | W               |                                |                  |                |
-| =/bx-commit-msg=                | R (staged)   | W (message only) |                               |                  |                |
-| =/bx-ai-outputs= (index)        |              |                 |                                |                  | R              |
-| =/bx-ai-outputs= (capture)      |              |                 |                                |                  | W              |
-| =/bx-done <anchor>=             |              |                 | W                              |                  |                |
-| =/bx-update-status=             |              |                 | R                              | W                |                |
-| =/bx-archive=                   |              |                 | RW (+ W =_archive=)            |                  |                |
+| Step                      | Repo content | Repo git         | AI-WorkPlan.org (+ =_archive=) | AI-DevStatus.org | AI-Outputs.org |
+|---------------------------+--------------+------------------+------------------------------+------------------+----------------|
+| =/bx-confirm0=              |              |                  | R                            | R                |                |
+| =/bx-confirm-here=          |              |                  | R                            | R                |                |
+| =/bx-status=                |              |                  | R                            | R                |                |
+| =/bx-import-archive=        |              |                  | R (=_archive=)                 |                  |                |
+| Work on the selected TODO | RW           |                  | R                            |                  |                |
+| /You:/ =git add=, =git commit=  | R            | W                |                              |                  |                |
+| =/bx-commit-msg=            | R (staged)   | W (message only) |                              |                  |                |
+| =/bx-ai-outputs= (index)    |              |                  |                              |                  | R              |
+| =/bx-ai-outputs= (capture)  |              |                  |                              |                  | W              |
+| =/bx-done <anchor>=         |              |                  | W                            |                  |                |
+| =/bx-update-status=         |              |                  | R                            | W                |                |
+| =/bx-archive=               |              |                  | RW (+ W =_archive=)            |                  |                |
 
 * Reading the Map
 

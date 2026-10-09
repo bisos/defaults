@@ -1,7 +1,13 @@
 #+title: Development Status & Continuation Handoff
 #+TAGS: me ai aiAndMe
 
-# Provenance (installed once by startAiActivity.cs --- not regenerated):
+# Provenance (installed once by aiActivity.cs --- not regenerated):
+#   Date:      2026-10-08T22:49:11+00:00
+#   User:      bystar
+#   Templates: /bisos/git/auth/bxRepos/bisos/defaults/ai-templates
+#   Command:   /bisos/venv/py3/devbin/aiActivity.cs -i initiateSub --activity=aiActivity
+
+# Earlier install (installed once by startAiActivity.cs --- not regenerated):
 #   Date:      2026-07-16T17:08:32-07:00
 #   User:      bystar
 #   Templates: /bisos/apps/defaults/ai-templates
@@ -11,8 +17,9 @@
 * AI Working Context
   Working Directory: /bisos/git/auth/bxRepos/bisos/defaults/ai-templates
   File: /bisos/git/auth/bxRepos/bisos/defaults/ai-templates/AI-DevStatus.org
-  Companion Docs: AI-WORKFLOW.org, AI-Activity.org, AI-DevStatus.org, README.org
-###+END:
+  Activity: aiActivity
+  Companion Docs: AI-Activity.org, AI-DevStatus.org, README.org
+####+END:
 
 This file is a working-state handoff so development can continue on another
 machine (which has this repo but NOT the developer's =~=). It captures the
@@ -23,9 +30,14 @@ This file is maintained by Claude. Updates are typically triggered by the
 
 * Current State
 
-As of 2026-10-07: this is the BISOS canonical templates tree. It is also
-self-hosted: =initiate=-d against itself with =--activity=custom
---noLink=AI-Activity.org=. The engine that installs it is
+As of 2026-10-09: this is the BISOS canonical templates tree. It is also
+self-hosted, as a sub-project of the =defaults= repo, whose root was
+=initiate=-d with =--activity=basic=; this tree was then =initiateSub=-d
+with =--activity=aiActivity= (its =AI-Activity.org= is a symlink to
+=aiActivity/AI-Activity.org=). =AI-WORKFLOW.org=, =AI-Outputs.org= and
+=.claude/= are at the =defaults= root and reach here by Claude Code's
+walk-up. (Before 2026-10-08 it was =initiate=-d against itself with
+=--activity=custom --noLink=AI-Activity.org=.) The engine that installs it is
 =bisos-pip/aiActivity=, whose =AI-DevStatus.org= is the main handoff.
 This file covers only what is specific to the templates tree.
 
@@ -35,6 +47,8 @@ Recent changes (2026-10-07):
 - =mother/AI-WORKFLOW.org=: the =/bx-context-trim= row, and pointers to the
   figures. The figure line under the slash-commands table is loaded every
   session; it is a few tokens.
+- 2026-10-09: =AI-WorkPlan.org= Stage 2 gained the template-maintenance
+  items moved from the engine WorkPlan (=<<2.1>>=--=<<2.4>>=).
 Not yet propagated to =bxexamples= or the rana fork; tracked in the engine
 WorkPlan's Stage 15 LOOP.
 
@@ -51,8 +65,10 @@ WorkPlan's Stage 15 LOOP.
   (=sbom-authoring=).
 - =_nonTemplate_/= --- not an activity and not installed: material about
   the tree. =images/= holds the workflow figures.
-- Root =AI-*.org=, =CLAUDE.md=, =.claude/= --- this tree's own
-  self-hosted AI-Activity install. Not propagated to forks.
+- =AI-Activity.org= (symlink), =AI-DevStatus.org=, =AI-WorkPlan.org=,
+  =CLAUDE.md= (slim overlay) here --- this tree's own self-hosted
+  =initiateSub= install; the invariants are at the =defaults= repo root.
+  Not propagated to forks.
 
 * What Works
 

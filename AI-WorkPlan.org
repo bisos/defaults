@@ -1,37 +1,58 @@
-#+title: RepoNameComesHere --- Work Plan
+#+title: Work Plan
 #+DATE: <2026-06-10 Wed 13:54>
 #+AUTHOR: Mohsen BANAN
 #+OPTIONS: toc:4
 #+TAGS: me ai aiAndMe
 
+# Provenance (installed once by aiActivity.cs --- not regenerated):
+#   Date:      2026-10-08T21:42:09+00:00
+#   User:      bystar
+#   Templates: /bisos/apps/defaults/ai-templates
+#   Command:   /bisos/venv/py3/bisos3/bin/aiActivity.cs -i initiate --activity=basic
+
+####+BEGIN: b:ai:file/particulars
+* AI Working Context
+  Working Directory: /bisos/git/auth/bxRepos/bisos/defaults
+  File: /bisos/git/auth/bxRepos/bisos/defaults/AI-WorkPlan.org
+  Activity: basic
+  Companion Docs: AI-WORKFLOW.org, AI-Activity.org, AI-DevStatus.org, README.org
+####+END:
+
 This Work Plan file drives the AI collaborative development.
 Interactions are broken down into "Stages". Each Stage has a set
 of TODOs that I work with Claude to accomplish.
 
-Companion docs: [[file:AI-AGENTS.org][AI-AGENTS.org]] (agent guidance / layering), [[file:README.org][README.org]] (overview).
+Note to a fresh Claude: read this file together with AI-WORKFLOW.org,
+AI-Activity.org and AI-DevStatus.org to orient yourself. The =<<Context Confirmation>>=
+TODO below is the standard first step, or use =/bx-confirm0= as the automated equivalent.
+TODOs tagged =:ai:= are assigned to Claude. After completing a TODO, summarize results
+under =----- AI Results: ------= and mark it DONE.
 
-* Stage 1: Confirm AI's Underestading of This Repo's Context
+* Stage 0: Confirm AI's Understanding of This Repo's Context
 
-Goal: Typically Confirm AI's understanding of the context and capture that in [[Context Confirmation]] TODO
+Goal: Confirm AI's understanding of the context and capture that in [[Context Confirmation]] TODO.
 
 
-* Stage 1 TODOs
+* Stage 0 TODOs
 ** +
-** TODO [#A] <<Context Confirmation>> for AI :ai:
+** LOOP [#A] <<Context Confirmation>> for AI (typically triggered by /bx-confirm0) :aiAndMe:
 SCHEDULED: <2026-06-09 Tue>
+Must be repeated each time a new Claude instance is started here.
 Based on the series of files starting from CLAUDE.md in this repo,
-describe susinctly what you have understood.
------ AI Results: ------
+describe succinctly what you have understood.
+Enumerate explicitly which files you have imported and which you have considered.
+Prompt the user to confirm that the desired/appropriate model (/model) is being used for this project.
+Since this is to be repeated, leave the todo tag as LOOP.
 ** -
 
-* Stage 2: Description of This Stage Comes Here
+* Stage 1: Description of This Stage Comes Here
 
 Goal: Describe what the goal of this stage is.
 
 
-* Stage 2 TODOs
+* Stage 1 TODOs
 ** +
-** TODO [#A] Example of a work-item for AI :ai:
+** TODO [#A] <<1.1>> Example of a work-item for AI :ai:
 SCHEDULED: <2026-06-09 Tue>
 Description of a work-item
 ----- AI Results: ------

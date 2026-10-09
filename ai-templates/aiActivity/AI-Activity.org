@@ -60,24 +60,24 @@ across sessions, machines, and collaborators.
 
 A project installed with =aiActivity.cs -i initiate= contains:
 
-|--------------------+---------+---------------------------------------------------|
-| File               | Kind    | Role                                              |
-|--------------------+---------+---------------------------------------------------|
-| =CLAUDE.md=        | copy    | Claude Code entry point. Imports the four files   |
-|                    |         | below via =@= directives.                         |
-| =AI-WORKFLOW.org=  | symlink | Generic workflow overview (this model, but at a   |
-|                    |         | higher level --- "how I collaborate with AI").    |
-| =AI-Activity.org=  | symlink | The kind of work being done. Shared across        |
-|                    |         | projects of this activity.                        |
+|------------------+---------+-------------------------------------------------|
+| File             | Kind    | Role                                            |
+|------------------+---------+-------------------------------------------------|
+| =CLAUDE.md=        | copy    | Claude Code entry point. Imports the four files |
+|                  |         | below via =@= directives.                         |
+| =AI-WORKFLOW.org=  | symlink | Generic workflow overview (this model, but at a |
+|                  |         | higher level --- "how I collaborate with AI").  |
+| =AI-Activity.org=  | symlink | The kind of work being done. Shared across      |
+|                  |         | projects of this activity.                      |
 | =AI-DevStatus.org= | copy    | Current state of /this/ effort. Per-project.      |
 | =AI-WorkPlan.org=  | copy    | Stages and TODOs driving /this/ effort.           |
-|                    |         | Per-project.                                      |
-| =.claude/=         | dir     | Claude Code configuration.                        |
-|   =settings.json=  | symlink | Session-level settings.                           |
-|   =commands/=      | symlink | Slash-command definitions.                        |
-|   =skills/=        | symlink | On-demand task-specific knowledge (see            |
-|                    |         | [[Skills][Skills]] below).                                    |
-|--------------------+---------+---------------------------------------------------|
+|                  |         | Per-project.                                    |
+| =.claude/=         | dir     | Claude Code configuration.                      |
+| =settings.json=    | symlink | Session-level settings.                         |
+| =commands/=        | symlink | Slash-command definitions.                      |
+| =skills/=          | symlink | On-demand task-specific knowledge (see          |
+|                  |         | [[Skills][Skills]] below).                                  |
+|------------------+---------+-------------------------------------------------|
 
 Two other files may appear during a suspend/resume cycle:
 =CLAUDE.md.dormant=, =AI-DevStatus.org.dormant=, =AI-WorkPlan.org.dormant=.
