@@ -173,7 +173,7 @@ def aiStartupWorkflow(
         ('loopViaUse', '', loopPoint),
     ])
     layer('lyr_maintain', [
-        ('maintain', '-i refresh\n-i aiSuspend / aiResume\n-i deClaudify', perhaps(write)),
+        ('maintain', '-i refresh\n-i deClaudify', perhaps(write)),
     ], subjects=[
         ('refInstalled', 'Installed files\n(symlinks + safe-copies)', {**reference, 'shape': 'note'}),
     ])

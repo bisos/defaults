@@ -76,7 +76,6 @@ AI-WorkPlan.org" fillcolor=white fontsize=11 group=subjects shape=note style="fi
 		rank=same
 		lyr_maintain
 		maintain [label="-i refresh
--i aiSuspend / aiResume
 -i deClaudify" fillcolor=lightpink group=spine shape=rectangle style="filled,dashed"]
 		refInstalled [label="Installed files
 (symlinks + safe-copies)" fillcolor=white fontsize=10 shape=note style=filled]

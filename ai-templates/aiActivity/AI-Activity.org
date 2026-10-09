@@ -22,8 +22,8 @@ joining the project) need to understand:
   each one is for.
 - Which files are shared invariants versus per-project state.
 - Why some files are symlinks and others are safe-copies.
-- How =initiate=, =initiateSub=, =aiSuspend=, =aiResume=,
-  =deClaudify=, and =refresh= interact with those files.
+- How =initiate=, =initiateSub=, =deClaudify=, and =refresh=
+  interact with those files.
 - Where to look for the /kind of work/ this project does (its
   activity), versus /what specifically is being done/ (its WorkPlan).
 
@@ -79,9 +79,10 @@ A project installed with =aiActivity.cs -i initiate= contains:
 |                  |         | [[Skills][Skills]] below).                                  |
 |------------------+---------+-------------------------------------------------|
 
-Two other files may appear during a suspend/resume cycle:
-=CLAUDE.md.dormant=, =AI-DevStatus.org.dormant=, =AI-WorkPlan.org.dormant=.
-See [[aiSuspend and aiResume][aiSuspend and aiResume]].
+=AI-Outputs.org= (a symlink to =mother/AI-Outputs.org=, if the templates
+ship it) is also installed, in every directory including subs. It is the
+cross-project findings ledger; it is not imported by =CLAUDE.md=, and
+=/bx-ai-outputs= reads =./AI-Outputs.org= from the current directory.
 
 * Invariants vs Per-Project State
 
@@ -157,17 +158,24 @@ or =--root=curDir= (default) for the current directory.
 ** =initiateSub= --- a slim subproject overlay
 
 Installs only the effort-specific files (=CLAUDE.md=,
-=AI-Activity.org=, =AI-DevStatus.org=, =AI-WorkPlan.org=) in a
-subdirectory. The invariants (=AI-WORKFLOW.org= and =.claude/=) are
+=AI-Activity.org=, =AI-DevStatus.org=, =AI-WorkPlan.org=) and the
+=AI-Outputs.org= symlink in a subdirectory. The invariants (=AI-WORKFLOW.org= and =.claude/=) are
 /inherited/ from an already-initiated ancestor via Claude Code's
 walk-up.
 
 : aiActivity.cs -i initiateSub --activity=<activityName>
 
 Preconditions: an ancestor directory must have been =initiate=-d
-(the engine walks up looking for an =AI-WORKFLOW.org= symlink
-pointing under =templatesBase=), and the current directory must not
+(the engine walks up looking for an =AI-WORKFLOW.org= symlink into a
+templates tree's =mother/=), and the current directory must not
 already have a =CLAUDE.md=.
+
+A repo is /Homogeneous/ by default: with no =--templates=, the sub uses
+the same templates base as its nearest initiated ancestor, even if your
+global user config names another tree. To make a sub /Heterogeneous/
+(a different templates tree than its parent), name that tree explicitly
+with =--templates= or a per-directory =cwdConfig_set= value; the engine
+prints a =HETEROGENEOUS= note and proceeds.
 
 The slim =CLAUDE.md= installed by =initiateSub= imports only its
 local trio. When Claude Code walks up, it hits the parent's
@@ -202,38 +210,16 @@ without duplicating files.
 
 Covered above.
 
-** =aiSuspend= and =aiResume=
-
-=aiSuspend= puts a project into a dormant state:
-
-- Renames =CLAUDE.md= to =CLAUDE.md.dormant= (rename, not deletion).
-- Renames =AI-DevStatus.org= and =AI-WorkPlan.org= to =.dormant=
-  suffixes.
-- Removes the invariant symlinks (=AI-WORKFLOW.org=,
-  =AI-Activity.org=) and =.claude/= entries.
-
-Result: a fresh Claude session opening a suspended directory sees
-no active AI collaboration files.
-
-=aiResume= reverses the operation:
-
-- Renames =.dormant= files back to their live names.
-- Re-copies =CLAUDE.md= from templates (or promotes the dormant
-  copy).
-- Re-installs the invariant symlinks and =.claude/=.
-
-Mode (base vs sub) is auto-detected by walking up for a parent
-=AI-WORKFLOW.org= symlink. Activity is inferred from the
-=AI-Activity.org= symlink target, or from an =Activity:= header in
-the restored =AI-WorkPlan.org= dblock.
-
 ** =deClaudify=
 
 Permanently removes all AI collaboration files from the current
-directory. Unlike =aiSuspend=, this is irreversible: it deletes the
-per-project =AI-DevStatus.org= and =AI-WorkPlan.org=. Use this only
-when you want to remove the collaboration model from a project
-entirely.
+directory. It is irreversible: it deletes the per-project
+=AI-DevStatus.org= and =AI-WorkPlan.org=, and first prints a =WARNING=
+for each of them that git does not have in its current form (untracked,
+modified, or not in a repo). Use this only when you want to remove the
+collaboration model from a project entirely; to merely pause AI work,
+leave the files where they are --- they cost nothing until Claude is
+started in that directory.
 
 The command is /safe/: it will only remove symlinks that are
 actually symlinks, and files that are actually files. Anything the
@@ -246,8 +232,10 @@ Re-copies =CLAUDE.md= from templates. This is the escape hatch that
 compensates for CLAUDE.md being safe-copied (not symlinked): use it
 when the templates =CLAUDE.md= has changed and you want the update.
 
-=refresh= detects base vs sub mode the same way =aiResume= does
-(parent =AI-WORKFLOW.org= walk-up). It also /upgrades/ legacy
+=refresh= detects base vs sub mode from the directory itself: a base
+install has its own =AI-WORKFLOW.org= symlink, a sub does not and has an
+initiated ancestor. It also backfills a missing =AI-Outputs.org=
+symlink, in base and sub alike. It also /upgrades/ legacy
 symlinked =CLAUDE.md= installs: if it finds a symlink at
 =CLAUDE.md=, it unlinks and safe-copies in place. This is the
 one-shot migration for projects installed before CLAUDE.md became a
@@ -264,10 +252,15 @@ containing =mother/= and one subdirectory per activity. The engine
 resolves it in this order:
 
 1. =--templates= CLI flag (highest priority).
-2. Persistent user config (set via =userConfig_set --parName=templates=).
-3. Auto-detect: probes =~/aiActivityTemplates= first, then
+2. Per-directory config (=cwdConfig_set --parName=templates=).
+3. For =initiateSub= and =refresh= in a sub: the templates base of the
+   nearest initiated ancestor (the Homogeneous default).
+4. Persistent user config (set via =userConfig_set --parName=templates=).
+5. Auto-detect: probes =~/aiActivityTemplates= first, then
    =/bisos/apps/defaults/ai-templates=. First existing path wins.
-4. If nothing found, the command fails with a clear error.
+6. If nothing found, the command fails with a clear error.
+
+=aiActivity.cs -i examples= suggests the likely values for you.
 
 User-first ordering means a personal fork transparently takes over
 from the BISOS system copy without an explicit =userConfig_set=.
@@ -340,15 +333,13 @@ freely, encoding this project's specific conventions.
 /Prefer a proper standard activity when your project fits one./
 Reach for =custom= only when nothing else applies.
 
-* Suspend/Resume vs Remove: Choosing the Right Command
+* Pausing vs Removing
 
-- Use =aiSuspend= / =aiResume= when the pause is /temporary/ and
-  you want the state preserved.
-- Use =deClaudify= when you want to /permanently/ remove the AI
-  collaboration files from a project.
-
-Both operate on the current directory; neither takes a =--root=
-parameter.
+There is no suspend command. When you are not using AI on a project,
+leave the files in place: they cost nothing until Claude is started in
+that directory. Use =deClaudify= only to /permanently/ remove the
+collaboration files from a project. It operates on the current directory
+and takes no =--root= parameter.
 
 * Where To Find What
 

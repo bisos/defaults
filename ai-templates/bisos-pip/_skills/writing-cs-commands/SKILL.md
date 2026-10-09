@@ -183,7 +183,7 @@ paths in the argument — not absolute paths constructed from `pathlib.Path.cwd(
 
 - Templates in this repo (start here):
   - `py3/bin/aiActivity.cs` — csxu with multiple commands
-    (`initiate`, `initiateSub`, `deClaudify`, `aiSuspend`, `aiResume`,
+    (`initiate`, `initiateSub`, `refresh`, `deClaudify`,
     `userConfig_get`, `userConfig_set`, `examples`)
 - For a simple single-XU: `/bisos/core/bpip/examples/exmpl-xu-oneSubProc.cs`
 - For CS-Unit patterns: `bisos.b.userConfig_csu` in
