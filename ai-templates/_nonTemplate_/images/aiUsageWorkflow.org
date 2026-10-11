@@ -23,7 +23,8 @@ which subject each step reads (R) and writes (W).
 | =/bx-import-archive=        |              |                  | R (=_archive=)                 |                  |                |
 | Work on the selected TODO | RW           |                  | R                            |                  |                |
 | /You:/ =git add=, =git commit=  | R            | W                |                              |                  |                |
-| =/bx-commit-msg=            | R (staged)   | W (message only) |                              |                  |                |
+| =/bx-git-uncommitted-list=  |              | R (session's)    |                              |                  |                |
+| =/bx-git-commit-msg=        | R (staged)   | W (message only) |                              |                  |                |
 | =/bx-ai-outputs= (index)    |              |                  |                              |                  | R              |
 | =/bx-ai-outputs= (capture)  |              |                  |                              |                  | W              |
 | =/bx-done <anchor>=         |              |                  | W                            |                  |                |
@@ -34,8 +35,8 @@ which subject each step reads (R) and writes (W).
 
 - *Only "Work" touches repo content.* Every =/bx-*= command manages AI
   state: WorkPlan, DevStatus, Outputs. The one exception is
-  =/bx-commit-msg=, which writes a single message file.
-- *Claude never commits.* =/bx-commit-msg= writes only
+  =/bx-git-commit-msg=, which writes a single message file.
+- *Claude never commits.* =/bx-git-commit-msg= writes only
   =.git/CLAUDE_COMMIT_MSG=. Moving content into git (=git add=,
   =git commit -t .git/CLAUDE_COMMIT_MSG=) is yours. This is the dashed
   black arrow in the figure.
@@ -57,6 +58,6 @@ which subject each step reads (R) and writes (W).
 |--------+----------------------------------------------------------+-------------------------------------------------------------------------------------------|
 | blue   | read: loads into the session, changes no files           | =/bx-confirm0=, =/bx-confirm-here=, =/bx-status=, =/bx-import-archive=                    |
 | pink   | write: records session knowledge into files              | =/bx-done=, =/bx-update-status=                                                           |
-| purple | read-write                                               | Work, =/bx-commit-msg=, =/bx-ai-outputs=, =/bx-archive=                                   |
+| purple | read-write                                               | Work, =/bx-git-commit-msg=, =/bx-ai-outputs=, =/bx-archive=                                   |
 
 Solid border = always; dashed border = perhaps.

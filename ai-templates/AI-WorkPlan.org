@@ -143,6 +143,12 @@ Renames touch the templates tree, every =AI-WORKFLOW.org= reference, the
 README, and users' habits. Decide which are worth it, rename in one pass,
 and document the convention in =AI-WORKFLOW.org=.
 ----- Results: ------
+- 2026-10-11 (Mohsen, from a bisos-pip/kafka session): =/bx-commit-msg= renamed to
+  =/bx-git-commit-msg= (a =bx-git-= group; still verbless, as noted above), now taking the
+  repo as an optional argument. No stub kept for the old name. New: =/bx-git-uncommitted-list=
+  (object then verb, per the convention) --- the repos the current session changed that still
+  need committing or pushing. Updated: mother/AI-WORKFLOW.org, aiUsageWorkflow.org and its
+  -graphviz.pcs, aiCommandsSkillsTrees-graphviz.pcs, aiActivity README.org; figures re-rendered.
 ** -
 
 * Stage 3: Workflow figures, /bx-context-trim, _nonTemplate_

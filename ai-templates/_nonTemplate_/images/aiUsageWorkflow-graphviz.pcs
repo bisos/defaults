@@ -148,7 +148,7 @@ def aiUsageWorkflow(
         ('loopVia2', '', loopPoint),
     ])
     layer('lyr_loop3', [
-        ('commitMsg', '/bx-commit-msg', perhaps(readWrite)),
+        ('commitMsg', '/bx-git-commit-msg', perhaps(readWrite)),
     ], [
         ('subjGit', 'Repo git\n(.git)', {**subject, 'shape': 'cylinder'}),
     ], outsides=[

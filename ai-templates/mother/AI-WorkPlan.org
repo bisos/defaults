@@ -20,7 +20,7 @@ Note to a fresh Claude: read this file together with AI-WORKFLOW.org,
 AI-Activity.org and AI-DevStatus.org to orient yourself. The =<<Context Confirmation>>=
 TODO below is the standard first step, or use =/bx-confirm0= as the automated equivalent.
 TODOs tagged =:ai:= are assigned to Claude. After completing a TODO, summarize results
-under =----- AI Results: ------= and mark it DONE.
+under =----- Results: ------= and mark it DONE.
 
 * Stage 0: Confirm AI's Understanding of This Repo's Context
 
@@ -48,8 +48,15 @@ Goal: Describe what the goal of this stage is.
 ** +
 ** TODO [#A] <<1.1>> Example of a work-item for AI :ai:
 SCHEDULED: <2026-06-09 Tue>
+:PROPERTIES:
+:ORIGIN: Mohsen
+:IMPORTANCE: Medium
+:REPO: this
+:BASE: this
+:FOUND: <2026-10-01 Thu 10:32>
+:END:
 Description of a work-item
------ AI Results: ------
+----- Results: ------
 ** -
 
 
