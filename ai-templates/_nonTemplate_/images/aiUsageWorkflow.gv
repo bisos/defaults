@@ -40,7 +40,7 @@ in AI-WorkPlan.org" fillcolor=plum group=spine shape=rectangle style="filled,rou
 		rank=same
 		lyr_loop3
 		loopVia3 [label="" color=darkgreen group=loop shape=point width=0.03]
-		commitMsg [label="/bx-commit-msg" fillcolor=plum group=spine shape=rectangle style="filled,dashed"]
+		commitMsg [label="/bx-git-commit-msg" fillcolor=plum group=spine shape=rectangle style="filled,dashed"]
 		subjGit [label="Repo git
 (.git)" fillcolor=white fontsize=11 group=subjects shape=cylinder style="filled,bold"]
 	}
