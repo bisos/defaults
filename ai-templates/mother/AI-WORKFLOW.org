@@ -116,20 +116,25 @@ with these =bx-= commands available inside Claude:
 |                    | navigated to in the IDE (or an explicit path), not cwd. Loads |
 |                    | that project's chain as the active context, mid-session.      |
 |--------------------+---------------------------------------------------------------|
-| /bx-status         | Summarize current dev state and list open TODOs.              |
-|                    | Use when resuming work after a break.                         |
+| /bx-status-read    | Re-read AI-DevStatus.org and AI-WorkPlan.org from disk (picks |
+|                    | up the user's edits); current state, open TODOs, what's next. |
+|                    | A work-loop command: next TODO, or resuming after a break.    |
 |--------------------+---------------------------------------------------------------|
 | /bx-done <anchor>  | Mark the TODO with <<anchor>> as DONE and write AI Results.   |
 |--------------------+---------------------------------------------------------------|
-| /bx-archive        | Move DONE subtrees to AI-WorkPlan.org_archive (org-archive).  |
+| /bx-archive-update | Move DONE subtrees to AI-WorkPlan.org_archive (org-archive).  |
 |                    | Optional arg limits which. Advises on facts recorded nowhere  |
 |                    | else, but writes only AI-WorkPlan.org + the archive.          |
 |--------------------+---------------------------------------------------------------|
-| /bx-import-archive | Read archived work back in during a session (read-only).      |
+| /bx-archive-read   | Read archived work back in during a session (read-only).      |
 |                    | No arg = index grouped by stage; arg = matching subtrees.     |
 |--------------------+---------------------------------------------------------------|
-| /bx-update-status  | Rewrite AI-DevStatus.org to reflect current state.            |
-|                    | Use after completing a stage or before a release.             |
+| /bx-status-update  | Rewrite AI-DevStatus.org to reflect current state (a rewrite: |
+|                    | history is in git). Use after a stage or before a release.    |
+|--------------------+---------------------------------------------------------------|
+| /bx-session-verify | Before closing a session: are this session's AI-DevStatus,    |
+|                    | AI-WorkPlan and README updates done, cross-references valid,  |
+|                    | repos committed? Reports gaps, fills them only on agreement.  |
 |--------------------+---------------------------------------------------------------|
 | /bx-initiate       | Run aiActivity.cs then read the full import chain.            |
 |                    | For non-Emacs workflows only — Emacs reads CLAUDE.md          |
@@ -171,24 +176,24 @@ Note: in the workflow, CLAUDE.md is read automatically at startup.
 
 Everything in the CLAUDE.md import chain is loaded on /every/ session, so a
 =AI-WorkPlan.org= fat with finished work is a recurring cost for a one-time
-benefit. Archiving converts it. =/bx-archive= is the cut; =/bx-import-archive= is
+benefit. Archiving converts it. =/bx-archive-update= is the cut; =/bx-archive-read= is
 the way back.
 
 The pair matters more than either half. A cut only needs to be lossless if it is
-irreversible --- because =/bx-import-archive= can retrieve archived subtrees on
-demand mid-session, =/bx-archive= can stay narrow and you can archive
+irreversible --- because =/bx-archive-read= can retrieve archived subtrees on
+demand mid-session, =/bx-archive-update= can stay narrow and you can archive
 aggressively. Archive files are deliberately NOT in the import chain: archived
 content is invisible to Claude until you ask for it. That is the point, and it
 means the archive serves you and git history rather than Claude's default context.
 
 Division of labour, which should not blur:
 
-- =/bx-archive= belongs to the org-mode TODO lifecycle (TODO → DONE → archived)
+- =/bx-archive-update= belongs to the org-mode TODO lifecycle (TODO → DONE → archived)
   and writes only =AI-WorkPlan.org= and its archive file.
-- =/bx-update-status= owns =AI-DevStatus.org=; promoting a durable fact out of a
+- =/bx-status-update= owns =AI-DevStatus.org=; promoting a durable fact out of a
   finished TODO into the handoff document is /its/ job, not the archiver's.
 
-=/bx-archive= therefore advises without writing: it reports facts from the
+=/bx-archive-update= therefore advises without writing: it reports facts from the
 subtrees it archived that appear in no file a fresh Claude loads, and leaves the
 promotion to you. Watch for /negative results/ in particular --- "we tried X and
 it broke". Durable documents naturally restate what IS (architecture, ports,
@@ -220,7 +225,7 @@ Rule: when a decision, plan or finding is written to a file outside the import c
 record a pointer in =AI-DevStatus.org= --- one line giving what was decided, where the
 record lives, and what condition would make it actionable. The pointer is not a copy.
 The out-of-chain file stays authoritative; the pointer only has to be enough for a fresh
-Claude to know the record exists and go read it. Promoting it is =/bx-update-status='s
+Claude to know the record exists and go read it. Promoting it is =/bx-status-update='s
 job, the same way it owns promotion out of archived TODOs.
 
 Claude should offer this at the time of writing out of chain, not as cleanup later.

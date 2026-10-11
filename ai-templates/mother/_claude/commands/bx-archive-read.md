@@ -9,7 +9,7 @@ With no $ARGUMENTS, print an index only — do not read the subtree bodies:
 3. For each, show: headline title, =CLOSED= date, and source archive file if there is
    more than one.
 4. State that full text for any entry is available via
-   =/bx-import-archive <substring>=.
+   =/bx-archive-read <substring>=.
 
 With $ARGUMENTS, read in full every archived subtree whose headline, =ARCHIVE_OLPATH=
 or tags match it (substring; also accept a stage name like "Stage 4"). Then summarize
@@ -29,4 +29,4 @@ re-verified:
 This command is read-only with respect to the workflow files. Never reinsert archived
 subtrees into AI-WorkPlan.org and never edit the archive — round-tripping would
 collapse the distinction between finished and open work. If an archived fact turns out
-to still be durable, promote it with =/bx-update-status= instead.
+to still be durable, promote it with =/bx-status-update= instead.

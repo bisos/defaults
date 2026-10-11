@@ -63,7 +63,7 @@ AI-WorkPlan.org" fillcolor=white fontsize=11 group=subjects shape=note style="fi
 + its imports (shared)" fillcolor=gainsboro fontsize=10 shape=note style=filled]
 		trim [label="/bx-context-trim" fillcolor=plum group=spine shape=rectangle style="filled,dashed"]
 		refLocal [label="AI-WorkPlan.org  AI-DevStatus.org
-(via /bx-archive, /bx-update-status)" fillcolor=white fontsize=10 shape=note style=filled]
+(via /bx-archive-update, /bx-status-update)" fillcolor=white fontsize=10 shape=note style=filled]
 	}
 	{
 		rank=same

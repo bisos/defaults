@@ -20,9 +20,9 @@ proposals at reaching it and say whether they do.
      skill (only its description loads at startup). Wrapping in org markup is not
      a reliable way to suppress an import; Claude Code skips only markdown code
      spans.
-   - *=AI-WorkPlan.org=*: DONE subtrees mean =/bx-archive=.
+   - *=AI-WorkPlan.org=*: DONE subtrees mean =/bx-archive-update=.
    - *=AI-DevStatus.org=*: sections that repeat =README.org= or are no longer
-     current mean a trimming pass in =/bx-update-status=. Name the sections; do
+     current mean a trimming pass in =/bx-status-update=. Name the sections; do
      not rewrite the file here.
    - *=!! resolved via symlink into ...=* is a legacy symlinked =CLAUDE.md=; the
      fix is =aiActivity.cs -i refresh= in that directory. Correctness first,
@@ -39,7 +39,7 @@ proposals at reaching it and say whether they do.
    shared/local. End with the projected startup total if all proposals are applied.
 6. Change nothing without confirmation. Apply only the items the user picks.
    Confirm *shared* edits separately, naming the scope affected (which activity,
-   which templates tree). Delegate to =/bx-archive= and =/bx-update-status= rather
+   which templates tree). Delegate to =/bx-archive-update= and =/bx-status-update= rather
    than doing their jobs here. After applying, re-run step 1 and report the actual
    saving.
 

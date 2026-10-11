@@ -26,11 +26,11 @@ machine (which has this repo but NOT the developer's =~=). It captures the
 architecture, what works, what is untested and the design decisions made so far.
 
 This file is maintained by Claude. Updates are typically triggered by the
-=/bx-update-status= slash command, after major interactions, or before a release.
+=/bx-status-update= slash command, after major interactions, or before a release.
 
 * Current State
 
-As of 2026-10-09: this is the BISOS canonical templates tree. It is also
+As of 2026-10-11: this is the BISOS canonical templates tree. It is also
 self-hosted, as a sub-project of the =defaults= repo, whose root was
 =initiate=-d with =--activity=basic=; this tree was then =initiateSub=-d
 with =--activity=aiActivity= (its =AI-Activity.org= is a symlink to
@@ -41,14 +41,26 @@ walk-up. (Before 2026-10-08 it was =initiate=-d against itself with
 =bisos-pip/aiActivity=, whose =AI-DevStatus.org= is the main handoff.
 This file covers only what is specific to the templates tree.
 
-Recent changes (2026-10-07):
-- =mother/_claude/commands/bx-context-trim.md= (new).
-- =_nonTemplate_/images/= (new): the four workflow figures, with sources.
-- =mother/AI-WORKFLOW.org=: the =/bx-context-trim= row, and pointers to the
-  figures. The figure line under the slash-commands table is loaded every
-  session; it is a few tokens.
-- 2026-10-09: =AI-WorkPlan.org= Stage 2 gained the template-maintenance
-  items moved from the engine WorkPlan (=<<2.1>>=--=<<2.4>>=).
+Recent changes (2026-10-11), from a bisos-pip/kafka session:
+- *Slash commands renamed to subject-then-verb groups* (the naming-convention TODO in
+  =AI-WorkPlan.org=, Results): =bx-git-commit-msg= (was =bx-commit-msg=; takes a repo
+  argument), =bx-status-read= (was =bx-status=; re-reads from disk, moved from session start
+  to the work loop), =bx-status-update= (was =bx-update-status=; a full rewrite),
+  =bx-archive-read= / =bx-archive-update= (were =bx-import-archive= / =bx-archive=). No stubs
+  for the old names. Remaining rename: the CLI =listClaudesPath=.
+- *New commands:* =bx-git-uncommitted-list= (the repos this session changed that still need
+  committing or pushing) and =bx-session-verify= (before closing: records, cross-references,
+  commits). Both are scoped to the current session; magit covers the whole host.
+- =mother/AI-WORKFLOW.org= table and prose, the =AI-DevStatus.org= boilerplate in =mother/=
+  and here, =aiUsageWorkflow.org=, and all three figure sources updated; figures re-rendered.
+- *Rendering needs =bisos.graphviz= installed from =bisos-pip/graphviz-cs=* (editable): the
+  0.29 release lacks =namedGraph(title=, caption=)=. Render by graph name: =ngProcess all=
+  fails in =graphviz_csu= when no graph matches (=result= unset).
+- *=_nonTemplate_/images/aiActivityFiguresPush.sh=* (new): after re-rendering, push the PNGs
+  to =bisos-pip/aiActivity/py3/images/fromTemplates/= (it runs that repo's
+  =refreshFromTemplates.sh=, so the copy logic exists once), then commit+push both repos.
+- Known stale: the startup figure's Maintain label still says "refresh / suspend / resume /
+  remove" (suspend/resume were retired 2026-10-08).
 Not yet propagated to =bxexamples= or the rana fork; tracked in the engine
 WorkPlan's Stage 15 LOOP.
 

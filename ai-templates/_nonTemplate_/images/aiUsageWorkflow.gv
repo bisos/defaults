@@ -9,23 +9,25 @@ digraph {
 	lyr_loop4 [label="" fontcolor=gray30 fontsize=11 shape=plaintext]
 	lyr_loop5 [label="" fontcolor=gray30 fontsize=11 shape=plaintext]
 	lyr_end [label="Session end" fontcolor=gray30 fontsize=11 shape=plaintext]
+	lyr_close [label="" fontcolor=gray30 fontsize=11 shape=plaintext]
 	lyr_start -> lyr_loop1 [style=invis]
 	lyr_loop1 -> lyr_loop2 [style=invis]
 	lyr_loop2 -> lyr_loop3 [style=invis]
 	lyr_loop3 -> lyr_loop4 [style=invis]
 	lyr_loop4 -> lyr_loop5 [style=invis]
 	lyr_loop5 -> lyr_end [style=invis]
+	lyr_end -> lyr_close [style=invis]
 	{
 		rank=same
 		lyr_start
 		confirm0 [label="/bx-confirm0" fillcolor=lightskyblue group=spine shape=rectangle style=filled]
 		confirmHere [label="/bx-confirm-here" fillcolor=lightskyblue shape=rectangle style="filled,dashed"]
-		status [label="/bx-status" fillcolor=lightskyblue shape=rectangle style="filled,dashed"]
 	}
 	{
 		rank=same
 		lyr_loop1
-		importArchive [label="/bx-import-archive" fillcolor=lightskyblue group=spine shape=rectangle style="filled,dashed"]
+		importArchive [label="/bx-archive-read" fillcolor=lightskyblue group=spine shape=rectangle style="filled,dashed"]
+		statusRead [label="/bx-status-read" fillcolor=lightskyblue shape=rectangle style="filled,dashed"]
 	}
 	{
 		rank=same
@@ -62,9 +64,14 @@ in AI-WorkPlan.org" fillcolor=plum group=spine shape=rectangle style="filled,rou
 	{
 		rank=same
 		lyr_end
-		updateStatus [label="/bx-update-status" fillcolor=lightpink group=spine shape=rectangle style=filled]
-		archive [label="/bx-archive" fillcolor=plum shape=rectangle style="filled,dashed"]
+		updateStatus [label="/bx-status-update" fillcolor=lightpink group=spine shape=rectangle style=filled]
+		archive [label="/bx-archive-update" fillcolor=plum shape=rectangle style="filled,dashed"]
 		subjDevStatus [label="AI-DevStatus.org" fillcolor=white fontsize=11 group=subjects shape=note style="filled,bold"]
+	}
+	{
+		rank=same
+		lyr_close
+		sessionVerify [label="/bx-session-verify" fillcolor=lightskyblue group=spine shape=rectangle style=filled]
 	}
 	subjContent -> subjGit [label=" you: git add, 
  git commit -t " arrowhead=normal color=black fontsize=9 penwidth=1.6 style=dashed]
@@ -90,12 +97,13 @@ in AI-WorkPlan.org" fillcolor=plum group=spine shape=rectangle style="filled,rou
 	commitMsg -> aiOutputs
 	aiOutputs -> done
 	done -> updateStatus [label="  end of session  " fontsize=10]
+	updateStatus -> sessionVerify [label="  before closing  " fontsize=10]
 	importArchive -> loopVia2 [color=darkgreen dir=back penwidth=1.6]
 	loopVia2 -> loopVia3 [color=darkgreen dir=none penwidth=1.6]
 	loopVia3 -> loopVia4 [label="  next TODO  " color=darkgreen dir=none fontcolor=darkgreen fontsize=10 penwidth=1.6]
 	loopVia4 -> done [color=darkgreen dir=none penwidth=1.6]
 	confirm0 -> confirmHere [label=" or " arrowhead=none fontsize=10 style=dotted]
-	confirmHere -> status [label=" and/or " arrowhead=none fontsize=10 style=dotted]
+	importArchive -> statusRead [label=" and/or " arrowhead=none fontsize=10 style=dotted]
 	legend [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4"><TR><TD BGCOLOR="lightskyblue">read</TD><TD BGCOLOR="lightpink">write</TD><TD BGCOLOR="plum">read-write</TD><TD>solid border = always</TD><TD STYLE="dashed">dashed border = perhaps</TD><TD><FONT COLOR="crimson">red arrow = Claude writes</FONT></TD><TD>dashed black arrow = you write</TD></TR><TR><TD COLSPAN="7">right of the main path = this repo;  left (grey) = outside this repo, shared across projects</TD></TR></TABLE>> fontsize=10 shape=plaintext]
-	updateStatus -> legend [style=invis]
+	sessionVerify -> legend [style=invis]
 }

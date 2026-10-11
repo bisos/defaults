@@ -14,7 +14,7 @@ machine (which has this repo but NOT the developer's =~=). It captures the
 architecture, what works, what is untested and the design decisions made so far.
 
 This file is maintained by Claude. Updates are typically triggered by the
-=/bx-update-status= slash command, after major interactions, or before a release.
+=/bx-status-update= slash command, after major interactions, or before a release.
 
 Note to a fresh Claude: this file is intentionally sparse at project start.
 Fill in the sections below when asked to update, following the structure provided.

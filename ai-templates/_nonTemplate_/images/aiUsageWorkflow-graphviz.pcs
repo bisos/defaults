@@ -107,13 +107,14 @@ def aiUsageWorkflow(
         ('lyr_loop4',   ''),
         ('lyr_loop5',   ''),
         ('lyr_end',     'Session end'),
+        ('lyr_close',   ''),
     ]
     for name, label in layerLabels:
         d.node(name, label, shape='plaintext', fontsize='11', fontcolor='gray30')
     for (upper, _), (lower, _) in zip(layerLabels, layerLabels[1:]):
         d.edge(upper, lower, style='invis')
 
-    spine = {'confirm0', 'importArchive', 'work', 'commitMsg', 'aiOutputs', 'done', 'updateStatus'}
+    spine = {'confirm0', 'importArchive', 'work', 'commitMsg', 'aiOutputs', 'done', 'updateStatus', 'sessionVerify'}
 
     # Invisible waypoints, one per rank, far left: the next-TODO loop runs
     # through them as a straight line clear of every other edge.
@@ -135,10 +136,10 @@ def aiUsageWorkflow(
     layer('lyr_start', [
         ('confirm0',    '/bx-confirm0',    read),
         ('confirmHere', '/bx-confirm-here', perhaps(read)),
-        ('status',      '/bx-status',       perhaps(read)),
     ])
     layer('lyr_loop1', [
-        ('importArchive', '/bx-import-archive', perhaps(read)),
+        ('importArchive', '/bx-archive-read', perhaps(read)),
+        ('statusRead',    '/bx-status-read',    perhaps(read)),
     ])
     layer('lyr_loop2', [
         ('work', 'Work on the selected TODO\nin AI-WorkPlan.org', {**readWrite, 'style': 'filled,rounded,bold'}),
@@ -166,10 +167,13 @@ def aiUsageWorkflow(
         ('subjWorkPlan', 'AI-WorkPlan.org\n(+ _archive)', {**subject, 'shape': 'note'}),
     ])
     layer('lyr_end', [
-        ('updateStatus', '/bx-update-status', write),
-        ('archive',      '/bx-archive',       perhaps(readWrite)),
+        ('updateStatus', '/bx-status-update', write),
+        ('archive',      '/bx-archive-update',       perhaps(readWrite)),
     ], [
         ('subjDevStatus', 'AI-DevStatus.org', {**subject, 'shape': 'note'}),
+    ])
+    layer('lyr_close', [
+        ('sessionVerify', '/bx-session-verify', read),
     ])
 
     # Chain so the this-repo subjects (one group) line up as a straight
@@ -206,10 +210,11 @@ def aiUsageWorkflow(
     d.edge('commitMsg', 'aiOutputs')
     d.edge('aiOutputs', 'done')
     d.edge('done', 'updateStatus', label='  end of session  ', fontsize='10')
+    d.edge('updateStatus', 'sessionVerify', label='  before closing  ', fontsize='10')
 
     # Loop back for the next TODO, through the left waypoints. Segments are
     # declared top-down (the ranking direction) and drawn with dir='back' /
-    # 'none', so the single arrowhead lands on /bx-import-archive.
+    # 'none', so the single arrowhead lands on /bx-archive-read.
     # (A direct done --> importArchive edge, with or without west ports,
     # was routed round the right and crossed the subject edges.)
     loop = {'color': 'darkgreen', 'penwidth': '1.6'}
@@ -221,7 +226,8 @@ def aiUsageWorkflow(
 
     # Alternatives at session start (same rank, not sequential).
     d.edge('confirm0', 'confirmHere', style='dotted', arrowhead='none', label=' or ', fontsize='10')
-    d.edge('confirmHere', 'status', style='dotted', arrowhead='none', label=' and/or ', fontsize='10')
+    # Alternatives within the work loop: orient on archived work and/or re-read state.
+    d.edge('importArchive', 'statusRead', style='dotted', arrowhead='none', label=' and/or ', fontsize='10')
 
 
     # Legend, as a borderless table below everything.
@@ -240,7 +246,7 @@ def aiUsageWorkflow(
            shape='plaintext', fontsize='10')
     # Anchored under the main path, not the label column, so the legend sits
     # inside the width the content already uses instead of widening the image.
-    d.edge('updateStatus', 'legend', style='invis')
+    d.edge('sessionVerify', 'legend', style='invis')
 
     return d
 

@@ -132,18 +132,19 @@ def aiGeneralTree(
     _subtree(d, 'commands', 'cmdStart', 'session start', [
         ('/bx-confirm0', 'mother', 'cmnd'),
         ('/bx-confirm-here', 'mother', 'cmnd'),
-        ('/bx-status', 'mother', 'cmnd'),
     ])
     _subtree(d, 'commands', 'cmdLoop', 'work loop', [
-        ('/bx-import-archive', 'mother', 'cmnd'),
+        ('/bx-archive-read', 'mother', 'cmnd'),
+        ('/bx-status-read', 'mother', 'cmnd'),
         ('/bx-git-commit-msg', 'mother', 'cmnd'),
         ('/bx-ai-outputs', 'mother', 'cmnd'),
         ('/bx-done', 'mother', 'cmnd'),
     ])
     _subtree(d, 'commands', 'cmdEnd', 'session end', [
         ('/bx-git-uncommitted-list', 'mother', 'cmnd'),
-        ('/bx-update-status', 'mother', 'cmnd'),
-        ('/bx-archive', 'mother', 'cmnd'),
+        ('/bx-status-update', 'mother', 'cmnd'),
+        ('/bx-archive-update', 'mother', 'cmnd'),
+        ('/bx-session-verify', 'mother', 'cmnd'),
     ])
     _subtree(d, 'commands', 'cmdSetup', 'setup', [
         ('/bx-initiate', 'mother', 'cmnd'),

@@ -161,7 +161,7 @@ def aiStartupWorkflow(
     layer('lyr_trim', [
         ('trim', '/bx-context-trim', perhaps(readWrite)),
     ], subjects=[
-        ('refLocal', 'AI-WorkPlan.org  AI-DevStatus.org\n(via /bx-archive, /bx-update-status)',
+        ('refLocal', 'AI-WorkPlan.org  AI-DevStatus.org\n(via /bx-archive-update, /bx-status-update)',
          {**reference, 'shape': 'note'}),
     ], outsides=[
         ('loopViaTrim', '', loopPoint),
