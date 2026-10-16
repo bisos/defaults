@@ -1,6 +1,6 @@
 ---
 name: cbm-authorship
-description: Use when authoring or modifying CBM (Capability Bundle Materialization) leaves — `cbmProc.spcs` planted files, `cbmProc-seed.cs`, the `cbm_*` Cmnd classes, or the `cbmProc.control`/`cbmProc.status` gate files. Covers the two-tier CBM/CBS layering (CBM sits on top of CBS via subprocess; it does NOT duplicate CBS content), the `cbmProc.spcs`-as-pointer pattern (`capabilityName` + `cbsSpec`), the two `cbm_*` verb families (control/status + materialize-subprocess), gate-as-Cmnd-body rationale, `cbsSpec` resolution (absolute path OR basename-via-PATH), and the non-invasive rule (never edit `cba_csu.py`, `cba_seed.py`, `cba_sysd_seed.py`, `cba_sysd_csu.py`). Load `spread-seeded-cs-commands` first for the underlying `.spcs` mechanism, and `walkable-tree-planting` if the CBM leaves will be walked from a branch.
+description: Use when authoring or modifying CBM (Capability Bundle Materialization) leaves — `cbmProc.spcs` planted files, `cbmProc-seed.cs`, the `cbm_*` Cmnd classes, or the `cbmProc.control`/`cbmProc.status` gate files. Covers the two-tier CBM/CBS layering (CBM sits on top of CBS via subprocess; it does NOT duplicate CBS content), the `cbmProc.spcs`-as-pointer pattern (`capabilityName` + `cbsSpec`), the service/usage sbom split (`<name>-sbom.pcs` + `<name>Usage-sbom.pcs`, joined only by the CBS through a `<name>Cbs-sbom.pcs` bundle), the two `cbm_*` verb families (control/status + materialize-subprocess), gate-as-Cmnd-body rationale, `cbsSpec` resolution (absolute path OR basename-via-PATH), and the non-invasive rule (never edit `cba_csu.py`, `cba_seed.py`, `cba_sysd_seed.py`, `cba_sysd_csu.py`). Load `spread-seeded-cs-commands` first for the underlying `.spcs` mechanism, and `walkable-tree-planting` if the CBM leaves will be walked from a branch.
 ---
 
 # CBM (Capability Bundle Materialization) Authorship
@@ -22,6 +22,10 @@ CBM subprocess-invokes the CBS with `-i cbs_materialize`.
 
 Getting this layering wrong (inlining CBS content into `cbmProc.spcs`) is
 the primary mistake to avoid. Two CBSs for one capability is one too many.
+
+**Creating a whole package** (repo, banna registrations, `<name>Info.py`, sboms, units,
+vhost, CBS, admin CS, docs) for an open-source program is the `cbm-package-authorship`
+skill; this one covers the CBM leaf and the sbom split it relies on.
 
 ## The `cbmProc.spcs` file shape
 
@@ -55,6 +59,57 @@ cbmProc_seedInfo.setup(
 **Do NOT** include `cba_seed.setup(...)`, `cba_sysd_seed.setup(...)`,
 `sysdUnitsList=[...]`, or any other CBS content in the `cbmProc.spcs`.
 Those live in the CBS file (`airflow-cbs.pcs`) which stays put.
+
+## Service and usage sboms: two per capability, joined by the CBS
+
+A capability package that runs a service (a CBS with sysd units) usually has
+two sides: running the service, and using it. Keep them in two sboms:
+
+| sbom | Holds | Example (bisos.kafka) |
+|---|---|---|
+| `<name>-sbom.pcs` | The service: runtime, binaries, account, config, data init | `kafka-sbom.pcs` (JRE, Kafka, Kafbat UI, storage format) |
+| `<name>Usage-sbom.pcs` | What a host needs to *use* the service, local or remote: client libraries, build deps, auth tooling | `kafkaUsage-sbom.pcs` (librdkafka built with Kerberos) |
+
+Rules:
+
+- **The service sbom does NOT pull in the usage sbom** (no `sbomsList` entry
+  for it). Materializing only the server is a normal, supported case, and a
+  host that only uses a remote service runs only the usage sbom.
+- **The CBS is what does both.** It materializes the capability as a whole.
+- **Name the usage side "Usage", not "Client".** "Client" is fine where the
+  scope is wider than one service (e.g. `bisos.postgres`'s
+  `dbClients-sbom.pcs` covers SQL clients generally); for one service's own
+  usage side, use `<name>Usage-sbom.pcs`.
+- Python client packages still go into each consumer's own virtenv, not into
+  the usage sbom; the usage sbom supplies what they build or run against.
+
+**How the CBS names both today.** `cba_seed.setup(sbom=...)` takes *one*
+string, and `cbs_sbom` runs it as `{sbom} -i sbom_fullUpdate`. So add a third,
+package-less bundle sbom, `<name>Cbs-sbom.pcs`, whose `sbomsList` names the
+service sbom then the usage sbom, and point the CBS at it:
+
+```python
+# kafkaCbs-sbom.pcs
+_binDir = pathlib.Path(__file__).resolve().parent
+pkgsSeed.setup(sbomsList=[
+    pkgsSeed.sbomSpec(str(_binDir / "kafka-sbom.pcs")),
+    pkgsSeed.sbomSpec(str(_binDir / "kafkaUsage-sbom.pcs")),
+])
+
+# kafka-cbs.pcs
+cba_seed.setup(seedType="systemd", sbom="kafkaCbs-sbom.pcs", assemble="kafka-assemble.cs", ...)
+```
+
+Do NOT pack two commands into the `sbom=` string (`"a-sbom.pcs -i
+sbom_fullUpdate && b-sbom.pcs"`): it works only because the string is pasted
+into bash. Making `cba_seed.sbom` accept a list is the real fix; it is a
+framework change (see the non-invasive rule below) and is recorded in
+`AI-Outputs.org` (`:REPO:` capability). When it lands, retire the bundle sbom.
+
+Caveat: `sbomSpecs_fullUpdate` in `bisos.sbom` reports a failed sub-sbom and
+carries on, and `g_csMain` exits 0 regardless (see below), so a failure in the
+service sbom does not stop the usage sbom or the CBS's later steps. Read the
+output.
 
 ## `cbsSpec` resolution
 
