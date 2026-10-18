@@ -101,8 +101,8 @@ These are:
 - =AI-WORKFLOW.org= (from =mother/=)
 - =AI-Activity.org= (from =<activity>/=)
 - =.claude/settings.json=, =.claude/commands/=, =.claude/skills/=
-  (from =<activity>/_claude/= or =<activity>/_skills/=, falling back
-  to =mother/=)
+  (from =<activity>/_claude/=, falling back to =mother/=; skills are
+  always =mother/_skills/=, one shared set)
 
 /Do not edit these in place/ --- edits are made to the templates
 source, and reach installed projects via the live symlink.
@@ -284,7 +284,7 @@ layout so activities are portable across trees.
     _claude/                    # Baseline .claude/ contents
       settings.json
       commands/
-    _skills/                    # Baseline skills (fallback if activity has none)
+    _skills/                    # THE skills: one shared set for every activity
     initiateSub/
       CLAUDE.md                 # Slim CLAUDE.md for sub installs
   <activity>/                   # Per-activity content
@@ -292,23 +292,33 @@ layout so activities are portable across trees.
     AI-DevStatus.org            # Optional per-activity initial state
     AI-WorkPlan.org             # Optional per-activity initial state
     _claude/                    # Optional per-activity overrides
-    _skills/                    # Optional per-activity skills
-      <skill-name>/SKILL.md
+    _skills -> ../mother/_skills  # where an activity has one: a symlink, never a dir
 #+end_example
 
 When a per-activity =_claude/= or =_skills/= is missing, the engine
 falls back to =mother/=. When both are missing, no symlink is
-created.
+created. For skills that fallback is now the rule: there is one shared
+set, in =mother/_skills/= (see Skills).
 
 * Skills
 
 Skills are on-demand knowledge packs that Claude Code loads only
 when their description matches the task at hand. They live at
-=<activity>/_skills/<skill-name>/SKILL.md= in the templates repo and
+=mother/_skills/<skill-name>/SKILL.md= in the templates repo and
 are symlinked as a single directory into
 =<project>/.claude/skills/= at =initiate= time. =initiateSub= does
 /not/ install skills --- subs inherit them from the ancestor's
 =.claude/=.
+
+*One shared set, in practice* (decided 2026-10-17): all BISOS skills are
+relevant to BISOS work, which crosses activities, and the skills depend on
+each other. So every skill is in =mother/_skills/=, and an activity's
+=_skills= is a symlink to it (=bisos-pip=, =aiActivity=, =sbom+cap=) or
+absent (the engine's fallback). The engine is unchanged; it would still
+prefer a real =<activity>/_skills/=, which is why an activity must not
+have one. A repo initiated before mother had skills may lack the
+=.claude/skills= link; add it by hand (=refresh= does not; recorded in
+=AI-Outputs.org=).
 
 Each SKILL.md has YAML frontmatter with =name= and =description=
 fields, followed by Markdown content. The =description= is what
@@ -316,7 +326,7 @@ Claude uses to decide whether to load the skill for a given task,
 so it must be discriminating.
 
 For guidance on /writing/ a new skill, load the =authoring-skills=
-skill that ships with this activity (=aiActivity/_skills/authoring-skills/SKILL.md=).
+skill (=mother/_skills/authoring-skills/SKILL.md=).
 
 * The custom Activity: Escape Hatch
 

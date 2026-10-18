@@ -127,6 +127,35 @@ setup.py regeneration, etc.) stay in sync.
 `README.rst` in an editor, stop. Edit `README.org` instead, then let
 `pypiProc.sh` regenerate `README.rst` at release time.
 
+## Line width: 105 characters, tables included (user rule)
+
+Human-oriented org files are read in Emacs windows, not on a wide web page. **No line may
+exceed 105 characters --- tables included.** Wrap prose at about 100. This applies to
+`README.org`, Blee panels, `AI-*.org` files and any other org document written for people.
+
+Tables are where the limit is usually broken. To keep one under 105:
+
+- Keep cells short: a label, a number, a state. Move long values (absolute paths, command
+  lines, JVM flags, URLs) out of the table into a short list right below it, keyed by the
+  row's first cell.
+- Drop a column that only restates the row name or the section text (e.g. =bisos.<name>= when
+  the section already says the packages are =bisos.<name>=).
+- Split a table that needs two kinds of information into two tables.
+- Align by the raw characters: org does not hide the `=`/`~` markers by default, so pad as if
+  they are visible, and make every row of a table the same length.
+
+Check before handing a file over --- the aligner pads every table by raw characters and lists every
+line over 105 (dblocks and example/src blocks are left alone):
+
+```bash
+python3 <skills>/cbm-package-authorship/tools/orgTableAlign.py README.org          # align + report
+python3 <skills>/cbm-package-authorship/tools/orgTableAlign.py README.org --check  # report only
+```
+
+Tables holding org links (`[[target][description]]`) are aligned by Emacs on their *displayed* width; the
+aligner pads by raw characters and would widen and misalign them. On such a file use `--check` only, and
+align those tables in Emacs (`C-c C-c` in the table). Found on `ai-templates/README.org`'s activity table.
+
 ## Table of Contents
 
 `README.org` uses the `:TOC:` tag on the Table of Contents heading. The

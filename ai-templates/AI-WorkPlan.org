@@ -207,6 +207,10 @@ CLOSED: [2026-10-07 Wed]
 - The figures expose a provisioning gap: 15 of the 16 ecosystem skills are in
   =bisos-pip/_skills/=, so non-=bisos-pip= activities don't see them. See
   the engine =AI-DevStatus.org=, Known Gaps.
+- Resolved 2026-10-17 without an engine change: all skills moved to one shared
+  set, =mother/_skills/=; the activities that had =_skills/= now symlink it.
+  Recorded in =AI-Outputs.org=. The =aiCommandsSkillsTrees= figures still show
+  the old homes and need a re-render.
 ** -
 
 

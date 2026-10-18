@@ -163,6 +163,9 @@ Blee.
 
 ## Common pitfalls
 
+- **Lines over 105 characters, tables included.** Panels are read in Emacs windows.
+  Keep every line, every table row too, at 105 or less; move long values (paths, command
+  lines) out of tables into a list below. Full rule and check: the `readme-authorship` skill.
 - **Panels shipped with stale captured output.** `runResult` bakes stdout
   into the file. If the command's output changes and the panel isn't
   regenerated, the panel lies to users. When behavior changes, regenerate

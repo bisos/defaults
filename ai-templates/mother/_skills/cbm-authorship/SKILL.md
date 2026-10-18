@@ -27,6 +27,12 @@ the primary mistake to avoid. Two CBSs for one capability is one too many.
 vhost, CBS, admin CS, docs) for an open-source program is the `cbm-package-authorship`
 skill; this one covers the CBM leaf and the sbom split it relies on.
 
+The layering (raw platform, generic packages as the base, `.here` regression runs, niching and
+CapabilityBPOs later) and the catalog of planted and planned leaves with their gates are in
+`/bisos/git/bxRepos/bxGenesis/start/rawBisosCBMs/README.org`.
+When you plant a leaf or change its gate, update that README's tables and the hereWeb
+`branchesOrdered` list.
+
 ## The `cbmProc.spcs` file shape
 
 A CBM leaf is a directory with three files:
@@ -297,7 +303,9 @@ Steps (in order):
    uses `cba_seed.setup()` + (typically) `cba_sysd_seed.setup(sysdUnitsList=...)`
    + `cba_sysd_seed.plantWithWhich("cba-sysd.cs")`. Standalone executable,
    invocable as `./foo-cbs.pcs -i cbs_materialize`. Put it wherever your
-   convention dictates (currently `/bisos/asc/web/bin/` for existing ones).
+   convention dictates: the `py3/bin/` of the bisos-pip package that provides the capability
+   (`bisos.webCap` for nginx, reactPlus, django, gunicorn; moved there from `/bisos/asc/web/bin/`
+   on 2026-10-18).
 2. **Choose realm + capabilityType** for the CBM leaf:
    `sys/cbm/<realm>/<capabilityType>/<capabilityName>/`. Realms today:
    `platform`, `site`, `pals`, `user`, `collective`. Capability types today:

@@ -31,8 +31,12 @@ files=(
     py3/lh-agpl3-LICENSE.txt py3/pypiProc.sh py3/pyproject.toml py3/setup.py
     py3/bisos/__init__.py
 )
-while IFS= read -r f ; do files+=("$f") ; done < <(cd "$src" && git ls-files "py3/panels/bisos.$model" \
-    | grep -v '/README/fullUsagePanel-en.org$')
+# The panel tree: the model's tracked files, or its files on disk if it is not committed yet.
+panelFiles() {
+    ( cd "$src" && { git ls-files "py3/panels/bisos.$model" | grep . || \
+                     find "py3/panels/bisos.$model" \( -type f -o -type l \) | sort ; } )
+}
+while IFS= read -r f ; do files+=("$f") ; done < <(panelFiles | grep -v '/README/fullUsagePanel-en.org$')
 
 for f in "${files[@]}" ; do
     t="${f//bisos.$model/bisos.$name}"

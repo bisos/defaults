@@ -71,10 +71,10 @@ WorkPlan's Stage 15 LOOP.
   =_claude/{settings.json,commands/}= (11 =/bx-*= commands), and
   =initiateSub/CLAUDE.md=.
 - =<activity>/= --- one per activity: =AI-Activity.org=, seed
-  =AI-DevStatus.org= / =AI-WorkPlan.org=, optional =_claude/= and
-  =_skills/=. Skills today: =bisos-pip/_skills/= (16),
-  =aiActivity/_skills/= (=authoring-skills=), =sbom+cap/_skills/=
-  (=sbom-authoring=).
+  =AI-DevStatus.org= / =AI-WorkPlan.org=, optional =_claude/=. Skills are
+  one shared set, =mother/_skills/= (19), since 2026-10-17; =bisos-pip=,
+  =aiActivity= and =sbom+cap= keep =_skills -> ../mother/_skills= so their
+  installed projects see the set, other activities use the fallback.
 - =_nonTemplate_/= --- not an activity and not installed: material about
   the tree. =images/= holds the workflow figures.
 - =AI-Activity.org= (symlink), =AI-DevStatus.org=, =AI-WorkPlan.org=,

@@ -364,6 +364,10 @@ graphviz toolchain installed. Regenerate with =-i ngProcess
 
 * Available Skills
 
+All BISOS skills come from one shared set, =mother/_skills/= (19 today), so every
+activity sees all of them; the table names the ones this activity uses most. The full
+list is that directory.
+
 The following skills are installed under =.claude/skills/= and loaded
 on demand when the current task matches:
 

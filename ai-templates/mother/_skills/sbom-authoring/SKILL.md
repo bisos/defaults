@@ -9,7 +9,9 @@ A `-sbom.pcs` file is a PyCS planted command service that installs software
 (Debian packages, pip packages, pipx packages) and runs post-install steps.
 The `pkgsSeed` module provides the API. Existing examples live at:
 - `/bisos/core/bsip/bin/*-sbom.pcs`
-- `/bisos/asc/web/bin/*-sbom.pcs`
+- `/bisos/git/bxRepos/bisos-pip/webCap/py3/bin/*-sbom.pcs` (nginx, reactPlus, django, gunicorn,
+  the `webCap-sboms.pcs` bundle; moved from `/bisos/asc/web/bin/` on 2026-10-18)
+- `/bisos/git/bxRepos/bisos-pip/*/py3/bin/*-sbom.pcs` (the CBM packages)
 
 **Scope — Debian/apt only.** `pkgsSeed` supports `apt`, `pip`, and `pipx`
 only; there is **no `dnf`/`rpm` support**. For RHEL/dnf hosts, package lists

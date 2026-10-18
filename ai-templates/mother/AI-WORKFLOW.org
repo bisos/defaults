@@ -45,7 +45,7 @@ This installs:
 - Local copies of =AI-DevStatus.org= and =AI-WorkPlan.org= from =<activity>/=
   (with =b:ai:file/particulars= dblocks expanded via =bisos.pyDblock= to reflect the target directory)
 - =.claude/= directory with =settings.json= (pre-authorized commands), =commands/=
-  (=bx-= slash commands), and optionally =skills/= (activity-specific skills)
+  (=bx-= slash commands), and =skills/= (the shared set of BISOS skills, =mother/_skills/=)
 
 When =initiateSub= is used instead of =initiate=, only =CLAUDE.md= (slim overlay
 imports only the local trio), =AI-Activity.org= (symlinked), =AI-DevStatus.org=,

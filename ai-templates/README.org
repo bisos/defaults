@@ -77,12 +77,16 @@ its own instance.
 |-----------------+-------------------------------+--------------------------------------------------------|
 | LaTeX           | [[lcnt][./lcnt]]                      | For LCNT content (articles, books, presentations).     |
 |-----------------+-------------------------------+--------------------------------------------------------|
+| Web             | [[astro-site][./astro-site]]          | For BISOS static sites built with Astro from a content |
+|                 |                               | tree (=astro-starter-bystar=, platform.here).          |
+|-----------------+-------------------------------+--------------------------------------------------------|
 
 The =mother/= baseline is *symlinked into every activity*, not duplicated.
 The invariants (=CLAUDE.md=, =AI-WORKFLOW.org=) apply
 uniformly; per-activity content (=AI-Activity.org=, initial
-=AI-WorkPlan.org= / =AI-DevStatus.org=, optional =_skills/=) overrides
-or extends where relevant.
+=AI-WorkPlan.org= / =AI-DevStatus.org=) overrides or extends where
+relevant. Skills are the exception: one shared set, =mother/_skills/=,
+seen by every activity (an activity's =_skills= is at most a symlink to it).
 
 * Per-Activity Notes
 
@@ -121,11 +125,10 @@ command-service unit installable via =pip= or =pipx=). Its
 =cs.Cmnd= subclasses, poly-dblock authoring, =bisos.b= dependencies,
 =setup.py= structure, and the release workflow via =pypiProc.sh=.
 
-Ships =_skills/= (loaded on demand by Claude Code): =writing-cs-commands=,
-=dblock-authoring=, =readme-authorship=, =blee-panel-authorship=,
-=bisos-pip-release=. These are procedural knowledge only loaded when
-the current task matches --- see the engine README for the skills
-mechanism.
+Its skills (=writing-cs-commands=, =dblock-authoring=, =readme-authorship=,
+=blee-panel-authorship=, =bisos-pip-release=, the CBM ones, ...) are in the
+shared set, =mother/_skills/=, loaded on demand when the current task
+matches --- see the engine README for the skills mechanism.
 
 ** <<xu-single>> --- single PyCS eXecution Unit scripts
 
@@ -143,6 +146,17 @@ layers of BISOS that are not =bisos-pip= application packages.
 Pick this for authoring Blee panels (org-mode files under
 =_nodeBase_/fullUsagePanel-en.org= etc.). Its =AI-Activity.org= covers
 the panel skeleton conventions and dblock content policy.
+
+** <<astro-site>> --- BISOS static sites (Astro, content tree)
+
+Pick this for a static site whose pages come from a content tree on the file system (=content/tree/=,
+the ByStar Plone 3 ContentTree model), built by Astro and served by nginx as =http://<name>.here=,
+packaged as a capability: =astroProc.spcs= (bisos.webCap's astroProc seed), =cbm/= (CBS, assemble,
+vhost, dns entry), =content/=, =site/=. Bodies are HTML or LaTeX through HeVeA; RTL is supported. Its
+=AI-Activity.org= covers the structure, the tree, astroProc and contentTree, conventions and pitfalls;
+the step-by-step is the =astro-site-authorship= skill (in the shared set). Start from
+=bisos-web/astro-starter-bystar=. Created 2026-10-17 as =gatsby-site=, renamed when BISOS moved from
+Gatsby to Astro (2026-10-18).
 
 ** <<lcnt>> --- LCNT content authorship
 

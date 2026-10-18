@@ -76,7 +76,7 @@ For now it is just a place holder.
 
 Calude NB: Examples of existing -sbom.pcs can be found at:
 - /bisos/core/bsip/bin/*-sbom.pcs
-- /bisos/asc/web/bin/*-sbom.pcs
+- /bisos/git/bxRepos/bisos-pip/webCap/py3/bin/*-sbom.pcs (moved from /bisos/asc/web/bin on 2026-10-18)
 
 The old way of doing -sbom.pcs in BISOS was use of BinsPrep.sh.
 These will gradually be converted to -sbom.pcs
@@ -140,7 +140,7 @@ Also Read
 
  Exisiting web virtual domain services are at the following directory.
 
- @/bisos/asc/web/bin/
+ @/bisos/git/bxRepos/bisos-pip/webCap/py3/bin/ (moved from /bisos/asc/web/bin on 2026-10-18)
 
 ** Web Virtual Domain Services (wvds) Pattern
 

@@ -132,7 +132,7 @@ term.
 - *CBS* --- Capability Bundle /Specification/. A standalone executable
   =.pcs= file that declares one specific capability's contents
   (sbom + sysd units + dns + vhost + ...). Example:
-  =/bisos/asc/web/bin/airflow-cbs.pcs=.
+  =/bisos/git/bxRepos/bisos-pip/airflow/py3/bin/airflow-cbs.pcs=.
 - *CBM* --- Capability Bundle /Materialization/. A =cbmProc.spcs=
   planted at a leaf in the CBM tree, gated by a sibling
   =cbmProc.control= file. *Points to* a CBS; does NOT duplicate CBS
@@ -140,6 +140,19 @@ term.
 
 Load-bearing principle: *CBM sits on top of CBS, does not duplicate
 it.* See the =cbm-authorship= skill for the full pattern.
+
+** rawBisosCBMs --- how CBMs layer on the raw platform
+
+Raw-BISOS (=raw-bisos.sh=) is a basic platform and ends there. Generic CBM pip packages
+(=bisos.<name>=) are a base layer on top of it: each brings its capability up minimally, out of
+the box, as =<name>.here=, and the enabled leaves planted in =bro_rawBisos= form the
+rawBisosCbm set that =sysCbmManage.cs -i fullyMaterialize= (=bisos.capability=) brings up as a
+regression run. Real servers --- scale, site settings, security --- come later, through niching
+and CapabilityBPOs; some CBMs (GitLab, Kafka, Airflow, devpi) typically run for real in
+dedicated VMs. The concept and the catalog of CBMs (gates, footprints, minimal settings) are in
+=/bisos/git/bxRepos/bxGenesis/start/rawBisosCBMs/README.org= --- read it before adding or
+planting a CBM, and update its tables when you do. Building a package: the
+=cbm-package-authorship= skill.
 
 * Programming Conventions
 
@@ -292,6 +305,10 @@ An overview of Blee Panels:
 
 * Available Skills
 
+All BISOS skills come from one shared set, =mother/_skills/= (19 today), so every
+activity sees all of them; the table names the ones this activity uses most. The full
+list is that directory.
+
 The following skills are installed under =.claude/skills/= and loaded by
 Claude on demand when the current task matches:
 
@@ -308,7 +325,7 @@ Claude on demand when the current task matches:
 | =banna-lookup=          | Looking up TCP port numbers or IP addresses for BISOS services via =bisos.banna= (never hardcode ports that banna tracks) |
 | =sysd-pcs-authorship=   | Authoring a =*-sysd.pcs= planted file: =systemd_seedInfo.setup()= params, =sysdUnitFileFunc=, =preFunc=/=postFunc= hooks, oneshot units, =Requires=/=After== ordering, CBS assembly |
 | =cbm-authorship=        | Authoring a =cbmProc.spcs= CBM leaf, =cbmProc-seed.cs=, =cbm_*= Cmnds, or the =cbmProc.control=/=cbmProc.status= gate files. Covers CBM/CBS layering (CBM subprocess-invokes CBS; does NOT duplicate it), the pointer pattern (=capabilityName= + =cbsSpec=), gate-as-Cmnd-body, =cbsSpec= resolution (absolute or PATH-basename), and the non-invasive rule for =cba_*= files |
-| =cbm-package-authorship= | Creating a whole bisos-pip CBM package for an open-source program (bisos.kafka, bisos.prometheus, bisos.grafana): decisions to settle first, banna registrations, pinned/verified upstream releases, scaffolding from a model package, =<name>Info.py=, the server/usage/bundle sbom trio, units, vhost, CBS, admin CS with driftCheck, docs, materialization, pitfalls. Ships tools (=cbmPkgScaffold.sh=, =makeCs.py=) |
+| =cbm-package-authorship= | Creating a whole bisos-pip CBM package for an open-source program (bisos.kafka, bisos.prometheus, bisos.grafana, bisos.pypiserver): decisions to settle first, banna registrations, pinned/verified upstream releases, Python programs in asc or isolated venvs, scaffolding from a model package, =<name>Info.py=, the server/usage/bundle sbom trio, units, vhost, CBS, admin CS with driftCheck, docs, materialization, pitfalls. Ships tools (=cbmPkgScaffold.sh=, =makeCs.py=) |
 | =icm-to-pycs-conversion= | Converting a Bash-ICM library (=*_lib.sh= under =/bisos/core/bsip/bin/=, =vis_*= functions, =G_funcEntry=, =EH_assert=, =FN_*= helpers) into PyCS =cs.Cmnd= classes in a =_csu.py= module. Covers the idiom mapping table, picking the right target csu module, and the copy-vs-move rule when another pip package has overlapping code |
 
 Skills also work as human-readable documentation — the =SKILL.md= inside

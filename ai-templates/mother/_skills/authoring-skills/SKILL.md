@@ -1,14 +1,14 @@
 ---
 name: authoring-skills
-description: Use when creating a new skill for the AI Activity model — a `_skills/<skill-name>/SKILL.md` file under any activity template directory. Covers where the file lives, the YAML frontmatter contract (name/description) and how the description drives on-demand loading, how skills flow from `<activity>/_skills/` to `<project>/.claude/skills/` via a single directory symlink at `initiate` time, the fallback to `mother/_skills/`, the sub-install exception (skills are inherited, not installed), naming conventions, content guidance (imperative task-focused, one skill per procedure), and when to extract from AI-Activity.org versus keeping content always-loaded.
+description: Use when creating a new skill for the AI Activity model — a `mother/_skills/<skill-name>/SKILL.md` file in the one shared set of BISOS skills (every activity's `_skills` is a symlink to it). Covers where the file lives, the YAML frontmatter contract (name/description) and how the description drives on-demand loading, how skills flow from `<activity>/_skills/` to `<project>/.claude/skills/` via a single directory symlink at `initiate` time, the fallback to `mother/_skills/`, the sub-install exception (skills are inherited, not installed), naming conventions, content guidance (imperative task-focused, one skill per procedure), and when to extract from AI-Activity.org versus keeping content always-loaded.
 ---
 
 # Authoring an AI-Activity Skill
 
 A **skill** is an on-demand knowledge pack that Claude Code loads
-only when its `description` matches the task at hand. Skills live
-under an activity template directory and are surfaced to Claude via
-the `<project>/.claude/skills/` symlink that `aiActivity.cs -i
+only when its `description` matches the task at hand. BISOS keeps
+**one shared set** of skills, in `mother/_skills/`, surfaced to Claude
+via the `<project>/.claude/skills/` symlink that `aiActivity.cs -i
 initiate` installs.
 
 Read the AI-Activity.org that ships with the `aiActivity` template
@@ -20,10 +20,26 @@ this skill assumes those concepts.
 Canonical path in the templates repo:
 
 ```
-<templatesBase>/<activity>/_skills/<skill-name>/SKILL.md
+<templatesBase>/mother/_skills/<skill-name>/SKILL.md
 ```
 
 Notes:
+
+- **One shared set, in practice** (decided 2026-10-17). All BISOS
+  skills are relevant to BISOS work, and BISOS work crosses
+  activities (a pip package, then a BXO, then the templates); skills
+  also lean on each other (`cbm-package-authorship` on `cbm-authorship`,
+  `readme-authorship`, `banna-lookup`). So every skill goes in
+  `mother/_skills/`, and each activity that has a `_skills` makes it a
+  symlink, `_skills -> ../mother/_skills`; a new activity has none and
+  the engine's fallback gives it mother's. The engine is unchanged: it
+  still prefers `<activity>/_skills/` (below). Never add a real
+  `_skills/` directory to an activity — it would hide the shared set
+  from that activity's projects.
+- **What decides whether a skill helps is its description**, not its
+  location: an unused skill costs one line of the startup listing,
+  while two overlapping descriptions make the wrong one load. Before
+  adding a skill, read the descriptions of its neighbours.
 
 - **The underscore prefix `_skills/` is deliberate.** Skills are
   activity content, kept at the activity root so they are
@@ -150,9 +166,9 @@ At `aiActivity.cs -i initiate` time:
 The symlink is a **single directory-level symlink**, not one per
 skill. That means:
 
-- Adding a new skill under `<activity>/_skills/<new-skill>/` shows
+- Adding a new skill under `mother/_skills/<new-skill>/` shows
   up immediately in every project already `initiate`-d against
-  that templates base — no re-initiate needed. The live symlink
+  that templates base (through its activity's `_skills` symlink) — no re-initiate needed. The live symlink
   is the propagation mechanism.
 - Renaming or removing a skill in the templates repo removes it
   from every installed project on the next Claude session.
@@ -170,8 +186,14 @@ per-effort files (`CLAUDE.md`, `AI-Activity.org`, `AI-DevStatus.org`,
 `AI-WorkPlan.org`). Skills are inherited from the ancestor's
 `.claude/` via Claude Code's walk-up.
 
-Implication for authoring: **a skill's audience is any project of
-this activity, whether installed at the repo top or as a sub.**
+So a sub sees the *repo root's* skills, which with the shared set
+are all of them. A repo initiated when neither its activity nor
+mother had skills has no `.claude/skills` link at all; `refresh` does
+not add one today, so add it by hand:
+`ln -s <templatesBase>/mother/_skills <repo>/.claude/skills`.
+
+Implication for authoring: **a skill's audience is any BISOS project,
+whether installed at the repo top or as a sub.**
 Don't assume the reader is at the repo root. If a skill references
 project-relative paths, remember that in a sub install the "project
 root" that matters may be one or more directories up.
@@ -214,10 +236,10 @@ kind of work it addresses.
   `bisos-pip-release`).
 - Prefer specific over generic. `bisos-pip-release` beats
   `release`; `blee-panel-authorship` beats `panels`.
-- Do not prefix with the activity name — the enclosing
-  `<activity>/_skills/` directory already provides that context.
-  `writing-cs-commands` under `bisos-pip/_skills/`, not
-  `bisos-pip-writing-cs-commands/`.
+- Do not prefix with an activity name — the set is shared, and the
+  name should say what the skill is for. `writing-cs-commands`, not
+  `bisos-pip-writing-cs-commands`; a name carries `bisos-pip` only when
+  that is its subject (`bisos-pip-release`).
 
 ## Testing a New Skill
 
