@@ -22,23 +22,31 @@ architecture, what works, what is untested and the design decisions made so far.
 This file is maintained by Claude. Updates are typically triggered by the
 =/bx-status-update= slash command, after major interactions, or before a release.
 
-Note to a fresh Claude: this file is intentionally sparse at project start.
-Fill in the sections below when asked to update, following the structure provided.
-
 * Current State
-  [To be filled in by Claude after first substantive interaction]
+
+As of 2026-10-20: =ai-templates= is no longer a templates tree here. It is a link to
+=/bisos/git/bxRepos/bxexamples/aiActivityTemplates=, the one BISOS base, assembled by
+=aiActivityAssemble.cs= from =bxexamples/aiTemplates-workFlow= and =bxexamples/aiTemplates-DE=
+(=bisos.aiActivity= WorkPlan 18.10). =/bisos/apps/defaults/ai-templates= therefore reaches that base.
+
+The old tree is =ai-templates.k1/= (gitignored, local only). Its own plan and status (WorkPlan Stages
+2--4) moved to =aiTemplates-workFlow='s =AI-WorkPlan.org= / =AI-DevStatus.org= (its Stage 5). Its
+history stays in this repo's git, under =ai-templates/=. Delete =ai-templates.k1/= when satisfied;
+check its =README.org= first (it differs from the bxexamples base's).
 
 * Architecture
-  [Key components, file structure, entry points]
+  This repo's other contents: not yet described here.
 
 * What Works
-  [Verified functionality]
+- All links of the host's projects into =/bisos/apps/defaults/ai-templates= resolved after the switch
+  (=bisos.aiActivity= 18.10).
 
 * What Is Untested
   [Known gaps]
 
 * Key Design Decisions
-  [Non-obvious choices and their rationale]
+- *One BISOS base, in bxexamples* (2026-10-20): the BISOS path is a link to the public base, so the
+  two can never diverge. Rationale: =bisos.aiActivity= =AI-DevStatus.org= and WorkPlan Stage 18.
 
 # Local Variables:
 # eval: (setq-local toc-org-max-depth 4)

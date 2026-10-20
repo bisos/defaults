@@ -150,3 +150,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Stage 18 (bisos.aiActivity WorkPlan 18.10): ai-templates is a committed link to the bxexamples
+# base. ai-templates.k1 is the old base, kept on this host until deleted; never commit it.
+ai-templates.k1/
